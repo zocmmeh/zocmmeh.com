@@ -1,0 +1,16 @@
+/* ============================================
+   中山大学中山眼科中心茂名医院 - 全局样式
+   ============================================ */
+
+@media (max-width: 768px) {
+  .motto-text {
+    font-size: 1.25rem;
+    padding: 0 32px;
+    letter-spacing: 0.2em;
+  }
+  .motto-banner {
+    padding: 10px 0;
+  }
+}
+
+.logo-img { height: 44px; margin-right: 10px; vertical-align: middle; }
