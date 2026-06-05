@@ -1,204 +1,109 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="中山大学中山眼科中心茂名医院 - 国家级眼科平台，为茂名及周边地区提供高水平眼科诊疗服务">
-  <meta name="keywords" content="眼科医院,茂名眼科,中山眼科中心,白内障,青光眼,眼底病">
-  <title>就诊服务 - 中山大学中山眼科中心茂名医院</title>
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>就诊服务 - 中山大学中山眼科中心茂名医院</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/png" href="img/zoc-logo.png">
 </head>
 <body>
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo">
-        <img src="images/logo.png" alt="中山大学中山眼科中心茂名医院" class="logo-img">
-        <div class="logo-text">
-          <span class="logo-title">中山眼科中心茂名医院</span>
-          <span class="logo-subtitle">maoming eye hospital</span>
-        </div>
-      </a>
-      <ul class="nav-links">
-                <li><a href="index.html" class="">首页</a></li>
-<li><a href="services.html" class="active">就诊服务</a></li>
-<li><a href="departments.html" class="">科室介绍</a></li>
-<li><a href="doctors.html" class="">专家团队</a></li>
-<li><a href="guide.html" class="">就医指南</a></li>
-<li><a href="fees.html" class="">费用查询</a></li>
-<li><a href="contact.html" class="">联系我们</a></li>
-        
-        
-      <button class="admin-toggle" id="adminToggle" title="管理员">&#x2699;&#xFE0F;</button>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="菜单">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <ul>      <ul>
-        <li><a href="index.html">首页</a></li>
-<li><a href="services.html">就诊服务</a></li>
-<li><a href="departments.html">科室介绍</a></li>
-<li><a href="doctors.html">专家团队</a></li>
-<li><a href="guide.html">就医指南</a></li>
-<li><a href="fees.html">费用查询</a></li>
-<li><a href="contact.html">联系我们</a></li>
-      </ul></ul>
-    </div>
-  </nav>
+<header class="header"><div class="h-inner">
+<a href="index.html" class="logo-a"><img src="img/zoc-logo.png" alt="" class="logo-img">
+<div class="logo-txt"><span class="logo-nm">中山大学中山眼科中心茂名医院</span><span class="logo-en">Maoming Eye Hospital</span></div></a>
+<button class="hamb" id="hamburger">&#9776;</button>
+<nav class="nav" id="mainNav">
+<a href="index.html" class="nl">首页</a>
+<a href="services.html" class="nl active">就诊服务</a>
+<a href="departments.html" class="nl">科室介绍</a>
+<a href="doctors.html" class="nl">专家团队</a>
+<a href="guide.html" class="nl">就医指南</a>
+<a href="contact.html" class="nl">联系我们</a>
+<button class="at" id="adminToggle" title="管理员">&#x2699;&#xFE0F;</button>
+</nav></div></header>
 
+<main class="mc">
 
-  <section class="page-header">
-    <div class="container">
-      <h1>就诊服务</h1>
-      <p>全方位眼科诊疗服务，守护您的眼健康</p>
-    </div>
-  </section>
+<h2 class="st" id="booking">在线预约挂号</h2>
+<div class="bf">
+<div class="fg"><label>选择科室</label><select class="fc"><option value="">请选择科室</option><option>白内障科</option><option>青光眼科</option><option>眼底病科</option><option>近视激光治疗科</option><option>小儿眼病科</option><option>眼整形与泪道科</option></select></div>
+<div class="fg"><label>选择医生</label><select class="fc"><option value="">请选择医生</option><option>张明远 - 眼底病科</option><option>李雅琴 - 白内障科</option><option>王建华 - 青光眼科</option><option>陈思雨 - 近视激光治疗科</option><option>刘晓峰 - 小儿眼病科</option><option>赵文静 - 眼整形与泪道科</option></select></div>
+<div class="fg"><label>预约日期</label><input type="date" class="fc"></div>
+<div class="fg"><label>预约时段</label><select class="fc"><option value="">请选择时段</option><option>上午 (08:00-12:00)</option><option>下午 (14:00-17:30)</option></select></div>
+<div class="fg"><label>姓名</label><input type="text" class="fc" placeholder="请输入您的姓名"></div>
+<div class="fg"><label>联系电话</label><input type="text" class="fc" placeholder="请输入手机号码"></div>
+<button class="bp" style="margin-top:12px;width:100%" onclick="alert('预约功能即将上线，敬请期待！')">提交预约</button>
+</div>
 
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">门诊服务</h2>
-      <div class="service-grid">
-        <div class="service-card">
-          <div class="service-icon">📅</div>
-          <h3>预约挂号</h3>
-          <p>支持线上预约、电话预约及现场挂号多种方式。专家号源提前7天开放预约。</p>
-          <ul>
-            <li>微信公众号预约</li>
-            <li>电话预约：0668-XXXXXXX</li>
-            <li>现场自助机挂号</li>
-          </ul>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">⏰</div>
-          <h3>门诊时间</h3>
-          <p>周一至周五全天门诊，周六上午半天门诊。</p>
-          <ul>
-            <li>上午 8:00 - 12:00</li>
-            <li>下午 14:00 - 17:30</li>
-            <li>周六上午 8:00 - 12:00</li>
-          </ul>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🩺</div>
-          <h3>检查检验</h3>
-          <p>配备先进检查设备，提供全面的眼科检查服务。</p>
-          <ul>
-            <li>视力及眼压检查</li>
-            <li>OCT光学相干断层扫描</li>
-            <li>眼底血管造影</li>
-            <li>视野检查</li>
-          </ul>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">💊</div>
-          <h3>药房服务</h3>
-          <p>1F门诊大厅设有药房，提供处方药及常用眼科药品。</p>
-          <ul>
-            <li>中西药房</li>
-            <li>特殊眼药配制</li>
-            <li>用药指导服务</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+<h2 class="st">缴费方式</h2>
+<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:24px">
+<div class="api"><strong>&#x1F3CB; 自费缴费</strong><p>微信/支付宝/银行卡/现金</p></div>
+<div class="api"><strong>&#x1FE0E; 医保结算</strong><p>持医保卡至窗口办理</p></div>
+<div class="api"><strong>&#x1F4F1; 在线缴费</strong><p>公众号内完成支付</p></div>
+<div class="api"><strong>&#x1F4D2; 发票打印</strong><p>一楼收费处自助机</p></div>
+</div>
 
-  <section class="section bg-light">
-    <div class="container">
-      <h2 class="section-title">特色诊疗</h2>
-      <div class="service-grid">
-        <div class="service-card">
-          <div class="service-icon">⚡</div>
-          <h3>飞秒激光手术</h3>
-          <p>引进国际先进的飞秒激光设备，开展近视矫正、白内障等激光手术。</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🔬</div>
-          <h3>微创玻璃体手术</h3>
-          <p>25G/27G微创玻璃体切割手术，治疗视网膜脱离、糖尿病视网膜病变等。</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">👁️</div>
-          <h3>超声乳化白内障手术</h3>
-          <p>微创超声乳化技术结合多焦、散光人工晶体植入，恢复全程视力。</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🧬</div>
-          <h3>角膜移植手术</h3>
-          <p>开展穿透性角膜移植、板层角膜移植等各类角膜手术。</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<h2 class="st">就诊须知</h2>
+<div class="df">
+<ul class="dul">
+<li>首次就诊请携带身份证、医保卡及既往病历资料</li>
+<li>建议提前30分钟到达医院完成挂号和登记手续</li>
+<li>请保持安静，按叫号顺序有序就诊</li>
+<li>检查结果一般当日可取，特殊检查需等待通知</li>
+<li>如需退号或改约，请至少提前2小时办理</li>
+</ul>
+</div>
 
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">住院服务</h2>
-      <div class="info-block">
-        <div class="info-item">
-          <h4>住院办理</h4>
-          <p>凭门诊医师开具的住院通知单，到1F住院处办理入院手续。需携带身份证、医保卡等证件。</p>
-        </div>
-        <div class="info-item">
-          <h4>病房环境</h4>
-          <p>13F-14F、16F设有标准化病房，配备独立卫生间、空调、电视等设施，为患者提供舒适的住院环境。</p>
-        </div>
-        <div class="info-item">
-          <h4>探视时间</h4>
-          <p>每日探视时间：15:00-17:00，20:00-21:00。请遵守医院探视制度，保持安静。</p>
-        </div>
-        <div class="info-item">
-          <h4>出院流程</h4>
-          <p>经主治医师同意出院后，持出院通知单到住院处办理结算手续。护士将进行出院健康指导。</p>
-        </div>
-      </div>
-    </div>
-  </section>
+</main>
 
+<footer class="footer"><div class="fi">
+<div class="flgo"><img src="img/zoc-logo.png" alt=""><span>中山大学中山眼科中心茂名医院</span></div>
+<div class="finfo"><p>&#x1F4CD; 茂名市茂南区健康南路龙岭三街XX号</p><p>&#x260E; 电话：0668-XXXXXXX | 急诊：0668-XXXXXXX</p><p>&#xA9; 中山大学中山眼科中心茂名医院 | Maoming Eye Hospital</p></div>
+</div></footer>
 
-    <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-about">
-          <img src="images/logo_footer.png" alt="中山大学中山眼科中心茂名医院" class="footer-logo">
-          <p>中山大学中山眼科中心茂名医院，依托国家级眼科平台的优质医疗资源，为茂名及周边地区患者提供高水平的眼科诊疗服务。</p>
-        </div>
-        <div class="footer-links">
-          <h4>快速导航</h4>
-          <ul>
-            <li><a href="services.html">就诊服务</a></li>
-            <li><a href="departments.html">科室介绍</a></li>
-            <li><a href="doctors.html">专家团队</a></li>
-            <li><a href="guide.html">就医指南</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4>更多信息</h4>
-          <ul>
-            <li><a href="faq.html">常见问题</a></li>
-            <li><a href="fees.html">费用查询</a></li>
-            <li><a href="about.html">医院简介</a></li>
-            <li><a href="contact.html">联系我们</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact">
-          <h4>联系方式</h4>
-          <p>📍 茂名市茂南区健康南路龙岭三街XX号</p>
-          <p>📞 0668-XXXXXXX</p>
-          <p>🚨 急诊电话：0668-XXXXXXX</p>
-          <p>📧 info@mmeye.com</p>
-          <p>🕐 周一至周五 8:00-17:30</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 中山大学中山眼科中心茂名医院 版权所有 | Maoming Eye Hospital | 粤ICP备XXXXXXXX号</p>
-      </div>
-    </div>
-  </footer>
-  <script src="js/common.js"></script>
-  
+<div class="afab" id="aiFab" title="智能助手">&#x1F4AC;</div>
+<div class="aov" id="aiOverlay"></div>
+<div class="apanel" id="aiPanel">
+<div class="aph"><span class="atitle">&#x1F916; 智能就医助手</span><button class="aclose" id="aiClose">&#x2715;</button></div>
+<div class="atabs">
+<button class="atab active" data-tab="triage">预问诊挂号</button>
+<button class="atab" data-tab="payment">缴费指引</button>
+<button class="atab" data-tab="waiting">诊间候诊</button>
+<button class="atab" data-tab="navi">医院导航</button>
+<button class="atab" data-tab="followup">复诊提醒</button>
+</div>
+<div class="abody">
+<div class="acont active" id="tab-triage"><p class="ahint">请描述您的症状，AI将为您推荐合适的科室：</p>
+<textarea class="ainput" placeholder="例如：眼睛看东西模糊、眼睛干涩疼痛..." rows="3"></textarea>
+<button class="abtn abtn-p" onclick="alert('智能导诊功能开发中，即将上线！')">获取推荐科室</button>
+<div class="adtags"><h4>快速选择科室：</h4>
+<span onclick="location.href='departments.html'">&#x1F441; 视力模糊</span>
+<span onclick="location.href='departments.html'">&#x1F615; 眼睛疼痛</span>
+<span onclick="location.href='departments.html'">&#x1F41A; 眼睛干涩</span>
+<span onclick="location.href='departments.html'">&#x1F476; 儿童视力</span>
+<span onclick="location.href='departments.html'">&#x1F474; 老人眼病</span>
+<span onclick="location.href='departments.html'">&#x2728; 眼部美容</span></div></div>
+<div class="acont" id="tab-payment">
+<div class="api"><strong>&#x1F3CB; 自费缴费</strong><p>支持微信、支付宝、银行卡、现金</p></div>
+<div class="api"><strong>&#x1FE0E; 医保结算</strong><p>持医保卡/电子凭证至窗口办理</p></div>
+<div class="api"><strong>&#x1F4F1; 在线缴费</strong><p>微信公众号内完成缴费，无需排队</p></div>
+<div class="api"><strong>&#x1F4D2; 发票打印</strong><p>一楼收费处自助机或窗口打印</p></div></div>
+<div class="acont" id="tab-waiting">
+<div class="awt"><strong>&#x23F0; 候诊提示</strong><p>请您在候诊区耐心等待，叫号屏会显示您的号码。</p></div>
+<div class="awt"><strong>&#x1F4E2; 叫号规则</strong><p>过号请至分诊台重新登记，一般顺延3位。</p></div>
+<div class="awt"><strong>&#x1F4F1; 预计等候</strong><p>可通过公众号查看当前候诊人数和预计等待时间。</p></div></div>
+<div class="acont" id="tab-navi"><div class="anav">
+<a href="guide.html#floors" class="anb">&#x1F4CD; 楼层导航</a>
+<a href="#f1" class="anb">1F 入口</a><a href="#f2" class="anb">2F 门诊</a><a href="#f3" class="anb">3F 特需</a>
+<a href="#f4" class="anb">4F 视光</a><a href="#f5" class="anb">5F 眼后段</a>
+<a href="#f8" class="anb hl">8F 飞秒&#x2B50;</a><a href="#f12" class="anb">12F 住院</a><a href="#f15" class="anb vip">15F VIP</a></div></div>
+<div class="acont" id="tab-followup">
+<div class="aft"><strong>&#x1F4C5; 复诊提醒</strong><p>出院后请按医嘱定期复查，一般为术后1周、1个月、3个月、6个月。</p></div>
+<div class="aft"><strong>&#x1F48A; 用药指导</strong><p>请严格遵医嘱用药，不可自行停药或调整剂量。</p></div>
+<div class="aft"><strong>&#x26A0; 注意事项</strong><p>术后避免揉眼、剧烈运动、游泳，保持眼部清洁。</p></div>
+<div class="aft"><strong>&#x1F4DE; 如有异常</strong><p>如出现视力突然下降、眼红眼痛加重，请立即来院急诊。</p></div></div>
+</div></div>
+<script src="js/common.js"></script>
 <script src="js/admin.js"></script>
-</body>
-</html>
+<script src="js/ai-assistant.js"></script>
+</body></html>

@@ -1,405 +1,194 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="中山大学中山眼科中心茂名医院 - 国家级眼科平台，为茂名及周边地区提供高水平眼科诊疗服务">
-  <meta name="keywords" content="眼科医院,茂名眼科,中山眼科中心,白内障,青光眼,眼底病">
-  <title>就医指南 - 中山大学中山眼科中心茂名医院</title>
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>就医指南 - 中山大学中山眼科中心茂名医院</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/png" href="img/zoc-logo.png">
 </head>
 <body>
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo">
-        <img src="images/logo.png" alt="中山大学中山眼科中心茂名医院" class="logo-img">
-        <div class="logo-text">
-          <span class="logo-title">中山眼科中心茂名医院</span>
-          <span class="logo-subtitle">maoming eye hospital</span>
-        </div>
-      </a>
-      <ul class="nav-links">
-                <li><a href="index.html" class="">首页</a></li>
-<li><a href="services.html" class="">就诊服务</a></li>
-<li><a href="departments.html" class="">科室介绍</a></li>
-<li><a href="doctors.html" class="">专家团队</a></li>
-<li><a href="guide.html" class="active">就医指南</a></li>
-<li><a href="fees.html" class="">费用查询</a></li>
-<li><a href="contact.html" class="">联系我们</a></li>
-        
-        
-      <button class="admin-toggle" id="adminToggle" title="管理员">&#x2699;&#xFE0F;</button>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="菜单">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <ul>      <ul>
-        <li><a href="index.html">首页</a></li>
-<li><a href="services.html">就诊服务</a></li>
-<li><a href="departments.html">科室介绍</a></li>
-<li><a href="doctors.html">专家团队</a></li>
-<li><a href="guide.html">就医指南</a></li>
-<li><a href="fees.html">费用查询</a></li>
-<li><a href="contact.html">联系我们</a></li>
-      </ul></ul>
-    </div>
-  </nav>
+<header class="header"><div class="h-inner">
+<a href="index.html" class="logo-a"><img src="img/zoc-logo.png" alt="" class="logo-img">
+<div class="logo-txt"><span class="logo-nm">中山大学中山眼科中心茂名医院</span><span class="logo-en">Maoming Eye Hospital</span></div></a>
+<button class="hamb" id="hamburger">&#9776;</button>
+<nav class="nav" id="mainNav">
+<a href="index.html" class="nl">首页</a>
+<a href="services.html" class="nl">就诊服务</a>
+<a href="departments.html" class="nl">科室介绍</a>
+<a href="doctors.html" class="nl">专家团队</a>
+<a href="guide.html" class="nl active">就医指南</a>
+<a href="contact.html" class="nl">联系我们</a>
+<button class="at" id="adminToggle" title="管理员">&#x2699;&#xFE0F;</button>
+</nav></div></header>
 
+<main class="mc">
 
-  <section class="page-header">
-    <div class="container">
-      <h1>就医指南</h1>
-      <p>为您的就诊提供全方位指引</p>
-    </div>
-  </section>
+<!-- 门诊流程 -->
+<h2 class="st" id="process">门诊流程</h2>
+<div class="ps">
+<div class="ps-item"><div class="psn">1</div><div class="psc"><h4>挂号</h4><p>持身份证/医保卡到一楼收费处或通过微信公众号在线挂号</p></div></div>
+<div class="parr">&#8595;</div>
+<div class="ps-item"><div class="psn">2</div><div class="psc"><h4>候诊</h4><p>在对应科室候诊区就座，留意叫号屏幕显示您的号码</p></div></div>
+<div class="parr">&#8595;</div>
+<div class="ps-item"><div class="psn">3</div><div class="psc"><h4>就诊</h4><p>医生问诊、检查、开具处方或检查单</p></div></div>
+<div class="parr">&#8595;</div>
+<div class="ps-item"><div class="psn">4</div><div class="psc"><h4>缴费</h4><p>一楼收费处或微信公众号在线缴费</p></div></div>
+<div class="parr">&#8595;</div>
+<div class="ps-item"><div class="psn">5</div><div class="psc"><h4>取药/治疗</h4><p>药房取药或前往相应治疗室进行治疗</p></div></div>
+<div class="parr">&#8595;</div>
+<div class="ps-item"><div class="psn">6</div><div class="psc"><h4>离院</h4><p>遵医嘱按时复诊或用药</p></div></div>
+</div>
 
-  <!-- Guide Tabs -->
-  <section class="section">
-    <div class="container">
-      <div class="guide-tabs">
-        <button class="guide-tab active" data-tab="flow">门诊流程</button>
-        <button class="guide-tab" data-tab="emergency">急诊指南</button>
-        <button class="guide-tab" data-tab="inpatient">住院指南</button>
-        <button class="guide-tab" data-tab="insurance">医保指南</button>
-        <button class="guide-tab" data-tab="floorplan">楼层导航</button>
-      </div>
+<!-- 急诊流程 -->
+<h2 class="st">急诊流程</h2>
+<div class="ps">
+<div class="ps-item"><div class="psn">1</div><div class="psc"><h4>急诊挂号</h4><p>直接到急诊科分诊台挂号，无需预约</p></div></div>
+<div class="parr">&#8595;</div>
+<div class="ps-item"><div class="psn">2</div><div class="psc"><h4>分诊评估</h4><p>护士进行初步评估，危重患者优先处理</p></div></div>
+<div class="parr">&#8595;</div>
+<div class="ps-item"><div class="psn">3</div><div class="psc"><h4>抢救/治疗</h4><p>医生紧急处置，必要时启动绿色通道</p></div></div>
+<div class="parr">&#8595;</div>
+<div class="ps-item"><div class="psn">4</div><div class="psc"><h4>留观/住院</h4><p>根据病情决定留观或收入病房</p></div></div>
+</div>
 
-      <!-- 门诊流程 -->
-      <div class="guide-panel active" id="panel-flow">
-        <h2>门诊就诊流程</h2>
-        <div class="flow-steps">
-          <div class="flow-step">
-            <div class="step-number">1</div>
-            <div class="step-content">
-              <h3>预约挂号</h3>
-              <p>通过微信公众号、电话（0668-XXXXXXX）或现场自助机进行预约挂号。专家号建议提前预约。</p>
-            </div>
-          </div>
-          <div class="flow-step">
-            <div class="step-number">2</div>
-            <div class="step-content">
-              <h3>到院报到</h3>
-              <p>按预约时间到1F门诊大厅，在自助机或挂号窗口报到取号。</p>
-            </div>
-          </div>
-          <div class="flow-step">
-            <div class="step-number">3</div>
-            <div class="step-content">
-              <h3>候诊等待</h3>
-              <p>在对应楼层的候诊区等待叫号。请留意显示屏和语音叫号。</p>
-            </div>
-          </div>
-          <div class="flow-step">
-            <div class="step-number">4</div>
-            <div class="step-content">
-              <h3>医生诊疗</h3>
-              <p>医生问诊及眼部检查，根据病情开具检查单或处方。</p>
-            </div>
-          </div>
-          <div class="flow-step">
-            <div class="step-number">5</div>
-            <div class="step-content">
-              <h3>检查/缴费</h3>
-              <p>如需检查，先到收费窗口或自助机缴费，再到5F检验中心或各检查室完成检查。</p>
-            </div>
-          </div>
-          <div class="flow-step">
-            <div class="step-number">6</div>
-            <div class="step-content">
-              <h3>取药/离院</h3>
-              <p>凭处方到1F药房取药。医生如有特殊交代请遵医嘱。需要复诊的患者请预约下次就诊时间。</p>
-            </div>
-          </div>
-        </div>
-      </div>
+<!-- 住院流程 -->
+<h2 class="st">住院流程</h2>
+<div class="ps">
+<div class="ps-item"><div class="psn">1</div><div class="psc"><h4>办理住院</h4><p>凭医生开具的住院单到一楼住院处办理</p></div></div>
+<div class="parr">&#8595;</div>
+<div class="ps-item"><div class="psn">2</div><div class="psc"><h4>缴纳押金</h4><p>按规定缴纳住院押金，支持医保结算</p></div></div>
+<div class="parr">&#8595;</div>
+<div class="ps-item"><div class="psn">3</div><div class="psc"><h4>入住病房</h4><p>护士站安排床位，介绍病房设施和注意事项</p></div></div>
+<div class="parr">&#8595;</div>
+<div class="ps-item"><div class="psn">4</div><div class="psc"><h4>检查治疗</h4><p>配合医护人员进行检查和治疗</p></div></div>
+<div class="parr">&#8595;</div>
+<div class="ps-item"><div class="psn">5</div><div class="psc"><h4>结算出院</h4><p>结清费用，携带出院医嘱和用药说明离院</p></div></div>
+</div>
 
-      <!-- 急诊指南 -->
-      <div class="guide-panel" id="panel-emergency">
-        <h2>急诊指南</h2>
-        <div class="emergency-info">
-          <div class="info-block">
-            <div class="info-item highlight">
-              <h4>🚨 急诊位置</h4>
-              <p>9F 外伤急诊感染+眼底手术区</p>
-            </div>
-            <div class="info-item highlight">
-              <h4>📞 急救电话</h4>
-              <p>0668-XXXXXXX（24小时）</p>
-            </div>
-          </div>
-          <h3>以下情况请立即前往急诊</h3>
-          <ul class="check-list">
-            <li>✅ 眼部化学烧伤（酸碱烧伤），立即用清水冲洗至少15分钟</li>
-            <li>✅ 眼球穿通伤或破裂伤</li>
-            <li>✅ 突发性视力丧失</li>
-            <li>✅ 急性闭角型青光眼发作</li>
-            <li>✅ 眼部严重外伤</li>
-            <li>✅ 视网膜中央动脉阻塞（突发无痛性视力下降）</li>
-          </ul>
-        </div>
-      </div>
+<!-- 医保报销 -->
+<h2 class="st">医保报销</h2>
+<div class="dg">
+<div class="df"><h4>医保政策</h4><ul class="dul">
+<li>门诊挂号费可报销</li>
+<li>大部分检查费可报销</li>
+<li>药品费用按比例报销</li>
+<li>住院费用可按医保政策报销</li>
+</ul></div>
+<div class="df"><h4>报销流程</h4><ul class="dul">
+<li>出示医保卡或电子凭证</li>
+<li>系统自动计算报销金额</li>
+<li>个人仅需支付自付部分</li>
+<li>支持异地医保直接结算</li>
+</ul></div>
+</div>
 
-      <!-- 住院指南 -->
-      <div class="guide-panel" id="panel-inpatient">
-        <h2>住院指南</h2>
-        <div class="info-block">
-          <div class="info-item">
-            <h4>住院楼层</h4>
-            <p>12F-15F 住院病区（共92张床位）</p>
-          </div>
-          <div class="info-item">
-            <h4>入院准备</h4>
-            <p>携带身份证、医保卡、门诊病历、入院通知单。日常洗漱用品及换洗衣物。</p>
-          </div>
-          <div class="info-item">
-            <h4>术前准备</h4>
-            <p>术前禁食禁饮时间遵医嘱，术前检查在12F完成。如有服用抗凝药物请提前告知医生。</p>
-          </div>
-          <div class="info-item">
-            <h4>术后注意事项</h4>
-            <p>术后在12F恢复区观察，遵医嘱进行眼部护理。避免揉眼和剧烈运动。</p>
-          </div>
-          <div class="info-item">
-            <h4>出院流程</h4>
-            <p>主治医师评估后开具出院医嘱 → 护士进行出院宣教 → 住院处办理结算 → 定期门诊复查。</p>
-          </div>
-        </div>
-      </div>
+<!-- 楼层导航 -->
+<h2 class="st" id="floors">楼层导航</h2>
+<div class="fn">
 
-      <!-- 医保指南 -->
-      <div class="guide-panel" id="panel-insurance">
-        <h2>医保指南</h2>
-        <div class="info-block">
-          <div class="info-item">
-            <h4>医保类型</h4>
-            <p>支持茂名市城镇职工医保、城乡居民医保、异地医保直报。</p>
-          </div>
-          <div class="info-item">
-            <h4>异地就医</h4>
-            <p>外市/省医保患者请提前在参保地办理异地就医备案手续，出院时可直接结算。</p>
-          </div>
-          <div class="info-item">
-            <h4>报销比例</h4>
-            <p>具体报销比例请咨询当地医保部门或就诊时咨询我院医保窗口。</p>
-          </div>
-          <div class="info-item">
-            <h4>医保窗口</h4>
-            <p>1F门诊大厅设有医保咨询窗口，工作时间：周一至周五 8:00-17:30。</p>
-          </div>
-        </div>
-      </div>
+<!-- 门诊服务区 1F-3F -->
+<div class="fg">
+<div class="fl">&#x1F3E0; 门诊服务区 (1F-3F)</div>
+<div class="fc">
+<div class="fd blue" id="f1"><div class="fnum">1F</div><div class="ftit">一层 · 入口枢纽</div><div class="fdesc">咨询台 / 挂号收费 / 药学部</div></div>
+<div class="fd blue" id="f2"><div class="fnum">2F</div><div class="ftit">二层 · 综合门诊</div><div class="fdesc">综合门诊（5诊室+内镜+带教+大治疗）</div></div>
+<div class="fd blue" id="f3"><div class="fnum">3F</div><div class="ftit">三层 · 特需专科门诊</div><div class="fdesc">特需专科门诊（5诊室+VIP+大治疗）</div></div>
+</div>
+</div>
 
-      <!-- 楼层导航 -->
-      <div class="guide-panel" id="panel-floorplan">
-        <h2>4号楼楼层导航图</h2>
-        <p class="section-desc">根据实际功能布局规划，请根据您的就诊需求查看对应楼层</p>
+<!-- 检查与治疗区 4F-6F -->
+<div class="fg">
+<div class="fl">&#x1F7EA; 检查与治疗区 (4F-6F)</div>
+<div class="fc">
+<div class="fd green" id="f4"><div class="fnum">4F</div><div class="ftit">四层 · 眼前段视光</div><div class="fdesc">弱视治疗 / 验光配镜 / 眼前段检查(16卡位) / 激光美容</div></div>
+<div class="fd green" id="f5"><div class="fnum">5F</div><div class="ftit">五层 · 眼后段激光</div><div class="fdesc">干眼治疗中心 / 眼后段检查(14卡位) / 激光室 / 造影室</div></div>
+<div class="fd green" id="f6"><div class="fnum">6F</div><div class="ftit">六层 · 医技支持</div><div class="fdesc">DR室 / 检验科（各占一半面积） / 医护办公区 / 值班室</div></div>
+</div>
+</div>
 
-        <!-- 门诊服务区 1F-3F -->
-        <div class="floor-category">
-          <h3 class="floor-category-title" style="border-left: 4px solid #1b4d89;">🔵 门诊服务区</h3>
-          <div class="floor-cards">
-            <div class="floor-card">
-              <div class="floor-number">1F</div>
-              <div class="floor-info">
-                <h4>首层 · 患者入口枢纽</h4>
-                <p>咨询台、挂号收费处、药学部（药房）
-                  <span class="dept-tag">一站式入院初筛与缴费取药</span></p>
-              </div>
-            </div>
-            <div class="floor-card">
-              <div class="floor-number">2F</div>
-              <div class="floor-info">
-                <h4>二层 · 综合门诊</h4>
-                <p>诊室×5、内镜诊室×1、带教诊室×1、大治疗室×1
-                  <span class="dept-tag">常规眼科诊疗 / 带教健康宣教</span></p>
-              </div>
-            </div>
-            <div class="floor-card">
-              <div class="floor-number">3F</div>
-              <div class="floor-info">
-                <h4>三层 · 特需与专科门诊</h4>
-                <p>诊室×5、VIP诊室×1、大治疗室×1
-                  <span class="dept-tag">特需患者 / 专科深度诊疗</span></p>
-              </div>
-            </div>
-          </div>
-        </div>
+<!-- 后勤保障 7F -->
+<div class="fg">
+<div class="fl">&#x2699; 后勤保障</div>
+<div class="fc">
+<div class="fd gray" id="f7"><div class="fnum">7F</div><div class="ftit">七层 · 后勤保障</div><div class="fdesc">消毒供应中心</div></div>
+</div>
+</div>
 
-        <!-- 检查与治疗区 4F-6F -->
-        <div class="floor-category">
-          <h3 class="floor-category-title" style="border-left: 4px solid #28a745;">🟢 检查与治疗区</h3>
-          <div class="floor-cards">
-            <div class="floor-card">
-              <div class="floor-number">4F</div>
-              <div class="floor-info">
-                <h4>四层 · 眼前段与视光</h4>
-                <p>弱视治疗、验光配镜、眼前段检查（16个检查卡位）、激光美容
-                  <span class="dept-tag">小儿眼病科 / 眼视光科 / 近视防控</span></p>
-              </div>
-            </div>
-            <div class="floor-card">
-              <div class="floor-number">5F</div>
-              <div class="floor-info">
-                <h4>五层 · 眼后段与激光</h4>
-                <p>干眼治疗中心、眼后段检查（14个检查卡位）、激光室、造影室
-                  <span class="dept-tag">眼底病科 / 干眼症治疗</span></p>
-              </div>
-            </div>
-            <div class="floor-card">
-              <div class="floor-number">6F</div>
-              <div class="floor-info">
-                <h4>六层 · 医技支持</h4>
-                <p>DR室（数字X线摄影）、检验科（各占一半面积）、医护办公区、值班室
-                  <span class="dept-tag">医学影像 / 化验检查</span></p>
-              </div>
-            </div>
-          </div>
-        </div>
+<!-- 手术中心集群 8F-11F -->
+<div class="fg">
+<div class="fl">&#x26A0; 手术中心集群 (8F-11F)</div>
+<div class="fc">
+<div class="fd orange star" id="f8"><div class="fnum">8F ★</div><div class="ftit">八层 · 激光近视治疗中心 ★</div><div class="fdesc">全飞秒SMILE / 半飞秒FS-LASIK / 准分子激光</div></div>
+<div class="fd orange" id="f9"><div class="fnum">9F</div><div class="ftit">九层 · 外伤·眼底·感染手术</div><div class="fdesc">手术室&times;3（含<strong>1间负压手术室</strong>）</div></div>
+<div class="fd orange" id="f10"><div class="fnum">10F</div><div class="ftit">十层 · 内眼手术</div><div class="fdesc">手术室&times;3（内眼手术专用）</div></div>
+<div class="fd orange" id="f11"><div class="fnum">11F</div><div class="ftit">十一层 · 外眼手术</div><div class="fdesc">手术室&times;3（外眼手术专用）</div></div>
+</div>
+</div>
 
-        <!-- 后勤保障 -->
-        <div class="floor-category">
-          <h3 class="floor-category-title" style="border-left: 4px solid #6c757d;">⚪ 后勤保障</h3>
-          <div class="floor-cards">
-            <div class="floor-card">
-              <div class="floor-number">7F</div>
-              <div class="floor-info">
-                <h4>七层 · 消毒供应中心</h4>
-                <p>消毒供应中心（医疗区域）、手术生活区（医护后勤）
-                  <span class="dept-tag">手术器械无菌流转保障</span></p>
-              </div>
-            </div>
-          </div>
-        </div>
+<!-- 住院病区 12F-15F -->
+<div class="fg">
+<div class="fl">&#x1F3E5; 住院病区 (12F-15F)</div>
+<div class="fc">
+<div class="fd yellow" id="f12"><div class="fnum">12F</div><div class="ftit">十二层 · 标准综合病区A</div><div class="fdesc">住院床位&times;16张、日间床位&times;12张</div></div>
+<div class="fd yellow" id="f13"><div class="fnum">13F</div><div class="ftit">十三层 · 标准综合病区B</div><div class="fdesc">住院床位&times;16张、日间床位&times;12张</div></div>
+<div class="fd yellow" id="f14"><div class="fnum">14F</div><div class="ftit">十四层 · 日间病区</div><div class="fdesc">日间床位&times;11张（短期治疗/日间手术专用）</div></div>
+<div class="fd yellow vip" id="f15"><div class="fnum">15F</div><div class="ftit">十五层 · 高端综合病区</div><div class="fdesc">住院床位&times;13张、<strong>VIP套间&times;1</strong>（独立卫生间）</div></div>
+</div>
+</div>
 
-        <!-- 手术区 8F-11F -->
-        <div class="floor-category">
-          <h3 class="floor-category-title" style="border-left: 4px solid #fd7e14;">🟠 手术中心集群（9间标准手术室）</h3>
-          <div class="floor-cards">
-            <div class="floor-card" style="border-color:#fd7e14;">
-              <div class="floor-number" style="background:#fd7e14;">8F</div>
-              <div class="floor-info">
-                <h4>八层 · <strong style="color:#fd7e14;">激光近视治疗中心</strong></h4>
-                <p>全飞秒 SMILE / 半飞秒 FS-LASIK / 准分子角膜手术
-                  <span class="dept-tag" style="background:#fff3e0;color:#e65100;">★ 近视眼激光治疗科（飞秒中心）</span></p>
-              </div>
-            </div>
-            <div class="floor-card">
-              <div class="floor-number">9F</div>
-              <div class="floor-info">
-                <h4>九层 · 外伤·眼底·感染手术</h4>
-                <p>手术室×3（含<strong>1间负压手术室</strong>，用于外伤/眼底/感染手术）
-                  <span class="dept-tag">眼底病科 / 眼外伤急诊 / 感染性手术</span></p>
-              </div>
-            </div>
-            <div class="floor-card">
-              <div class="floor-number">10F</div>
-              <div class="floor-info">
-                <h4>十层 · 内眼手术区</h4>
-                <p>手术室×3（白内障超声乳化、青光眼微创等内眼手术）
-                  <span class="dept-tag">白内障科 / 青光眼科</span></p>
-              </div>
-            </div>
-            <div class="floor-card">
-              <div class="floor-number">11F</div>
-              <div class="floor-info">
-                <h4>十一层 · 外眼手术区</h4>
-                <p>手术室×3（眼睑成形、泪道再通、角膜移植等外眼手术）
-                  <span class="dept-tag">眼整形与泪道科 / 角膜病科</span></p>
-              </div>
-            </div>
-          </div>
-        </div>
+</div><!-- end fn -->
 
-        <!-- 住院病区 12F-15F -->
-        <div class="floor-category">
-          <h3 class="floor-category-title" style="border-left: 4px solid #ffc107;">🟡 住院病区体系（合计92张床位）</h3>
-          <div class="floor-cards">
-            <div class="floor-card">
-              <div class="floor-number">12F</div>
-              <div class="floor-info">
-                <h4>十二层 · 标准综合病区 A</h4>
-                <p>住院床位×16张、日间床位×12张
-                  </p>
-              </div>
-            </div>
-            <div class="floor-card">
-              <div class="floor-number">13F</div>
-              <div class="floor-info">
-                <h4>十三层 · 标准综合病区 B</h4>
-                <p>住院床位×16张、日间床位×12张
-                  </p>
-              </div>
-            </div>
-            <div class="floor-card">
-              <div class="floor-number">14F</div>
-              <div class="floor-info">
-                <h4>十四层 · 日间病区</h4>
-                <p>日间床位×11张（短期治疗/日间手术专用）
-                  </p>
-              </div>
-            </div>
-            <div class="floor-card" style="border-color:#d4af37;">
-              <div class="floor-number" style="background:#d4af37;">15F</div>
-              <div class="floor-info">
-                <h4>十五层 · <strong style="color:#b8860b;">高端综合病区</strong></h4>
-                <p>住院床位×13张、<strong>VIP套间×1</strong>（独立卫生间）
-                  </p>
-              </div>
-            </div>
-          </div>
-        </div>
+</main>
 
-        
-          </div>
-        </div>
+<footer class="footer"><div class="fi">
+<div class="flgo"><img src="img/zoc-logo.png" alt=""><span>中山大学中山眼科中心茂名医院</span></div>
+<div class="finfo"><p>&#x1F4CD; 茂名市茂南区健康南路龙岭三街XX号</p><p>&#x260E; 电话：0668-XXXXXXX | 急诊：0668-XXXXXXX</p><p>&#xA9; 中山大学中山眼科中心茂名医院 | Maoming Eye Hospital</p></div>
+</div></footer>
 
-        </div></section>
-
-
-    <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-about">
-          <img src="images/logo_footer.png" alt="中山大学中山眼科中心茂名医院" class="footer-logo">
-          <p>中山大学中山眼科中心茂名医院，依托国家级眼科平台的优质医疗资源，为茂名及周边地区患者提供高水平的眼科诊疗服务。</p>
-        </div>
-        <div class="footer-links">
-          <h4>快速导航</h4>
-          <ul>
-            <li><a href="services.html">就诊服务</a></li>
-            <li><a href="departments.html">科室介绍</a></li>
-            <li><a href="doctors.html">专家团队</a></li>
-            <li><a href="guide.html">就医指南</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4>更多信息</h4>
-          <ul>
-            <li><a href="faq.html">常见问题</a></li>
-            <li><a href="fees.html">费用查询</a></li>
-            <li><a href="about.html">医院简介</a></li>
-            <li><a href="contact.html">联系我们</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact">
-          <h4>联系方式</h4>
-          <p>📍 茂名市茂南区健康南路龙岭三街XX号</p>
-          <p>📞 0668-XXXXXXX</p>
-          <p>🚨 急诊电话：0668-XXXXXXX</p>
-          <p>📧 info@mmeye.com</p>
-          <p>🕐 周一至周五 8:00-17:30</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 中山大学中山眼科中心茂名医院 版权所有 | Maoming Eye Hospital | 粤ICP备XXXXXXXX号</p>
-      </div>
-    </div>
-  </footer>
-  <script src="js/common.js"></script>
-  
+<div class="afab" id="aiFab" title="智能助手">&#x1F4AC;</div>
+<div class="aov" id="aiOverlay"></div>
+<div class="apanel" id="aiPanel">
+<div class="aph"><span class="atitle">&#x1F916; 智能就医助手</span><button class="aclose" id="aiClose">&#x2715;</button></div>
+<div class="atabs">
+<button class="atab active" data-tab="triage">预问诊挂号</button>
+<button class="atab" data-tab="payment">缴费指引</button>
+<button class="atab" data-tab="waiting">诊间候诊</button>
+<button class="atab" data-tab="navi">医院导航</button>
+<button class="atab" data-tab="followup">复诊提醒</button>
+</div>
+<div class="abody">
+<div class="acont active" id="tab-triage"><p class="ahint">请描述您的症状，AI将为您推荐合适的科室：</p>
+<textarea class="ainput" placeholder="例如：眼睛看东西模糊、眼睛干涩疼痛..." rows="3"></textarea>
+<button class="abtn abtn-p" onclick="alert('智能导诊功能开发中，即将上线！')">获取推荐科室</button>
+<div class="adtags"><h4>快速选择科室：</h4>
+<span onclick="location.href='departments.html'">&#x1F441; 视力模糊</span>
+<span onclick="location.href='departments.html'">&#x1F615; 眼睛疼痛</span>
+<span onclick="location.href='departments.html'">&#x1F41A; 眼睛干涩</span>
+<span onclick="location.href='departments.html'">&#x1F476; 儿童视力</span>
+<span onclick="location.href='departments.html'">&#x1F474; 老人眼病</span>
+<span onclick="location.href='departments.html'">&#x2728; 眼部美容</span></div></div>
+<div class="acont" id="tab-payment">
+<div class="api"><strong>&#x1F3CB; 自费缴费</strong><p>支持微信、支付宝、银行卡、现金</p></div>
+<div class="api"><strong>&#x1FE0E; 医保结算</strong><p>持医保卡/电子凭证至窗口办理</p></div>
+<div class="api"><strong>&#x1F4F1; 在线缴费</strong><p>微信公众号内完成缴费，无需排队</p></div>
+<div class="api"><strong>&#x1F4D2; 发票打印</strong><p>一楼收费处自助机或窗口打印</p></div></div>
+<div class="acont" id="tab-waiting">
+<div class="awt"><strong>&#x23F0; 候诊提示</strong><p>请您在候诊区耐心等待，叫号屏会显示您的号码。</p></div>
+<div class="awt"><strong>&#x1F4E2; 叫号规则</strong><p>过号请至分诊台重新登记，一般顺延3位。</p></div>
+<div class="awt"><strong>&#x1F4F1; 预计等候</strong><p>可通过公众号查看当前候诊人数和预计等待时间。</p></div></div>
+<div class="acont" id="tab-navi"><div class="anav">
+<a href="#floors" class="anb">&#x1F4CD; 楼层导航</a>
+<a href="#f1" class="anb">1F 入口</a><a href="#f2" class="anb">2F 门诊</a><a href="#f3" class="anb">3F 特需</a>
+<a href="#f4" class="anb">4F 视光</a><a href="#f5" class="anb">5F 眼后段</a>
+<a href="#f8" class="anb hl">8F 飞秒&#x2B50;</a><a href="#f12" class="anb">12F 住院</a><a href="#f15" class="anb vip">15F VIP</a></div></div>
+<div class="acont" id="tab-followup">
+<div class="aft"><strong>&#x1F4C5; 复诊提醒</strong><p>出院后请按医嘱定期复查，一般为术后1周、1个月、3个月、6个月。</p></div>
+<div class="aft"><strong>&#x1F48A; 用药指导</strong><p>请严格遵医嘱用药，不可自行停药或调整剂量。</p></div>
+<div class="aft"><strong>&#x26A0; 注意事项</strong><p>术后避免揉眼、剧烈运动、游泳，保持眼部清洁。</p></div>
+<div class="aft"><strong>&#x1F4DE; 如有异常</strong><p>如出现视力突然下降、眼红眼痛加重，请立即来院急诊。</p></div></div>
+</div></div>
+<script src="js/common.js"></script>
 <script src="js/admin.js"></script>
-</body>
-</html>
+<script src="js/ai-assistant.js"></script>
+</body></html>

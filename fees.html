@@ -1,471 +1,114 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="中山大学中山眼科中心茂名医院 - 费用查询">
-  <title>费用查询 - 中山大学中山眼科中心茂名医院</title>
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>费用查询 - 中山大学中山眼科中心茂名医院</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/png" href="img/zoc-logo.png">
 </head>
 <body>
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo">
-        <img src="images/logo.png" alt="中山大学中山眼科中心茂名医院" class="logo-img">
-        <div class="logo-text">
-          <span class="logo-title">中山眼科中心茂名医院</span>
-          <span class="logo-subtitle">maoming eye hospital</span>
-        </div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="">首页</a></li>
-<li><a href="services.html" class="">就诊服务</a></li>
-<li><a href="departments.html" class="">科室介绍</a></li>
-<li><a href="doctors.html" class="">专家团队</a></li>
-<li><a href="guide.html" class="">就医指南</a></li>
-<li><a href="fees.html" class="active">费用查询</a></li>
-<li><a href="contact.html" class="">联系我们</a></li>
-        
-      <button class="admin-toggle" id="adminToggle" title="管理员">&#x2699;&#xFE0F;</button>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="菜单">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <ul>
-        <li><a href="index.html">首页</a></li>
-<li><a href="services.html">就诊服务</a></li>
-<li><a href="departments.html">科室介绍</a></li>
-<li><a href="doctors.html">专家团队</a></li>
-<li><a href="guide.html">就医指南</a></li>
-<li><a href="fees.html">费用查询</a></li>
-<li><a href="contact.html">联系我们</a></li>
-      </ul>
-    </div>
-  </nav>
+<header class="header"><div class="h-inner">
+<a href="index.html" class="logo-a"><img src="img/zoc-logo.png" alt="" class="logo-img">
+<div class="logo-txt"><span class="logo-nm">中山大学中山眼科中心茂名医院</span><span class="logo-en">Maoming Eye Hospital</span></div></a>
+<button class="hamb" id="hamburger">&#9776;</button>
+<nav class="nav" id="mainNav">
+<a href="index.html" class="nl">首页</a>
+<a href="services.html" class="nl">就诊服务</a>
+<a href="departments.html" class="nl">科室介绍</a>
+<a href="doctors.html" class="nl">专家团队</a>
+<a href="guide.html" class="nl">就医指南</a>
+<a href="contact.html" class="nl">联系我们</a>
+<button class="at" id="adminToggle" title="管理员">&#x2699;&#xFE0F;</button>
+</nav></div></header>
 
-  <section class="page-header">
-    <div class="container">
-      <h1>费用查询</h1>
-      <p>公开透明收费，让您明明白白看病</p>
-    </div>
-  </section>
+<main class="mc">
 
-  <!-- Fee Tabs -->
-  <section class="section">
-    <div class="container">
-      <div class="fee-tabs">
-        <button class="fee-tab active" data-feetab="outpatient">门诊费用标准</button>
-        <button class="fee-tab" data-feetab="inpatient">住院费用标准</button>
-        <button class="fee-tab" data-feetab="medicine">药品价格查询</button>
-        <button class="fee-tab" data-feetab="exam">检查项目收费</button>
-      </div>
+<h2 class="st">门诊费用标准</h2>
+<div class="ftw"><table class="ft">
+<tr><th>项目</th><th>价格范围</th><th>医保备注</th></tr>
+<tr><td>普通门诊挂号</td><td>25元</td><td>医保可报</td></tr>
+<tr><td>专家门诊挂号</td><td>50-100元</td><td>医保可报</td></tr>
+<tr><td>视力检查</td><td>30-80元</td><td>医保可报</td></tr>
+<tr><td>眼压测量</td><td>20-40元</td><td>医保可报</td></tr>
+<tr><td>裂隙灯检查</td><td>30-60元</td><td>医保可报</td></tr>
+<tr><td>OCT检查</td><td>200-400元</td><td>部分自费</td></tr>
+<tr><td>眼底照相</td><td>80-150元</td><td>医保可报</td></tr>
+</table></div>
 
-      <!-- 门诊费用 -->
-      <div class="fee-panel active" id="feepanel-outpatient">
-        <h2 class="fee-panel-title">门诊手术及治疗项目费用参考</h2>
-        <div class="fee-table-wrapper">
-          <table class="fee-table">
-            <thead>
-              <tr>
-                <th>项目名称</th>
-                <th>价格范围（元）</th>
-                <th>备注</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>超声乳化白内障摘除术（单眼）</td>
-                <td>6,000 - 12,000</td>
-                <td>含普通人工晶体，多焦/散光晶体另计</td>
-              </tr>
-              <tr>
-                <td>飞秒激光辅助白内障手术</td>
-                <td>12,000 - 18,000</td>
-                <td>不含人工晶体费用</td>
-              </tr>
-              <tr>
-                <td>多焦人工晶体植入</td>
-                <td>8,000 - 25,000</td>
-                <td>根据品牌和类型不同</td>
-              </tr>
-              <tr>
-                <td>全飞秒SMILE近视激光手术（双眼）</td>
-                <td>18,000 - 26,000</td>
-                <td>含术前检查</td>
-              </tr>
-              <tr>
-                <td>半飞秒（FS-LASIK）近视激光手术（双眼）</td>
-                <td>10,000 - 16,000</td>
-                <td>含术前检查</td>
-              </tr>
-              <tr>
-                <td>选择性激光小梁成形术（SLT）</td>
-                <td>800 - 1,500</td>
-                <td>单眼</td>
-              </tr>
-              <tr>
-                <td>微创青光眼手术（MIGS）</td>
-                <td>8,000 - 15,000</td>
-                <td>单眼</td>
-              </tr>
-              <tr>
-                <td>玻璃体切割术（25G/27G）</td>
-                <td>10,000 - 18,000</td>
-                <td>单眼，不含注药</td>
-              </tr>
-              <tr>
-                <td>抗VEGF药物眼内注射</td>
-                <td>3,000 - 6,000</td>
-                <td>每次注射，不含药费</td>
-              </tr>
-              <tr>
-                <td>眼底激光光凝术</td>
-                <td>1,500 - 3,000</td>
-                <td>单眼</td>
-              </tr>
-              <tr>
-                <td>斜视矫正手术</td>
-                <td>5,000 - 10,000</td>
-                <td>根据肌肉数量不同</td>
-              </tr>
-              <tr>
-                <td>眼睑成形术（双眼）</td>
-                <td>4,000 - 8,000</td>
-                <td>上睑或下睑</td>
-              </tr>
-              <tr>
-                <td>泪道再通/置管术</td>
-                <td>2,000 - 5,000</td>
-                <td>单侧</td>
-              </tr>
-              <tr>
-                <td>弱视训练（疗程）</td>
-                <td>2,000 - 5,000</td>
-                <td>10次为一疗程</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="fee-disclaimer">💡 以上价格为参考范围，具体以实际收费为准。医保报销比例请咨询医保窗口。</p>
-      </div>
+<h2 class="st">住院费用参考</h2>
+<div class="ftw"><table class="ft">
+<tr><th>项目</th><th>价格范围</th><th>医保备注</th></tr>
+<tr><td>普通病房床位</td><td>50-80元/天</td><td>医保可报</td></tr>
+<tr><td>VIP病房床位</td><td>300-500元/天</td><td>部分自费</td></tr>
+<tr><td>护理费</td><td>20-60元/天</td><td>医保可报</td></tr>
+<tr><td>常规检查</td><td>200-800元</td><td>医保可报</td></tr>
+</table></div>
 
-      <!-- 住院费用 -->
-      <div class="fee-panel" id="feepanel-inpatient">
-        <h2 class="fee-panel-title">住院费用标准参考</h2>
-        <div class="fee-table-wrapper">
-          <table class="fee-table">
-            <thead>
-              <tr>
-                <th>病房类型</th>
-                <th>床位费（元/天）</th>
-                <th>护理等级</th>
-                <th>适用情况</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>普通病房（三人间）</td>
-                <td>50 - 80</td>
-                <td>二级护理</td>
-                <td>常规住院患者</td>
-              </tr>
-              <tr>
-                <td>普通病房（双人间）</td>
-                <td>100 - 150</td>
-                <td>二级护理</td>
-                <td>需要更多隐私空间的患者</td>
-              </tr>
-              <tr>
-                <td>单间病房</td>
-                <td>300 - 500</td>
-                <td>一级/特级护理</td>
-                <td>术后恢复期、特殊需求患者</td>
-              </tr>
-              <tr>
-                <td>VIP病房</td>
-                <td>800 - 1,200</td>
-                <td>特级护理</td>
-                <td>高端医疗服务需求</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <h3 style="margin-top:36px;margin-bottom:16px;font-size:1.15rem;color:var(--text-dark);">常见手术住院总费用估算</h3>
-        <div class="fee-table-wrapper">
-          <table class="fee-table">
-            <thead>
-              <tr>
-                <th>手术类型</th>
-                <th>住院天数</th>
-                <th>预估总费用（元）</th>
-                <th>说明</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>白内障手术（日间）</td>
-                <td>1天</td>
-                <td>7,000 - 15,000</td>
-                <td>含手术+晶体+药费</td>
-              </tr>
-              <tr>
-                <td>近视激光手术（日间）</td>
-                <td>1天</td>
-                <td>10,000 - 28,000</td>
-                <td>含手术+术前检查</td>
-              </tr>
-              <tr>
-                <td>玻璃体切割手术</td>
-                <td>3-5天</td>
-                <td>15,000 - 30,000</td>
-                <td>含手术+住院+药费</td>
-              </tr>
-              <tr>
-                <td>青光眼联合手术</td>
-                <td>3-5天</td>
-                <td>10,000 - 20,000</td>
-                <td>含手术+住院+药费</td>
-              </tr>
-              <tr>
-                <td>斜视矫正手术</td>
-                <td>2-3天</td>
-                <td>8,000 - 15,000</td>
-                <td>含手术+住院+麻醉</td>
-              </tr>
-              <tr>
-                <td>眼睑整形手术</td>
-                <td>2-3天</td>
-                <td>6,000 - 12,000</td>
-                <td>含手术+住院+材料</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="fee-disclaimer">💡 以上为预估值，具体费用因个体病情、治疗方案、耗材选择等因素而异，以实际结算为准。</p>
-      </div>
+<h2 class="st">手术费用参考</h2>
+<div class="ftw"><table class="ft">
+<tr><th>手术类型</th><th>价格范围</th><th>备注</th></tr>
+<tr><td>全飞秒SMILE</td><td>15,000-18,000元</td><td>双眼</td></tr>
+<tr><td>半飞秒FS-LASIK</td><td>10,000-13,000元</td><td>双眼</td></tr>
+<tr><td>准分子激光</td><td>6,000-9,000元</td><td>双眼</td></tr>
+<tr><td>白内障超声乳化+晶体</td><td>3,000-20,000元</td><td>根据晶体类型</td></tr>
+<tr><td>玻璃体切割术</td><td>8,000-15,000元</td><td>单眼</td></tr>
+</table></div>
 
-      <!-- 药品价格 -->
-      <div class="fee-panel" id="feepanel-medicine">
-        <h2 class="fee-panel-title">常用眼科药品价格参考</h2>
-        <div class="fee-table-wrapper">
-          <table class="fee-table">
-            <thead>
-              <tr>
-                <th>药品名称</th>
-                <th>规格</th>
-                <th>参考价格（元）</th>
-                <th>用途</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>左氧氟沙星滴眼液</td>
-                <td>5ml:24.4mg</td>
-                <td>15 - 25</td>
-                <td>预防感染、结膜炎</td>
-              </tr>
-              <tr>
-                <td>妥布霉素地塞米松滴眼液</td>
-                <td>5ml</td>
-                <td>35 - 55</td>
-                <td>术后抗炎</td>
-              </tr>
-              <tr>
-                <td>玻璃酸钠滴眼液</td>
-                <td>5ml:5mg</td>
-                <td>30 - 50</td>
-                <td>干眼症、角膜保护</td>
-              </tr>
-              <tr>
-                <td>聚乙烯醇滴眼液</td>
-                <td>8ml:16mg</td>
-                <td>18 - 30</td>
-                <td>干眼症缓解</td>
-              </tr>
-              <tr>
-                <td>普拉洛芬滴眼液</td>
-                <td>5ml:5mg</td>
-                <td>28 - 45</td>
-                <td>抗炎止痛</td>
-              </tr>
-              <tr>
-                <td>马来酸噻吗洛尔滴眼液</td>
-                <td>5ml:50mg</td>
-                <td>12 - 22</td>
-                <td>降眼压（青光眼）</td>
-              </tr>
-              <tr>
-                <td>布林佐胺滴眼液</td>
-                <td>5ml:50mg</td>
-                <td>55 - 85</td>
-                <td>降眼压（青光眼）</td>
-              </tr>
-              <tr>
-                <td>拉坦前列素滴眼液</td>
-                <td>2.5ml:125μg</td>
-                <td>65 - 100</td>
-                <td>降眼压（青光眼）</td>
-              </tr>
-              <tr>
-                <td>阿托品滴眼液（低浓度）</td>
-                <td>3ml:0.01%</td>
-                <td>40 - 70</td>
-                <td>青少年近视防控</td>
-              </tr>
-              <tr>
-                <td>七叶洋地黄双苷滴眼液</td>
-                <td>15ml</td>
-                <td>35 - 55</td>
-                <td>视疲劳缓解</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="fee-disclaimer">💡 药品价格受集采政策影响可能调整，具体以药房实际售价为准。部分药品可使用医保个人账户支付。</p>
-      </div>
+<p style="font-size:.85rem;color:var(--tl);margin-top:16px;padding:12px;background:var(--bg);border-radius:8px;">
+&#x1F4A1; 以上价格为参考价，实际收费以医院公示为准。医保报销比例根据当地政策执行。
+</p>
 
-      <!-- 检查项目 -->
-      <div class="fee-panel" id="feepanel-exam">
-        <h2 class="fee-panel-title">眼科检查项目收费标准</h2>
-        <div class="fee-table-wrapper">
-          <table class="fee-table">
-            <thead>
-              <tr>
-                <th>检查项目</th>
-                <th>价格（元）</th>
-                <th>说明</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>视力检查</td>
-                <td>5 - 10</td>
-                <td>基础检查</td>
-              </tr>
-              <tr>
-                <td>眼压测量（非接触式）</td>
-                <td>10 - 20</td>
-                <td>双眼</td>
-              </tr>
-              <tr>
-                <td>裂隙灯检查</td>
-                <td>10 - 20</td>
-                <td>眼前节详细检查</td>
-              </tr>
-              <tr>
-                <td>检眼镜检查（散瞳后）</td>
-                <td>15 - 30</td>
-                <td>眼底初步检查</td>
-              </tr>
-              <tr>
-                <td>OCT光学相干断层扫描</td>
-                <td>150 - 250</td>
-                <td>黄斑/视盘/视网膜成像</td>
-              </tr>
-              <tr>
-                <td>眼底照相（彩色/无散瞳）</td>
-                <td>40 - 80</td>
-                <td>双眼</td>
-              </tr>
-              <tr>
-                <td>眼底血管造影（FFA/ICGA）</td>
-                <td>400 - 600</td>
-                <td>单眼</td>
-              </tr>
-              <tr>
-                <td>视野检查（自动静态视野）</td>
-                <td>80 - 150</td>
-                <td>双眼</td>
-              </tr>
-              <tr>
-                <td>角膜地形图分析</td>
-                <td>60 - 120</td>
-                <td>双眼</td>
-              </tr>
-              <tr>
-                <td>眼科A/B超</td>
-                <td>40 - 80</td>
-                <td>双眼</td>
-              </tr>
-              <tr>
-                <td>角膜曲率测量</td>
-                <td>20 - 40</td>
-                <td>双眼</td>
-              </tr>
-              <tr>
-                <td>泪道冲洗</td>
-                <td>15 - 30</td>
-                <td>单侧</td>
-              </tr>
-              <tr>
-                <td>医学验光（综合验光）</td>
-                <td>30 - 80</td>
-                <td>双眼</td>
-              </tr>
-              <tr>
-                <td>角膜内皮计数</td>
-                <td>50 - 100</td>
-                <td>单眼</td>
-              </tr>
-              <tr>
-                <td>光干涉式眼轴长度测量（IOL Master）</td>
-                <td>80 - 150</td>
-                <td>双眼</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="fee-disclaimer">💡 以上价格为参考价，具体以物价部门核定及医院实际收费为准。部分检查项目可纳入医保报销范围。</p>
-      </div>
+</main>
 
-    </div>
-  </section>
+<footer class="footer"><div class="fi">
+<div class="flgo"><img src="img/zoc-logo.png" alt=""><span>中山大学中山眼科中心茂名医院</span></div>
+<div class="finfo"><p>&#x1F4CD; 茂名市茂南区健康南路龙岭三街XX号</p><p>&#x260E; 电话：0668-XXXXXXX | 急诊：0668-XXXXXXX</p><p>&#xA9; 中山大学中山眼科中心茂名医院 | Maoming Eye Hospital</p></div>
+</div></footer>
 
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-about">
-          <img src="images/logo_footer.png" alt="中山大学中山眼科中心茂名医院" class="footer-logo">
-          <p>中山大学中山眼科中心茂名医院，依托国家级眼科平台的优质医疗资源，为茂名及周边地区患者提供高水平的眼科诊疗服务。</p>
-        </div>
-        <div class="footer-links">
-          <h4>快速导航</h4>
-          <ul>
-            <li><a href="services.html">就诊服务</a></li>
-            <li><a href="departments.html">科室介绍</a></li>
-            <li><a href="doctors.html">专家团队</a></li>
-            <li><a href="guide.html">就医指南</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4>更多信息</h4>
-          <ul>
-            <li><a href="faq.html">常见问题</a></li>
-            <li><a href="fees.html">费用查询</a></li>
-            <li><a href="about.html">医院简介</a></li>
-            <li><a href="contact.html">联系我们</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact">
-          <h4>联系方式</h4>
-          <p>📍 茂名市茂南区健康南路龙岭三街XX号</p>
-          <p>📞 0668-XXXXXXX</p>
-          <p>🚨 急诊电话：0668-XXXXXXX</p>
-          <p>📧 info@mmeye.com</p>
-          <p>🕐 周一至周五 8:00-17:30</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 中山大学中山眼科中心茂名医院 版权所有 | Maoming Eye Hospital | 粤ICP备XXXXXXXX号</p>
-      </div>
-    </div>
-  </footer>
-  <script src="js/common.js"></script>
-  <script src="js/triage.js"></script>
+<div class="afab" id="aiFab" title="智能助手">&#x1F4AC;</div>
+<div class="aov" id="aiOverlay"></div>
+<div class="apanel" id="aiPanel">
+<div class="aph"><span class="atitle">&#x1F916; 智能就医助手</span><button class="aclose" id="aiClose">&#x2715;</button></div>
+<div class="atabs">
+<button class="atab active" data-tab="triage">预问诊挂号</button>
+<button class="atab" data-tab="payment">缴费指引</button>
+<button class="atab" data-tab="waiting">诊间候诊</button>
+<button class="atab" data-tab="navi">医院导航</button>
+<button class="atab" data-tab="followup">复诊提醒</button>
+</div>
+<div class="abody">
+<div class="acont active" id="tab-triage"><p class="ahint">请描述您的症状，AI将为您推荐合适的科室：</p>
+<textarea class="ainput" placeholder="例如：眼睛看东西模糊、眼睛干涩疼痛..." rows="3"></textarea>
+<button class="abtn abtn-p" onclick="alert('智能导诊功能开发中，即将上线！')">获取推荐科室</button>
+<div class="adtags"><h4>快速选择科室：</h4>
+<span onclick="location.href='departments.html'">&#x1F441; 视力模糊</span>
+<span onclick="location.href='departments.html'">&#x1F615; 眼睛疼痛</span>
+<span onclick="location.href='departments.html'">&#x1F41A; 眼睛干涩</span>
+<span onclick="location.href='departments.html'">&#x1F476; 儿童视力</span>
+<span onclick="location.href='departments.html'">&#x1F474; 老人眼病</span>
+<span onclick="location.href='departments.html'">&#x2728; 眼部美容</span></div></div>
+<div class="acont" id="tab-payment">
+<div class="api"><strong>&#x1F3CB; 自费缴费</strong><p>支持微信、支付宝、银行卡、现金</p></div>
+<div class="api"><strong>&#x1FE0E; 医保结算</strong><p>持医保卡/电子凭证至窗口办理</p></div>
+<div class="api"><strong>&#x1F4F1; 在线缴费</strong><p>微信公众号内完成缴费，无需排队</p></div>
+<div class="api"><strong>&#x1F4D2; 发票打印</strong><p>一楼收费处自助机或窗口打印</p></div></div>
+<div class="acont" id="tab-waiting">
+<div class="awt"><strong>&#x23F0; 候诊提示</strong><p>请您在候诊区耐心等待，叫号屏会显示您的号码。</p></div>
+<div class="awt"><strong>&#x1F4E2; 叫号规则</strong><p>过号请至分诊台重新登记，一般顺延3位。</p></div>
+<div class="awt"><strong>&#x1F4F1; 预计等候</strong><p>可通过公众号查看当前候诊人数和预计等待时间。</p></div></div>
+<div class="acont" id="tab-navi"><div class="anav">
+<a href="guide.html#floors" class="anb">&#x1F4CD; 楼层导航</a>
+<a href="#f1" class="anb">1F 入口</a><a href="#f2" class="anb">2F 门诊</a><a href="#f3" class="anb">3F 特需</a>
+<a href="#f4" class="anb">4F 视光</a><a href="#f5" class="anb">5F 眼后段</a>
+<a href="#f8" class="anb hl">8F 飞秒&#x2B50;</a><a href="#f12" class="anb">12F 住院</a><a href="#f15" class="anb vip">15F VIP</a></div></div>
+<div class="acont" id="tab-followup">
+<div class="aft"><strong>&#x1F4C5; 复诊提醒</strong><p>出院后请按医嘱定期复查，一般为术后1周、1个月、3个月、6个月。</p></div>
+<div class="aft"><strong>&#x1F48A; 用药指导</strong><p>请严格遵医嘱用药，不可自行停药或调整剂量。</p></div>
+<div class="aft"><strong>&#x26A0; 注意事项</strong><p>术后避免揉眼、剧烈运动、游泳，保持眼部清洁。</p></div>
+<div class="aft"><strong>&#x1F4DE; 如有异常</strong><p>如出现视力突然下降、眼红眼痛加重，请立即来院急诊。</p></div></div>
+</div></div>
+<script src="js/common.js"></script>
 <script src="js/admin.js"></script>
-</body>
-</html>
+<script src="js/ai-assistant.js"></script>
+</body></html>
