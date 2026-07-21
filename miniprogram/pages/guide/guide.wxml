@@ -1,0 +1,29 @@
+<view class="container">
+<view class="st">门诊流程</view>
+<view wx:for="{{steps1}}" wx:key="idx">
+<view class="step"><view class="step-num">{{item.idx}}</view><view><view class="step-h4">{{item.title}}</view><view class="step-p">{{item.desc}}</view></view></view>
+<view class="arr-down" wx:if="{{index<6}}">↓</view>
+</view>
+
+<view class="st">急诊流程</view>
+<view wx:for="{{steps2}}" wx:key="idx">
+<view class="step"><view class="step-num">{{item.idx}}</view><view><view class="step-h4">{{item.title}}</view><view class="step-p">{{item.desc}}</view></view></view>
+<view class="arr-down" wx:if="{{index<3}}">↓</view>
+</view>
+
+<view class="st">医保报销</view>
+<view class="card"><view class="dept-h4">医保政策</view>
+<view class="dept-li">门诊挂号费可报销</view><view class="dept-li">大部分检查费可报销</view>
+<view class="dept-li">药品费用按比例报销</view><view class="dept-li">支持异地医保直接结算</view></view>
+
+<view class="st">楼层导航</view>
+<view wx:for="{{floorGroups}}" wx:key="label" class="floor-group">
+<view class="floor-label">{{item.label}}</view>
+<view class="floor-grid">
+<view class="floor-item" wx:for="{{item.items}}" wx:for-item="f" wx:key="num">
+<view class="floor-box {{f.cls}}">
+<view class="floor-num">{{f.num}}</view>
+<view class="floor-title">{{f.title}}</view>
+<view class="floor-desc">{{f.desc}}</view>
+</view></view></view></view>
+</view>

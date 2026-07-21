@@ -1,0 +1,28 @@
+<view class="container">
+<view class="hero-bl" style="margin-bottom:28rpx">
+<view style="font-size:80rpx;margin-bottom:16rpx">🏥</view>
+<view class="h1">中山大学中山眼科中心茂名医院</view>
+<view class="p">Maoming Eye Hospital</view>
+</view>
+
+<view class="card" bindtap="goAbout" style="display:flex;align-items:center;gap:16rpx">
+<view style="font-size:40rpx">ℹ️</view><view style="flex:1"><view style="font-size:28rpx;font-weight:600">关于我们</view><view style="font-size:24rpx;color:var(--tl)">了解医院详情信息</view></view><view style="color:var(--bd)">></view>
+</view>
+
+<view class="card" bindtap="goContact" style="display:flex;align-items:center;gap:16rpx">
+<view style="font-size:40rpx">📞</view><view style="flex:1"><view style="font-size:28rpx;font-weight:600">联系我们</view><view style="font-size:24rpx;color:var(--tl)">地址、电话、交通指引</view></view><view style="color:var(--bd)">></view>
+</view>
+
+<view class="card" bindtap="goAI" style="display:flex;align-items:center;gap:16rpx">
+<view style="font-size:40rpx">🤖</view><view style="flex:1"><view style="font-size:28rpx;font-weight:600">智能就医助手</view><view style="font-size:24rpx;color:var(--tl)">预问诊/缴费/导航/复诊</view></view><view style="color:var(--bd)">></view>
+</view>
+
+<view class="card" bindtap="goAdmin" style="display:flex;align-items:center;gap:16rpx">
+<view style="font-size:40rpx">⚙️</view><view style="flex:1"><view style="font-size:28rpx;font-weight:600">管理员</view><view style="font-size:24rpx;color:var(--tl)">内容编辑管理</view></view><view style="color:var(--bd)">></view>
+</view>
+
+<view style="text-align:center;margin-top:60rpx;font-size:24rpx;color:var(--tl)">
+<view>© 中山大学中山眼科中心茂名医院</view>
+<view style="margin-top:8rpx">开业时间：2026年10月</view>
+</view>
+</view>

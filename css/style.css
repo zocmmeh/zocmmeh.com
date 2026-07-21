@@ -208,16 +208,21 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",
 .amodal-o{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:10000}
 .amodal-o.show{display:flex;align-items:center;justify-content:center}
 .amodal{background:var(--w);padding:28px;border-radius:16px;width:90%;max-width:380px;box-shadow:0 10px 40px rgba(0,0,0,.2)}
-.amodal h3{margin-bottom:16px;color:var(--p))}
-.ainput-pwd{width:100%;padding:12px;border:1px solid var(--bd);border-radius:8px;font-size:1rem;margin-bottom:16px}
+.amodal h3{margin-bottom:16px;color:var(--p)}
+.ainput-pwd{width:100%;padding:12px;border:1px solid var(--bd);border-radius:8px;font-size:1rem;margin-bottom:16px;box-sizing:border-box}
 .abtns{display:flex;gap:10px}
 .abtns button{flex:1;padding:10px;border:none;border-radius:8px;font-size:.95rem;cursor:pointer;font-weight:600}
 .abtn-cancel{background:var(--bg);color:var(--t)}
 .abtn-confirm{background:var(--p);color:var(--w)}
 .aerr{color:#dc3545;font-size:.85rem;margin-top:8px;display:none}
-.asave{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--a);color:var(--w);border:none;padding:12px 32px;border-radius:25px;font-size:.95rem;font-weight:600;cursor:pointer;z-index:9999;display:none;box-shadow:0 4px 16px rgba(252,128,47,.4)}
-.aed{outline:2px dashed var(--a);border-radius:4px;cursor:text}
-body.admin-mode .aed{background:rgba(252,128,47,.08)}
+.asave{position:fixed;left:50%;transform:translateX(-50%);background:var(--a);color:var(--w);border:none;padding:12px 32px;border-radius:25px;font-size:.95rem;font-weight:600;cursor:pointer;z-index:9999;display:none;box-shadow:0 4px 16px rgba(252,128,47,.4)}
+#adminSaveBtn{bottom:20px}
+#adminExportBtn{bottom:80px;background:var(--p)}
+#adminResetBtn{bottom:140px}
+body.admin-mode .asave{display:block}
+.aed{cursor:text;border-radius:4px;min-height:1em;transition:background .15s,outline .15s}
+body.admin-mode .aed:hover{background:rgba(252,128,47,.08);outline:1.5px dashed rgba(252,128,47,.5)}
+body.admin-mode .aed:focus{background:rgba(252,128,47,.12);outline:3px solid var(--a);z-index:1;position:relative}
 
 @media(max-width:480px){
   .hslide{min-height:180px;padding:24px 16px}

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>健康科普 - 中山大学中山眼科中心茂名医院</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/png" href="img/zoc-logo.png">
+<style>
+  body{background:#f0f2f8}
+  .hero-cta{background:linear-gradient(135deg,#1b4d89,#163e6e);padding:36rpx 28rpx;color:#fff;text-align:center}
+  .hero-cta h2{font-size:32rpx;font-weight:700;margin-bottom:10rpx}
+  .hero-cta .sub{font-size:24rpx;opacity:.85;line-height:1.4}
+  .sec{margin:0 24rpx 16rpx;background:#fff;border-radius:18rpx;padding:24rpx 20rpx;box-shadow:0 2rpx 12rpx rgba(0,0,0,.04)}
+  .sec-tt{font-size:28rpx;font-weight:700;color:var(--p);margin-bottom:18rpx;display:flex;align-items:center;gap:8rpx}
+  .sec-tt::before{content:'';width:6rpx;height:26rpx;background:var(--a);border-radius:3rpx;flex-shrink:0}
+  /* Category tabs */
+  .cat-tabs{display:flex;gap:8rpx;overflow-x:auto;padding-bottom:8rpx;margin-bottom:20rpx;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .cat-tabs::-webkit-scrollbar{display:none}
+  .cat-tab{flex-shrink:0;padding:12rpx 24rpx;border-radius:50rpx;font-size:25rpx;font-weight:600;background:var(--bg);color:var(--tl);border:none;cursor:pointer;white-space:nowrap;transition:all .15s}
+  .cat-tab.active,.cat-tab:active{background:var(--a);color:#fff}
+  /* Article cards */
+  .art-grid{display:grid;grid-template-columns:1fr;gap:14rpx}
+  .art-card{background:var(--bg);border-radius:16rpx;overflow:hidden;display:flex;gap:16rpx;padding:18rpx;cursor:pointer;transition:all .15s}
+  .art-card:active{transform:translateY(2rpx)}
+  .art-thumb{width:120rpx;height:100rpx;border-radius:12rpx;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:48rpx}
+  .art-thumb.t-blue{background:rgba(27,77,137,.08)}.art-thumb.t-orange{background:rgba(252,128,47,.08)}
+  .art-thumb.t-green{background:rgba(40,167,69,.08)}.art-thumb.t-purple{background:rgba(124,58,237,.08)}
+  .art-thumb.t-teal{background:rgba(8,145,178,.08)}.art-thumb.t-red{background:rgba(220,38,38,.08)}
+  .art-info{flex:1;min-width:0}
+  .art-tt{font-size:26rpx;font-weight:700;color:var(--p);margin-bottom:6rpx;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .art-desc{font-size:22rpx;color:var(--tl);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .art-meta{font-size:20rpx;color:#999;margin-top:8rpx}
+  .art-cat{display:none}
+  /* Article detail */
+  .art-detail{display:none;padding:24rpx 0}
+  .art-detail.show{display:block;animation:su .3s ease}
+  @keyframes su{from{opacity:0;transform:translateY(12rpx)}to{opacity:1;transform:translateY(0)}}
+  .art-detail h3{font-size:30rpx;color:var(--p);margin:0 0 16rpx}
+  .art-detail p{font-size:24rpx;color:var(--t);line-height:1.8;margin:0 0 16rpx}
+  .art-detail .back-btn{display:inline-flex;align-items:center;gap:6rpx;font-size:24rpx;color:var(--a);cursor:pointer;margin-bottom:20rpx;font-weight:600}
+  .btm-pad{height:32rpx}
+</style>
+</head>
+<body>
+<header class="header"><div class="h-inner">
+<a href="index.html" class="logo-a"><img src="img/zoc-logo.png" alt="" class="logo-img">
+<div class="logo-txt"><span class="logo-nm">中山大学中山眼科中心茂名医院</span><span class="logo-en">MAOMING EYE HOSPITAL</span></div></a>
+<button class="hamb" id="hamburger">&#9776;</button>
+<nav class="nav" id="mainNav">
+<a href="index.html" class="nl">首页</a>
+<a href="services.html" class="nl">预约挂号</a>
+<a href="reports.html" class="nl">报告查询</a>
+<a href="departments.html" class="nl">科室介绍</a>
+<a href="profile.html" class="nl">我的</a>
+<button class="at" id="adminToggle" title="管理员">&#x2699;&#xFE0F;</button>
+</nav></div></header>
+
+<main>
+<div class="hero-cta">
+  <h2>&#x1F393; 眼健康科普</h2>
+  <div class="sub">专业眼科知识，守护您和家人的视力健康</div>
+</div>
+
+<div class="sec" id="catBar">
+  <div class="cat-tabs">
+    <button class="cat-tab active" data-cat="all">全部</button>
+    <button class="cat-tab" data-cat="cataract">白内障</button>
+    <button class="cat-tab" data-cat="refractive">近视·屈光</button>
+    <button class="cat-tab" data-cat="children">儿童眼健康</button>
+    <button class="cat-tab" data-cat="dryeye">干眼·眼表</button>
+    <button class="cat-tab" data-cat="glaucoma">青光眼</button>
+    <button class="cat-tab" data-cat="retina">眼底病</button>
+  </div>
+</div>
+
+<div class="sec" id="articleList"><div class="art-grid">
+
+<div class="art-card" data-cat="cataract" data-id="cat1">
+  <div class="art-thumb t-blue">&#x1F453;</div>
+  <div class="art-info"><div class="art-tt">什么是白内障？哪些人容易得？</div><div class="art-desc">白内障是晶状体混浊导致视力下降的眼病。年龄增长是最主要原因，60岁以上人群发病率显著升高…</div><div class="art-meta">&#x1F4C5; 2026-06-12 · 白内障科</div></div>
+</div>
+
+<div class="art-card" data-cat="cataract" data-id="cat2">
+  <div class="art-thumb t-blue">&#x1F52C;</div>
+  <div class="art-info"><div class="art-tt">白内障手术全过程详解</div><div class="art-desc">超声乳化是目前最主流的白内障手术方式。手术时间约10-15分钟，切口仅2-3mm，无需缝线，术后第二天即可恢复部分视力…</div><div class="art-meta">&#x1F4C5; 2026-06-10 · 白内障科</div></div>
+</div>
+
+<div class="art-card" data-cat="refractive" data-id="ref1">
+  <div class="art-thumb t-orange">&#x1F41A;</div>
+  <div class="art-info"><div class="art-tt">全飞秒、半飞秒、准分子——选哪个？</div><div class="art-desc">全飞秒SMILE是第三代角膜屈光手术，切口仅2mm，无需制作角膜瓣。三种主流手术各有适应人群…</div><div class="art-meta">&#x1F4C5; 2026-06-12 · 屈光手术中心</div></div>
+</div>
+
+<div class="art-card" data-cat="refractive" data-id="ref2">
+  <div class="art-thumb t-orange">&#x1F4D0;</div>
+  <div class="art-info"><div class="art-tt">做完近视手术后需要注意什么？</div><div class="art-desc">术后1周避免眼部进水，1月内禁止游泳和剧烈运动。遵医嘱使用眼药水，按时复查，多数人术后1-3个月视力稳定…</div><div class="art-meta">&#x1F4C5; 2026-06-08 · 屈光手术中心</div></div>
+</div>
+
+<div class="art-card" data-cat="children" data-id="ch1">
+  <div class="art-thumb t-green">&#x1F476;</div>
+  <div class="art-info"><div class="art-tt">3-6岁是儿童视力发育黄金期</div><div class="art-desc">儿童视觉系统在3-6岁处于快速发育阶段。此时发现并矫正远视、散光、斜视、弱视等问题，矫正效果最好…</div><div class="art-meta">&#x1F4C5; 2026-06-11 · 小儿眼科</div></div>
+</div>
+
+<div class="art-card" data-cat="children" data-id="ch2">
+  <div class="art-thumb t-green">&#x1F4A7;</div>
+  <div class="art-info"><div class="art-tt">OK镜（角膜塑形镜）知识问答</div><div class="art-desc">OK镜通过夜间佩戴改变角膜形态，白天可不戴眼镜获得清晰视力。适合8岁以上、近视度数增长过快的儿童…</div><div class="art-meta">&#x1F4C5; 2026-06-05 · 视光中心</div></div>
+</div>
+
+<div class="art-card" data-cat="dryeye" data-id="de1">
+  <div class="art-thumb t-teal">&#x1F4A7;</div>
+  <div class="art-info"><div class="art-tt">干眼症不是"小毛病"——如何正确应对？</div><div class="art-desc">干眼症是泪液质或量异常导致的眼表疾病。长期刷手机、空调环境、佩戴隐形眼镜等都是诱因…</div><div class="art-meta">&#x1F4C5; 2026-06-09 · 角膜病科</div></div>
+</div>
+
+<div class="art-card" data-cat="dryeye" data-id="de2">
+  <div class="art-thumb t-teal">&#x1F31E;</div>
+  <div class="art-info"><div class="art-tt">夏季护眼攻略：防晒·防干·防感染</div><div class="art-desc">紫外线可加速白内障和黄斑变性。户外活动请佩戴UV400防护太阳镜，游泳时使用防水护目镜，避免泳池水入眼…</div><div class="art-meta">&#x1F4C5; 2026-06-07 · 综合</div></div>
+</div>
+
+<div class="art-card" data-cat="glaucoma" data-id="gl1">
+  <div class="art-thumb t-purple">&#x1F615;</div>
+  <div class="art-info"><div class="art-tt">青光眼——"视力小偷"的早期信号</div><div class="art-desc">青光眼早期常无症状，被称为"视力小偷"。定期检查眼压、眼底和视野是唯一有效的早筛手段…</div><div class="art-meta">&#x1F4C5; 2026-06-06 · 青光眼科</div></div>
+</div>
+
+<div class="art-card" data-cat="retina" data-id="rt1">
+  <div class="art-thumb t-red">&#x1F300;</div>
+  <div class="art-info"><div class="art-tt">糖尿病为什么要查眼底？</div><div class="art-desc">糖尿病视网膜病变是工作年龄人群致盲的首要原因。确诊糖尿病后每年至少做一次眼底检查，OCT和眼底照相可早期发现病变…</div><div class="art-meta">&#x1F4C5; 2026-06-04 · 眼底病科</div></div>
+</div>
+
+<div class="art-card" data-cat="retina" data-id="rt2">
+  <div class="art-thumb t-red">&#x26A0;&#xFE0F;</div>
+  <div class="art-info"><div class="art-tt">眼前突然出现大量黑影——警惕视网膜脱离</div><div class="art-desc">眼前突然出现大量飞蚊、闪光感、视野缺损，可能是视网膜脱离的征兆，属于眼科急症，需在24小时内就诊…</div><div class="art-meta">&#x1F4C5; 2026-06-03 · 眼底病科</div></div>
+</div>
+
+</div></div>
+
+<!-- Article detail panel (hidden by default) -->
+<div class="sec art-detail" id="artDetail">
+  <div class="back-btn" onclick="backToList()">&#x2190; 返回列表</div>
+  <div id="artContent"></div>
+</div>
+
+<div class="btm-pad"></div>
+</main>
+
+<footer class="footer"><div class="fi">
+<div class="flgo"><img src="img/zoc-logo.png" alt=""><span>中山大学中山眼科中心茂名医院</span></div>
+<div class="finfo"><p>&#x1F4CD; 茂名市双山一路龙岭小区中山大学中山眼科中心茂名医院</p><p>&#x260E; 电话：0668-XXXXXXX | 急诊：0668-XXXXXXX</p><p>&#xA9; MAOMING EYE HOSPITAL</p></div>
+</div></footer>
+
+<div class="afab" id="aiFab" title="智能助手">&#x1F4AC;</div>
+<div class="aov" id="aiOverlay"></div>
+<div class="apanel" id="aiPanel">
+<div class="aph"><span class="atitle">&#x1F916; 智能就医助手</span><button class="aclose" id="aiClose">&#x2715;</button></div>
+<div class="atabs">
+<button class="atab active" data-tab="triage">预问诊挂号</button>
+<button class="atab" data-tab="payment">缴费指引</button>
+<button class="atab" data-tab="waiting">诊间候诊</button>
+<button class="atab" data-tab="navi">医院导航</button>
+<button class="atab" data-tab="followup">复诊提醒</button>
+</div>
+<div class="abody">
+<div class="acont active" id="tab-triage">
+  <div class="ai-tip info">&#x1F4A1; <span>请点击以下症状，AI将为您推荐合适的科室与医生</span></div>
+  <div class="ai-symptom-grid" id="symptomGrid">
+    <div class="sg-item" data-dept="白内障科">&#x1F441; 视力模糊/下降</div>
+    <div class="sg-item" data-dept="青光眼科">&#x1F615; 眼睛胀痛/头痛</div>
+    <div class="sg-item" data-dept="角膜病科">&#x1F41A; 眼睛干涩/异物感</div>
+    <div class="sg-item" data-dept="小儿眼科">&#x1F476; 儿童视力问题</div>
+    <div class="sg-item" data-dept="眼底病科">&#x1F300; 眼前黑影/闪光</div>
+    <div class="sg-item" data-dept="屈光手术中心">&#x1F453; 近视/散光/老花</div>
+    <div class="sg-item" data-dept="斜视弱视科">&#x1F440; 眼睛斜视/复视</div>
+    <div class="sg-item" data-dept="眼整形科">&#x2728; 眼睑/眼眶问题</div>
+  </div>
+  <div class="sg-result" id="sgResult"><h4>&#x2705; 推荐科室：<span id="sgDept"></span></h4><p id="sgDesc"></p><a href="services.html" style="display:inline-block;margin-top:12rpx;padding:14rpx 28rpx;background:var(--a);color:#fff;border-radius:50rpx;text-decoration:none;font-size:24rpx;font-weight:700">&#x1F4C5; 前往预约挂号</a></div>
+  <p style="font-size:22rpx;color:var(--tl);margin-top:16rpx;line-height:1.6">&#x1F4DE; <strong>提示：</strong>以上为智能导诊参考，急症请直接前往急诊科。</p>
+</div>
+<div class="acont" id="tab-payment">
+  <div class="ai-tip info">&#x1F4A1; <span>缴费前请确认已绑定医保卡或就诊卡</span></div>
+  <div class="ai-step"><div class="ai-step-num">1</div><h4>&#x1F4F1; 手机在线缴费（推荐）</h4><p>进入公众号 → 「门诊缴费」→ 选择就诊人 → 确认支付。<br><span style="color:var(--a)">支持微信支付、医保移动支付</span></p></div>
+  <div class="ai-step"><div class="ai-step-num">2</div><h4>&#x1F5A5; 自助机缴费</h4><p>1F大厅自助服务区 → 刷卡 → 选择缴费 → 扫码支付</p></div>
+  <div class="ai-step"><div class="ai-step-num">3</div><h4>&#x1F3E6; 窗口缴费</h4><p>1F挂号收费窗口 → 出示就诊卡/医保卡 → 现金/刷卡/扫码</p></div>
+  <div class="ai-tip warn">&#x26A0;&#xFE0F; <span><strong>注意：</strong>医保报销需出示电子凭证或实体卡。</span></div>
+</div>
+<div class="acont" id="tab-waiting">
+  <div class="ai-step"><div class="ai-step-num">1</div><h4>&#x1F4CD; 报到</h4><p>挂号后至对应楼层分诊台或自助机签到，完成报到后进入叫号队列。</p></div>
+  <div class="ai-step"><div class="ai-step-num">2</div><h4>&#x1F3E5; 候诊</h4><p>在候诊区等待叫号，候诊期间可完成视力、眼压等基础检查。</p></div>
+  <div class="ai-step"><div class="ai-step-num">3</div><h4>&#x1F3A4; 叫号</h4><p>按挂号序号叫号。过号至分诊台重新登记，顺延3位。</p></div>
+  <div class="ai-step"><div class="ai-step-num">4</div><h4>&#x1F468;&#x200D;&#x2695;&#xFE0F; 就诊</h4><p>进入诊室如实描述病情，携带既往病历和检查报告。</p></div>
+</div>
+<div class="acont" id="tab-navi">
+  <div class="ai-tip info">&#x1F4CD; <span>医院共15层，以下为各楼层功能分布</span></div>
+  <div class="dp-card"><h4>&#x1F3EC; 1F 入口服务区</h4><p>咨询台 / 挂号收费 / 药学部（患者入口）</p></div>
+  <div class="dp-card"><h4>&#x1F3E5; 2F 综合门诊</h4><p>诊室×5 / 内镜诊室×1 / 带教诊室×1 / 大治疗室×1</p></div>
+  <div class="dp-card"><h4>&#x2B50; 3F 特需 · 专科门诊</h4><p>诊室×5 / VIP诊室×1 / 大治疗室×1</p></div>
+  <div class="dp-card"><h4>&#x1F50D; 4F 眼前段 · 视光</h4><p>弱视治疗 / 验光配镜室 / 眼前段检查室（16卡位）</p></div>
+  <div class="dp-card"><h4>&#x1F4A7; 5F 眼后段 · 激光</h4><p>干眼治疗室 / 眼后段检查室（14卡位）/ 激光室</p></div>
+  <div class="dp-card"><h4>&#x1F52C; 6F 医技支持</h4><p>DR室 / 检验科 / 医护办公区 / 值班室</p></div>
+  <div class="dp-card"><h4>&#x2728; 8F 飞秒中心 &#x2B50;</h4><p>全飞秒SMILE / 半飞秒FS-LASIK / 准分子角膜手术</p></div>
+  <div class="dp-card"><h4>&#x1F52A; 9F-11F 手术中心</h4><p>9F外伤·感染 | 10F内眼 | 11F外眼</p></div>
+  <div class="dp-card"><h4>&#x1F6CF; 12F-15F 住院病区</h4><p>12F/13F综合 | 14F日间 | 15F VIP</p></div>
+  <div class="fl-ql" style="margin-top:16rpx"><a href="services.html#floors" class="hl">&#x1F4CD; 完整楼层导航</a></div>
+</div>
+<div class="acont" id="tab-followup">
+  <table class="fu-table"><tr><td>手术类型</td><td>首次复查</td><td>后续复查</td></tr>
+  <tr><td>白内障</td><td>术后1天</td><td>1周·1月·3月·6月</td></tr>
+  <tr><td>全飞秒SMILE</td><td>术后1天</td><td>1周·1月·3月·6月·1年</td></tr>
+  <tr><td>玻璃体切割</td><td>术后1-2周</td><td>1月·3月·6月·1年</td></tr>
+  <tr><td>青光眼手术</td><td>术后1周</td><td>1月·3月·每6月长期</td></tr>
+  <tr><td>OK镜验配</td><td>戴镜1周</td><td>1月·3月·每3月长期</td></tr></table>
+  <div class="ai-tip warn" style="margin-top:16rpx">&#x26A0;&#xFE0F; <span>视力突然下降、剧烈眼痛——请立即来院急诊！</span></div>
+</div>
+</div></div>
+<script src="js/common.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/ai-assistant.js"></script>
+<script>
+// Category filter
+document.querySelectorAll('.cat-tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.cat-tab').forEach(function(x){x.classList.remove('active')});
+    t.classList.add('active');
+    var cat=t.dataset.cat;
+    document.querySelectorAll('.art-card').forEach(function(card){
+      if(cat==='all'||card.dataset.cat===cat){card.style.display='flex'}else{card.style.display='none'}
+    });
+  });
+});
+
+// Article click -> show detail
+var artDetails={
+  cat1:{title:'什么是白内障？哪些人容易得？',body:'<p><strong>白内障</strong>是指眼睛内的天然晶状体变混浊，导致光线无法正常聚焦在视网膜上，造成视力模糊。</p><p><strong>常见病因：</strong></p><p>1. 年龄增长（最常见）：60岁以上人群发病率明显升高<br>2. 紫外线长期照射<br>3. 糖尿病等全身性疾病<br>4. 眼部外伤或手术史<br>5. 长期使用激素类药物</p><p><strong>典型症状：</strong></p><p>• 视力逐渐下降，看东西模糊<br>• 颜色变暗、发黄<br>• 夜间驾驶眩光感增强<br>• 看灯光出现光晕<br>• 频繁更换眼镜度数仍看不清</p><p><strong>治疗：</strong>目前唯一有效治疗方式是手术。我院采用飞秒激光辅助超声乳化+人工晶体植入术，切口仅2mm，术后恢复快。</p><p><strong>预防建议：</strong>佩戴防紫外线太阳镜、控制血糖、避免眼外伤、定期做眼科检查。</p>'},
+  cat2:{title:'白内障手术全过程详解',body:'<p>白内障手术是眼科最常见的手术之一，技术非常成熟。我院主要采用<strong>超声乳化白内障吸除联合人工晶体植入术</strong>。</p><p><strong>手术流程（约15分钟）：</strong></p><p>1. 表面麻醉：滴麻药眼药水，无需注射<br>2. 角膜切口：在角膜缘做2-3mm微切口<br>3. 撕囊：在晶状体前囊撕开一个圆形开口<br>4. 超声乳化：用超声探头将混浊的晶状体乳化并吸出<br>5. 植入人工晶体：通过微切口植入折叠式人工晶体<br>6. 切口自行闭合，无需缝线</p><p><strong>术后注意事项：</strong></p><p>• 术后第二天即可摘除眼罩，视力明显改善<br>• 按医嘱滴眼药水（抗生素+激素）<br>• 1周内避免眼部进水<br>• 1月内避免剧烈运动和重体力劳动<br>• 术后1天、1周、1月、3月、6月定期复查</p>'},
+  ref1:{title:'全飞秒、半飞秒、准分子——选哪个？',body:'<p>三种主流角膜屈光手术各有适应人群：</p><p><strong>1. 全飞秒SMILE（第三代）</strong></p><p>• 全程飞秒激光，切口仅2mm<br>• 无需制作角膜瓣，角膜生物力学更稳定<br>• 术后干眼症状更轻<br>• 适合近视-1.00D至-10.00D<br>• 不适合远视和老花矫正</p><p><strong>2. 半飞秒FS-LASIK</strong></p><p>• 飞秒激光制瓣+准分子激光切削<br>• 应用范围广，可矫正远视和散光<br>• 术后当天即可恢复良好视力<br>• 需要制作角膜瓣（约100μm厚）</p><p><strong>3. 准分子激光（PRK/LASEK）</strong></p><p>• 去除角膜上皮后进行激光切削<br>• 无角膜瓣相关风险<br>• 适合角膜偏薄的患者<br>• 术后疼痛和恢复期较长</p><p><strong>选择建议：</strong>需来院做全面术前检查（角膜厚度、角膜地形图、瞳孔直径等）后，医生会根据您的具体情况推荐最适合的方案。</p>'},
+  ref2:{title:'做完近视手术后需要注意什么？',body:'<p><strong>术后恢复时间表：</strong></p><p>• 手术当天：休息为主，可能有流泪、异物感<br>• 术后第1天：复查，多数人视力明显改善<br>• 术后1周：可正常上班（非体力劳动），避免眼部进水<br>• 术后1月：可正常运动（不含游泳）<br>• 术后3月：可游泳、眼部化妆<br>• 术后6月：视力基本稳定</p><p><strong>用药指导：</strong></p><p>• 抗生素眼药水：预防感染，用1-2周<br>• 激素眼药水：减轻炎症，按医嘱逐渐减量<br>• 人工泪液：缓解干眼，可用1-3月</p><p><strong>禁止事项：</strong></p><p>• 术后1周禁揉眼、禁眼部进水<br>• 术后1月禁游泳、禁桑拿<br>• 术后1月禁剧烈对抗性运动<br>• 外出戴太阳镜防紫外线</p>'},
+  ch1:{title:'3-6岁是儿童视力发育黄金期',body:'<p>儿童视觉系统<strong>3-6岁</strong>处于快速发育和可塑性最强的阶段。在这一时期及时发现和矫正视力问题，事半功倍。</p><p><strong>儿童常见视力问题：</strong></p><p>1. 远视：新生儿普遍远视，随眼球发育逐渐正视化。高度远视需矫正<br>2. 散光：角膜形态不规则导致，影响远近视力<br>3. 近视：发生年龄越来越小，与近距离用眼和时间过长有关<br>4. 弱视（懒惰眼）：大脑偏好一只眼的图像，另一只眼视力发育受阻<br>5. 斜视：眼位偏斜，可能引起弱视和复视</p><p><strong>筛查建议：</strong></p><p>• 出生后：红光反射检查<br>• 6个月-1岁：眼位和眼球运动检查<br>• 3岁起：建议每年做一次完整眼科检查，包括视力、验光、眼位、立体视觉</p><p><strong>"目"浴阳光：</strong>每天户外活动2小时以上可有效预防近视发生。</p>'},
+  ch2:{title:'OK镜（角膜塑形镜）知识问答',body:'<p><strong>Q: OK镜是什么？</strong></p><p>A: OK镜是一种高透氧硬性隐形眼镜，夜间佩戴8-10小时，通过重塑角膜形态，白天不戴镜也可获得清晰视力。属于可逆性物理矫正，不是手术。</p><p><strong>Q: 适合什么人群？</strong></p><p>• 年龄≥8岁<br>• 近视-1.00D至-5.00D，散光≤1.50D<br>• 近视度数增长过快的青少年<br>• 不愿或不能做近视手术的人群</p><p><strong>Q: 效果如何？</strong></p><p>• 使用1-2周后白天视力可稳定在1.0左右<br>• 控制近视增长的效果优于普通眼镜（约减缓60%增长）<br>• 停戴后角膜可恢复原状</p><p><strong>Q: 安全吗？</strong></p><p>在专业验配和规范护理下安全性高。关键：严格卫生（每次清洗双手+镜片）、定期复查（戴后1天、1周、1月、之后每3月）、如有不适立即停戴就诊。</p>'},
+  de1:{title:'干眼症——如何正确应对？',body:'<p>干眼症是多因素引起的泪液和眼表疾病，伴随泪液渗透压升高和眼表炎症。</p><p><strong>主要诱因：</strong></p><p>• 长时间使用电子屏幕（眨眼频率下降）<br>• 空调环境（空气干燥）<br>• 佩戴隐形眼镜<br>• 年龄增长（泪液分泌减少）<br>• 某些药物（抗组胺药、抗抑郁药等）</p><p><strong>典型症状：</strong>眼干涩、异物感、烧灼感、视物模糊（眨眼后可暂时改善）、畏光、眼红</p><p><strong>分级治疗：</strong></p><p>1级：人工泪液+生活方式调整<br>2级：抗炎眼药水+泪点栓塞<br>3级：自体血清眼药水+治疗性隐形眼镜<br>4级：手术干预</p><p><strong>日常养护：</strong>"20-20-20"法则——每20分钟看屏幕，向远处20英尺（6米）外看20秒。</p>'},
+  de2:{title:'夏季护眼攻略：防晒·防干·防感染',body:'<p>夏季是眼部疾病高发季节，三大威胁需重视：</p><p><strong>1. 紫外线伤害</strong></p><p>紫外线可加速白内障和黄斑变性的发生发展。建议：外出时佩戴UV400防护太阳镜，宽边帽子增加防护面积。儿童晶状体更透明，紫外线透过率高，更需防护。</p><p><strong>2. 干眼加重</strong></p><p>空调整天运转、冷风直吹、夏季出汗多饮水不足都会加重干眼。建议：空调房内使用加湿器，多饮水，减少电子屏连续使用时间。</p><p><strong>3. 眼部感染</strong></p><p>游泳池水中的消毒剂和细菌可引起结膜炎和角膜炎。建议：游泳时佩戴防水护目镜，游泳后滴抗生素眼药水预防，佩戴隐形眼镜者切勿戴着游泳。</p><p><strong>4. 过敏</strong></p><p>花粉、尘螨等过敏原增多。建议：过敏性结膜炎患者可提前使用抗过敏眼药水。避免揉眼，揉眼会加重炎症和感染风险。</p>'},
+  gl1:{title:'青光眼——"视力小偷"的早期信号',body:'<p>青光眼是全球第二大致盲眼病（仅次于白内障），但不同于白内障可手术复明，青光眼造成的视力损伤<strong>不可逆</strong>。</p><p>之所以被称为"视力小偷"，是因为大多数类型的青光眼（尤其是原发性开角型青光眼）早期完全没有症状，患者自身难以察觉，等发现时视野已严重缺损。</p><p><strong>高危人群筛查建议：</strong></p><p>• 40岁以上：建议每年测一次眼压<br>• 有青光眼家族史：从30岁开始每年检查<br>• 高度近视（>-6.00D）<br>• 长期使用激素类药物<br>• 糖尿病、高血压患者</p><p><strong>检查项目：</strong>眼压测量→眼底照相（观察视神经）→OCT（测量视神经纤维层厚度）→视野检查（评估功能损伤程度）</p><p><strong>治疗目标：</strong>降低眼压，阻止视神经继续损伤。手段包括：药物（眼药水）、激光（SLT）、手术（小梁切除、引流阀植入）。</p>'},
+  rt1:{title:'糖尿病为什么要查眼底？',body:'<p>糖尿病视网膜病变（DR）是糖尿病最常见的微血管并发症之一，也是工作年龄人群致盲的首要原因。</p><p><strong>关键数字：</strong></p><p>• 患糖尿病5年后，约25%出现DR<br>• 患糖尿病15年以上，约80%有不同程度的DR<br>• 每年做一次眼底检查，可减少90%的DR致盲风险</p><p><strong>病变分期：</strong></p><p>非增生期：微血管瘤、出血、渗出<br>增生期：新生血管形成（最危险的阶段）<br>晚期：玻璃体积血、牵引性视网膜脱离、新生血管性青光眼</p><p><strong>检查手段：</strong>眼底照相、OCT（黄斑水肿评估）、OCTA（无创造影观察血管）、荧光血管造影</p><p><strong>治疗：</strong>严格控制血糖、血压、血脂是基础。眼内抗VEGF药物注射、激光光凝、玻璃体切割手术。</p>'},
+  rt2:{title:'眼前突然出现大量黑影——警惕视网膜脱离',body:'<p>视网膜脱离属于<strong>眼科急症</strong>，延误治疗可导致永久性视力丧失。</p><p><strong>警报信号（出现以下任何一条请立即就医）：</strong></p><p>• 眼前突然出现大量飞蚊（像蚊子、蜘蛛网在眼前飞舞）<br>• 眼前出现闪光感（尤其在暗处或转动眼球时）<br>• 视野中出现固定不动的黑影遮挡（像窗帘在眼前拉上）<br>• 视物变形（直线变弯曲）</p><p><strong>高发人群：</strong></p><p>• 高度近视（>-6.00D）：眼球轴长拉长，视网膜变薄<br>• 中老年人：玻璃体液化、后脱离<br>• 眼部外伤史<br>• 无晶体眼（白内障术后未植入晶体）<br>• 有视网膜脱离家族史</p><p><strong>治疗：</strong>在黄斑未脱离前手术预后良好。手术方式包括巩膜扣带术、玻璃体切割+眼内填充（气体或硅油）。就诊越早，视力恢复越好。</p>'}
+};
+
+document.querySelectorAll('.art-card').forEach(function(card){
+  card.addEventListener('click',function(){
+    var id=card.dataset.id;
+    var detail=artDetails[id];
+    if(!detail)return;
+    document.getElementById('articleList').style.display='none';
+    document.getElementById('catBar').style.display='none';
+    var detailEl=document.getElementById('artDetail');
+    document.getElementById('artContent').innerHTML='<h3>'+detail.title+'</h3>'+detail.body;
+    detailEl.classList.add('show');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+function backToList(){
+  document.getElementById('artDetail').classList.remove('show');
+  document.getElementById('articleList').style.display='';
+  document.getElementById('catBar').style.display='';
+}
+
+// Symptom triage
+document.querySelectorAll('.sg-item').forEach(function(el){
+  el.addEventListener('click',function(){
+    document.querySelectorAll('.sg-item').forEach(function(x){x.classList.remove('sel')});
+    el.classList.add('sel');
+    var dept=el.dataset.dept;
+    var descs={
+      '白内障科':'视物模糊、眼前如隔雾、夜间视力差是白内障典型表现。建议挂白内障科。',
+      '青光眼科':'眼胀痛伴头痛、恶心可能与眼压升高有关。建议挂青光眼科，尽早诊治。',
+      '角膜病科':'眼干涩、异物感、畏光可能为干眼症或角膜炎。建议挂角膜病科。',
+      '小儿眼科':'儿童视力问题需及早干预。3-6岁为黄金矫正期，建议挂小儿眼科。',
+      '眼底病科':'眼前黑影飘动、闪光感可能与视网膜疾病有关。建议挂眼底病科。',
+      '屈光手术中心':'近视、远视、散光如需手术矫正，建议挂屈光手术中心做术前检查。',
+      '斜视弱视科':'眼睛偏斜、复视可能与斜视有关。建议挂斜视弱视科。',
+      '眼整形科':'眼睑下垂、眼袋、眼眶肿块等问题建议挂眼整形科。'
+    };
+    var r=document.getElementById('sgResult');
+    document.getElementById('sgDept').textContent=dept;
+    document.getElementById('sgDesc').textContent=descs[dept]||'';
+    r.classList.add('show');
+    r.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+});
+</script>
+</body></html>

@@ -1,0 +1,21 @@
+Page({data:{depts:[
+{icon:'⭐',name:'近视激光治疗科',floor:'8F ★',hl:true},
+{icon:'👁',name:'白内障科',floor:'2F/9F',hl:false},
+{icon:'🔮',name:'眼底病科',floor:'5F/9F',hl:false},
+{icon:'👁',name:'青光眼科',floor:'2F/3F',hl:false},
+{icon:'👶',name:'小儿眼病科',floor:'3F/4F',hl:false},
+{icon:'✨',name:'眼整形与泪道科',floor:'4F/11F',hl:false}
+],news:[
+{date:'2026.10',title:'正式开诊',desc:'国家级眼科医疗资源落地茂名'},
+{date:'2026.09',title:'引进国际先进设备',desc:'全飞秒激光、OCT等尖端仪器'},
+{date:'2026.10',title:'首批专家到院',desc:'主任医师领衔专家团队开展诊疗'}
+]},
+goService(){wx.switchTab({url:'/pages/services/services'})},
+goDoctors(){wx.navigateTo({url:'/pages/doctors/doctors'})},
+goGuide(){wx.switchTab({url:'/pages/guide/guide'})},
+goFaq(){wx.navigateTo({url:'/pages/faq/faq'})},
+goFees(){wx.navigateTo({url:'/pages/fees/fees'})},
+goDept(){wx.navigateTo({url:'/pages/departments/departments'})},
+openAI(){wx.navigateTo({url:'/pages/ai/ai'})},
+onShareAppMessage(){return{title:'中山大学中山眼科中心茂名医院',path:'/pages/index/index'}}
+})

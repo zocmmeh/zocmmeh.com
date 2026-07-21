@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/services/services",
+    "pages/guide/guide",
+    "pages/mine/mine",
+    "pages/departments/departments",
+    "pages/doctors/doctors",
+    "pages/fees/fees",
+    "pages/faq/faq",
+    "pages/about/about",
+    "pages/ai/ai",
+    "pages/admin/admin"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1b4d89",
+    "navigationBarTitleText": "中山大学中山眼科中心茂名医院",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#1b4d89",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {"pagePath": "pages/index/index", "text": "首页", "iconPath": "images/tab-home.png", "selectedIconPath": "images/tab-home-active.png"},
+      {"pagePath": "pages/services/services", "text": "服务", "iconPath": "images/tab-service.png", "selectedIconPath": "images/tab-service-active.png"},
+      {"pagePath": "pages/guide/guide", "text": "指南", "iconPath": "images/tab-guide.png", "selectedIconPath": "images/tab-guide-active.png"},
+      {"pagePath": "pages/mine/mine", "text": "我的", "iconPath": "images/tab-mine.png", "selectedIconPath": "images/tab-mine-active.png"}
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

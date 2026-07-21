@@ -1,0 +1,21 @@
+<view class="container">
+<view class="st">门诊费用标准</view>
+<view class="tbl-wrap"><view class="tbl" style="display:table;width:100%">
+<view style="display:table-row"><view style="display:table-cell" class="tbl th">项目</view><view style="display:table-cell" class="tbl th">价格</view><view style="display:table-cell" class="tbl th">医保</view></view>
+<view style="display:table-row" wx:for="{{fees1}}" wx:key="item"><view style="display:table-cell" class="tbl td">{{item[0]}}</view><view style="display:table-cell" class="tbl td">{{item[1]}}</view><view style="display:table-cell" class="tbl td">{{item[2]}}</view></view>
+</view></view>
+
+<view class="st">住院费用参考</view>
+<view class="tbl-wrap"><view class="tbl" style="display:table;width:100%">
+<view style="display:table-row"><view style="display:table-cell" class="tbl th">项目</view><view style="display:table-cell" class="tbl th">价格</view><view style="display:table-cell" class="tbl th">医保</view></view>
+<view style="display:table-row" wx:for="{{fees2}}" wx:key="item"><view style="display:table-cell" class="tbl td">{{item[0]}}</view><view style="display:table-cell" class="tbl td">{{item[1]}}</view><view style="display:table-cell" class="tbl td">{{item[2]}}</view></view>
+</view></view>
+
+<view class="st">手术费用参考</view>
+<view class="tbl-wrap"><view class="tbl" style="display:table;width:100%">
+<view style="display:table-row"><view style="display:table-cell" class="tbl th">手术</view><view style="display:table-cell" class="tbl th">价格</view><view style="display:table-cell" class="tbl th">备注</view></view>
+<view style="display:table-row" wx:for="{{fees3}}" wx:key="item"><view style="display:table-cell" class="tbl td">{{item[0]}}</view><view style="display:table-cell" class="tbl td">{{item[1]}}</view><view style="display:table-cell" class="tbl td">{{item[2]}}</view></view>
+</view></view>
+
+<view style="font-size:24rpx;color:var(--tl);padding:20rpx;background:var(--bg);border-radius:12rpx">💡 以上价格为参考价，实际以医院公示为准</view>
+</view>

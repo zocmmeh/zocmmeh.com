@@ -1,0 +1,9 @@
+<view class="container"><view class="st">科室介绍</view>
+<view class="dept-card {{item.hl?'hl':''}}" wx:for="{{depts}}" wx:key="name">
+<view class="dept-name">{{item.icon}} {{item.name}}</view><view class="dept-floor">📍 {{item.floor}}</view>
+<view class="alert-red" wx:if="{{item.alert}}"><text>{{item.alert}}</text></view>
+<view class="dept-h4">诊疗范围</view>
+<view class="dept-li" wx:for="{{item.scope}}" wx:for-item="s" wx:key="*this">{{s}}</view>
+<view class="dept-h4">特色技术</view>
+<view class="dept-li" wx:for="{{item.techs}}" wx:for-item="t" wx:key="*this">{{t}}</view>
+</view></view>

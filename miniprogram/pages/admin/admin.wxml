@@ -1,0 +1,24 @@
+<view class="container">
+<view class="st">管理员面板</view>
+<view class="card" wx:if="{{!isAdmin}}">
+<view class="form-group"><view class="form-label">管理员密码</view><input class="form-input" type="password" placeholder="请输入密码" bindinput="onPwd" value="{{pwd}}"/></view>
+<view style="color:#dc3545;font-size:24rpx;margin-bottom:16rpx" wx:if="{{err}}">密码错误</view>
+<button class="btn-p" bindtap="login">登录</button>
+</view>
+
+<view wx:if="{{isAdmin}}">
+<view class="card" style="text-align:center">
+<view style="font-size:60rpx;margin-bottom:12rpx">✅</view>
+<view style="font-size:30rpx;font-weight:700;color:var(--p)">管理员已登录</view>
+<view style="font-size:24rpx;color:var(--tl);margin-top:8rpx">可对页面内容进行编辑管理</view>
+</view>
+
+<view class="card" bindtap="logout" style="text-align:center">
+<view style="font-size:28rpx;color:#dc3545">退出登录</view>
+</view>
+</view>
+
+<view style="font-size:22rpx;color:var(--tl);text-align:center;margin-top:40rpx">
+登录有效期24小时 <text style="color:var(--p)">zoc2026</text>
+</view>
+</view>

@@ -1,0 +1,8 @@
+<view class="container"><view class="st">常见问题解答</view>
+<block wx:for="{{faqs}}" wx:key="cat">
+<view class="dept-h4" style="margin-top:24rpx;margin-bottom:12rpx">{{item.cat}}</view>
+<view class="faq-item" wx:for="{{item.items}}" wx:for-item="q" wx:key="q">
+<view class="faq-q" bindtap="toggle" data-cat="{{index}}" data-idx="{{qidx}}">{{q.q}} <text>{{openCats[index]===qidx?'−':'+'}}</text></view>
+<view class="faq-a" wx:if="{{openCats[index]===qidx}}">{{q.a}}</view>
+</view>
+</block></view>

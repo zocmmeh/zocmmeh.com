@@ -1,0 +1,7 @@
+<view class="container"><view class="st">专家团队</view>
+<view class="doc-card" wx:for="{{docs}}" wx:key="name">
+<view class="doc-avatar">{{item.initial}}</view>
+<view style="flex:1">
+<view class="doc-name">{{item.name}}</view><view class="doc-title">{{item.title}}</view>
+<view class="doc-exp">{{item.exp}}</view><view class="doc-sched">{{item.sched}}</view>
+</view></view></view>

@@ -1,0 +1,56 @@
+<view class="container">
+<view class="ai-tabs" style="margin:0 -24rpx 0;padding-top:0">
+<view class="ai-tab {{ct==='triage'?'active':''}}" bindtap="switchTab" data-tab="triage">预问诊挂号</view>
+<view class="ai-tab {{ct==='payment'?'active':''}}" bindtap="switchTab" data-tab="payment">缴费指引</view>
+<view class="ai-tab {{ct==='waiting'?'active':''}}" bindtap="switchTab" data-tab="waiting">诊间候诊</view>
+<view class="ai-tab {{ct==='navi'?'active':''}}" bindtap="switchTab" data-tab="navi">医院导航</view>
+<view class="ai-tab {{ct==='followup'?'active':''}}" bindtap="switchTab" data-tab="followup">复诊提醒</view>
+</view>
+
+<view class="ai-body">
+<view wx:if="{{ct==='triage'}}">
+<view class="ai-hint">请描述您的症状，AI将为您推荐合适的科室：</view>
+<textarea class="ai-textarea" placeholder="例如：眼睛看东西模糊、干涩疼痛..." />
+<button class="btn-p" bindtap="showToast">获取推荐科室</button>
+<view class="ai-tags" style="margin-top:24rpx">
+<view class="ai-tag" bindtap="goDept">👁 视力模糊</view>
+<view class="ai-tag" bindtap="goDept">😕 眼睛疼痛</view>
+<view class="ai-tag" bindtap="goDept">🐚 眼睛干涩</view>
+<view class="ai-tag" bindtap="goDept">👶 儿童视力</view>
+<view class="ai-tag" bindtap="goDept">👴 老人眼病</view>
+<view class="ai-tag" bindtap="goDept">✨ 眼部美容</view>
+</view>
+</view>
+
+<view wx:if="{{ct==='payment'}}">
+<view class="card"><view class="dept-name">🏋 自费缴费</view><view style="font-size:26rpx;color:var(--tl)">支持微信、支付宝、银行卡、现金</view></view>
+<view class="card"><view class="dept-name">🉎 医保结算</view><view style="font-size:26rpx;color:var(--tl)">持医保卡/电子凭证至窗口办理</view></view>
+<view class="card"><view class="dept-name">📱 在线缴费</view><view style="font-size:26rpx;color:var(--tl)">小程序内完成缴费，无需排队</view></view>
+<view class="card"><view class="dept-name">📒 发票打印</view><view style="font-size:26rpx;color:var(--tl)">一楼收费处自助机或窗口打印</view></view>
+</view>
+
+<view wx:if="{{ct==='waiting'}}">
+<view class="card"><view class="dept-name">⏰ 候诊提示</view><view style="font-size:26rpx;color:var(--tl)">请耐心等待，关注叫号屏幕显示。</view></view>
+<view class="card"><view class="dept-name">📢 叫号规则</view><view style="font-size:26rpx;color:var(--tl)">过号请至分诊台重新登记，顺延3位。</view></view>
+<view class="card"><view class="dept-name">📱 预计等候</view><view style="font-size:26rpx;color:var(--tl)">可在小程序查看候诊人数和预计时间。</view></view>
+</view>
+
+<view wx:if="{{ct==='navi'}}" class="g2">
+<view class="g2-item" bindtap="goGuide"><view class="g2c"><view class="g2c-icon">📍</view><view class="g2c-text">楼层导航</view></view></view>
+<view class="g2-item"><view class="g2c"><view class="g2c-icon">🏠</view><view class="g2c-text">1F 入口</view></view></view>
+<view class="g2-item"><view class="g2c"><view class="g2c-icon">🏥</view><view class="g2c-text">2F 门诊</view></view></view>
+<view class="g2-item"><view class="g2c"><view class="g2c-icon">⭐</view><view class="g2c-text">3F 特需</view></view></view>
+<view class="g2-item"><view class="g2c"><view class="g2c-icon">👁</view><view class="g2c-text">4F 视光</view></view></view>
+<view class="g2-item"><view class="g2c"><view class="g2c-icon">🔮</view><view class="g2c-text">5F 眼后段</view></view></view>
+<view class="g2-item" style="width:100%;margin-top:8rpx"><view class="g2c" style="background:linear-gradient(135deg,#fffaf5,#fff);border:3rpx solid var(--a)"><view class="g2c-icon">⭐</view><view class="g2c-text" style="font-size:30rpx">8F 飞秒中心★</view></view></view>
+<view class="g2-item"><view class="g2c"><view class="g2c-icon">🛏</view><view class="g2c-text">12F 住院</view></view></view>
+<view class="g2-item"><view class="g2c" style="background:linear-gradient(135deg,#fffbf0,#fff);border:2rpx solid #b8860b"><view class="g2c-icon">👑</view><view class="g2c-text">15F VIP</view></view></view>
+</view>
+
+<view wx:if="{{ct==='followup'}}">
+<view class="card"><view class="dept-name">📅 复诊提醒</view><view style="font-size:26rpx;color:var(--tl)">出院后请按医嘱定期复查：术后1周、1个月、3个月、6个月。</view></view>
+<view class="card"><view class="dept-name">💊 用药指导</view><view style="font-size:26rpx;color:var(--tl)">请严格遵医嘱用药，不可自行停药或调整剂量。</view></view>
+<view class="card"><view class="dept-name">⚠ 注意事项</view><view style="font-size:26rpx;color:var(--tl)">术后避免揉眼、剧烈运动、游泳，保持眼部清洁。</view></view>
+<view class="card"><view class="dept-name">📞 如有异常</view><view style="font-size:26rpx;color:var(--tl)">视力突然下降、眼红眼痛加重，请立即来院急诊。</view></view>
+</view>
+</view></view>

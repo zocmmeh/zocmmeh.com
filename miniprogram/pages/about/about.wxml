@@ -1,0 +1,10 @@
+<view class="container">
+<view class="hero-bl"><view class="h1">中山大学中山眼科中心茂名医院</view><view class="p">Maoming Eye Hospital — 国家级眼科平台落户茂名</view></view>
+<view class="date-card"><text>📅 开业时间：2026年10月\n</text><text>📋 签订时间：2026年12月</text></view>
+<view class="card" style="border-left:8rpx solid var(--a)">
+<view class="dept-name">医院简介</view>
+<view style="font-size:26rpx;color:var(--tl);line-height:1.8;margin-top:16rpx">依托中山大学中山眼科中心的优质医疗资源和先进管理经验，致力于为茂名及周边地区患者提供高水平的眼科诊疗服务。</view>
+<view style="font-size:26rpx;color:var(--tl);line-height:1.8;margin-top:16rpx">配备全飞秒激光系统、光学相干断层扫描仪(OCT)、超声乳化仪等尖端仪器。设有白内障科、青光眼科、眼底病科、近视激光治疗科、小儿眼病科、眼整形与泪道科六大专科，以及独立的激光近视治疗中心（8F）和9间标准手术室。</view>
+</view>
+<view class="motto-box"><view class="motto-text">善良 · 求真 · 创新</view><view style="color:var(--tl);margin-top:20rpx;font-size:26rpx">— 中山大学中山眼科中心院训 —</view></view>
+</view>
