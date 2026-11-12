@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>百度收录行动方案 — 中山大学中山眼科中心茂名医院官网</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif;color:#1f2937;background:#f5f7fa;line-height:1.7;padding:32px 16px}
+.container{max-width:960px;margin:0 auto}
+h1{font-size:24px;color:#0f2540;margin-bottom:8px}
+.sub{color:#6b7280;font-size:14px;margin-bottom:28px}
+.panel{background:#fff;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.08);padding:28px;margin-bottom:24px}
+.panel h2{font-size:18px;color:#1a3a5c;margin-bottom:16px;padding-left:12px;border-left:4px solid #e8551a}
+.status{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.stat{background:#fff;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.08);padding:20px;text-align:center}
+.stat .v{font-size:26px;font-weight:700;color:#1a3a5c}
+.stat .v.ok{color:#16a34a}
+.stat .v.bad{color:#dc3545}
+.stat .l{font-size:13px;color:#6b7280;margin-top:6px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:#1a3a5c;color:#fff;padding:10px 12px;text-align:left;font-weight:600}
+td{padding:10px 12px;border-bottom:1px solid #e5e7eb;vertical-align:top}
+tr:nth-child(even) td{background:#f8fafc}
+.badge{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px;border-radius:12px}
+.b-now{background:#fff7ed;color:#c2410c}
+.b-week{background:#eff6ff;color:#2563eb}
+.b-long{background:#f0fdf4;color:#16a34a}
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:'';position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:#dbeafe}
+.tl-item{position:relative;margin-bottom:20px}
+.tl-item::before{content:'';position:absolute;left:-26px;top:6px;width:14px;height:14px;border-radius:50%;background:#e8551a;border:3px solid #fff;box-shadow:0 0 0 2px #e8551a}
+.tl-item h3{font-size:15px;color:#1a3a5c;margin-bottom:4px}
+.tl-item p{font-size:13.5px;color:#6b7280}
+code{background:#f1f5f9;border:1px solid #e5e7eb;border-radius:4px;padding:2px 6px;font-size:13px}
+.tips{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:14px 18px;font-size:13.5px;color:#92400e;margin-top:16px}
+@media(max-width:640px){.status{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>百度收录行动方案</h1>
+<p class="sub">中山大学中山眼科中心茂名医院官网（zocmmeh.com）· 2026-08-27 诊断</p>
+
+<div class="status">
+  <div class="stat"><div class="v ok">200</div><div class="l">网站在线（zocmmeh.com）</div></div>
+  <div class="stat"><div class="v bad">0</div><div class="l">百度收录（独立官网）</div></div>
+  <div class="stat"><div class="v bad">未备案</div><div class="l">域名 ICP 备案状态</div></div>
+</div>
+
+<div class="panel">
+<h2>现状诊断（2026-08-27 实测）</h2>
+<table>
+<tr><th>检查项</th><th>结果</th><th>说明</th></tr>
+<tr><td>网站可访问性</td><td>✅ 正常</td><td>https://zocmmeh.com 返回 200，HTTPS 正常，域名解析到 surge 美国节点</td></tr>
+<tr><td>线上内容版本</td><td>⚠️ 旧版</td><td>线上首页不含最新办院宗旨（粤西、桂东北部湾）与黑体样式，本地修改未部署</td></tr>
+<tr><td>robots.txt</td><td>❌ 缺失</td><td>已生成，需随下次部署上传</td></tr>
+<tr><td>sitemap.xml</td><td>❌ 缺失</td><td>已生成（20 个页面），需随下次部署上传</td></tr>
+<tr><td>百度收录提交</td><td>❌ 未提交</td><td>未在百度搜索资源平台添加站点</td></tr>
+<tr><td>域名备案</td><td>❌ 未备案</td><td>surge 海外托管 + 无备案 = 百度收录最大障碍</td></tr>
+<tr><td>外链</td><td>❌ 无</td><td>全网无任何站点链接到 zocmmeh.com</td></tr>
+</table>
+<div class="tips">💡 百度搜索"茂名市眼科医院"目前能搜到的只有：总院官网（gzzoc.org.cn）、签约新闻（南方都市报/中大校报/搜狐）、招聘平台信息——没有你的独立官网。</div>
+</div>
+
+<div class="panel">
+<h2>四层原因（按影响排序）</h2>
+<div class="timeline">
+  <div class="tl-item"><h3>1. 域名未备案 + 海外托管（根本原因）</h3><p>百度对未备案境外站点收录极不友好，大量站点长期零收录。公立医院官网要正式运营，备案 + 国内服务器是标配。</p></div>
+  <div class="tl-item"><h3>2. 从未主动提交收录</h3><p>新站必须到百度搜索资源平台（ziyuan.baidu.com）提交站点与 sitemap，否则只能等蜘蛛自然发现（1~3 个月+）。</p></div>
+  <div class="tl-item"><h3>3. 零外链</h3><p>总院官网、卫健系统、媒体报道中没有任何指向官网的链接，蜘蛛缺少发现入口。</p></div>
+  <div class="tl-item"><h3>4. 站点新 + 内容少 + 竞争强</h3><p>医院尚未开业，站内约 20 个静态页；搜索结果已被权威来源占据。</p></div>
+</div>
+</div>
+
+<div class="panel">
+<h2>分阶段行动清单</h2>
+<table>
+<tr><th>阶段</th><th>动作</th><th>费用/时间</th><th>说明</th></tr>
+<tr><td><span class="badge b-now">立即</span></td><td>部署最新版网站（含 robots.txt + sitemap.xml）</td><td>免费 / 10 分钟</td><td>surge ./ maoming_eye_hospital_design --domain zocmmeh.com</td></tr>
+<tr><td><span class="badge b-now">立即</span></td><td>百度搜索资源平台提交站点 + sitemap</td><td>免费 / 1 小时</td><td>ziyuan.baidu.com，普通收录提交</td></tr>
+<tr><td><span class="badge b-week">本周</span></td><td>360 / 搜狗 / 必应中国站长平台提交</td><td>免费</td><td>覆盖多个搜索入口</td></tr>
+<tr><td><span class="badge b-week">本周</span></td><td>建立外链：总院官网、公众号、本地媒体</td><td>免费（资源型）</td><td>一条权威外链价值极高</td></tr>
+<tr><td><span class="badge b-long">长期</span></td><td>域名 ICP 备案 + 迁国内服务器</td><td>300-600 元/年 + 2-4 周</td><td>收录提速的根本解法</td></tr>
+<tr><td><span class="badge b-long">长期</span></td><td>百度百科 / 地图标注 / 百家号认证</td><td>免费</td><td>让医院实体在百度生态立起来</td></tr>
+</table>
+</div>
+
+<div class="panel">
+<h2>预期时间线</h2>
+<table>
+<tr><th>动作完成后</th><th>预期效果</th></tr>
+<tr><td>提交 sitemap + robots（未备案）</td><td>1~4 周内可能收录首页，但排名极低、不稳定</td></tr>
+<tr><td>备案完成 + 国内服务器</td><td>2~4 周内正常收录，权重逐步累积</td></tr>
+<tr><td>持续更新内容 + 外链 + 百科/地图</td><td>3~6 个月后搜索"茂名市眼科医院"可见官网</td></tr>
+</table>
+<div class="tips">短期捷径：把医院关键信息做到百度百科、百度地图和微信公众号里——用户能搜到这些信息，也算"被找到"。</div>
+</div>
+
+</div>
+</body>
+</html>

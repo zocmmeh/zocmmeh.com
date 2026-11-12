@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>医院简介 - 中山大学中山眼科中心茂名医院</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--primary:#1a3a5c;--primary-dark:#0f2540;--primary-light:#2a6090;--accent:#e8551a;--accent-hover:#c94010;--text:#1f2937;--text-light:#6b7280;--bg:#f5f7fa;--white:#fff;--border:#e5e7eb;--shadow:0 2px 12px rgba(0,0,0,.08)}
+body{font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Helvetica Neue",Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;min-width:1200px}
+a{text-decoration:none;color:inherit}
+.container{max-width:1400px;margin:0 auto;padding:0 20px}
+.header-top{background:#f0f4f8;border-bottom:1px solid var(--border);font-size:13px;color:var(--text-light);padding:6px 0}
+.header-top .container{display:flex;justify-content:space-between}
+.header-top a{color:var(--text-light);margin-left:16px;transition:color .2s}
+.header-top a:hover{color:var(--primary)}
+.header-main{background:var(--white);border-bottom:1px solid var(--border);box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.header-main .container{display:flex;align-items:center;height:80px;gap:24px}
+.header-logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.header-logo img{height:52px}
+.header-logo-cn{font-size:20px;font-weight:700;color:var(--primary);letter-spacing:.5px;white-space:nowrap}
+.header-logo-en{font-size:11px;color:var(--text-light);letter-spacing:1px;text-transform:uppercase}
+.header-logo-text{display:flex;flex-direction:column}
+.header-search{flex:1;max-width:400px;position:relative}
+.header-search input{width:100%;padding:10px 44px 10px 16px;border:2px solid var(--border);border-radius:20px;font-size:14px;outline:none}
+.header-search button{position:absolute;right:4px;top:50%;transform:translateY(-50%);background:var(--primary-light);color:#fff;border:none;width:34px;height:34px;border-radius:50%;cursor:pointer}
+.main-nav{background:var(--primary);box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.main-nav .container{display:flex}
+.main-nav a{color:rgba(255,255,255,.9);padding:14px 24px;font-size:15px;font-weight:500;display:block;transition:all .2s;border-bottom:3px solid transparent;white-space:nowrap}
+.main-nav a:hover,.main-nav a.active{color:#fff;background:rgba(255,255,255,.08);border-bottom-color:var(--accent)}
+.page-banner{background:linear-gradient(135deg,#1a3a5c,#0f2540);color:#fff;padding:60px 0;text-align:center}
+.page-banner h1{font-size:32px;font-weight:700;margin-bottom:8px}
+.page-banner p{font-size:14px;opacity:.8}
+.breadcrumb{background:#fff;border-bottom:1px solid var(--border);font-size:13px;color:var(--text-light);padding:12px 0}
+.breadcrumb a{color:var(--primary-light)}
+.content-section{padding:48px 0}
+.content-grid{display:grid;grid-template-columns:280px 1fr;gap:40px}
+.sidebar{background:var(--white);border-radius:8px;box-shadow:var(--shadow);padding:0;overflow:hidden;position:sticky;top:100px}
+.sidebar h3{background:var(--primary);color:#fff;padding:16px 20px;font-size:17px;font-weight:600}
+.sidebar a{display:block;padding:14px 20px;font-size:14px;color:var(--text);border-bottom:1px solid var(--border);transition:all .2s}
+.sidebar a:hover,.sidebar a.active{color:var(--accent);background:#fff7ed;padding-left:24px}
+.sidebar a.active{border-left:3px solid var(--accent);font-weight:600}
+.main-content{background:var(--white);border-radius:8px;box-shadow:var(--shadow);padding:36px 40px;min-height:600px}
+.main-content h2{font-size:24px;color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--border)}
+.main-content h3{font-size:18px;color:var(--primary);margin:24px 0 12px}
+.main-content p{font-size:15px;color:var(--text);line-height:1.9;margin-bottom:16px}
+.main-content ul,.main-content ol{padding-left:24px;margin-bottom:16px}
+.main-content li{font-size:15px;line-height:2}
+.highlight-box{background:#eff6ff;border-left:4px solid var(--primary-light);padding:20px 24px;border-radius:0 8px 8px 0;margin:24px 0}
+.highlight-box p{font-size:15px;line-height:1.8;margin-bottom:0;color:var(--primary)}
+.info-card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:20px 0}
+.info-card{background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:20px 24px;transition:all .2s}
+.info-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.06);transform:translateY(-1px)}
+.info-card-icon{font-size:28px;margin-bottom:8px}
+.info-card h4{font-size:16px;font-weight:700;color:var(--primary);margin-bottom:6px}
+.info-card p{font-size:14px;color:var(--text-light);line-height:1.6;margin-bottom:0}
+.honor-item{display:flex;align-items:center;gap:14px;padding:16px 20px;background:#f8fafc;border-radius:10px;margin-bottom:12px;border:1px solid var(--border)}
+.honor-icon{width:44px;height:44px;background:var(--primary);color:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.honor-text h5{font-size:15px;color:var(--primary);margin-bottom:2px}
+.honor-text span{font-size:13px;color:var(--text-light)}
+.org-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:20px}
+.org-section h3{font-size:17px;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.org-section h3::before{content:'';width:6px;height:22px;background:var(--accent);border-radius:3px}
+.org-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.org-chip{background:#f1f5f9;padding:10px 16px;border-radius:8px;font-size:14px;color:var(--text);text-align:center;border:1px solid var(--border)}
+.milestone-list{position:relative;padding-left:30px;margin:20px 0}
+.milestone-list::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:3px;background:var(--border);border-radius:2px}
+.milestone-item{position:relative;margin-bottom:24px;padding-left:20px}
+.milestone-item::before{content:'';position:absolute;left:-24px;top:6px;width:14px;height:14px;background:var(--accent);border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 3px var(--accent)}
+.milestone-date{font-size:14px;font-weight:700;color:var(--accent);margin-bottom:4px}
+.milestone-date,.milestone-desc{font-size:15px;color:var(--text);line-height:1.7}
+.footer{background:var(--primary-dark);color:rgba(255,255,255,.7);padding:48px 0 0;margin-top:48px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px}
+.footer-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.footer-logo img{height:40px}
+.footer-logo span{font-size:18px;font-weight:700;color:#fff}
+.footer-info p{font-size:13px;line-height:2}
+.footer h4{font-size:15px;font-weight:600;color:#fff;margin-bottom:16px}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:10px}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.6)}
+.footer-links a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding:20px 0;text-align:center;font-size:12px;color:rgba(255,255,255,.4)}
+.amodal-o{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99999;justify-content:center;align-items:center}.amodal-o.show{display:flex}.amodal{background:#fff;border-radius:12px;padding:32px;width:360px;box-shadow:0 20px 60px rgba(0,0,0,.3)}.amodal h3{font-size:18px;margin-bottom:20px;color:#1f2937}.ainput-pwd{width:100%;padding:10px 14px;border:2px solid #e5e7eb;border-radius:8px;font-size:15px;outline:none;font-family:inherit}.aerr{color:#dc3545;font-size:13px;margin-top:8px;display:none}.abtns{display:flex;gap:10px;margin-top:20px;justify-content:flex-end}.abtn-cancel{background:#f1f5f9;border:none;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:14px}.abtn-confirm{background:#1a3a5c;color:#fff;border:none;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:14px}.admin-mode .aed{cursor:text;transition:background .15s}.asave{position:fixed;bottom:24px;right:24px;z-index:99998;background:#1a3a5c;color:#fff;border:none;padding:12px 24px;border-radius:25px;font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.2);display:none}
+@media(max-width:1200px){body{min-width:auto}.content-grid{grid-template-columns:1fr}.info-card-grid{grid-template-columns:1fr}.org-grid{grid-template-columns:1fr}.org-list{grid-template-columns:1fr}.footer-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="header-top"><div class="container"><span>欢迎访问中山大学中山眼科中心茂名医院</span><div><a href="index.html">首页</a><a href="contact.html">联系我们</a></div></div></div>
+<div class="header-main"><div class="container"><div class="header-logo"><img src="img/zoc-logo.png" alt="院徽"><div class="header-logo-text"><span class="header-logo-cn">中山大学中山眼科中心茂名医院</span><span class="header-logo-en">Maoming Eye Hospital</span></div></div><div class="header-search"><input type="text" placeholder="搜索科室、专家、疾病..."><button>&#x1F50D;</button></div><div class="header-links" style="display:flex;gap:20px;font-size:14px;flex-shrink:0"><a href="guide.html">就医指南</a><a href="appointment.html">预约挂号</a><a href="consultation.html">在线问诊</a></div></div></div>
+<div class="main-nav"><div class="container"><a href="index.html">首页</a><a href="about.html" class="active">医院概况</a><a href="departments.html">科室导航</a><a href="doctors.html">专家介绍</a><a href="guide.html">就医指南</a><a href="appointment.html">预约挂号</a><a href="consultation.html">在线问诊</a><a href="index.html#news">新闻中心</a><a href="contact.html">联系我们</a><button id="adminToggle" title="管理员" style="margin-left:auto;background:none;border:none;color:rgba(255,255,255,.7);font-size:18px;cursor:pointer;padding:10px 16px">&#x2699;&#xFE0F;</button></div></div>
+<div class="page-banner"><h1>医院概况</h1><p>了解中山大学中山眼科中心茂名医院</p></div>
+<div class="breadcrumb"><div class="container"><a href="index.html">首页</a> &gt; <a href="about.html">医院概况</a> &gt; 医院简介</div></div>
+<div class="content-section"><div class="container"><div class="content-grid">
+<div class="sidebar"><h3>医院概况</h3>
+<a href="about-intro.html" class="active">医院简介</a>
+<a href="about-history.html">发展历程</a>
+<a href="about-leader.html">领导团队</a>
+<a href="about-honor.html">荣誉资质</a>
+<a href="about-org.html">组织架构</a>
+</div>
+<div class="main-content">
+<h2>医院简介</h2>
+<p>中山大学中山眼科中心茂名医院是由中山大学中山眼科中心与茂名市人民政府合作共建的眼科专科医院，依托中山大学中山眼科中心（国内眼科领域排名第一）的技术、人才和管理优势，致力于打造粤西地区眼科医疗新高地。</p>
+<div class="info-card-grid">
+<div class="info-card"><div class="info-card-icon">&#x1F3E5;</div><h4>建筑规模</h4><p>总建筑面积约1.2万㎡，楼高17层，设置床位150张</p></div>
+<div class="info-card"><div class="info-card-icon">&#x2695;&#xFE0F;</div><h4>技术输出</h4><p>中山大学中山眼科中心全面技术和管理输出</p></div>
+<div class="info-card"><div class="info-card-icon">&#x1F4CD;</div><h4>医院地址</h4><p>茂名市茂南区双山一路健康南路</p></div>
+<div class="info-card"><div class="info-card-icon">&#x1F4E1;</div><h4>服务定位</h4><p>打造粤西地区眼科医疗新高地</p></div>
+</div>
+<div class="highlight-box"><p><strong>&#x1F3AF; 办院宗旨：</strong>让茂名百姓在家门口享受国家级眼科医疗服务。</p></div>
+<h3>科室设置</h3>
+<p>医院设有白内障科、青光眼科、眼底病科、近视激光治疗科、小儿眼病科、角膜病科、眼整形科、屈光手术中心等临床科室，以及检验科、影像科、药剂科等医技科室，覆盖眼科全领域疾病诊疗。</p>
+<h3>设备配置</h3>
+<p>配备国际一流的眼科诊疗设备，包括全飞秒激光手术系统、光学相干断层扫描仪（OCT）、超声乳化仪、眼底激光治疗仪等先进设备。</p></div></div></div></div>
+<div class="footer"><div class="container"><div class="footer-grid">
+<div><div class="footer-logo"><img src="img/zoc-logo.png" alt="院徽"><span>中山大学中山眼科中心茂名医院</span></div><div class="footer-info"><p>&#x1F4CD; 茂名市茂南区双山一路健康南路茂名市眼科医院</p><p>&#x260E; 电话：19106669310（李老师）</p></div></div>
+<div><h4>就诊服务</h4><ul class="footer-links"><li><a href="appointment.html">预约挂号</a></li><li><a href="reports.html">报告查询</a></li><li><a href="consultation.html">在线问诊</a></li><li><a href="guide.html">就医指南</a></li></ul></div>
+<div><h4>医院信息</h4><ul class="footer-links"><li><a href="about-intro.html">医院简介</a></li><li><a href="departments.html">科室介绍</a></li><li><a href="doctors.html">专家团队</a></li><li><a href="contact.html">联系我们</a></li></ul></div>
+<div><h4>关注我们</h4><div style="text-align:center"><div style="width:120px;height:120px;background:#fff;border-radius:8px;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:40px">&#x1F4F1;</div><p style="font-size:12px;color:rgba(255,255,255,.5)">微信公众号</p></div></div>
+</div></div><div class="footer-bottom"><div class="container"><p>&copy; 中山大学中山眼科中心茂名医院 | 地址：茂名市茂南区双山一路健康南路 | 电话：19106669310（李老师）</p></div></div></div>
+<script>
+var ADMPWD=(function(){try{var a=JSON.parse(localStorage.getItem("zoc_a…_v4")||"{}");var f=a.admins?a.admins.filter(function(x){return x.active}):[];return f.length>0?f[0].pwd:"zoc00009"}catch(e){return"zoc00009"}})();var ASK="zoc_admin_auth_v2";
+var AEDS="h1,h2,h3,h4,h5,h6,p,span,a,li,td,th,label,strong,em,b,i,small,.footer-info p,.main-content p,.main-content h3,.highlight-box p,.info-card p,.info-card h4,.milestone-desc,.org-chip,.honor-text span";
+function aid(){var p=(location.pathname.split("/").pop()||"index.html").split("?")[0];document.querySelectorAll(AEDS).forEach(function(e,i){if(e.closest&&e.closest("#amo"))return;if(!e.dataset.eid)e.dataset.eid=p+"-"+i})}
+function isL(){try{var a=JSON.parse(localStorage.getItem(ASK)||"{}");return a.t&&Date.now()-a.t<86400000}catch(e){return false}}
+(function(){var d=document.createElement("div");d.className="amodal-o";d.id="amo";d.innerHTML="<div class=\"amodal\"><h3>\u7BA1\u7406\u5458\u767B\u5F55</h3><input type=password id=ap class=\"ainput-pwd\" placeholder=\u5BC6\u7801 autocomplete=off><p id=ae class=aerr>\u5BC6\u7801\u9519\u8BEF</p><div class=abtns><button class=abtn-cancel id=ac>\u53D6\u6D88</button><button class=abtn-confirm id=afc>\u786E\u8BA4</button></div></div>";document.body.appendChild(d);document.getElementById("afc").onclick=function(){if(document.getElementById("ap").value===ADMPWD){localStorage.setItem(ASK,JSON.stringify({t:Date.now()}));d.classList.remove("show");edOn()}else{document.getElementById("ae").style.display="block"}};document.getElementById("ac").onclick=function(){d.classList.remove("show")};document.getElementById("ap").onkeydown=function(e){if(e.key==="Enter")document.getElementById("afc").click()};var t=document.getElementById("adminToggle");if(t){t.onclick=function(){if(document.body.classList.contains("am"))eo();else if(isL())edOn();else{d.classList.add("show");document.getElementById("ap").value="";document.getElementById("ae").style.display="none"}}};})();
+function edOn(){document.body.classList.add("am");aid();var c=0;document.querySelectorAll(AEDS).forEach(function(e,i){if(e.closest&&e.closest("#amo"))return;e.contentEditable="true";e.classList.add("aed");if(!e.dataset.eid)e.dataset.eid=(location.pathname.split("/").pop()||"index.html").split("?")[0]+"-"+i;e.addEventListener("input",function(){e.style.background="rgba(252,128,47,.12)"});c++});var b=document.getElementById("asb");if(!b){b=document.createElement("button");b.id="asb";b.className="asave";b.textContent="\uD83D\uDCBE \u4FDD\u5B58";document.body.appendChild(b)}b.onclick=function(){var n=0;document.querySelectorAll(".aed").forEach(function(e){n++});eo();showT("\u2705 \u5DF2\u4FDD\u5B58 "+n+" \u9879\u4FEE\u6539")};b.style.display="block";showT("\u2705 \u7F16\u8F91\u6A21\u5F0F\uFF0C"+c+"\u4E2A\u5143\u7D20\u53EF\u7F16\u8F91")}
+function eo(){document.body.classList.remove("am");document.querySelectorAll(".aed").forEach(function(e){e.contentEditable="false";e.classList.remove("aed");e.style.background=""});var b=document.getElementById("asb");if(b)b.style.display="none";var t=document.getElementById("adminToggle");if(t)t.textContent="\u2699\uFE0F"}
+function showT(m){var t=document.getElementById("atm");if(!t){t=document.createElement("div");t.id="atm";t.style="position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:12px 24px;border-radius:25px;font-size:14px;z-index:99999;transition:all .3s;opacity:0;pointer-events:none;white-space:nowrap";document.body.appendChild(t)}t.textContent=m;t.style.opacity="1";clearTimeout(t._tt);t._tt=setTimeout(function(){t.style.opacity="0"},2500)}
+</script>
+</body></html>

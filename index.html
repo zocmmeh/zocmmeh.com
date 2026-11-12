@@ -19,158 +19,230 @@
   --white:#fff;
   --border:#e5e7eb;
   --shadow:0 2px 12px rgba(0,0,0,.08);
+  --shadow-lg:0 12px 32px rgba(15,37,64,.14);
   --radius:8px;
+  --radius-lg:14px;
 }
-body{font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Helvetica Neue",Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;min-width:1200px}
+html{scroll-behavior:smooth}
+body{font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Helvetica Neue",Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+button{font-family:inherit}
+.container{max-width:1400px;margin:0 auto;padding:0 24px}
 
-/* ===== Header ===== */
-.header-top{background:#f0f4f8;border-bottom:1px solid var(--border);font-size:13px;color:var(--text-light);padding:6px 0}
-.header-top .container{max-width:1400px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between}
-.header-top a{color:var(--text-light);margin-left:16px;transition:color .2s}
-.header-top a:hover{color:var(--primary)}
+/* ========== 顶部信息条 ========== */
+.header-top{background:var(--primary-dark);color:rgba(255,255,255,.75);font-size:13px}
+.header-top .container{display:flex;justify-content:space-between;align-items:center;height:36px;gap:16px}
+.header-top .ht-left{display:flex;align-items:center;gap:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.header-top .ht-right{display:flex;align-items:center;gap:18px;white-space:nowrap;flex-shrink:0}
+.header-top .ht-right a{color:rgba(255,255,255,.75);transition:color .2s}
+.header-top .ht-right a:hover{color:var(--accent)}
+.ht-phone{color:#fff;font-weight:600;letter-spacing:.5px}
+.ht-phone b{color:var(--accent);font-weight:700}
 
-.header-main{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-.header-main .container{max-width:1400px;margin:0 auto;padding:0 20px;display:flex;align-items:center;height:80px;gap:24px}
+/* ========== 主头部（含导航，整体吸顶） ========== */
+.site-header{position:sticky;top:0;z-index:1000;background:var(--white);box-shadow:0 2px 12px rgba(15,37,64,.08)}
+.header-main .container{display:flex;align-items:center;height:76px;gap:28px}
 .header-logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.header-logo img{height:52px}
+.header-logo img{height:48px;width:auto}
 .header-logo-text{display:flex;flex-direction:column}
-.header-logo-cn{font-size:20px;font-weight:700;color:var(--primary);letter-spacing:.5px;white-space:nowrap}
-.header-logo-en{font-size:11px;color:var(--text-light);letter-spacing:1px;text-transform:uppercase}
+.header-logo-cn{font-size:19px;font-weight:700;color:var(--primary);letter-spacing:.5px;white-space:nowrap}
+.header-logo-en{font-size:10.5px;color:var(--text-light);letter-spacing:1.5px;text-transform:uppercase}
 
-.header-search{flex:1;max-width:400px;position:relative}
-.header-search input{width:100%;padding:10px 44px 10px 16px;border:2px solid var(--border);border-radius:20px;font-size:14px;outline:none;transition:border .2s}
-.header-search input:focus{border-color:var(--primary-light)}
-.header-search button{position:absolute;right:4px;top:50%;transform:translateY(-50%);background:var(--primary-light);color:#fff;border:none;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:16px}
+.header-search{flex:1;max-width:360px;position:relative}
+.header-search input{width:100%;padding:9px 42px 9px 16px;border:2px solid var(--border);border-radius:22px;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s;background:#f8fafc}
+.header-search input:focus{border-color:var(--primary-light);background:#fff;box-shadow:0 0 0 3px rgba(42,96,144,.12)}
+.header-search button{position:absolute;right:4px;top:50%;transform:translateY(-50%);background:var(--primary-light);color:#fff;border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:15px;transition:background .2s}
 .header-search button:hover{background:var(--primary)}
 
-.header-links{display:flex;align-items:center;gap:20px;font-size:14px;flex-shrink:0}
-.header-links a{color:var(--text);transition:color .2s}
-.header-links a:hover{color:var(--primary-light)}
-.header-links .lang{border:1px solid var(--border);padding:4px 12px;border-radius:4px;font-size:13px}
+.header-actions{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.header-tel{display:flex;align-items:center;gap:10px;padding-right:14px;border-right:1px solid var(--border)}
+.header-tel .tel-icon{width:38px;height:38px;border-radius:50%;background:#fff7ed;color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.header-tel .tel-text{font-size:11px;color:var(--text-light);line-height:1.3}
+.header-tel .tel-text b{display:block;font-size:15px;color:var(--primary);letter-spacing:.5px}
+.cta-btn{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;padding:10px 22px;border-radius:22px;font-size:14px;font-weight:600;transition:background .2s,transform .15s;white-space:nowrap}
+.cta-btn:hover{background:var(--accent-hover);transform:translateY(-1px)}
+.cta-icon{font-size:16px;line-height:1}
+.cta-text{font-size:14px}
 
-/* ===== Nav ===== */
-.main-nav{background:var(--primary);position:sticky;top:81px;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,.15)}
-.main-nav .container{max-width:1400px;margin:0 auto;padding:0 20px;display:flex}
-.main-nav a{color:rgba(255,255,255,.9);padding:14px 24px;font-size:15px;font-weight:500;display:block;transition:all .2s;border-bottom:3px solid transparent;white-space:nowrap}
-.main-nav a:hover,.main-nav a.active{color:#fff;background:rgba(255,255,255,.08);border-bottom-color:var(--accent)}
+/* 汉堡按钮（移动端） */
+.nav-toggle{display:none;background:none;border:1px solid var(--border);border-radius:8px;width:42px;height:42px;cursor:pointer;position:relative;flex-shrink:0}
+.nav-toggle span{display:block;width:20px;height:2px;background:var(--primary);margin:4px auto;border-radius:2px;transition:transform .25s,opacity .25s}
+.nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
-/* ===== Hero Slider ===== */
-.hero{position:relative;overflow:hidden;height:420px}
+/* ========== 主导航 ========== */
+.main-nav{background:var(--primary)}
+.main-nav .container{display:flex;align-items:center;min-height:46px}
+.main-nav a{color:rgba(255,255,255,.88);padding:13px 22px;font-size:14.5px;font-weight:500;display:block;transition:background .2s,color .2s;border-bottom:3px solid transparent;white-space:nowrap}
+.main-nav a:hover,.main-nav a.active{color:#fff;background:rgba(255,255,255,.09);border-bottom-color:var(--accent)}
+#adminToggle{margin-left:auto;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:13px;cursor:pointer;padding:5px 14px;border-radius:6px;font-weight:600;white-space:nowrap;transition:background .2s}
+#adminToggle:hover{background:rgba(255,255,255,.22)}
+
+/* ========== Hero 轮播 ========== */
+.hero{position:relative;overflow:hidden;height:440px}
 .hero-slides{display:flex;height:100%;transition:transform .6s ease}
 .hero-slide{min-width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative}
-.hero-slide::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.25)}
-.slide-1{background:linear-gradient(135deg,#1a3a5c 0%,#0f2540 40%,#2a6090 100%)}
+.hero-slide::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(42,96,144,.55),rgba(15,37,64,.75) 70%)}
+.hero-slide::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 15% 85%,rgba(232,85,26,.25),transparent 45%)}
+.slide-1{background:linear-gradient(135deg,#1a3a5c 0%,#0f2540 45%,#2a6090 100%)}
 .slide-2{background:linear-gradient(135deg,#0f2540 0%,#1a5276 50%,#2a6090 100%)}
-.slide-3{background:linear-gradient(135deg,#2a6090 0%,#1a3a5c 50%,#0f2540 100%)}
-.hero-content{position:relative;z-index:1;text-align:center;color:#fff;max-width:800px;padding:0 40px}
-.hero-content h1{font-size:34px;font-weight:700;margin-bottom:16px;line-height:1.3;text-shadow:0 2px 8px rgba(0,0,0,.3)}
-.hero-content p{font-size:17px;opacity:.9;line-height:1.8;margin-bottom:28px}
-.hero-btn{display:inline-block;padding:12px 36px;background:var(--accent);color:#fff;border-radius:4px;font-size:16px;font-weight:600;transition:background .2s}
-.hero-btn:hover{background:var(--accent-hover)}
-.hero-dots{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:2}
-.hero-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:background .3s}
-.hero-dot.active{background:var(--accent)}
+.slide-3{background:linear-gradient(135deg,#2a6090 0%,#1a3a5c 55%,#0f2540 100%)}
+/* 眼科主题装饰：眼睛轮廓 SVG */
+.slide-deco{position:absolute;right:6%;top:50%;transform:translateY(-50%);width:280px;height:200px;opacity:.16;pointer-events:none}
+.slide-deco svg{width:100%;height:100%}
+.hero-content{position:relative;z-index:1;text-align:center;color:#fff;max-width:780px;padding:0 32px}
+.hero-tag{display:inline-block;background:rgba(232,85,26,.9);color:#fff;font-size:12.5px;font-weight:600;letter-spacing:2px;padding:5px 16px;border-radius:20px;margin-bottom:18px}
+.hero-content h1{font-size:36px;font-weight:700;margin-bottom:14px;line-height:1.35;text-shadow:0 2px 10px rgba(0,0,0,.35)}
+.hero-content p{font-size:16px;opacity:.92;line-height:1.9;margin-bottom:30px}
+.hero-slogan{font-family:"SimHei","黑体","Heiti SC","Microsoft YaHei",sans-serif;font-weight:700;letter-spacing:.5px;opacity:1}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero-btn{display:inline-block;padding:12px 34px;background:var(--accent);color:#fff;border-radius:26px;font-size:15px;font-weight:600;transition:background .2s,transform .15s;box-shadow:0 6px 20px rgba(232,85,26,.35)}
+.hero-btn:hover{background:var(--accent-hover);transform:translateY(-2px)}
+.hero-btn.ghost{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.55);box-shadow:none}
+.hero-btn.ghost:hover{background:rgba(255,255,255,.24)}
+.hero-dots{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:2}
+.hero-dot{width:26px;height:5px;border-radius:3px;background:rgba(255,255,255,.35);cursor:pointer;transition:background .3s,width .3s}
+.hero-dot.active{background:var(--accent);width:36px}
 
-/* ===== Quick Search Bar ===== */
-.searchbar{max-width:1400px;margin:-40px auto 0;padding:0 20px;position:relative;z-index:10}
-.searchbar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;background:var(--white);border-radius:8px;padding:24px 20px;box-shadow:var(--shadow)}
-.searchbar-item{display:flex;align-items:center;gap:14px;padding:12px 16px;border-radius:8px;cursor:pointer;transition:all .2s;border:1px solid transparent}
-.searchbar-item:hover{background:#f8fafc;border-color:#dbeafe}
-.searchbar-icon{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-.si-blue{background:#eff6ff;color:#2563eb}
-.si-green{background:#f0fdf4;color:#16a34a}
-.si-orange{background:#fff7ed;color:var(--accent)}
-.si-purple{background:#f5f3ff;color:#7c3aed}
-.searchbar-text h4{font-size:15px;font-weight:600;color:var(--text);margin-bottom:2px}
-.searchbar-text p{font-size:12px;color:var(--text-light)}
+/* ========== 快捷就医（悬浮卡片） ========== */
+.quickbar{max-width:1400px;margin:-52px auto 0;padding:0 24px;position:relative;z-index:20}
+.quickbar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.quickbar-item{display:flex;align-items:center;gap:14px;padding:18px 20px;border-radius:var(--radius-lg);cursor:pointer;transition:transform .2s,box-shadow .2s;border:1px solid rgba(229,231,235,.6);background:var(--white);box-shadow:var(--shadow-lg)}
+.quickbar-item:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(15,37,64,.16)}
+.quickbar-icon{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.qi-blue{background:#eff6ff;color:#2563eb}
+.qi-green{background:#f0fdf4;color:#16a34a}
+.qi-orange{background:#fff7ed;color:var(--accent)}
+.qi-purple{background:#f5f3ff;color:#7c3aed}
+.quickbar-text h4{font-size:15.5px;font-weight:600;color:var(--text);margin-bottom:3px}
+.quickbar-text p{font-size:12.5px;color:var(--text-light);line-height:1.5}
+.quickbar-arrow{margin-left:auto;color:var(--text-light);font-size:18px;opacity:.5;transition:opacity .2s,transform .2s;flex-shrink:0}
+.quickbar-item:hover .quickbar-arrow{opacity:1;transform:translateX(3px);color:var(--accent)}
 
-/* ===== Section ===== */
-.section{padding:48px 0}
+/* ========== 高频信息带 ========== */
+.info-strip{background:var(--white);border-bottom:1px solid var(--border)}
+.info-strip .container{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.info-item{display:flex;align-items:center;gap:14px;padding:20px 24px;border-left:1px solid var(--border);min-height:78px}
+.info-item:first-child{border-left:none}
+.info-item .info-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;background:#f8fafc;border:1px solid var(--border);flex-shrink:0}
+.info-item h5{font-size:13px;color:var(--text-light);font-weight:500;margin-bottom:3px}
+.info-item p{font-size:14px;color:var(--text);font-weight:600;line-height:1.45}
+
+/* ========== 通用区块 ========== */
+.section{padding:56px 0}
 .section-gray{background:#f8fafc}
-.container{max-width:1400px;margin:0 auto;padding:0 20px}
-.section-title{text-align:center;margin-bottom:40px}
-.section-title h2{font-size:28px;font-weight:700;color:var(--primary);margin-bottom:8px}
-.section-title p{font-size:15px;color:var(--text-light)}
-.section-title::after{content:'';display:block;width:60px;height:3px;background:var(--accent);margin:16px auto 0}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;gap:20px}
+.section-head h2{font-size:26px;font-weight:700;color:var(--primary);position:relative;padding-left:16px;line-height:1.4}
+.section-head h2::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:5px;border-radius:3px;background:var(--accent)}
+.section-head .sub{font-size:14px;color:var(--text-light);margin-top:4px}
+.section-more{font-size:13.5px;color:var(--text-light);white-space:nowrap;transition:color .2s}
+.section-more:hover{color:var(--accent)}
+.section-more::after{content:' \2192'}
+.section-head.center{flex-direction:column;align-items:center;text-align:center;gap:0}
+.section-head.center h2{padding-left:0}
+.section-head.center h2::before{display:none}
+.section-head.center h2::after{content:'';display:block;width:56px;height:3px;border-radius:2px;background:var(--accent);margin:12px auto 0}
+.section-head.center .sub{margin-top:10px}
 
-/* ===== Feature Grid ===== */
-.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.feature-card{background:var(--white);border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
-.feature-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
-.feature-card img{width:100%;height:160px;object-fit:cover;display:block}
-.feature-card-body{padding:20px}
-.feature-card-body h4{font-size:16px;font-weight:600;color:var(--primary);margin-bottom:6px}
-.feature-card-body p{font-size:13px;color:var(--text-light);line-height:1.6}
-.feature-card-body a{display:inline-block;margin-top:10px;color:var(--primary-light);font-size:13px;font-weight:500}
+/* ========== 为您服务 ========== */
+.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.feature-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.feature-card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(15,37,64,.14)}
+.feature-cover{height:150px;display:flex;align-items:center;justify-content:center;font-size:46px;position:relative;overflow:hidden}
+.feature-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(15,37,64,.18))}
+.fc-1{background:linear-gradient(135deg,#eff6ff,#dbeafe)}
+.fc-2{background:linear-gradient(135deg,#f0fdf4,#dcfce7)}
+.fc-3{background:linear-gradient(135deg,#f5f3ff,#ede9fe)}
+.fc-4{background:linear-gradient(135deg,#fff7ed,#fed7aa)}
+.feature-card-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.feature-card-body h4{font-size:16.5px;font-weight:600;color:var(--primary);margin-bottom:8px}
+.feature-card-body p{font-size:13.5px;color:var(--text-light);line-height:1.7;flex:1}
+.feature-card-body a{display:inline-flex;align-items:center;gap:4px;margin-top:14px;color:var(--primary-light);font-size:13.5px;font-weight:600;transition:color .2s}
 .feature-card-body a:hover{color:var(--accent)}
+.feature-card-body a::after{content:'\2192';transition:transform .2s}
+.feature-card-body a:hover::after{transform:translateX(3px)}
 
-/* ===== Tab Section ===== */
-.tab-nav{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:24px}
-.tab-btn{padding:12px 24px;font-size:15px;font-weight:600;cursor:pointer;border:none;background:none;color:var(--text-light);border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s}
+/* ========== 新闻中心 ========== */
+.tab-nav{display:flex;gap:4px;border-bottom:2px solid var(--border);margin-bottom:26px;flex-wrap:wrap}
+.tab-btn{padding:11px 22px;font-size:14.5px;font-weight:600;cursor:pointer;border:none;background:none;color:var(--text-light);border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .2s,border-color .2s}
 .tab-btn:hover{color:var(--primary)}
 .tab-btn.active{color:var(--primary);border-bottom-color:var(--accent)}
 .tab-content{display:none}
-.tab-content.active{display:block}
-.tab-left{flex:1;min-width:0}
-.tab-right{width:360px;flex-shrink:0}
-.tab-layout{display:flex;gap:32px}
+.tab-content.active{display:block;animation:fadeIn .35s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.tab-layout{display:grid;grid-template-columns:1fr 340px;gap:32px;align-items:start}
 .news-list{list-style:none}
-.news-list li{border-bottom:1px dashed var(--border);padding:14px 0;display:flex;align-items:center;gap:12px}
+.news-list li{border-bottom:1px dashed var(--border);padding:15px 4px;display:flex;align-items:center;gap:14px;transition:background .2s}
+.news-list li:hover{background:#f8fafc}
 .news-list li:last-child{border-bottom:none}
-.news-date{font-size:12px;color:var(--text-light);white-space:nowrap;min-width:70px}
-.news-title{font-size:15px;color:var(--text);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:color .2s}
+.news-badge{font-size:11px;font-weight:600;color:#c2410c;border:1px solid rgba(232,85,26,.4);background:#ffedd5;padding:2px 8px;border-radius:4px;white-space:nowrap;flex-shrink:0}
+.news-date{font-size:12.5px;color:var(--text-light);white-space:nowrap;min-width:74px}
+.news-title{font-size:14.5px;color:var(--text);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:color .2s}
 .news-title:hover{color:var(--primary-light)}
-.news-more{text-align:right;margin-top:16px}
-.news-more a{font-size:13px;color:var(--text-light)}
-.news-more a:hover{color:var(--accent)}
-
-/* ===== Notice Sidebar ===== */
-.notice-box{background:var(--white);border-radius:8px;padding:20px;box-shadow:var(--shadow);height:100%}
-.notice-box h4{font-size:16px;font-weight:600;color:var(--primary);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:6px}
-.notice-box h4::before{content:'';width:4px;height:18px;background:var(--accent);border-radius:2px}
-.notice-item{padding:12px 0;border-bottom:1px dashed var(--border)}
+.notice-box{background:var(--white);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow);position:sticky;top:150px}
+.notice-box-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.notice-box h4{font-size:16.5px;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:8px}
+.notice-box h4 .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(232,85,26,.18)}
+.notice-box-head a{font-size:12.5px;color:var(--text-light)}
+.notice-box-head a:hover{color:var(--accent)}
+.notice-item{display:flex;gap:12px;padding:13px 0;border-bottom:1px dashed var(--border);align-items:flex-start}
 .notice-item:last-child{border-bottom:none}
-.notice-item .ndate{font-size:11px;color:var(--text-light);margin-bottom:4px}
-.notice-item .ntitle{font-size:14px;line-height:1.5;transition:color .2s}
+.notice-item .ndate{font-size:11.5px;color:var(--text-light);margin-top:2px;flex-shrink:0}
+.notice-item .ntitle{font-size:14px;line-height:1.6;transition:color .2s}
 .notice-item .ntitle:hover{color:var(--primary-light)}
+.notice-item .narrow{display:flex;align-items:center;gap:12px}
+.notice-item .narrow .ntitle{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.notice-item .narrow .ndate{min-width:72px;margin:0;font-size:12px}
 
-/* ===== Showcase ===== */
-.showcase-layout{display:flex;gap:32px;align-items:center}
-.showcase-img{flex:1;border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
-.showcase-img img{width:100%;height:320px;object-fit:cover;display:block}
-.showcase-text{flex:1}
-.showcase-text h3{font-size:22px;font-weight:700;color:var(--primary);margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--border)}
-.showcase-text p{font-size:15px;color:var(--text-light);line-height:1.8;margin-bottom:20px}
-.showcase-text a{display:inline-block;padding:10px 28px;background:var(--accent);color:#fff;border-radius:4px;font-size:14px;font-weight:600;transition:background .2s}
-.showcase-text a:hover{background:var(--accent-hover)}
+/* ========== 医院特色 ========== */
+.showcase{background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 60%,#1a5276 100%);color:#fff;padding:64px 0;position:relative;overflow:hidden}
+.showcase::before{content:'';position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(232,85,26,.28),transparent 65%)}
+.showcase::after{content:'';position:absolute;left:-80px;bottom:-140px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(42,96,144,.5),transparent 65%)}
+.showcase .container{position:relative;z-index:1}
+.showcase-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.showcase-visual{border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35);height:340px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.18);flex-direction:column;gap:14px}
+.showcase-visual .sv-icon{font-size:72px;filter:drop-shadow(0 8px 24px rgba(0,0,0,.35))}
+.showcase-visual p{font-size:19px;font-weight:600;letter-spacing:3px}
+.showcase-text h3{font-size:25px;font-weight:700;margin-bottom:18px;line-height:1.5}
+.showcase-text p{font-size:15px;opacity:.88;line-height:2;margin-bottom:24px}
+.showcase-points{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-bottom:28px}
+.showcase-points li{list-style:none;font-size:14px;opacity:.92;display:flex;align-items:center;gap:8px}
+.showcase-points li::before{content:'\2713';width:20px;height:20px;border-radius:50%;background:rgba(232,85,26,.9);color:#fff;font-size:11.5px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700}
+.showcase-text a{display:inline-block;padding:12px 32px;background:var(--accent);color:#fff;border-radius:26px;font-size:14.5px;font-weight:600;transition:background .2s,transform .15s;box-shadow:0 8px 24px rgba(232,85,26,.35)}
+.showcase-text a:hover{background:var(--accent-hover);transform:translateY(-2px)}
 
-/* ===== Quick Links ===== */
-.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.quick-card{background:var(--white);border-radius:8px;padding:24px 20px;text-align:center;box-shadow:var(--shadow);transition:transform .2s;display:block}
-.quick-card:hover{transform:translateY(-3px)}
-.quick-card .qicon{font-size:32px;margin-bottom:10px}
-.quick-card h4{font-size:15px;font-weight:600;color:var(--primary);margin-bottom:4px}
+/* ========== 快速通道 ========== */
+.quick-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.quick-card{background:var(--white);border-radius:var(--radius-lg);padding:26px 18px;text-align:center;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s,border-color .2s;border:1px solid transparent;display:block}
+.quick-card:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(15,37,64,.14);border-color:#dbeafe}
+.quick-card .qicon{width:52px;height:52px;margin:0 auto 12px;border-radius:16px;background:#f8fafc;display:flex;align-items:center;justify-content:center;font-size:26px;transition:background .2s}
+.quick-card:hover .qicon{background:#eff6ff}
+.quick-card h4{font-size:14.5px;font-weight:600;color:var(--primary);margin-bottom:4px}
 .quick-card p{font-size:12px;color:var(--text-light)}
 
-/* ===== Footer ===== */
-.footer{background:var(--primary-dark);color:rgba(255,255,255,.7);padding:48px 0 0}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px}
-.footer-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.footer-logo img{height:40px}
-.footer-logo span{font-size:18px;font-weight:700;color:#fff}
-.footer-info p{font-size:13px;line-height:2;margin-bottom:8px}
-.footer h4{font-size:15px;font-weight:600;color:#fff;margin-bottom:16px}
+/* ========== 页脚 ========== */
+.footer{background:var(--primary-dark);color:rgba(255,255,255,.7);padding:52px 0 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:44px}
+.footer-logo{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.footer-logo img{height:42px;width:auto}
+.footer-logo span{font-size:17px;font-weight:700;color:#fff}
+.footer-info p{font-size:13px;line-height:2.1;margin-bottom:4px;display:flex;gap:8px;align-items:flex-start}
+.footer-info p .fi-icon{flex-shrink:0}
+.footer h4{font-size:14.5px;font-weight:600;color:#fff;margin-bottom:16px;position:relative;padding-bottom:10px}
+.footer h4::after{content:'';position:absolute;left:0;bottom:0;width:26px;height:2.5px;border-radius:2px;background:var(--accent)}
 .footer-links{list-style:none}
 .footer-links li{margin-bottom:10px}
-.footer-links a{font-size:13px;color:rgba(255,255,255,.6);transition:color .2s}
-.footer-links a:hover{color:var(--accent)}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.6);transition:color .2s,padding-left .2s}
+.footer-links a:hover{color:var(--accent);padding-left:4px}
 .footer-qr{text-align:center}
-.footer-qr img{width:120px;height:120px;background:#fff;border-radius:8px;padding:8px;margin-bottom:8px}
+.footer-qr .qr-box{width:118px;height:118px;background:#fff;border-radius:10px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:40px}
 .footer-qr p{font-size:12px;color:rgba(255,255,255,.5)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding:20px 0;text-align:center;font-size:12px;color:rgba(255,255,255,.4)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:44px;padding:20px 0 calc(20px + env(safe-area-inset-bottom));text-align:center;font-size:12px;color:rgba(255,255,255,.4)}
+.footer-bottom p{margin-top:3px}
 
-/* ===== Admin Styles ===== */
+/* ========== 管理后台 ========== */
 .amodal-o{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99999;justify-content:center;align-items:center}
 .amodal-o.show{display:flex}
 .amodal{background:#fff;border-radius:12px;padding:32px;width:360px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
@@ -183,96 +255,178 @@ a{text-decoration:none;color:inherit}
 .admin-mode .aed{cursor:text;transition:background .15s}
 .asave{position:fixed;bottom:24px;right:24px;z-index:99998;background:#1a3a5c;color:#fff;border:none;padding:12px 24px;border-radius:25px;font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.2);display:none}
 #adminExportBtn{bottom:80px;background:#475569}#adminResetBtn{bottom:80px;right:160px}
-/* Floating admin entry */
 #adminFloating{position:fixed;bottom:20px;right:20px;z-index:99997;width:56px;height:56px;border-radius:50%;background:#1a3a5c;color:#fff;border:none;font-size:24px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:transform .2s;display:flex;align-items:center;justify-content:center}
 #adminFloating:hover{transform:scale(1.1)}
 
-/* ===== Responsive ===== */
-@media(max-width:1200px){
-  body{min-width:auto}
+/* ========== 响应式 ========== */
+@media(max-width:1100px){
+  .header-main .container{gap:16px}
+  .header-search{max-width:280px}
+  .header-tel{display:none}
   .feature-grid{grid-template-columns:repeat(2,1fr)}
-  .tab-layout{flex-direction:column}.tab-right{width:100%}
-  .showcase-layout{flex-direction:column}
-  .footer-grid{grid-template-columns:repeat(2,1fr)}
-  .quick-grid{grid-template-columns:repeat(2,1fr)}
+  .quick-grid{grid-template-columns:repeat(3,1fr)}
+  .info-strip .container{grid-template-columns:repeat(2,1fr)}
+  .info-item{border-left:none;border-top:1px solid var(--border)}
+  .info-item:nth-child(1),.info-item:nth-child(2){border-top:none}
+}
+@media(max-width:900px){
+  .quickbar{margin-top:-44px}
+  .quickbar-grid{grid-template-columns:repeat(2,1fr)}
+  .tab-layout{grid-template-columns:1fr}
+  .notice-box{position:static}
+  .showcase-layout{grid-template-columns:1fr;gap:32px}
+  .showcase-visual{height:260px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
 }
 @media(max-width:768px){
   .header-top{display:none}
-  .header-main .container{flex-wrap:wrap;height:auto;padding:12px 16px;gap:12px}
-  .header-search{max-width:100%;order:3;flex-basis:100%}
-  .main-nav .container{overflow-x:auto;gap:0}
-  .main-nav a{padding:12px 16px;font-size:14px}
-  .searchbar-grid{grid-template-columns:repeat(2,1fr)}
-  .hero{height:280px}.hero-content h1{font-size:24px}
+  .header-main .container{height:64px;gap:10px}
+  .header-logo img{height:38px}
+  .header-logo-cn{font-size:15px}
+  .header-logo-en{display:none}
+  .header-search{display:none}
+  .header-actions{gap:10px}
+  .cta-btn{padding:9px 16px;font-size:13px}
+  .nav-toggle{display:block}
+  /* 移动端导航折叠 */
+  .main-nav{display:none;position:fixed;top:64px;left:0;right:0;z-index:999;box-shadow:0 12px 28px rgba(15,37,64,.25);max-height:calc(100vh - 64px);overflow-y:auto}
+  .main-nav.open{display:block}
+  .main-nav .container{flex-direction:column;align-items:stretch;padding:8px 0}
+  .main-nav a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.08);border-left:3px solid transparent}
+  .main-nav a:hover,.main-nav a.active{border-left-color:var(--accent);border-bottom-color:transparent}
+  #adminToggle{margin:12px 16px;align-self:flex-start}
+  .hero{height:380px}
+  .hero-content h1{font-size:26px}
+  .hero-content p{font-size:14.5px}
+  .section{padding:44px 0}
   .feature-grid{grid-template-columns:1fr}
   .quick-grid{grid-template-columns:repeat(2,1fr)}
+  .showcase-points{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .header-logo img{height:32px}
+  .header-logo-cn{font-size:13.5px}
+  .header-main .container{gap:8px}
+  .cta-btn{width:40px;height:40px;padding:0;border-radius:50%;justify-content:center;flex-shrink:0}
+  .cta-text{display:none}
+  .nav-toggle{width:40px;height:40px}
+  .quickbar-grid{grid-template-columns:1fr}
+  .quick-grid{grid-template-columns:repeat(2,1fr)}
+  .info-strip .container{grid-template-columns:1fr}
+  .info-item{border-top:1px solid var(--border)}
+  .info-item:nth-child(2){border-top:1px solid var(--border)}
+  .hero{height:340px}
+  .hero-btns .hero-btn{padding:10px 24px;font-size:14px}
+  .hero-content h1{font-size:22px}
+  .tab-btn{padding:9px 14px;font-size:13.5px}
 }
 </style>
 </head>
 <body>
 
-<!-- Header Top -->
+<!-- 顶部信息条 -->
 <div class="header-top">
   <div class="container">
-    <span>欢迎访问中山大学中山眼科中心茂名医院</span>
-    <div>
-      <a href="#home">设为首页</a>
-      <a href="#fav">加入收藏</a>
+    <div class="ht-left">&#128205; 茂名市茂南区双山一路健康南路 &nbsp;|&nbsp; 中山大学中山眼科中心茂名医院</div>
+    <div class="ht-right">
+      <span>门诊时间：周一至周五 8:00-12:00 / 14:00-17:30</span>
       <a href="contact.html">联系我们</a>
-      <a href="#map">网站地图</a>
+      <span class="ht-phone">&#9742; 咨询电话：<b>19106669310</b></span>
     </div>
   </div>
 </div>
 
-<!-- Header Main -->
-<div class="header-main" id="home">
-  <div class="container">
-    <div class="header-logo">
-      <img src="img/zoc-logo.png" alt="院徽">
-      <div class="header-logo-text">
-        <span class="header-logo-cn">中山大学中山眼科中心茂名医院</span>
-        <span class="header-logo-en">Maoming Eye Hospital</span>
+<!-- 主头部（logo + 搜索 + 电话 + CTA + 导航） -->
+<div class="site-header">
+  <div class="header-main">
+    <div class="container">
+      <div class="header-logo">
+        <img src="img/zoc-logo.png" alt="院徽">
+        <div class="header-logo-text">
+          <span class="header-logo-cn">中山大学中山眼科中心茂名医院</span>
+          <span class="header-logo-en">Maoming Eye Hospital</span>
+        </div>
+      </div>
+      <div class="header-search">
+        <input type="text" placeholder="搜索科室、专家、疾病...">
+        <button aria-label="搜索">&#x1F50D;</button>
+      </div>
+      <div class="header-actions">
+        <div class="header-tel">
+          <div class="tel-icon">&#9742;</div>
+          <div class="tel-text"><b>19106669310</b>咨询·预约专线</div>
+        </div>
+        <a href="appointment.html" class="cta-btn"><span class="cta-icon">&#128197;</span><span class="cta-text">预约挂号</span></a>
+        <button class="nav-toggle" id="navToggle" aria-label="打开菜单"><span></span><span></span><span></span></button>
       </div>
     </div>
-    <div class="header-search">
-      <input type="text" placeholder="搜索科室、专家、疾病...">
-      <button>&#x1F50D;</button>
-    </div>
-    <div class="header-links">
-      <a href="/guide.html">就医指南</a>
-      <a href="/appointment.html">预约挂号</a>
-      <a href="/consultation.html">在线问诊</a>
-      <span class="lang">中文</span>
-    </div>
   </div>
+  <!-- 主导航 -->
+  <div class="main-nav" id="mainNavWrap"><div class="container" id="mainNav"></div></div>
 </div>
 
-<!-- Main Navigation -->
-<div class="main-nav"><div class="container" id="mainNav"></div></div>
-
-<!-- Hero Slider -->
+<!-- Hero 轮播 -->
 <div class="hero" id="hero">
   <div class="hero-slides">
     <div class="hero-slide slide-1">
+      <div class="slide-deco" aria-hidden="true">
+        <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="70" rx="88" ry="52" stroke="#fff" stroke-width="3"/>
+          <circle cx="100" cy="70" r="26" stroke="#fff" stroke-width="3"/>
+          <circle cx="100" cy="70" r="10" fill="#fff"/>
+          <path d="M20 70 Q60 20 100 20" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".6"/>
+          <path d="M100 120 Q140 120 180 70" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".6"/>
+        </svg>
+      </div>
       <div class="hero-content">
+        <span class="hero-tag">国家级眼科平台 · 落户茂名</span>
         <h1>国家级眼科平台落户茂名</h1>
-        <p>中山大学中山眼科中心全面技术和管理输出<br>让茂名百姓在家门口享受国家级眼科医疗服务</p>
-        <a href="appointment.html" class="hero-btn">立即预约挂号</a>
+        <p class="hero-slogan">中山大学中山眼科中心全面技术和管理输出；<br>让茂名以及粤西、桂东北部湾的百姓在家门口享受国家级眼科医疗服务</p>
+        <div class="hero-btns">
+          <a href="appointment.html" class="hero-btn">立即预约挂号</a>
+          <a href="doctors.html" class="hero-btn ghost">查看专家排班</a>
+        </div>
       </div>
     </div>
     <div class="hero-slide slide-2">
+      <div class="slide-deco" aria-hidden="true">
+        <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="70" rx="88" ry="52" stroke="#fff" stroke-width="3"/>
+          <circle cx="100" cy="70" r="26" stroke="#fff" stroke-width="3"/>
+          <circle cx="100" cy="70" r="10" fill="#fff"/>
+          <path d="M20 70 Q60 20 100 20" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".6"/>
+          <path d="M100 120 Q140 120 180 70" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".6"/>
+        </svg>
+      </div>
       <div class="hero-content">
+        <span class="hero-tag">屈光手术 · 全飞秒SMILE</span>
         <h1>全飞秒激光 · 还您清晰视界</h1>
         <p>引进新一代全飞秒SMILE手术系统<br>微创、精准、恢复快，当天手术次日正常用眼</p>
-        <a href="departments.html" class="hero-btn">了解详情</a>
+        <div class="hero-btns">
+          <a href="departments.html" class="hero-btn">了解详情</a>
+          <a href="appointment.html" class="hero-btn ghost">预约术前检查</a>
+        </div>
       </div>
     </div>
     <div class="hero-slide slide-3">
+      <div class="slide-deco" aria-hidden="true">
+        <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="70" rx="88" ry="52" stroke="#fff" stroke-width="3"/>
+          <circle cx="100" cy="70" r="26" stroke="#fff" stroke-width="3"/>
+          <circle cx="100" cy="70" r="10" fill="#fff"/>
+          <path d="M20 70 Q60 20 100 20" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".6"/>
+          <path d="M100 120 Q140 120 180 70" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".6"/>
+        </svg>
+      </div>
       <div class="hero-content">
+        <span class="hero-tag">专家团队 · 总院直派</span>
         <h1>专家团队 · 中山眼科中心直派</h1>
         <p>白内障、青光眼、眼底病、小儿眼科等各专业方向<br>均有总院资深专家定期出诊</p>
-        <a href="doctors.html" class="hero-btn">查看专家排班</a>
+        <div class="hero-btns">
+          <a href="doctors.html" class="hero-btn">查看专家排班</a>
+          <a href="guide.html" class="hero-btn ghost">就医指南</a>
+        </div>
       </div>
     </div>
   </div>
@@ -283,85 +437,134 @@ a{text-decoration:none;color:inherit}
   </div>
 </div>
 
-<!-- Quick Search Bar -->
-<div class="searchbar">
-  <div class="searchbar-grid">
-    <div class="searchbar-item" onclick="location.href='appointment.html'">
-      <div class="searchbar-icon si-blue">&#x1F4C5;</div>
-      <div class="searchbar-text">
+<!-- 快捷就医 -->
+<div class="quickbar">
+  <div class="quickbar-grid">
+    <div class="quickbar-item" onclick="location.href='appointment.html'">
+      <div class="quickbar-icon qi-blue">&#x1F4C5;</div>
+      <div class="quickbar-text">
         <h4>在线预约</h4>
-        <p>通过在线预约提前确定就诊时间</p>
+        <p>7日号源分段预约挂号</p>
       </div>
+      <span class="quickbar-arrow">&#8250;</span>
     </div>
-    <div class="searchbar-item" onclick="location.href='doctors.html'">
-      <div class="searchbar-icon si-green">&#x1F468;&#x200D;&#x2695;&#xFE0F;</div>
-      <div class="searchbar-text">
+    <div class="quickbar-item" onclick="location.href='doctors.html'">
+      <div class="quickbar-icon qi-green">&#x1F468;&#x200D;&#x2695;&#xFE0F;</div>
+      <div class="quickbar-text">
         <h4>专家出诊</h4>
-        <p>中心出诊时间及就医指南</p>
+        <p>总院直派专家出诊排班</p>
       </div>
+      <span class="quickbar-arrow">&#8250;</span>
     </div>
-    <div class="searchbar-item" onclick="location.href='departments.html'">
-      <div class="searchbar-icon si-orange">&#x1F3E5;</div>
-      <div class="searchbar-text">
+    <div class="quickbar-item" onclick="location.href='departments.html'">
+      <div class="quickbar-icon qi-orange">&#x1F3E5;</div>
+      <div class="quickbar-text">
         <h4>科室导航</h4>
-        <p>各科室情况介绍与位置指引</p>
+        <p>各科室介绍与位置指引</p>
+      </div>
+      <span class="quickbar-arrow">&#8250;</span>
+    </div>
+    <div class="quickbar-item" onclick="location.href='guide.html'">
+      <div class="quickbar-icon qi-purple">&#x1F4CB;</div>
+      <div class="quickbar-text">
+        <h4>医保指南</h4>
+        <p>医保政策与报销流程</p>
+      </div>
+      <span class="quickbar-arrow">&#8250;</span>
+    </div>
+  </div>
+</div>
+
+<!-- 高频信息带 -->
+<div class="info-strip">
+  <div class="container">
+    <div class="info-item">
+      <div class="info-icon">&#128197;</div>
+      <div>
+        <h5>门诊时间</h5>
+        <p>周一至周五 8:00-12:00<br>14:00-17:30</p>
       </div>
     </div>
-    <div class="searchbar-item" onclick="location.href='guide.html'">
-      <div class="searchbar-icon si-purple">&#x1F4CB;</div>
-      <div class="searchbar-text">
-        <h4>医保指南</h4>
-        <p>医保政策与报销指南</p>
+    <div class="info-item">
+      <div class="info-icon">&#128222;</div>
+      <div>
+        <h5>咨询电话</h5>
+        <p>19106669310</p>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">&#128205;</div>
+      <div>
+        <h5>医院地址</h5>
+        <p>茂名市茂南区双山一路健康南路</p>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">&#128231;</div>
+      <div>
+        <h5>联系邮箱</h5>
+        <p>zocmmeh@qq.com</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Feature Grid -->
+<!-- 为您服务 -->
 <div class="section">
   <div class="container">
-    <div class="section-title"><h2>为您服务</h2><p>用心守护您的眼健康</p></div>
+    <div class="section-head">
+      <div>
+        <h2>为您服务</h2>
+        <p class="sub">用心守护您的眼健康</p>
+      </div>
+      <a class="section-more" href="guide.html">查看全部服务</a>
+    </div>
     <div class="feature-grid">
       <div class="feature-card">
-        <div style="height:160px;background:linear-gradient(135deg,#eff6ff,#dbeafe);display:flex;align-items:center;justify-content:center;font-size:48px">&#x1F50D;</div>
+        <div class="feature-cover fc-1">&#x1F50D;</div>
         <div class="feature-card-body">
           <h4>门诊服务</h4>
           <p>综合门诊、特需门诊、专科门诊，工作日及周六上午开诊</p>
-          <a href="appointment.html">查看详情 &#x2192;</a>
+          <a href="appointment.html">查看详情</a>
         </div>
       </div>
       <div class="feature-card">
-        <div style="height:160px;background:linear-gradient(135deg,#f0fdf4,#dcfce7);display:flex;align-items:center;justify-content:center;font-size:48px">&#x1F3E5;</div>
+        <div class="feature-cover fc-2">&#x1F3E5;</div>
         <div class="feature-card-body">
           <h4>住院服务</h4>
           <p>综合病区、日间病区、VIP病区，提供全方位住院诊疗</p>
-          <a href="guide.html">查看详情 &#x2192;</a>
+          <a href="guide.html">查看详情</a>
         </div>
       </div>
       <div class="feature-card">
-        <div style="height:160px;background:linear-gradient(135deg,#f5f3ff,#ede9fe);display:flex;align-items:center;justify-content:center;font-size:48px">&#x1F4A1;</div>
+        <div class="feature-cover fc-3">&#x1F4A1;</div>
         <div class="feature-card-body">
           <h4>健康科普</h4>
           <p>白内障、青光眼、近视防控……眼科知识一网打尽</p>
-          <a href="health.html">查看详情 &#x2192;</a>
+          <a href="health.html">查看详情</a>
         </div>
       </div>
       <div class="feature-card">
-        <div style="height:160px;background:linear-gradient(135deg,#fff7ed,#fed7aa);display:flex;align-items:center;justify-content:center;font-size:48px">&#x1F4E1;</div>
+        <div class="feature-cover fc-4">&#x1F4E1;</div>
         <div class="feature-card-body">
           <h4>互联网医院</h4>
           <p>图文问诊、视频问诊、复诊续方，足不出户看专家</p>
-          <a href="consultation.html">立即问诊 &#x2192;</a>
+          <a href="consultation.html">立即问诊</a>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- News & Notice Tab -->
+<!-- 新闻中心 -->
 <div class="section section-gray" id="news">
   <div class="container">
-    <div class="section-title"><h2>新闻中心</h2><p>了解医院最新动态</p></div>
+    <div class="section-head">
+      <div>
+        <h2>新闻中心</h2>
+        <p class="sub">了解医院最新动态</p>
+      </div>
+    </div>
     <div class="tab-layout">
       <div class="tab-left">
         <div class="tab-nav">
@@ -372,84 +575,97 @@ a{text-decoration:none;color:inherit}
         </div>
         <div class="tab-content active" id="tab-news">
           <ul class="news-list">
-            <li><span class="news-date">2026-11</span><a href="#" class="news-title">首批专家团队将于2026年11月进驻茂名医院</a></li>
-            <li><span class="news-date">2026-09</span><a href="#" class="news-title">全飞秒激光、OCT等国际尖端仪器设备已全部安装调试完成</a></li>
-            <li><span class="news-date">2026-09</span><a href="#" class="news-title">医院开展全员岗前培训，确保开诊后高质量医疗服务</a></li>
-            <li><span class="news-date">2026-07-12</span><a href="#" class="news-title">茂名市人民政府与中山大学签署眼科医疗合作协议</a></li>
-            <li><span class="news-date">2026-10</span><a href="#" class="news-title">广东省卫健委专家组莅临指导医院筹建工作</a></li>
-            <li><span class="news-date">2026-10</span><a href="#" class="news-title">中山眼科中心茂名医院项目主体工程将于2026年10月通过竣工验收</a></li>
+            <li><span class="news-badge">动态</span><span class="news-date">2026-11</span><a href="#" class="news-title">首批专家团队将于2026年11月进驻茂名医院</a></li>
+            <li><span class="news-badge">动态</span><span class="news-date">2026-09</span><a href="#" class="news-title">全飞秒激光、OCT等国际尖端仪器设备已全部安装调试完成</a></li>
+            <li><span class="news-badge">动态</span><span class="news-date">2026-09</span><a href="#" class="news-title">医院开展全员岗前培训，确保开诊后高质量医疗服务</a></li>
+            <li><span class="news-badge">要闻</span><span class="news-date">2026-07-12</span><a href="#" class="news-title">茂名市人民政府与中山大学签署眼科医疗合作协议</a></li>
+            <li><span class="news-badge">动态</span><span class="news-date">2026-10</span><a href="#" class="news-title">广东省卫健委专家组莅临指导医院筹建工作</a></li>
+            <li><span class="news-badge">动态</span><span class="news-date">2026-10</span><a href="#" class="news-title">中山眼科中心茂名医院项目主体工程将于2026年10月通过竣工验收</a></li>
           </ul>
-          <div class="news-more"><a href="#">更多动态 &#x2192;</a></div>
+          <div class="news-more" style="text-align:right;margin-top:14px"><a class="section-more" href="#">更多动态</a></div>
         </div>
         <div class="tab-content" id="tab-notice">
           <ul class="news-list">
-            <li><span class="news-date">2026-07-19</span><a href="#" class="news-title">关于开通在线预约挂号服务的通知</a></li>
-            <li><span class="news-date">2026-07-16</span><a href="#" class="news-title">2026年第三季度门诊出诊安排表</a></li>
-            <li><span class="news-date">2026-07-14</span><a href="#" class="news-title">关于规范患者就诊流程的公告</a></li>
-            <li><span class="news-date">2026-07-11</span><a href="#" class="news-title">医院信息系统上线测试通知</a></li>
+            <li><span class="news-badge">公告</span><span class="news-date">2026-07-19</span><a href="#" class="news-title">关于开通在线预约挂号服务的通知</a></li>
+            <li><span class="news-badge">公告</span><span class="news-date">2026-07-16</span><a href="#" class="news-title">2026年第三季度门诊出诊安排表</a></li>
+            <li><span class="news-badge">公告</span><span class="news-date">2026-07-14</span><a href="#" class="news-title">关于规范患者就诊流程的公告</a></li>
+            <li><span class="news-badge">公告</span><span class="news-date">2026-07-11</span><a href="#" class="news-title">医院信息系统上线测试通知</a></li>
           </ul>
-          <div class="news-more"><a href="#">更多公告 &#x2192;</a></div>
+          <div class="news-more" style="text-align:right;margin-top:14px"><a class="section-more" href="#">更多公告</a></div>
         </div>
         <div class="tab-content" id="tab-media">
           <ul class="news-list">
-            <li><span class="news-date">2026-07-17</span><a href="#" class="news-title">《茂名日报》：中山眼科中心落地茂名，眼科诊疗水平实现跨越式发展</a></li>
-            <li><span class="news-date">2026-07-13</span><a href="#" class="news-title">《南方都市报》：茂名市民即将迎来"家门口"的国家级眼科服务</a></li>
-            <li><span class="news-date">2026-07-08</span><a href="#" class="news-title">《健康报》：区域医疗资源下沉——中山眼科中心茂名医院筹建纪实</a></li>
+            <li><span class="news-badge">媒体</span><span class="news-date">2026-07-17</span><a href="#" class="news-title">《茂名日报》：中山眼科中心落地茂名，眼科诊疗水平实现跨越式发展</a></li>
+            <li><span class="news-badge">媒体</span><span class="news-date">2026-07-13</span><a href="#" class="news-title">《南方都市报》：茂名市民即将迎来"家门口"的国家级眼科服务</a></li>
+            <li><span class="news-badge">媒体</span><span class="news-date">2026-07-08</span><a href="#" class="news-title">《健康报》：区域医疗资源下沉——中山眼科中心茂名医院筹建纪实</a></li>
           </ul>
-          <div class="news-more"><a href="#">更多报道 &#x2192;</a></div>
+          <div class="news-more" style="text-align:right;margin-top:14px"><a class="section-more" href="#">更多报道</a></div>
         </div>
         <div class="tab-content" id="tab-bid">
           <ul class="news-list">
-            <li><span class="news-date">2026-07-01</span><a href="#" class="news-title">医疗设备采购招标公告（第二批）</a></li>
-            <li><span class="news-date">2026-06-25</span><a href="#" class="news-title">信息化系统建设项目招标公告</a></li>
-            <li><span class="news-date">2026-06-20</span><a href="#" class="news-title">后勤保障服务外包项目招标公告</a></li>
-            <li><span class="news-date">2026-06-15</span><a href="#" class="news-title">中山大学中山眼科中心茂名医院2026年公开招聘公告</a></li>
+            <li><span class="news-badge">招标</span><span class="news-date">2026-07-01</span><a href="#" class="news-title">医疗设备采购招标公告（第二批）</a></li>
+            <li><span class="news-badge">招标</span><span class="news-date">2026-06-25</span><a href="#" class="news-title">信息化系统建设项目招标公告</a></li>
+            <li><span class="news-badge">招标</span><span class="news-date">2026-06-20</span><a href="#" class="news-title">后勤保障服务外包项目招标公告</a></li>
+            <li><span class="news-badge">招聘</span><span class="news-date">2026-06-15</span><a href="#" class="news-title">中山大学中山眼科中心茂名医院2026年公开招聘公告</a></li>
           </ul>
-          <div class="news-more"><a href="#">更多招标招聘 &#x2192;</a></div>
+          <div class="news-more" style="text-align:right;margin-top:14px"><a class="section-more" href="#">更多招标招聘</a></div>
         </div>
       </div>
       <div class="tab-right">
         <div class="notice-box">
-          <h4>通知公告</h4>
-          <div class="notice-item"><div class="ndate">2026-07-19</div><a href="#" class="ntitle">关于开通在线预约挂号服务的通知</a></div>
-          <div class="notice-item"><div class="ndate">2026-07-16</div><a href="#" class="ntitle">2026年第三季度门诊出诊安排表</a></div>
-          <div class="notice-item"><div class="ndate">2026-07-14</div><a href="#" class="ntitle">关于规范患者就诊流程的公告</a></div>
-          <div class="notice-item"><div class="ndate">2026-07-11</div><a href="#" class="ntitle">医院信息系统上线测试通知</a></div>
-          <div class="notice-item"><div class="ndate">2026-07-08</div><a href="#" class="ntitle">中山眼科中心茂名医院2026年公开招聘公告</a></div>
-          <div class="notice-item"><div class="ndate">2026-07-01</div><a href="#" class="ntitle">医疗设备采购招标公告（第二批）</a></div>
+          <div class="notice-box-head">
+            <h4><span class="dot"></span>通知公告</h4>
+            <a href="#">全部</a>
+          </div>
+          <div class="notice-item narrow"><span class="ndate">07-19</span><a href="#" class="ntitle">关于开通在线预约挂号服务的通知</a></div>
+          <div class="notice-item narrow"><span class="ndate">07-16</span><a href="#" class="ntitle">2026年第三季度门诊出诊安排表</a></div>
+          <div class="notice-item narrow"><span class="ndate">07-14</span><a href="#" class="ntitle">关于规范患者就诊流程的公告</a></div>
+          <div class="notice-item narrow"><span class="ndate">07-11</span><a href="#" class="ntitle">医院信息系统上线测试通知</a></div>
+          <div class="notice-item narrow"><span class="ndate">07-08</span><a href="#" class="ntitle">中山眼科中心茂名医院2026年公开招聘公告</a></div>
+          <div class="notice-item narrow"><span class="ndate">07-01</span><a href="#" class="ntitle">医疗设备采购招标公告（第二批）</a></div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Showcase -->
-<div class="section">
+<!-- 医院特色 -->
+<div class="showcase">
   <div class="container">
-    <div class="section-title"><h2>医院特色</h2><p>以患者为中心，打造辐射粤西桂东北部湾的眼科医疗区域中心新高地</p></div>
     <div class="showcase-layout">
-      <div class="showcase-img"><div style="height:320px;background:linear-gradient(135deg,#1a3a5c,#2a6090);display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;flex-direction:column;gap:12px"><span style="font-size:48px">&#x2695;&#xFE0F;</span>中山眼科中心技术输出</div></div>
+      <div class="showcase-visual">
+        <span class="sv-icon">&#x2695;&#xFE0F;</span>
+        <p>中山眼科中心技术输出</p>
+        <p style="font-size:13px;opacity:.7;letter-spacing:1px">MAOMING EYE HOSPITAL</p>
+      </div>
       <div class="showcase-text">
         <h3>国家级眼科医疗技术全面输出</h3>
         <p>中山大学中山眼科中心是集医疗、教学、科研、防盲为一体的国内顶尖眼科中心，连续多年位列中国医院专科声誉排行榜眼科第一。茂名医院将全面引进总院的技术标准、管理体系和专家团队，实现医疗质量同质化。</p>
-        <a href="about.html">了解医院 &#x2192;</a>
+        <ul class="showcase-points">
+          <li>总院直派专家团队</li>
+          <li>技术标准全面同质化</li>
+          <li>国际尖端诊疗设备</li>
+          <li>辐射粤西桂东北部湾</li>
+        </ul>
+        <a href="about.html">了解医院</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Quick Links -->
-<div class="section section-gray">
+<!-- 快速通道 -->
+<div class="section">
   <div class="container">
-    <div class="section-title"><h2>快速通道</h2><p>常用服务一键直达</p></div>
+    <div class="section-head center">
+      <h2>快速通道</h2>
+      <p class="sub">常用服务一键直达</p>
+    </div>
     <div class="quick-grid">
       <a href="appointment.html" class="quick-card"><div class="qicon">&#x1F4C5;</div><h4>预约挂号</h4><p>7日号源分段预约</p></a>
       <a href="doctors.html" class="quick-card"><div class="qicon">&#x1F468;&#x200D;&#x2695;&#xFE0F;</div><h4>专家团队</h4><p>总院直派专家介绍</p></a>
       <a href="reports.html" class="quick-card"><div class="qicon">&#x1F4CB;</div><h4>报告查询</h4><p>检验检查随时查</p></a>
-      <a href="consultation.html" class="quick-card"><div class="qicon">&#x1F4E1;</div><h4>在线问诊</h4><p>图文·视频远程问诊</p></a>
       <a href="appointment.html#payment" class="quick-card"><div class="qicon">&#x1F4B3;</div><h4>门诊缴费</h4><p>在线支付无需排队</p></a>
       <a href="guide.html" class="quick-card"><div class="qicon">&#x1F4CB;</div><h4>就医指南</h4><p>门诊/住院/医保流程</p></a>
-      <a href="faq.html" class="quick-card"><div class="qicon">&#x2753;</div><h4>常见问题</h4><p>就诊疑问快速解答</p></a>
       <a href="contact.html" class="quick-card"><div class="qicon">&#x1F4DE;</div><h4>联系我们</h4><p>地址·电话·交通</p></a>
     </div>
   </div>
@@ -465,10 +681,10 @@ a{text-decoration:none;color:inherit}
           <span>中山大学中山眼科中心茂名医院</span>
         </div>
         <div class="footer-info">
-          <p>&#x1F4CD; 茂名市茂南区双山一路健康南路茂名市眼科医院</p>
-          <p>&#x260E; 电话：19106669310（李老师）</p>
-          <p>&#x1F4E7; 邮箱：zocmmeh@qq.com</p>
-          <p>&#x1F557; 门诊时间：周一至周五 8:00-12:00 / 14:00-17:30</p>
+          <p><span class="fi-icon">&#x1F4CD;</span> 茂名市茂南区双山一路健康南路茂名市眼科医院</p>
+          <p><span class="fi-icon">&#x260E;</span> 电话：19106669310（李老师）</p>
+          <p><span class="fi-icon">&#x1F4E7;</span> 邮箱：zocmmeh@qq.com</p>
+          <p><span class="fi-icon">&#x1F557;</span> 门诊时间：周一至周五 8:00-12:00 / 14:00-17:30</p>
         </div>
       </div>
       <div>
@@ -494,7 +710,7 @@ a{text-decoration:none;color:inherit}
       <div>
         <h4>关注我们</h4>
         <div class="footer-qr">
-          <div style="width:120px;height:120px;background:#fff;border-radius:8px;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:40px">&#x1F4F1;</div>
+          <div class="qr-box">&#x1F4F1;</div>
           <p>微信公众号</p>
         </div>
       </div>
@@ -503,21 +719,23 @@ a{text-decoration:none;color:inherit}
   <div class="footer-bottom">
     <div class="container">
       <p>&copy; 中山大学中山眼科中心茂名医院 | Maoming Eye Hospital | All Rights Reserved</p>
-      <p style="margin-top:4px">地址：茂名市茂南区双山一路健康南路 | 电话：19106669310（李老师）</p>
+      <p>地址：茂名市茂南区双山一路健康南路 | 电话：19106669310（李老师）</p>
     </div>
   </div>
 </div>
 
 <script src="js/nav.js"></script>
+<script src="js/content-sync.js"></script>
+<script src="js/admin.js"></script>
 <script>
-// 动态导航渲染
+// 动态导航渲染 + 汉堡菜单
 (function(){
   var nav = window.ZOC_NAV || [];
   var container = document.getElementById('mainNav');
   if(!container) return;
   var currentPage = (location.pathname.split('/').pop() || 'index.html').split('?')[0];
   var isIndex = currentPage === 'index.html' || currentPage === '';
-  
+
   function buildNav(items) {
     var h = '';
     items.forEach(function(item){
@@ -532,12 +750,30 @@ a{text-decoration:none;color:inherit}
       }
       h += '<a href="'+item.url+'"' + (isActive ? ' class="active"' : '') + '>' + item.label + '</a>';
     });
-    // Admin toggle button - for admin.html to link or for inline admin
     h += '<button id="adminToggle" title="管理员" style="margin-left:auto;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:14px;cursor:pointer;padding:6px 16px;border-radius:6px;font-weight:600;white-space:nowrap">&#x2699;&#xFE0F; 后台管理</button>';
     return h;
   }
-  
+
   container.innerHTML = buildNav(nav);
+
+  // 汉堡菜单切换
+  var toggle = document.getElementById('navToggle');
+  var navWrap = document.getElementById('mainNavWrap');
+  if(toggle && navWrap){
+    toggle.addEventListener('click', function(){
+      var open = navWrap.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-label', open ? '关闭菜单' : '打开菜单');
+    });
+    // 点击导航链接后自动收起
+    navWrap.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        navWrap.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-label', '打开菜单');
+      });
+    });
+  }
 })();
 </script>
 <script>
@@ -573,11 +809,53 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 });
 </script>
 <script>
-// ====== ADMIN SYSTEM ======
-var ADMPWD=(function(){try{var a=JSON.parse(localStorage.getItem('zoc_a…_v4')||'{}');var f=a.admins?a.admins.filter(function(x){return x.active}):[];return f.length>0?f[0].pwd:'zoc00009'}catch(e){return'zoc00009'}})();var ASK='zoc_admin_auth_v2';var ADMDV='v3';
+// ====== ADMIN SYSTEM v2（支持本地持久化保存） ======
+var ADMPWD=(function(){try{var a=JSON.parse(localStorage.getItem('zoc_a…_v4')||'{}');var f=a.admins?a.admins.filter(function(x){return x.active}):[];return f.length>0?f[0].pwd:'zoc00009'}catch(e){return'zoc00009'}})();var ASK='zoc_admin_auth_v2';
 var AEDS='h1,h2,h3,h4,h5,h6,p,span,a,li,td,th,label,strong,em,b,i,small,.doc-body p,.doc-body h3,.dept-body p,.contact-info p,.contact-info h4,.info-card p,.info-card li,.booking-form p,.booking-form h3,.footer-info p';
-function aid(){var p=(location.pathname.split('/').pop()||'index.html').split('?')[0];document.querySelectorAll(AEDS).forEach(function(e,i){if(e.closest&&e.closest('#amo'))return;if(!e.dataset.eid)e.dataset.eid=p+'-'+i})}
+var EDITS_KEY='zoc_edits_v1';
+var EDITS_VER='v1';
+function pageName(){return (location.pathname.split('/').pop()||'index.html').split('?')[0]}
+function aid(){var p=pageName();document.querySelectorAll(AEDS).forEach(function(e,i){if(e.closest&&e.closest('#amo'))return;if(!e.dataset.eid)e.dataset.eid=p+'-'+i})}
 function isL(){try{var a=JSON.parse(localStorage.getItem(ASK)||'{}');return a.t&&Date.now()-a.t<86400000}catch(e){return false}}
+// 读取本页已保存的编辑
+function zocGetEdits(){
+  try{var d=JSON.parse(localStorage.getItem(EDITS_KEY)||'{}');if(d.version!==EDITS_VER||!d.pages)return {};return d.pages[pageName()]||{}}catch(e){return {}}
+}
+// 页面加载时应用已保存的修改
+function zocApplyEdits(){
+  aid();var edits=zocGetEdits();var keys=Object.keys(edits);if(!keys.length)return;
+  document.querySelectorAll(AEDS).forEach(function(e){
+    if(e.closest&&e.closest('#amo'))return;
+    if(e.dataset.eid&&edits[e.dataset.eid])e.innerHTML=edits[e.dataset.eid];
+  });
+}
+// 保存编辑到 localStorage（只保存实际改动过的元素，内容清洗编辑属性）
+function zocSaveEdits(){
+  var edits=zocGetEdits();var n=0;
+  document.querySelectorAll('.aed').forEach(function(el){
+    if(!el._zocDirty)return;
+    var h=el.innerHTML
+      .replace(/ contenteditable="true"/g,'')
+      .replace(/ class="aed"/g,'')
+      .replace(/ data-eid="[^"]*"/g,'')
+      .trim();
+    el.style.background='';el._zocDirty=false;
+    if(h&&el.dataset.eid){edits[el.dataset.eid]=h;n++}
+  });
+  try{
+    var d=JSON.parse(localStorage.getItem(EDITS_KEY)||'{}')||{};
+    d.version=EDITS_VER;d.pages=d.pages||{};
+    d.pages[pageName()]=edits;
+    localStorage.setItem(EDITS_KEY,JSON.stringify(d));
+  }catch(e){return -1}
+  return n;
+}
+// 恢复本页原始内容
+function zocResetPage(){
+  if(!confirm('\u786E\u5B9A\u8981\u6E05\u9664\u672C\u9875\u6240\u6709\u4FEE\u6539\uFF0C\u6062\u590D\u4E3A\u539F\u59CB\u5185\u5BB9\u5417\uFF1F'))return;
+  try{var d=JSON.parse(localStorage.getItem(EDITS_KEY)||'{}');if(d.pages)delete d.pages[pageName()];localStorage.setItem(EDITS_KEY,JSON.stringify(d))}catch(e){}
+  location.reload();
+}
 (function(){
   var d=document.createElement('div');d.className='amodal-o';d.id='amo';
   d.innerHTML='<div class="amodal"><h3>\u7BA1\u7406\u5458\u767B\u5F55</h3><input type=password id=ap class="ainput-pwd" placeholder=\u5BC6\u7801 autocomplete=off><p id=ae class=aerr>\u5BC6\u7801\u9519\u8BEF</p><div class=abtns><button class=abtn-cancel id=ac>\u53D6\u6D88</button><button class=abtn-confirm id=afc>\u786E\u8BA4</button></div></div>';
@@ -594,11 +872,16 @@ function isL(){try{var a=JSON.parse(localStorage.getItem(ASK)||'{}');return a.t&
   if(t){t.onclick=function(){if(document.body.classList.contains('am'))eo();else if(isL())edOn();else{d.classList.add('show');document.getElementById('ap').value='';document.getElementById('ae').style.display='none'}}};
 })();
 function edOn(){document.body.classList.add('am');aid();var c=0;
-document.querySelectorAll(AEDS).forEach(function(e,i){if(e.closest&&e.closest('#amo'))return;e.contentEditable='true';e.classList.add('aed');if(!e.dataset.eid)e.dataset.eid=(location.pathname.split('/').pop()||'index.html').split('?')[0]+'-'+i;e.addEventListener('input',function(){e.style.background='rgba(252,128,47,.12)'});c++});
+document.querySelectorAll(AEDS).forEach(function(e,i){if(e.closest&&e.closest('#amo'))return;e.contentEditable='true';e.classList.add('aed');if(!e.dataset.eid)e.dataset.eid=pageName()+'-'+i;e.addEventListener('input',function(){e.style.background='rgba(252,128,47,.12)';e._zocDirty=true});c++});
 var b=document.getElementById('asb');if(!b){b=document.createElement('button');b.id='asb';b.className='asave';b.textContent='\uD83D\uDCBE \u4FDD\u5B58';document.body.appendChild(b)}
-b.onclick=function(){var n=0;document.querySelectorAll('.aed').forEach(function(e){n++});eo();showT('\u2705 \u5DF2\u4FDD\u5B58 '+n+' \u9879\u4FEE\u6539')};b.style.display='block';showT('\u2705 \u7F16\u8F91\u6A21\u5F0F\uFF0C'+c+'\u4E2A\u5143\u7D20\u53EF\u7F16\u8F91')}
-function eo(){document.body.classList.remove('am');document.querySelectorAll('.aed').forEach(function(e){e.contentEditable='false';e.classList.remove('aed');e.style.background=''});var b=document.getElementById('asb');if(b)b.style.display='none';var t=document.getElementById('adminToggle');if(t)t.textContent='\u2699\uFE0F'}
+b.onclick=function(){var n=zocSaveEdits();if(n<0){showT('\u274C \u4FDD\u5B58\u5931\u8D25\uFF1A\u6D4F\u89C8\u5668\u5B58\u50A8\u4E0D\u53EF\u7528');return}eo();showT('\u2705 \u5DF2\u4FDD\u5B58 '+n+' \u9879\u4FEE\u6539\uFF0C\u5237\u65B0\u540E\u4ECD\u4F1A\u4FDD\u7559')};b.style.display='block';
+var r=document.getElementById('asr');if(!r){r=document.createElement('button');r.id='asr';r.className='asave';r.textContent='\u21BA \u6062\u590D\u539F\u59CB';r.style.bottom='80px';r.style.background='#dc3545';document.body.appendChild(r)}
+r.onclick=zocResetPage;r.style.display='block';
+showT('\u2705 \u7F16\u8F91\u6A21\u5F0F\uFF0C'+c+'\u4E2A\u5143\u7D20\u53EF\u7F16\u8F91')}
+function eo(){document.body.classList.remove('am');document.querySelectorAll('.aed').forEach(function(e){e.contentEditable='false';e.classList.remove('aed');e.style.background=''});var b=document.getElementById('asb');if(b)b.style.display='none';var r=document.getElementById('asr');if(r)r.style.display='none';var t=document.getElementById('adminToggle');if(t)t.textContent='\u2699\uFE0F'}
 function showT(m){var t=document.getElementById('atm');if(!t){t=document.createElement('div');t.id='atm';t.style='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:12px 24px;border-radius:25px;font-size:14px;z-index:99999;transition:all .3s;opacity:0;pointer-events:none;white-space:nowrap';document.body.appendChild(t)}t.textContent=m;t.style.opacity='1';clearTimeout(t._tt);t._tt=setTimeout(function(){t.style.opacity='0'},2500)}
+// 页面加载时自动应用已保存的修改
+document.addEventListener('DOMContentLoaded',zocApplyEdits);
 </script>
 
 <!-- Floating admin button -->

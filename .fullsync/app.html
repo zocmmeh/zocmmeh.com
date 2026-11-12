@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="中山眼科茂名医院">
+    <meta name="theme-color" content="#1b4d89">
+    <title>中山大学中山眼科中心茂名医院</title>
+    <link rel="icon" href="zoc-logo.png">
+    <link rel="apple-touch-icon" href="zoc-logo.png">
+    <style>
+        :root { --blue:#1b4d89; --dark:#0f2b4d; --orange:#fc802f; --light:#e8f0f8; }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; background:linear-gradient(135deg,#1b4d89,#0f3d6e); min-height:100vh; padding:16px; }
+        .container { max-width:900px; margin:0 auto; }
+
+        /* ===== Header ===== */
+        .header { display:flex; align-items:center; justify-content:center; gap:14px; color:#fff; padding:20px 0 24px; }
+        .header .logo { width:56px; height:auto; flex-shrink:0; }
+        .header .header-text { text-align:left; line-height:1.4; }
+        .header .header-text h1 { font-size:22px; margin-bottom:0; letter-spacing:1px; }
+        .header .header-text .sub { font-size:14px; opacity:.85; }
+        .header .en { font-size:9px; opacity:.45; letter-spacing:.5px; text-align:center; margin-top:4px; }
+
+        /* ===== Welcome ===== */
+        .welcome-section { background:linear-gradient(135deg,#1b4d89,#0f3d6e); color:#fff; border-radius:16px; padding:28px 24px; margin-bottom:20px; text-align:center; border:1px solid rgba(252,128,47,.3); position:relative; overflow:hidden; }
+        .welcome-section::after { content:''; position:absolute; right:-20px; top:-20px; width:100px; height:100px; border-radius:50%; background:rgba(252,128,47,.1); }
+        .welcome-icon { font-size:42px; margin-bottom:10px; position:relative; z-index:1; }
+        .welcome-title { font-size:20px; font-weight:700; margin-bottom:6px; position:relative; z-index:1; }
+        .welcome-desc { opacity:.85; margin-bottom:16px; font-size:13px; position:relative; z-index:1; }
+        .welcome-btn-group { display:flex; gap:12px; justify-content:center; position:relative; z-index:1; }
+        .welcome-btn { padding:11px 28px; border:none; border-radius:24px; font-weight:600; font-size:14px; cursor:pointer; transition:all .25s; }
+        .welcome-btn.primary { background:#fc802f; color:#fff; }
+        .welcome-btn.primary:active { background:#e8721f; }
+        .welcome-btn.outline { background:rgba(255,255,255,.15); color:#fff; }
+
+        /* ===== Menu Cards ===== */
+        .menu-container { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:24px; }
+        .menu-card { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,.12); }
+        .menu-header { background:linear-gradient(135deg,#1b4d89,#1a5ea8); color:#fff; padding:16px; text-align:center; font-size:16px; font-weight:600; }
+        .menu-content { padding:12px; }
+        .menu-item { display:flex; align-items:center; padding:11px; border-radius:10px; margin-bottom:6px; background:#f8f9fb; cursor:pointer; transition:all .2s; }
+        .menu-item:active { background:#e8f0f8; transform:scale(.98); }
+        .menu-item:last-child { margin-bottom:0; }
+        .menu-icon { font-size:22px; margin-right:10px; flex-shrink:0; }
+        .menu-info { flex:1; min-width:0; }
+        .menu-name { font-weight:600; color:#333; font-size:13px; margin-bottom:2px; }
+        .menu-desc { font-size:11px; color:#999; }
+
+        /* ===== Quick ===== */
+        .quick-section,.keyword-section { background:#fff; border-radius:16px; padding:22px; box-shadow:0 8px 30px rgba(0,0,0,.12); margin-bottom:24px; }
+        .quick-title,.keyword-title { font-size:17px; font-weight:700; color:#1b4d89; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+        .quick-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; }
+        .quick-btn { display:flex; flex-direction:column; align-items:center; padding:16px 8px; background:linear-gradient(135deg,#f5f7fa,#e8eef4); border-radius:12px; cursor:pointer; transition:all .25s; }
+        .quick-btn:active { transform:scale(.95); }
+        .quick-icon { font-size:28px; margin-bottom:6px; }
+        .quick-text { font-size:11px; color:#333; font-weight:600; }
+        .keyword-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+        .keyword-item { display:flex; align-items:center; padding:11px 14px; background:#f8f9fb; border-radius:8px; cursor:pointer; transition:all .2s; }
+        .keyword-item:active { background:#e8f0f8; }
+        .keyword-tag { background:#fc802f; color:#fff; padding:3px 9px; border-radius:4px; font-size:11px; font-weight:600; margin-right:8px; flex-shrink:0; }
+        .keyword-reply { font-size:11px; color:#666; }
+
+        /* ===== Footer ===== */
+        .footer { text-align:center; color:rgba(255,255,255,.4); font-size:11px; padding:20px 0 10px; line-height:1.8; }
+
+        /* ============ OVERLAY PAGE SYSTEM ============ */
+        .overlay { position:fixed; top:0; left:0; right:0; bottom:0; background:#f5f6f8; z-index:200; transform:translateX(100%); transition:transform .3s cubic-bezier(.4,0,.2,1); overflow-y:auto; -webkit-overflow-scrolling:touch; }
+        .overlay.open { transform:translateX(0); }
+        .overlay-bar { background:var(--blue); color:#fff; padding:12px 16px; display:flex; align-items:center; gap:12px; position:sticky; top:0; z-index:10; box-shadow:0 2px 8px rgba(0,0,0,.15); }
+        .overlay-bar .back-btn { width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,.15); border:none; color:#fff; font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+        .overlay-bar .bar-title { flex:1; font-size:16px; font-weight:700; }
+        .overlay-body { padding:12px; }
+        .overlay-body .card { background:#fff; border-radius:14px; padding:16px; margin-bottom:12px; box-shadow:0 2px 8px rgba(0,0,0,.05); }
+
+        /* ===== Common form elements ===== */
+        .input-group { margin-bottom:14px; }
+        .input-group label { display:block; font-size:13px; font-weight:600; color:#333; margin-bottom:6px; }
+        .input-group input,.input-group select { width:100%; padding:11px 14px; border:1px solid #ddd; border-radius:10px; font-size:14px; background:#f8f9fb; outline:none; transition:border .2s; font-family:inherit; }
+        .input-group input:focus,.input-group select:focus { border-color:var(--blue); background:#fff; }
+        .btn { display:block; width:100%; padding:13px; border:none; border-radius:10px; font-size:15px; font-weight:700; cursor:pointer; text-align:center; transition:all .2s; }
+        .btn-blue { background:var(--blue); color:#fff; }
+        .btn-blue:active { background:var(--dark); }
+        .btn-orange { background:var(--orange); color:#fff; }
+        .btn-orange:active { background:#e8721f; }
+        .btn-outline { background:#fff; color:var(--blue); border:2px solid var(--blue); }
+        .chip { display:inline-block; padding:6px 14px; border-radius:20px; font-size:12px; font-weight:600; cursor:pointer; margin:4px; transition:all .2s; border:1px solid #ddd; background:#f8f9fb; }
+        .chip.active { background:var(--blue); color:#fff; border-color:var(--blue); }
+        .chip:active { transform:scale(.95); }
+
+        /* ===== Appointment flow ===== */
+        .dept-card { background:var(--light); border-radius:12px; padding:14px; margin-bottom:8px; cursor:pointer; display:flex; align-items:center; gap:10px; border:1px solid transparent; transition:all .2s; }
+        .dept-card:active { border-color:var(--blue); transform:scale(.98); }
+        .dept-card .d-icon { font-size:28px; }
+        .dept-card .d-info { flex:1; }
+        .dept-card .d-name { font-weight:700; color:#333; font-size:14px; }
+        .dept-card .d-detail { font-size:11px; color:#999; margin-top:2px; }
+        .dept-card .d-arrow { color:#ccc; font-size:18px; }
+        .date-chip-row { display:flex; gap:8px; overflow-x:auto; padding:8px 0; -webkit-overflow-scrolling:touch; }
+        .date-chip-row::-webkit-scrollbar { display:none; }
+        .date-chip { flex-shrink:0; display:flex; flex-direction:column; align-items:center; padding:10px 16px; border-radius:12px; cursor:pointer; border:1px solid #ddd; min-width:60px; background:#fff; transition:all .2s; }
+        .date-chip.active { background:var(--blue); color:#fff; border-color:var(--blue); }
+        .date-chip .dow { font-size:12px; opacity:.7; }
+        .date-chip .day { font-size:20px; font-weight:700; }
+        .time-slot { display:inline-block; padding:10px 18px; border-radius:8px; margin:4px; font-size:13px; font-weight:600; cursor:pointer; border:1px solid #ddd; background:#fff; transition:all .2s; }
+        .time-slot.active { background:var(--blue); color:#fff; border-color:var(--blue); }
+        .time-slot.full { background:#fee2e2; color:#991b1b; border-color:#fecaca; pointer-events:none; }
+
+        /* ===== Doctor list ===== */
+        .doctor-card { display:flex; align-items:center; gap:12px; padding:14px; background:#fff; border-radius:12px; margin-bottom:8px; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,.04); transition:all .2s; }
+        .doctor-card:active { transform:scale(.98); background:var(--light); }
+        .doctor-avatar { width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--blue),#1a5ea8); color:#fff; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:700; flex-shrink:0; }
+        .doctor-info { flex:1; }
+        .doctor-name { font-weight:700; font-size:15px; color:#333; }
+        .doctor-title { font-size:11px; color:#999; margin-top:2px; }
+        .doctor-dept { font-size:11px; color:var(--blue); }
+        .doctor-fee { font-weight:700; color:var(--orange); font-size:13px; }
+
+        /* ===== Confirmation ===== */
+        .confirm-item { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid #f0f0f0; font-size:14px; }
+        .confirm-item .c-label { color:#999; }
+        .confirm-item .c-value { font-weight:600; color:#333; text-align:right; }
+        .success-icon { font-size:64px; text-align:center; margin:20px 0; }
+        .success-text { text-align:center; font-size:18px; font-weight:700; color:#333; margin-bottom:6px; }
+        .success-sub { text-align:center; font-size:13px; color:#999; margin-bottom:20px; }
+
+        /* ===== Bill items ===== */
+        .bill-item { background:#fff; border-radius:12px; padding:14px; margin-bottom:8px; box-shadow:0 2px 6px rgba(0,0,0,.04); cursor:pointer; }
+        .bill-item .bill-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+        .bill-item .bill-name { font-weight:600; font-size:14px; color:#333; }
+        .bill-item .bill-amount { font-weight:700; font-size:16px; color:var(--orange); }
+        .bill-item .bill-detail { font-size:11px; color:#999; }
+
+        /* ===== Report detail ===== */
+        .report-detail-table { width:100%; font-size:13px; }
+        .report-detail-table td { padding:8px 6px; border-bottom:1px solid #f0f0f0; }
+        .report-detail-table td:first-child { color:#999; width:35%; }
+        .report-detail-table td:last-child { font-weight:600; color:#333; }
+        .status-pill { display:inline-block; padding:4px 12px; border-radius:12px; font-size:11px; font-weight:600; }
+        .status-done { background:#dcfce7; color:#166534; }
+        .status-pending { background:#fef3c7; color:#92400e; }
+        .status-abnormal { background:#fee2e2; color:#991b1b; }
+
+        /* ===== Chat ===== */
+        .chat-area { display:flex; flex-direction:column; gap:10px; }
+        .chat-msg { max-width:80%; padding:12px 16px; border-radius:16px; font-size:14px; line-height:1.5; }
+        .chat-msg.bot { background:#fff; align-self:flex-start; border-bottom-left-radius:4px; box-shadow:0 2px 4px rgba(0,0,0,.06); }
+        .chat-msg.user { background:var(--blue); color:#fff; align-self:flex-end; border-bottom-right-radius:4px; }
+        .chat-input-row { display:flex; gap:8px; margin-top:12px; }
+        .chat-input-row input { flex:1; padding:11px 14px; border:1px solid #ddd; border-radius:24px; font-size:14px; outline:none; font-family:inherit; }
+        .chat-input-row button { padding:10px 20px; border:none; border-radius:24px; background:var(--orange); color:#fff; font-weight:600; cursor:pointer; }
+
+        /* ===== Vision chart ===== */
+        .vision-bar { display:flex; align-items:center; gap:10px; margin:8px 0; }
+        .vision-bar .v-label { font-size:12px; color:#999; width:50px; text-align:right; }
+        .vision-bar .v-track { flex:1; height:10px; background:#eee; border-radius:5px; overflow:hidden; }
+        .vision-bar .v-fill { height:100%; border-radius:5px; transition:width .6s ease; }
+        .v-good { background:#4caf50; } .v-warn { background:#ff9800; } .v-bad { background:#f44336; }
+
+        /* ===== Tab inside overlay ===== */
+        .tab-row { display:flex; background:#fff; border-radius:12px; overflow:hidden; margin-bottom:12px; }
+        .tab-row .tab { flex:1; padding:12px; text-align:center; font-size:13px; font-weight:600; color:#999; cursor:pointer; transition:all .2s; border-bottom:3px solid transparent; }
+        .tab-row .tab.active { color:var(--blue); border-bottom-color:var(--orange); background:var(--light); }
+
+        /* ===== Responsive ===== */
+        @media (max-width:768px) {
+            .menu-container { grid-template-columns:1fr; }
+            .quick-grid { grid-template-columns:repeat(3,1fr); }
+            .keyword-grid { grid-template-columns:repeat(2,1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img class="logo" src="zoc-logo.png" alt="中山眼科中心院徽">
+            <div class="header-text">
+                <h1>中山大学中山眼科中心</h1>
+                <div class="sub">茂名医院</div>
+            </div>
+        </div>
+        <div class="en">ZHONGSHAN OPHTHALMIC CENTER, SUN YAT-SEN UNIVERSITY · MAOMING EYE HOSPITAL</div>
+
+        <!-- Welcome -->
+        <div class="welcome-section">
+            <div class="welcome-icon">👋</div>
+            <div class="welcome-title">欢迎关注【中山眼科茂名医院】</div>
+            <div class="welcome-desc">国家级眼科中心同质化管理 · 守护粤西眼健康</div>
+            <div class="welcome-btn-group">
+                <button class="welcome-btn primary" onclick="openOverlay('appointment')">🎫 立即预约挂号</button>
+                <button class="welcome-btn outline" onclick="openOverlay('bindCard')">🪪 绑定就诊卡</button>
+            </div>
+        </div>
+
+        <!-- 一级菜单 -->
+        <div class="menu-container">
+            <!-- 就诊服务 -->
+            <div class="menu-card">
+                <div class="menu-header">🏥 就诊服务</div>
+                <div class="menu-content">
+                    <div class="menu-item" onclick="openOverlay('appointment')"><span class="menu-icon">🎫</span><div class="menu-info"><div class="menu-name">预约挂号</div><div class="menu-desc">7日号源·分时段预约</div></div></div>
+                    <div class="menu-item" onclick="openOverlay('payment')"><span class="menu-icon">💳</span><div class="menu-info"><div class="menu-name">门诊缴费</div><div class="menu-desc">待缴费用一键支付</div></div></div>
+                    <div class="menu-item" onclick="openOverlay('reports')"><span class="menu-icon">📋</span><div class="menu-info"><div class="menu-name">报告查询</div><div class="menu-desc">检验·检查随时查</div></div></div>
+                    <div class="menu-item" onclick="openOverlay('internetHospital')"><span class="menu-icon">💻</span><div class="menu-info"><div class="menu-name">互联网医院</div><div class="menu-desc">图文·视频问诊</div></div></div>
+                    <div class="menu-item" onclick="openOverlay('inpatient')"><span class="menu-icon">🛏️</span><div class="menu-info"><div class="menu-name">住院服务</div><div class="menu-desc">押金·结算</div></div></div>
+                </div>
+            </div>
+            <!-- 眼科中心 -->
+            <div class="menu-card">
+                <div class="menu-header">👁️ 眼科中心</div>
+                <div class="menu-content">
+                    <div class="menu-item" onclick="openOverlay('refractive')"><span class="menu-icon">👁️</span><div class="menu-info"><div class="menu-name">屈光手术</div><div class="menu-desc">术前·手术·术后</div></div></div>
+                    <div class="menu-item" onclick="openOverlay('optometry')"><span class="menu-icon">👓</span><div class="menu-info"><div class="menu-name">验光配镜</div><div class="menu-desc">验光·镜片·取镜</div></div></div>
+                    <div class="menu-item" onclick="openOverlay('visionArchive')"><span class="menu-icon">📖</span><div class="menu-info"><div class="menu-name">视力档案</div><div class="menu-desc">屈光发育·追踪</div></div></div>
+                    <div class="menu-item" onclick="openOverlay('okLens')"><span class="menu-icon">💧</span><div class="menu-info"><div class="menu-name">OK镜服务</div><div class="menu-desc">角膜塑形镜</div></div></div>
+                    <div class="menu-item" onclick="openOverlay('healthEdu')"><span class="menu-icon">📚</span><div class="menu-info"><div class="menu-name">健康科普</div><div class="menu-desc">护眼知识</div></div></div>
+                </div>
+            </div>
+            <!-- 我的 -->
+            <div class="menu-card">
+                <div class="menu-header">👤 我的</div>
+                <div class="menu-content">
+                    <div class="menu-item" onclick="openOverlay('patientMgr')"><span class="menu-icon">🪪</span><div class="menu-info"><div class="menu-name">就诊人管理</div><div class="menu-desc">绑卡·实名认证</div></div></div>
+                    <div class="menu-item" onclick="openOverlay('familyAccount')"><span class="menu-icon">👨‍👩‍👧</span><div class="menu-info"><div class="menu-name">亲情账户</div><div class="menu-desc">帮家人挂号</div></div></div>
+                    <div class="menu-item" onclick="openOverlay('visitHistory')"><span class="menu-icon">📜</span><div class="menu-info"><div class="menu-name">就诊记录</div><div class="menu-desc">历史就诊</div></div></div>
+                    <div class="menu-item" onclick="openOverlay('healthRecord')"><span class="menu-icon">❤️</span><div class="menu-info"><div class="menu-name">健康档案</div><div class="menu-desc">健康数据</div></div></div>
+                    <div class="menu-item" onclick="openOverlay('assistant')"><span class="menu-icon">⚙️</span><div class="menu-info"><div class="menu-name">就医助手</div><div class="menu-desc">帮助·反馈</div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 快捷功能 -->
+        <div class="quick-section">
+            <div class="quick-title">📌 快捷功能</div>
+            <div class="quick-grid">
+                <div class="quick-btn" onclick="openOverlay('appointment')"><span class="quick-icon">🎫</span><span class="quick-text">预约挂号</span></div>
+                <div class="quick-btn" onclick="openOverlay('payment')"><span class="quick-icon">💳</span><span class="quick-text">门诊缴费</span></div>
+                <div class="quick-btn" onclick="openOverlay('reports')"><span class="quick-icon">📋</span><span class="quick-text">报告查询</span></div>
+                <div class="quick-btn" onclick="openOverlay('internetHospital')"><span class="quick-icon">🏥</span><span class="quick-text">互联网医院</span></div>
+                <div class="quick-btn" onclick="openOverlay('refractive')"><span class="quick-icon">👁️</span><span class="quick-text">屈光手术</span></div>
+                <div class="quick-btn" onclick="openOverlay('optometry')"><span class="quick-icon">👓</span><span class="quick-text">验光配镜</span></div>
+            </div>
+        </div>
+
+        <!-- 关键词自动回复 -->
+        <div class="keyword-section">
+            <div class="keyword-title">🔑 关键词自动回复</div>
+            <div class="keyword-grid">
+                <div class="keyword-item" onclick="openOverlay('appointment')"><span class="keyword-tag">挂号</span><span class="keyword-reply">预约指南</span></div>
+                <div class="keyword-item" onclick="openOverlay('reports')"><span class="keyword-tag">报告</span><span class="keyword-reply">查询指南</span></div>
+                <div class="keyword-item" onclick="openOverlay('payment')"><span class="keyword-tag">缴费</span><span class="keyword-reply">待缴账单</span></div>
+                <div class="keyword-item" onclick="openOverlay('refractive')"><span class="keyword-tag">屈光</span><span class="keyword-reply">手术预约</span></div>
+                <div class="keyword-item" onclick="openOverlay('optometry')"><span class="keyword-tag">配镜</span><span class="keyword-reply">验光预约</span></div>
+                <div class="keyword-item" onclick="openOverlay('floorNav')"><span class="keyword-tag">地图</span><span class="keyword-reply">导航链接</span></div>
+                <div class="keyword-item" onclick="openOverlay('assistant')"><span class="keyword-tag">电话</span><span class="keyword-reply">咨询电话</span></div>
+                <div class="keyword-item" onclick="openOverlay('internetHospital')"><span class="keyword-tag">人工</span><span class="keyword-reply">转客服</span></div>
+            </div>
+        </div>
+
+        <div class="footer">求真 · 善良 · 创新<br>ZHONGSHAN OPHTHALMIC CENTER, SUN YAT-SEN UNIVERSITY · MAOMING EYE HOSPITAL</div>
+    </div>
+
+    <!-- ============ OVERLAY PAGES ============ -->
+    <div id="overlayContainer"></div>
+
+<script>
+// ==================== OVERLAY ENGINE ====================
+const overlayEl = document.getElementById('overlayContainer');
+let currentOverlay = null;
+
+function openOverlay(name) {
+    const html = renderPage(name);
+    overlayEl.innerHTML = html;
+    requestAnimationFrame(() => {
+        const ov = overlayEl.querySelector('.overlay');
+        if (ov) { ov.classList.add('open'); currentOverlay = name; }
+    });
+}
+
+function closeOverlay() {
+    const ov = overlayEl.querySelector('.overlay');
+    if (ov) { ov.classList.remove('open'); currentOverlay = null; }
+    setTimeout(() => { overlayEl.innerHTML = ''; }, 350);
+}
+
+function renderPage(name) {
+    const pages = {
+        appointment: renderAppointment,
+        bindCard: renderBindCard,
+        payment: renderPayment,
+        reports: renderReports,
+        internetHospital: renderInternet,
+        inpatient: renderInpatient,
+        refractive: renderRefractive,
+        optometry: renderOptometry,
+        visionArchive: renderVisionArchive,
+        okLens: renderOkLens,
+        healthEdu: renderHealthEdu,
+        patientMgr: renderPatientMgr,
+        familyAccount: renderFamily,
+        visitHistory: renderVisitHistory,
+        healthRecord: renderHealthRecord,
+        assistant: renderAssistant,
+        floorNav: renderFloorNav,
+        apptDept: renderApptDept,
+        apptConfirm: renderApptConfirm,
+        apptSuccess: renderApptSuccess,
+        reportDetail: renderReportDetail,
+        payDetail: renderPayDetail,
+        paySuccess: renderPaySuccess,
+        articleDetail: renderArticleDetail,
+        chatRoom: renderChatRoom,
+    };
+    const fn = pages[name] || pages['appointment'];
+    return fn(name);
+}
+
+// ==================== APPOINTMENT BOOKING ====================
+function renderAppointment() { return wrapOverlay('预约挂号', `
+    <div class="overlay-body">
+        <div class="card" style="text-align:center;padding:20px;">
+            <div style="font-size:13px;color:#999;margin-bottom:8px;">请选择就诊人</div>
+            <div style="font-size:18px;font-weight:700;margin-bottom:4px;cursor:pointer" onclick="openOverlay('patientMgr')">张三</div>
+            <div style="font-size:12px;color:#999;">身份证 4409**********1234 ›</div>
+        </div>
+        <div class="card">
+            <div style="font-size:15px;font-weight:700;color:#333;margin-bottom:14px;">选择科室</div>
+            ${departments.map(d=>`
+            <div class="dept-card" onclick="openOverlay('apptDept')" data-dept="${d.name}">
+                <span class="d-icon">${d.icon}</span>
+                <div class="d-info">
+                    <div class="d-name">${d.name}</div>
+                    <div class="d-detail">${d.detail}</div>
+                </div>
+                <span class="d-arrow">›</span>
+            </div>`).join('')}
+        </div>
+        <div class="card" style="font-size:12px;color:#999;line-height:1.8;">
+            📋 <b>预约须知：</b>每日07:00开放第7天号源 · 取消请提前1天 · 爽约3次暂停预约30天
+        </div>
+    </div>`);
+}
+
+const departments = [
+    {name:'白内障专科',icon:'🔬',detail:'超乳·飞秒激光 · 今日15号源'},
+    {name:'眼底病专科',icon:'👁️',detail:'玻切·抗VEGF · 今日10号源'},
+    {name:'青光眼专科',icon:'⚡',detail:'小梁切除·引流阀 · 明日上午可约'},
+    {name:'角膜眼表专科',icon:'👀',detail:'角膜移植·干眼 · 今日8号源'},
+    {name:'视光中心',icon:'👓',detail:'验光·配镜·OK镜 · 今日可约'},
+    {name:'斜视弱视专科',icon:'👶',detail:'小儿眼科·斜弱视 · 周三出诊'},
+    {name:'眼眶/眼整形',icon:'🏥',detail:'眼眶肿瘤·眼睑 · 周三出诊'},
+    {name:'葡萄膜炎专科',icon:'🔍',detail:'葡萄膜炎·免疫 · 周四出诊'},
+];
+
+const doctors = {
+    '白内障专科': [
+        {name:'陈志明',title:'主任医师',dept:'总院派驻',fee:'¥50',avail:'上午'},
+        {name:'林伟强',title:'副主任医师',dept:'白内障专科',fee:'¥30',avail:'上午/下午'},
+        {name:'黄丽华',title:'主治医师',dept:'白内障专科',fee:'¥20',avail:'下午'},
+    ],
+    '眼底病专科': [
+        {name:'王建国',title:'主任医师',dept:'眼底病专科',fee:'¥50',avail:'上午'},
+        {name:'赵明辉',title:'副主任医师',dept:'总院派驻',fee:'¥40',avail:'下午'},
+        {name:'孙晓燕',title:'主治医师',dept:'眼底病专科',fee:'¥20',avail:'上午/下午'},
+    ],
+    'default': [
+        {name:'值班医生',title:'主治医师',dept:'',fee:'¥20',avail:'上午/下午'},
+    ]
+};
+
+// ==================== APPT DEPARTMENT + DATE + DOCTOR ====================
+function renderApptDept(n) {
+    const deptName = currentOverlay === 'apptDept' ? '白内障专科' : (sessionStorage.getItem('apptDept') || '白内障专科');
+    sessionStorage.setItem('apptDept', deptName);
+    const docList = doctors[deptName] || doctors['default'];
+    // Generate 7 days
+    const days = []; const d=new Date();
+    for(let i=0;i<7;i++) { const dt=new Date(d); dt.setDate(d.getDate()+i); days.push({dow:'周'+'日一二三四五六'[dt.getDay()],day:dt.getDate(),m:dt.getMonth()+1,iso:dt.toISOString().split('T')[0]}); }
+
+    return wrapOverlay(deptName + ' - 选择日期', `
+    <div class="overlay-body">
+        <div class="card">
+            <div style="font-size:15px;font-weight:700;color:#333;margin-bottom:10px;">选择日期</div>
+            <div class="date-chip-row" id="dateRow">
+                ${days.map((d,i)=>`<div class="date-chip${i===0?' active':''}" data-iso="${d.iso}" onclick="selectDate(this)"><span class="dow">${d.dow}</span><span class="day">${d.m}/${d.day}</span></div>`).join('')}
+            </div>
+        </div>
+        <div class="card">
+            <div style="font-size:15px;font-weight:700;color:#333;margin-bottom:4px;">选择医生</div>
+            <div style="font-size:11px;color:#999;margin-bottom:12px;">${deptName} · ${days[0].m}月${days[0].day}日 ${days[0].dow}</div>
+            ${docList.map(d=>`
+            <div class="doctor-card" onclick="openOverlay('apptConfirm')" data-doc="${d.name}">
+                <div class="doctor-avatar">${d.name[0]}</div>
+                <div class="doctor-info">
+                    <div class="doctor-name">${d.name}</div>
+                    <div class="doctor-title">${d.title} ${d.dept?'·'+d.dept:''}</div>
+                    <div class="doctor-dept">${d.avail}可约</div>
+                </div>
+                <div class="doctor-fee">${d.fee}</div>
+            </div>`).join('')}
+        </div>
+        <div class="card">
+            <div style="font-size:15px;font-weight:700;color:#333;margin-bottom:10px;">选择时段</div>
+            <div id="timeSlots">
+                <span class="time-slot active" onclick="selectTime(this)">08:00-08:30</span>
+                <span class="time-slot" onclick="selectTime(this)">08:30-09:00</span>
+                <span class="time-slot" onclick="selectTime(this)">09:00-09:30</span>
+                <span class="time-slot" onclick="selectTime(this)">09:30-10:00</span>
+                <span class="time-slot full">10:00-10:30(满)</span>
+                <span class="time-slot" onclick="selectTime(this)">10:30-11:00</span>
+                <span class="time-slot full">11:00-11:30(满)</span>
+                <span class="time-slot" onclick="selectTime(this)">14:00-14:30</span>
+                <span class="time-slot" onclick="selectTime(this)">14:30-15:00</span>
+                <span class="time-slot" onclick="selectTime(this)">15:00-15:30</span>
+                <span class="time-slot" onclick="selectTime(this)">15:30-16:00</span>
+                <span class="time-slot" onclick="selectTime(this)">16:00-16:30</span>
+            </div>
+        </div>
+    </div>`);
+}
+
+// ==================== APPT CONFIRM ====================
+function renderApptConfirm() {
+    return wrapOverlay('确认预约', `
+    <div class="overlay-body">
+        <div class="card">
+            <div style="font-size:15px;font-weight:700;color:#333;margin-bottom:14px;">预约信息确认</div>
+            <div class="confirm-item"><span class="c-label">就诊人</span><span class="c-value">张三</span></div>
+            <div class="confirm-item"><span class="c-label">科室</span><span class="c-value">白内障专科</span></div>
+            <div class="confirm-item"><span class="c-label">医生</span><span class="c-value">陈志明 主任医师</span></div>
+            <div class="confirm-item"><span class="c-label">日期</span><span class="c-value">${new Date().getMonth()+1}月${new Date().getDate()}日</span></div>
+            <div class="confirm-item"><span class="c-label">时段</span><span class="c-value">08:00-08:30</span></div>
+            <div class="confirm-item"><span class="c-label">挂号费</span><span class="c-value" style="color:#fc802f">¥50.00</span></div>
+        </div>
+        <button class="btn btn-orange" onclick="openOverlay('apptSuccess')" style="margin-top:12px;">✅ 确认预约</button>
+        <button class="btn btn-outline" onclick="closeOverlay()" style="margin-top:8px;">返回修改</button>
+    </div>`);
+}
+
+function renderApptSuccess() {
+    return wrapOverlay('预约成功', `
+    <div class="overlay-body">
+        <div class="card" style="text-align:center;">
+            <div class="success-icon">✅</div>
+            <div class="success-text">预约成功！</div>
+            <div class="success-sub">请按时就诊，携带身份证</div>
+            <div class="confirm-item"><span class="c-label">就诊时间</span><span class="c-value">${new Date().getMonth()+1}月${new Date().getDate()}日 08:00</span></div>
+            <div class="confirm-item"><span class="c-label">就诊科室</span><span class="c-value">白内障专科</span></div>
+            <div class="confirm-item"><span class="c-label">就诊医生</span><span class="c-value">陈志明 主任医师</span></div>
+            <div class="confirm-item"><span class="c-label">挂号序号</span><span class="c-value">20260623-BNZ-003</span></div>
+            <div style="margin-top:16px;font-size:12px;color:#999;">取消预约请提前1天操作<br>爽约3次将暂停预约权限30天</div>
+        </div>
+        <button class="btn btn-blue" onclick="closeOverlay()" style="margin-top:12px;">返回首页</button>
+    </div>`);
+}
+
+// ==================== BIND CARD ====================
+function renderBindCard() {
+    return wrapOverlay('绑定就诊卡', `
+    <div class="overlay-body">
+        <div class="card">
+            <div class="input-group"><label>姓名</label><input placeholder="请输入真实姓名"></div>
+            <div class="input-group"><label>身份证号</label><input placeholder="请输入18位身份证号"></div>
+            <div class="input-group"><label>手机号码</label><input type="tel" placeholder="请输入手机号"></div>
+            <div class="input-group"><label>就诊卡号</label><input placeholder="已有就诊卡请填写（选填）"></div>
+        </div>
+        <button class="btn btn-orange" onclick="showBindSuccess()" style="margin-top:12px;">获取验证码并绑定</button>
+    </div>`);
+}
+
+function showBindSuccess() {
+    overlayEl.querySelector('.overlay-body').innerHTML = `<div class="card" style="text-align:center;"><div class="success-icon">🪪</div><div class="success-text">绑定成功</div><div class="success-sub">就诊卡号：ZOC-MY-202606001</div></div><button class="btn btn-blue" onclick="closeOverlay()" style="margin:12px;">返回首页</button>`;
+}
+
+// ==================== PAYMENT ====================
+function renderPayment() {
+    return wrapOverlay('门诊缴费', `
+    <div class="overlay-body">
+        <div class="bill-item" onclick="openOverlay('payDetail')">
+            <div class="bill-header"><span class="bill-name">白内障术前检查套餐</span><span class="bill-amount">¥1,280.00</span></div>
+            <div class="bill-detail">2026-06-23 · 白内障专科 · 待支付</div>
+        </div>
+        <div class="bill-item" onclick="openOverlay('payDetail')">
+            <div class="bill-header"><span class="bill-name">OCT检查+眼底照相</span><span class="bill-amount">¥380.00</span></div>
+            <div class="bill-detail">2026-06-22 · 眼底病专科 · 待支付</div>
+        </div>
+        <div class="bill-item" style="opacity:.5">
+            <div class="bill-header"><span class="bill-name">左氧氟沙星滴眼液 x2</span><span class="bill-amount" style="color:#999">¥78.00</span></div>
+            <div class="bill-detail">2026-06-15 · 已支付</div>
+        </div>
+        <div style="text-align:center;color:#999;font-size:12px;margin-top:8px;">— 仅显示近30天记录 —</div>
+    </div>`);
+}
+
+function renderPayDetail() {
+    return wrapOverlay('缴费详情', `
+    <div class="overlay-body">
+        <div class="card">
+            <div style="font-size:15px;font-weight:700;color:#333;margin-bottom:14px;">白内障术前检查套餐</div>
+            <div class="confirm-item"><span class="c-label">就诊人</span><span class="c-value">张三</span></div>
+            <div class="confirm-item"><span class="c-label">科室</span><span class="c-value">白内障专科</span></div>
+            <div class="confirm-item"><span class="c-label">项目1</span><span class="c-value">眼部A/B超 ¥200</span></div>
+            <div class="confirm-item"><span class="c-label">项目2</span><span class="c-value">角膜内皮计数 ¥150</span></div>
+            <div class="confirm-item"><span class="c-label">项目3</span><span class="c-value">IOL Master生物测量 ¥380</span></div>
+            <div class="confirm-item"><span class="c-label">项目4</span><span class="c-value">OCT黄斑扫描 ¥350</span></div>
+            <div class="confirm-item"><span class="c-label">项目5</span><span class="c-value">血常规+凝血 ¥200</span></div>
+            <div class="confirm-item" style="border:none;"><span class="c-label">合计</span><span class="c-value" style="color:#fc802f;font-size:18px;">¥1,280.00</span></div>
+        </div>
+        <button class="btn btn-orange" onclick="openOverlay('paySuccess')" style="margin-top:12px;">💳 立即支付 ¥1,280.00</button>
+    </div>`);
+}
+
+function renderPaySuccess() {
+    return wrapOverlay('支付成功', `
+    <div class="overlay-body"><div class="card" style="text-align:center;"><div class="success-icon">💳</div><div class="success-text">支付成功</div><div class="success-sub">¥1,280.00 · 白内障术前检查套餐</div></div><button class="btn btn-blue" onclick="closeOverlay();closeOverlay()" style="margin:12px;">完成</button></div>`);
+}
+
+// ==================== REPORTS ====================
+function renderReports() {
+    const rpts = [
+        {name:'眼部OCT检查',date:'2026-06-22',doctor:'王建国',status:'done',type:'检查'},
+        {name:'眼底照相',date:'2026-06-20',doctor:'陈志明',status:'done',type:'检查'},
+        {name:'血常规检验',date:'2026-06-23',doctor:'检验科',status:'pending',type:'检验'},
+        {name:'IOL Master生物测量',date:'2026-06-22',doctor:'林伟强',status:'done',type:'检查'},
+        {name:'非接触眼压测量',date:'2026-06-22',doctor:'护士站',status:'done',type:'检查'},
+    ];
+    return wrapOverlay('报告查询', `
+    <div class="overlay-body">
+        ${rpts.map((r,i)=>`
+        <div class="report-item card" onclick="openOverlay('reportDetail')" style="cursor:pointer">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+                <span style="font-weight:600;font-size:14px">${r.name}</span>
+                <span class="status-pill ${r.status==='done'?'status-done':'status-pending'}">${r.status==='done'?'已完成':'处理中'}</span>
+            </div>
+            <div style="font-size:11px;color:#999;margin-top:4px;">${r.date} · ${r.doctor} · ${r.type}</div>
+        </div>`).join('')}
+    </div>`);
+}
+
+function renderReportDetail() {
+    return wrapOverlay('OCT检查报告', `
+    <div class="overlay-body">
+        <div class="card">
+            <div style="font-size:15px;font-weight:700;color:#333;margin-bottom:14px;">光学相干断层扫描（OCT）</div>
+            <table class="report-detail-table">
+                <tr><td>姓名</td><td>张三</td><td>性别</td><td>男</td></tr>
+                <tr><td>年龄</td><td>68岁</td><td>检查日期</td><td>2026-06-22</td></tr>
+                <tr><td>检查部位</td><td>双眼黄斑区</td><td>报告医生</td><td>王建国</td></tr>
+                <tr><td>右眼CST</td><td>245μm</td><td>左眼CST</td><td>268μm</td></tr>
+            </table>
+            <div style="margin-top:14px;padding:12px;background:#f0fdf4;border-radius:8px;font-size:13px;line-height:1.6;">
+                <b style="color:#166534;">检查结论：</b>双眼黄斑区形态正常，中心凹结构完整。右眼CST 245μm，左眼CST 268μm，均在正常范围内。未发现明显黄斑水肿、视网膜下积液及视网膜前膜。
+            </div>
+            <div style="margin-top:8px;font-size:11px;color:#999;">⚠ 本报告仅供临床参考，最终诊断以临床医生意见为准</div>
+        </div>
+        <button class="btn btn-outline" onclick="closeOverlay()" style="margin-top:8px;">返回</button>
+    </div>`);
+}
+
+// ==================== INTERNET HOSPITAL ====================
+function renderInternet() {
+    return wrapOverlay('互联网医院', `
+    <div class="overlay-body">
+        <div class="card">
+            <div style="display:flex;align-items:center;gap:14px;padding:8px 0;">
+                <div style="font-size:48px;">💻</div>
+                <div>
+                    <div style="font-size:17px;font-weight:700;color:#333;">在线问诊</div>
+                    <div style="font-size:12px;color:#999;">图文咨询 · 电话问诊 · 视频问诊</div>
+                </div>
+            </div>
+        </div>
+        <div class="dept-card" onclick="openOverlay('chatRoom')"><span class="d-icon">💬</span><div class="d-info"><div class="d-name">图文问诊</div><div class="d-detail">描述病情，医生24小时内回复 · ¥15起</div></div><span class="d-arrow">›</span></div>
+        <div class="dept-card" onclick="openOverlay('chatRoom')"><span class="d-icon">📞</span><div class="d-info"><div class="d-name">电话问诊</div><div class="d-detail">专家一对一电话沟通 · ¥50起</div></div><span class="d-arrow">›</span></div>
+        <div class="dept-card"><span class="d-icon">📹</span><div class="d-info"><div class="d-name">视频问诊</div><div class="d-detail">面对面远程会诊 · ¥100起</div></div><span class="d-arrow">›</span></div>
+        <div class="card" style="text-align:center;color:#999;font-size:12px;">🕐 在线问诊时间：08:00-22:00</div>
+    </div>`);
+}
+
+function renderChatRoom() {
+    return wrapOverlay('图文问诊', `
+    <div class="overlay-body">
+        <div class="card" style="padding:12px;">
+            <div style="font-size:12px;color:#999;text-align:center;margin-bottom:12px;">2026年6月23日 11:05</div>
+            <div class="chat-area">
+                <div class="chat-msg bot">您好，我是中山眼科中心茂名医院在线医生。请问有什么可以帮助您的？</div>
+                <div class="chat-msg user">医生您好，我右眼最近看东西有点模糊，眼睛也有些干</div>
+                <div class="chat-msg bot">了解。请问您今年多大年纪？这种情况持续多久了？有没有糖尿病或高血压病史？</div>
+                <div class="chat-msg user">68岁，大概两三个月了。有轻微高血压，在吃药控制</div>
+                <div class="chat-msg bot">好的。考虑到您的年龄和症状，建议来院做一次全面的眼科检查，包括视力、眼压、裂隙灯和OCT检查。可能是白内障早期或干眼症。需要我帮您预约挂号吗？</div>
+            </div>
+            <div class="chat-input-row">
+                <input placeholder="输入您的问题...">
+                <button>发送</button>
+            </div>
+        </div>
+    </div>`);
+}
+
+// ==================== INPATIENT ====================
+function renderInpatient() {
+    return wrapOverlay('住院服务', `
+    <div class="overlay-body">
+        <div class="card" style="display:flex;justify-content:space-around;text-align:center;">
+            <div style="cursor:pointer"><div style="font-size:28px;">💰</div><div style="font-size:12px;font-weight:600;">住院押金</div><div style="font-size:11px;color:#999;">在线缴纳</div></div>
+            <div style="cursor:pointer"><div style="font-size:28px;">📋</div><div style="font-size:12px;font-weight:600;">日清单</div><div style="font-size:11px;color:#999;">费用明细</div></div>
+            <div style="cursor:pointer"><div style="font-size:28px;">💊</div><div style="font-size:12px;font-weight:600;">用药查询</div><div style="font-size:11px;color:#999;">医嘱用药</div></div>
+            <div style="cursor:pointer"><div style="font-size:28px;">📅</div><div style="font-size:12px;font-weight:600;">出院结算</div><div style="font-size:11px;color:#999;">在线办理</div></div>
+        </div>
+        <div class="card">
+            <div style="font-size:15px;font-weight:700;color:#333;margin-bottom:8px;">🛏️ 住院须知</div>
+            <div style="font-size:13px;color:#666;line-height:1.8;">
+                • 办理入院请携带身份证、社保卡<br>
+                • 眼科日间手术患者当天入院当天手术<br>
+                • 白内障手术住院约1-2天<br>
+                • 玻璃体切割手术住院约3-7天<br>
+                • 住院期间请勿擅自离院
+            </div>
+        </div>
+    </div>`);
+}
+
+// ==================== REFRACTIVE SURGERY ====================
+function renderRefractive() {
+    return wrapOverlay('屈光手术', `
+    <div class="overlay-body">
+        <div class="card" style="text-align:center;padding:24px;">
+            <div style="font-size:48px;">👁️</div>
+            <div style="font-size:18px;font-weight:700;color:#333;margin:8px 0;">屈光手术中心</div>
+            <div style="font-size:13px;color:#999;">SMILE全飞秒 · FS-LASIK半飞秒 · ICL植入</div>
+        </div>
+        <div class="dept-card"><span class="d-icon">🔬</span><div class="d-info"><div class="d-name">术前检查</div><div class="d-detail">20+项精密检查 · 约1.5小时 · ¥500</div></div><span class="d-arrow">›</span></div>
+        <div class="dept-card"><span class="d-icon">👁️</span><div class="d-info"><div class="d-name">SMILE全飞秒</div><div class="d-detail">微创·2mm切口 · 恢复快 · ¥18,800</div></div><span class="d-arrow">›</span></div>
+        <div class="dept-card"><span class="d-icon">💡</span><div class="d-info"><div class="d-name">FS-LASIK半飞秒</div><div class="d-detail">个性化·精准 · ¥12,800</div></div><span class="d-arrow">›</span></div>
+        <div class="dept-card"><span class="d-icon">💎</span><div class="d-info"><div class="d-name">ICL晶体植入</div><div class="d-detail">可逆·不切削角膜 · ¥32,000起</div></div><span class="d-arrow">›</span></div>
+        <button class="btn btn-orange" style="margin-top:12px;" onclick="openOverlay('appointment')">🎫 预约术前检查</button>
+    </div>`);
+}
+
+// ==================== OPTOMETRY ====================
+function renderOptometry() {
+    return wrapOverlay('验光配镜', `
+    <div class="overlay-body">
+        <div class="card" style="text-align:center;padding:20px;">
+            <div style="font-size:48px;">👓</div>
+            <div style="font-size:18px;font-weight:700;color:#333;margin:8px 0;">视光中心</div>
+            <div style="font-size:13px;color:#999;">医学验光 · 精准配镜 · 视功能训练</div>
+        </div>
+        <div class="dept-card"><span class="d-icon">📐</span><div class="d-info"><div class="d-name">医学验光</div><div class="d-detail">综合验光仪+散瞳验光 · ¥80</div></div><span class="d-arrow">›</span></div>
+        <div class="dept-card"><span class="d-icon">🕶️</span><div class="d-info"><div class="d-name">框架眼镜</div><div class="d-detail">蔡司·依视路·明月 · ¥299起</div></div><span class="d-arrow">›</span></div>
+        <div class="dept-card"><span class="d-icon">💧</span><div class="d-info"><div class="d-name">角膜塑形镜(OK镜)</div><div class="d-detail">夜间佩戴·白天清晰 · 试戴评估</div></div><span class="d-arrow">›</span></div>
+        <div class="dept-card"><span class="d-icon">🎯</span><div class="d-info"><div class="d-name">视功能训练</div><div class="d-detail">弱视训练·调节训练 · 按疗程</div></div><span class="d-arrow">›</span></div>
+        <button class="btn btn-orange" style="margin-top:12px;" onclick="openOverlay('appointment')">🎫 预约验光</button>
+    </div>`);
+}
+
+// ==================== VISION ARCHIVE ====================
+function renderVisionArchive() {
+    return wrapOverlay('视力档案', `
+    <div class="overlay-body">
+        <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                <span style="font-weight:700;font-size:15px;">视力发育追踪</span>
+                <span class="status-pill status-done">正常</span>
+            </div>
+            <div class="vision-bar"><span class="v-label">2023.06</span><div class="v-track"><div class="v-fill v-good" style="width:95%"></div></div><span style="font-size:12px;">R5.1 L5.0</span></div>
+            <div class="vision-bar"><span class="v-label">2023.12</span><div class="v-track"><div class="v-fill v-good" style="width:92%"></div></div><span style="font-size:12px;">R5.0 L5.0</span></div>
+            <div class="vision-bar"><span class="v-label">2024.06</span><div class="v-track"><div class="v-fill v-warn" style="width:85%"></div></div><span style="font-size:12px;">R4.8 L5.0</span></div>
+            <div class="vision-bar"><span class="v-label">2024.12</span><div class="v-track"><div class="v-fill v-warn" style="width:80%"></div></div><span style="font-size:12px;">R4.7 L4.9</span></div>
+            <div class="vision-bar"><span class="v-label">2025.06</span><div class="v-track"><div class="v-fill v-warn" style="width:75%"></div></div><span style="font-size:12px;">R4.6 L4.8</span></div>
+            <div style="margin-top:12px;padding:10px;background:#fff7ed;border-radius:8px;font-size:12px;color:#9a3412;">
+                ⚠ 提示：右眼视力近2年呈下降趋势，建议每3-6个月复查一次
+            </div>
+        </div>
+        <div class="card">
+            <div style="font-size:13px;line-height:2;">
+                <b>姓名：</b>张小明 &nbsp; <b>年龄：</b>10岁<br>
+                <b>屈光状态：</b>右眼 -1.75DS/-0.50DC×180<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;左眼 -1.00DS<br>
+                <b>最近检查：</b>2025年6月15日<br>
+                <b>建议措施：</b>配戴眼镜+每半年复查+户外活动
+            </div>
+        </div>
+    </div>`);
+}
+
+// ==================== OK LENS ====================
+function renderOkLens() {
+    return wrapOverlay('OK镜服务', `
+    <div class="overlay-body">
+        <div class="card" style="text-align:center;padding:24px;">
+            <div style="font-size:48px;">💧</div>
+            <div style="font-size:18px;font-weight:700;color:#333;margin:8px 0;">角膜塑形镜（OK镜）</div>
+            <div style="font-size:13px;color:#999;">夜间佩戴 · 白天清晰 · 控制近视增长</div>
+        </div>
+        <div class="dept-card"><span class="d-icon">📋</span><div class="d-info"><div class="d-name">初次验配</div><div class="d-detail">全面检查+试戴评估 · ¥800</div></div><span class="d-arrow">›</span></div>
+        <div class="dept-card"><span class="d-icon">🔍</span><div class="d-info"><div class="d-name">定期复查</div><div class="d-detail">1周·1月·3月·6月·1年 · ¥200/次</div></div><span class="d-arrow">›</span></div>
+        <div class="dept-card"><span class="d-icon">🛒</span><div class="d-info"><div class="d-name">镜片订购</div><div class="d-detail">进口品牌：CRT/欧几里德 · ¥8,000-12,000/副</div></div><span class="d-arrow">›</span></div>
+        <div class="card" style="font-size:12px;color:#999;line-height:1.8;">
+            ⚠ <b>注意事项：</b><br>
+            · 适用年龄：8-18岁<br>
+            · 近视度数：-0.50D 至 -6.00D<br>
+            · 镜片使用寿命：1-1.5年<br>
+            · 必须严格按要求护理消毒
+        </div>
+    </div>`);
+}
+
+// ==================== HEALTH EDUCATION ====================
+function renderHealthEdu() {
+    const articles = [
+        {title:'白内障的早期信号与治疗时机',cat:'白内障',desc:'视力模糊、畏光、颜色变淡？了解白内障的典型症状和最佳手术时机...'},
+        {title:'糖尿病为什么会伤眼？',cat:'眼底病',desc:'糖尿病视网膜病变是工作年龄人群首位致盲性眼病，关键在于早筛查...'},
+        {title:'孩子近视度数涨太快怎么办？',cat:'小儿眼科',desc:'OK镜、离焦眼镜、阿托品——儿童近视控制的三大法宝详解...'},
+        {title:'干眼症不是小问题',cat:'角膜眼表',desc:'长时间屏幕使用导致的干眼症已成为眼科门诊最常见主诉之一...'},
+        {title:'青光眼——沉默的视力小偷',cat:'青光眼',desc:'青光眼早期常无明显症状，定期眼压和眼底检查是唯一防线...'},
+    ];
+    return wrapOverlay('健康科普', `
+    <div class="overlay-body">
+        <div style="display:flex;gap:6px;overflow-x:auto;padding:4px 0 12px;">
+            <span class="chip active" onclick="filterEduArticles('all',this)">全部</span>
+            <span class="chip" onclick="filterEduArticles('白内障',this)">白内障</span>
+            <span class="chip" onclick="filterEduArticles('眼底病',this)">眼底病</span>
+            <span class="chip" onclick="filterEduArticles('小儿眼科',this)">小儿眼科</span>
+            <span class="chip" onclick="filterEduArticles('角膜眼表',this)">角膜眼表</span>
+            <span class="chip" onclick="filterEduArticles('青光眼',this)">青光眼</span>
+        </div>
+        ${articles.map(a=>`<div class="card article-item" data-cat="${a.cat}" style="cursor:pointer" onclick="openOverlay('articleDetail')"><div style="font-weight:600;font-size:14px;color:#333;margin-bottom:4px;">${a.title}</div><div style="font-size:12px;color:#999;line-height:1.5;">${a.desc}</div><div style="font-size:11px;color:var(--orange);margin-top:6px;">${a.cat} · 2026-06-${15+Math.floor(Math.random()*10)}</div></div>`).join('')}
+    </div>`);
+}
+
+function filterEduArticles(cat, el) {
+    document.querySelectorAll('#overlayContainer .chip').forEach(c=>c.classList.remove('active'));
+    if(el)el.classList.add('active');
+    document.querySelectorAll('#overlayContainer .article-item').forEach(a=>{
+        a.style.display=(cat==='all'||a.dataset.cat===cat)?'block':'none';
+    });
+}
+
+function renderArticleDetail() {
+    return wrapOverlay('白内障的早期信号与治疗时机', `
+    <div class="overlay-body">
+        <div class="card" style="line-height:1.8;font-size:14px;color:#333;">
+            <div style="font-size:12px;color:#999;margin-bottom:8px;">白内障专科 · 2026-06-22</div>
+            <p style="margin-bottom:12px;">白内障是全球首位致盲性眼病，我国60岁以上人群白内障患病率超过70%。白内障的本质是晶状体蛋白质变性混浊，导致光线无法正常透过晶状体投射到视网膜上。</p>
+            <p style="margin-bottom:12px;"><b>典型症状：</b>视力逐渐下降（像隔着一层雾）、畏光、眩光（夜间看灯有光晕）、颜色辨别能力下降、单眼复视。</p>
+            <p style="margin-bottom:12px;"><b>治疗时机：</b>当白内障影响日常生活质量（如阅读困难、夜间驾驶困难），且矫正视力低于0.5时，建议手术。目前唯一有效的治疗方法是超声乳化白内障吸除联合人工晶体植入术。</p>
+            <p><b>术后注意事项：</b>避免揉眼、避免脏水入眼、按时滴眼药水、定期复查。一般术后第二天视力即有显著提升。</p>
+        </div>
+    </div>`);
+}
+
+// ==================== PATIENT MANAGEMENT ====================
+function renderPatientMgr() {
+    return wrapOverlay('就诊人管理', `
+    <div class="overlay-body">
+        <div class="card" style="display:flex;align-items:center;gap:12px;cursor:pointer">
+            <div style="width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;">张</div>
+            <div style="flex:1"><div style="font-weight:600;font-size:15px;">张三</div><div style="font-size:11px;color:#999;">男 · 68岁 · 身份证 4409**********1234</div></div>
+            <span class="status-pill status-done">默认</span>
+        </div>
+        <div class="card" style="display:flex;align-items:center;gap:12px;cursor:pointer">
+            <div style="width:44px;height:44px;border-radius:50%;background:#fc802f;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;">张</div>
+            <div style="flex:1"><div style="font-weight:600;font-size:15px;">张小明</div><div style="font-size:11px;color:#999;">男 · 10岁 · 学生</div></div>
+            <span style="font-size:11px;color:#ccc;">子</span>
+        </div>
+        <button class="btn btn-outline" style="margin-top:12px;">➕ 添加就诊人</button>
+    </div>`);
+}
+
+// ==================== FAMILY ACCOUNT ====================
+function renderFamily() {
+    return wrapOverlay('亲情账户', `
+    <div class="overlay-body">
+        <div class="card" style="display:flex;align-items:center;gap:12px;">
+            <div style="font-size:36px;">👨‍👩‍👧</div>
+            <div style="flex:1"><div style="font-weight:600;font-size:15px;">张小明</div><div style="font-size:11px;color:#999;">儿子 · 10岁 · 视力追踪中</div></div>
+            <button class="btn btn-blue" style="width:auto;padding:6px 16px;font-size:12px;">帮TA挂号</button>
+        </div>
+        <button class="btn btn-outline" style="margin-top:12px;">➕ 绑定家庭成员</button>
+        <div class="card" style="font-size:12px;color:#999;margin-top:8px;">
+            💡 亲情账户可帮家人（父母/子女/配偶）进行挂号、缴费、查报告等操作
+        </div>
+    </div>`);
+}
+
+// ==================== VISIT HISTORY ====================
+function renderVisitHistory() {
+    const visits = [
+        {date:'2026-06-22',dept:'白内障专科',doctor:'陈志明',diag:'老年性白内障（双眼）',fee:'¥1,580'},
+        {date:'2026-05-15',dept:'眼底病专科',doctor:'王建国',diag:'黄斑前膜（右眼）',fee:'¥980'},
+        {date:'2026-03-08',dept:'白内障专科',doctor:'林伟强',diag:'老年性白内障（初发期）',fee:'¥320'},
+        {date:'2025-11-20',dept:'眼科综合',doctor:'黄丽华',diag:'干眼症',fee:'¥260'},
+    ];
+    return wrapOverlay('就诊记录', `
+    <div class="overlay-body">
+        ${visits.map(v=>`<div class="card"><div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-weight:600;font-size:14px;">${v.dept}</span><span style="font-size:11px;color:#999;">${v.date}</span></div><div style="font-size:12px;color:#666;margin-bottom:2px;">${v.doctor} · 诊断：${v.diag}</div><div style="font-size:13px;font-weight:700;color:var(--orange);">${v.fee}</div></div>`).join('')}
+    </div>`);
+}
+
+// ==================== HEALTH RECORD ====================
+function renderHealthRecord() {
+    return wrapOverlay('健康档案', `
+    <div class="overlay-body">
+        <div class="card">
+            <div style="font-size:15px;font-weight:700;color:#333;margin-bottom:12px;">基本信息</div>
+            <div style="font-size:13px;line-height:2;">
+                <b>姓名：</b>张三 &nbsp; <b>性别：</b>男 &nbsp; <b>年龄：</b>68岁<br>
+                <b>血型：</b>O型 &nbsp; <b>过敏史：</b>无<br>
+                <b>既往病史：</b>高血压（药物控制中）<br>
+                <b>手术史：</b>无<br>
+                <b>家族眼病史：</b>母亲有青光眼
+            </div>
+        </div>
+        <div class="card">
+            <div style="font-size:15px;font-weight:700;color:#333;margin-bottom:12px;">眼部健康数据</div>
+            <div class="vision-bar"><span class="v-label">眼压R</span><div class="v-track"><div class="v-fill v-good" style="width:75%"></div></div><span>15mmHg</span></div>
+            <div class="vision-bar"><span class="v-label">眼压L</span><div class="v-track"><div class="v-fill v-good" style="width:85%"></div></div><span>17mmHg</span></div>
+            <div class="vision-bar"><span class="v-label">视力R</span><div class="v-track"><div class="v-fill v-warn" style="width:45%"></div></div><span>0.4</span></div>
+            <div class="vision-bar"><span class="v-label">视力L</span><div class="v-track"><div class="v-fill v-warn" style="width:50%"></div></div><span>0.5</span></div>
+        </div>
+    </div>`);
+}
+
+// ==================== ASSISTANT ====================
+function renderAssistant() {
+    let faq = null;
+    const faqs = [
+        {q:'如何绑定就诊卡？',a:'进入「我的」→「就诊人管理」→ 点击「添加就诊人」，填写真实姓名、身份证号、手机号码，输入已有就诊卡号（如有），点击获取验证码并绑定即可。每个账号最多绑定5位就诊人。'},
+        {q:'可以帮家人挂号吗？',a:'可以。先通过「亲情账户」功能绑定家庭成员（父母/配偶/子女），绑定后在预约挂号时选择对应的家人即可代为挂号、缴费、查报告。绑定需验证家人身份证号。'},
+        {q:'怎么取消预约？',a:'进入「就诊记录」找到待就诊的预约记录，点击「取消预约」。请注意：必须提前1天取消，就诊当天不可取消；3个月内累计爽约3次将暂停预约权限30天。'},
+        {q:'检查报告多久出结果？',a:'常规检验（血常规/尿常规）约30分钟-1小时出结果。OCT/眼底照相/视野等检查报告当场出具。IOL Master生物测量约15分钟。特殊检验（如微生物培养）需3-5天。报告出具后会有消息推送提醒。'},
+        {q:'外地医保可以报销吗？',a:'我院已开通全国异地就医直接结算。参保人需先在参保地医保局办理异地就医备案（可通过"国家医保服务平台"APP线上办理），备案成功后在我院住院可直接结算，报销比例按参保地政策执行。门诊费用目前仍需回参保地手工报销（部分地区已开通门诊跨省直结，请咨询参保地）。'},
+        {q:'眼科手术医保能报销多少？',a:'白内障超声乳化+人工晶体植入术属于医保甲类项目，职工医保报销比例约80%-90%（茂名市），居民医保约65%-75%。其中：手术费、住院费、检查检验费均可按比例报销；进口人工晶体超出医保限价部分需自费（国产晶体基本全额报销）。玻璃体切割手术属于医保乙类，自付比例约10%-20%后按比例报销。屈光手术（近视激光/ICL）属于美容类，医保不予报销。'},
+        {q:'医保报销流程是怎样的？',a:'<b>住院报销：</b>①办理住院时出示社保卡/医保电子凭证 → ②出院时在收费窗口直接结算 → ③只需支付个人自付部分，医保报销部分由医院与医保局结算。<br><br><b>门诊报销：</b>①挂号时使用社保卡 → ②就诊后缴费时实时结算 → ③职工医保个人账户余额可直接支付。异地患者请先办理异地就医备案。'},
+        {q:'什么是医保限价？人工晶体怎么选？',a:'医保对人工晶体设有最高支付限额（茂名市约¥1,500-2,000/枚）。国产单焦点晶体价格在医保限价内，基本全额报销；进口非球面/多焦点/散光晶体价格超出限价部分需个人自费。例如：进口多焦点晶体¥8,000/枚，医保报销¥1,500，自费¥6,500。建议根据自身经济条件和用眼需求，与主刀医生沟通选择合适的晶体。'},
+        {q:'如何办理异地就医备案？',a:'①下载"国家医保服务平台"APP → ②首页点击"异地备案" → ③选择"异地就医备案申请" → ④选择参保地和就医地（广东省茂名市）→ ⑤填写备案信息并提交 → ⑥一般1-2个工作日内审核通过 → ⑦备案成功后在我院住院可直接结算。老人可由子女通过"亲情账户"代为操作。'},
+        {q:'眼科哪些项目医保不报销？',a:'以下眼科项目医保不予报销，需全额自费：①屈光手术（近视激光SMILE/FS-LASIK/ICL晶体植入）；②角膜塑形镜（OK镜）验配及镜片费用；③医学验光配镜（框架眼镜/隐形眼镜）；④部分进口高值耗材超出医保限价部分；⑤美容性眼整形（如单纯眼袋切除、双重睑术）；⑥高端体检套餐（如包含OCT/眼底照相的深度体检）。'},
+        {q:'门诊慢性病（门慢）怎么申请？',a:'高血压、糖尿病等慢性病引起的眼部并发症（如糖尿病视网膜病变），可申请门诊慢性病认定：①在我院确诊后由医生填写《门诊慢性病申请表》；②携带身份证、社保卡、确诊资料到参保地医保经办机构申请；③审批通过后，在门诊发生的与审批病种相关的检查、治疗、药品费用按住院比例报销。'},
+        {q:'门诊特殊病种有哪些？',a:'眼科相关的门诊特殊病种（按茂名市政策）包括：①糖尿病视网膜病变（需激光治疗者）；②黄斑变性（需玻璃体腔注药治疗者）；③青光眼（需长期随访及用药者）。认定后可享受门诊特殊病种待遇，报销比例参照住院标准。具体情况请咨询医保办公室。'},
+    ];
+
+    return wrapOverlay('就医助手', `
+    <div class="overlay-body">
+        <div class="card" style="line-height:2;font-size:13px;">
+            <b>🏥 医院信息</b><br>
+            地址：茂名市茂南区双山一路健康南路茂名市眼科医院<br>
+            电话：19106669310（李老师）<br>
+            急诊：19106669310（李老师 · 24小时）<br>
+            门诊时间：周一至周五 08:00-17:00<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;周六 08:00-12:00
+        </div>
+        <div class="card">
+            <div style="font-size:14px;font-weight:600;color:#333;margin-bottom:8px;">❓ 常见问题</div>
+            ${faqs.map((f,i)=>`
+            <div style="cursor:pointer;padding:10px 0;border-bottom:1px solid #f0f0f0;" onclick="toggleFaq(${i})">
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span style="font-size:13px;font-weight:600;color:#333;">▸ ${f.q}</span>
+                    <span style="font-size:12px;color:#ccc;" id="faqArrow${i}">▼</span>
+                </div>
+                <div id="faqAnswer${i}" style="display:none;font-size:12px;color:#666;line-height:1.8;padding:8px 0 4px;">${f.a}</div>
+            </div>`).join('')}
+        </div>
+    </div>`);
+}
+
+// ==================== FLOOR NAV ====================
+function renderFloorNav() {
+    const floors = [
+        'B1 停车场', '1F 门诊大厅·挂号收费·药房', '2F 眼科综合门诊·验光配镜',
+        '3F 白内障专科·检查室', '4F 眼底病专科·激光中心', '5F 青光眼专科·视野检查',
+        '6F 角膜眼表专科·干眼治疗', '7F 视光中心·OK镜验配', '8F 屈光手术中心',
+        '9F 日间手术中心', '10F 住院病区A', '11F 住院病区B',
+        '12F 行政办公', '13F 学术报告厅', '14F 信息中心·病案室'
+    ];
+    return wrapOverlay('楼层导航', `
+    <div class="overlay-body">
+        ${floors.map(f=>`<div class="card" style="display:flex;align-items:center;gap:10px;cursor:pointer"><span style="font-size:14px;font-weight:700;color:var(--blue);width:36px;">${f.split(' ')[0]}</span><span style="font-size:13px;">${f.substring(f.indexOf(' ')+1)}</span></div>`).join('')}
+    </div>`);
+}
+
+// ==================== HELPERS ====================
+function wrapOverlay(title, body) {
+    return `<div class="overlay"><div class="overlay-bar"><button class="back-btn" onclick="closeOverlay()">‹</button><span class="bar-title">${title}</span></div>${body}</div>`;
+}
+
+function selectDate(el) {
+    document.querySelectorAll('#overlayContainer .date-chip').forEach(c=>c.classList.remove('active'));
+    el.classList.add('active');
+}
+function selectTime(el) {
+    if(el.classList.contains('full'))return;
+    document.querySelectorAll('#overlayContainer .time-slot').forEach(t=>t.classList.remove('active'));
+    el.classList.add('active');
+}
+// FAQ toggle (global for overlay use)
+function toggleFaq(idx) {
+    const ans = document.getElementById('faqAnswer' + idx);
+    const arr = document.getElementById('faqArrow' + idx);
+    if (!ans || !arr) return;
+    const isHidden = ans.style.display === 'none';
+    ans.style.display = isHidden ? 'block' : 'none';
+    arr.textContent = isHidden ? '▲' : '▼';
+}
+</script>
+</body>
+</html>

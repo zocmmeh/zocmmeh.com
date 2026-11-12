@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>医院简介子页面上线验证报告</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Microsoft YaHei",system-ui,sans-serif;background:#f0f4f8;color:#1a3a5c;line-height:1.7;padding:32px 16px}
+  .wrap{max-width:960px;margin:0 auto}
+  .hero{background:linear-gradient(135deg,#1a3a5c,#2c5f8a);color:#fff;border-radius:16px;padding:36px 40px;margin-bottom:24px}
+  .hero h1{font-size:26px;margin-bottom:8px}
+  .hero p{color:rgba(255,255,255,.85);font-size:14px}
+  .badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:20px;padding:2px 12px;font-size:12px;margin-top:10px}
+  .card{background:#fff;border-radius:12px;padding:24px 28px;margin-bottom:20px;box-shadow:0 2px 8px rgba(26,58,92,.08)}
+  .card h2{font-size:18px;margin-bottom:14px;padding-left:12px;border-left:4px solid #1a3a5c}
+  .ok{color:#1a9c5c;font-weight:bold}
+  .bad{color:#d64545;font-weight:bold}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{background:#1a3a5c;color:#fff;text-align:left;padding:10px 12px;font-weight:normal}
+  td{padding:10px 12px;border-bottom:1px solid #e8eef5}
+  tr:nth-child(even) td{background:#f7fafc}
+  .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .dot-g{background:#1a9c5c}.dot-r{background:#d64545}
+  .metrics{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+  .metric{flex:1;min-width:150px;background:#fff;border-radius:12px;padding:18px 20px;text-align:center;box-shadow:0 2px 8px rgba(26,58,92,.08)}
+  .metric .num{font-size:30px;font-weight:bold;color:#1a3a5c}
+  .metric .lbl{font-size:13px;color:#6b8299;margin-top:4px}
+  .step{display:flex;gap:14px;margin-bottom:12px}
+  .step-n{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#1a3a5c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:bold}
+  .step-t{font-size:14px}.step-t b{display:block;font-size:15px;margin-bottom:2px}
+  .footer{text-align:center;color:#8aa0b5;font-size:12px;margin-top:24px}
+  a{color:#2c5f8a}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <h1>医院简介子页面上线验证报告</h1>
+    <p>中山大学中山眼科中心茂名医院官网 · zoc-maoming-eye.surge.sh</p>
+    <span class="badge">2026-08-10 · 修复完成</span>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="num">6 / 6</div><div class="lbl">医院简介子页面全部可访问</div></div>
+    <div class="metric"><div class="num">25</div><div class="lbl">全站页面 200 验证通过</div></div>
+    <div class="metric"><div class="num">33</div><div class="lbl">组织架构科室/部门条目</div></div>
+  </div>
+
+  <div class="card">
+    <h2>问题诊断</h2>
+    <p style="font-size:14px;margin-bottom:10px">线上官网停留在 5 月旧版，医院概况下的 5 个子页面全部返回 404，点击后无法打开：</p>
+    <table>
+      <tr><th>子页面</th><th>修复前</th><th>修复后</th></tr>
+      <tr><td>about.html（医院概况）</td><td><span class="dot dot-g"></span>200（旧版内容）</td><td><span class="dot dot-g"></span>200（新版）</td></tr>
+      <tr><td>about-intro.html（医院简介）</td><td><span class="dot dot-r"></span>404</td><td><span class="dot dot-g"></span>200</td></tr>
+      <tr><td>about-history.html（发展历程）</td><td><span class="dot dot-r"></span>404</td><td><span class="dot dot-g"></span>200</td></tr>
+      <tr><td>about-leader.html（领导团队）</td><td><span class="dot dot-r"></span>404</td><td><span class="dot dot-g"></span>200</td></tr>
+      <tr><td>about-honor.html（荣誉资质）</td><td><span class="dot dot-r"></span>404</td><td><span class="dot dot-g"></span>200</td></tr>
+      <tr><td>about-org.html（组织架构）</td><td><span class="dot dot-r"></span>404</td><td><span class="dot dot-g"></span>200</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>修复过程</h2>
+    <div class="step"><div class="step-n">1</div><div class="step-t"><b>定位根因</b>本地最新版（7 月 28-29 日完成）包含完整的 about 系列页面与全站新版，但从未部署上线，线上仍是旧版站点</div></div>
+    <div class="step"><div class="step-n">2</div><div class="step-t"><b>内容核验</b>确认本地 6 个 about 页面内容完整：简介、历程（2025-2026 三阶段）、领导团队、荣誉资质、组织架构（动态渲染 3 大类 33 项）</div></div>
+    <div class="step"><div class="step-n">3</div><div class="step-t"><b>全站部署</b>将本地最新版全量发布到 zoc-maoming-eye.surge.sh（38 个文件，1.9 MB）</div></div>
+    <div class="step"><div class="step-n">4</div><div class="step-t"><b>线上验证</b>逐页请求验证：about 系列 6 页 + 全站 25 个页面全部返回 200，组织架构动态渲染脚本与数据完整</div></div>
+  </div>
+
+  <div class="card">
+    <h2>组织架构页内容（动态渲染）</h2>
+    <table>
+      <tr><th>分组</th><th>条目数</th><th>内容</th></tr>
+      <tr><td>临床科室</td><td>13</td><td>白内障、青光眼、角膜病、眼底病、眼眶病与眼肿瘤、眼整形与泪道、斜视与弱视、近视眼激光治疗、眼免疫与葡萄膜炎、屈光与青少年近视防控、小儿眼病与眼遗传、特需医疗、眼科急症与眼外伤</td></tr>
+      <tr><td>医技科室</td><td>8</td><td>放射、药学、检验、临床病理、麻醉、手术室、综合门诊、国际医疗服务</td></tr>
+      <tr><td>行政职能部门</td><td>12</td><td>书记室、院长室、纪委书记办公室、财务科、信息科、医务病案科、后勤总务科、安全保卫科、院办、党委宣传办、工会、医保物价科</td></tr>
+    </table>
+    <p style="font-size:13px;color:#6b8299;margin-top:10px">页面底部含"院-科两级管理、总院同质化管理"说明卡片，支持管理员后台（⚙️）在线编辑。</p>
+  </div>
+
+  <div class="footer">报告由 AutoClaw 自动生成 · 验证时间 2026-08-10 11:30</div>
+</div>
+</body>
+</html>

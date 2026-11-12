@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ICP 备案操作指南 — 中山大学中山眼科中心茂名医院官网</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif;color:#1f2937;background:#f5f7fa;line-height:1.75;padding:32px 16px}
+.container{max-width:960px;margin:0 auto}
+h1{font-size:24px;color:#0f2540;margin-bottom:6px}
+.sub{color:#6b7280;font-size:14px;margin-bottom:28px}
+.panel{background:#fff;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.08);padding:28px;margin-bottom:24px}
+.panel h2{font-size:18px;color:#1a3a5c;margin-bottom:16px;padding-left:12px;border-left:4px solid #e8551a}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:#1a3a5c;color:#fff;padding:10px 12px;text-align:left;font-weight:600}
+td{padding:10px 12px;border-bottom:1px solid #e5e7eb;vertical-align:top}
+tr:nth-child(even) td{background:#f8fafc}
+.badge{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px;border-radius:12px}
+.b-warn{background:#fff7ed;color:#c2410c}
+.b-ok{background:#f0fdf4;color:#16a34a}
+.b-info{background:#eff6ff;color:#2563eb}
+.steps{counter-reset:step}
+.step{position:relative;padding:18px 18px 18px 64px;border:1px solid #e5e7eb;border-radius:10px;margin-bottom:14px;background:#fff}
+.step::before{counter-increment:step;content:counter(step);position:absolute;left:18px;top:16px;width:32px;height:32px;border-radius:50%;background:#1a3a5c;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:16px}
+.step h3{font-size:15.5px;color:#1a3a5c;margin-bottom:6px}
+.step p{font-size:14px;color:#4b5563}
+.step ul{margin:8px 0 0 18px;font-size:13.5px;color:#6b7280}
+.tips{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:14px 18px;font-size:13.5px;color:#92400e;margin-top:14px}
+.warn{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:14px 18px;font-size:13.5px;color:#991b1b;margin-top:14px}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.metric{background:#fff;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.08);padding:18px;text-align:center}
+.metric .v{font-size:24px;font-weight:700;color:#1a3a5c}
+.metric .l{font-size:12.5px;color:#6b7280;margin-top:4px}
+code{background:#f1f5f9;border:1px solid #e5e7eb;border-radius:4px;padding:2px 6px;font-size:13px}
+@media(max-width:640px){.metrics{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>ICP 备案操作指南</h1>
+<p class="sub">zocmmeh.com · 主体：中山大学中山眼科中心茂名医院（茂名市眼科医院，公益二类事业单位）· 适用广东管局</p>
+
+<div class="metrics">
+  <div class="metric"><div class="v">~300-600元</div><div class="l">一年服务器费用（备案必须绑定国内服务器）</div></div>
+  <div class="metric"><div class="v">2-4 周</div><div class="l">备案总耗时（初审1-2天 + 管局7-20个工作日）</div></div>
+  <div class="metric"><div class="v">免费</div><div class="l">备案本身不收费（服务商代提交）</div></div>
+</div>
+
+<div class="panel">
+<h2>第一步：备案前自查（先做这 3 件事，缺一项都会被退回）</h2>
+<table>
+<tr><th>检查项</th><th>要求</th><th>风险提示</th></tr>
+<tr><td>域名实名认证</td><td>zocmmeh.com 的注册人（whois 实名主体）必须是医院全称，与备案主体一致</td><td><span class="badge b-warn">最常见卡点</span> 若域名当初用个人身份证注册，必须先过户到医院名下（在域名服务商处操作，免费，1-3 天）</td></tr>
+<tr><td>备案材料</td><td>事业单位法人证书（副本）、医疗机构执业许可证、网站负责人身份证、负责人手机号（已实名）、邮箱</td><td>证照拍照要清晰完整，缺一不可；负责人手机号要与办证信息一致</td></tr>
+<tr><td>前置审批判断</td><td>网站内容涉及医疗保健信息服务，广东管局可能要求《互联网医疗保健信息服务审核同意书》（向广东省/茂名市卫健委申请）或书面说明</td><td><span class="badge b-warn">医疗类专坑</span> 先咨询服务商备案专员确认广东当前执行口径，再决定是否提前申请，避免备案被驳回</td></tr>
+</table>
+</div>
+
+<div class="panel">
+<h2>第二步：备案全流程（以阿里云为例，腾讯云/华为云流程一致）</h2>
+<div class="steps">
+  <div class="step"><h3>购买国内服务器，拿到备案服务号</h3><p>先买一台阿里云轻量应用服务器（2核2G 即可跑静态站，新用户一年约 300-600 元），在控制台生成「备案服务号」。<b>没有国内服务器就无法提交备案</b>——这是备案的前提。</p></div>
+  <div class="step"><h3>进入备案系统，填写主体信息</h3><p>阿里云官网 → 备案（beian.aliyun.com）→ 用企业支付宝或账号登录 → 开始备案。主办单位性质选<b>事业单位</b>（医院为公益二类事业单位），上传法人证书 + 执业许可证，填写统一社会信用代码。</p></div>
+  <div class="step"><h3>填写网站信息</h3><p>网站名称建议「茂名市眼科医院」或「中山眼科中心茂名医院官网」（<b>不要</b>带"中国""国家"字样）；填写域名 zocmmeh.com；服务内容勾选医疗保健类（若系统要求则上传前置审批文件）。</p></div>
+  <div class="step"><h3>负责人信息 + 人脸核验</h3><p>填写网站负责人（建议医院信息科/宣传科负责人）姓名、身份证、手机号、邮箱；通过阿里云 APP 或小程序完成人脸识别核验。</p></div>
+  <div class="step"><h3>阿里云初审</h3><p>1-2 个工作日，备案专员可能电话回访核实信息。初审通过后提交至广东通信管理局。</p></div>
+  <div class="step"><h3>管局审核</h3><p>广东管局 7-20 个工作日。期间留意手机短信（管局会发核验短信，需按提示回复/点击确认，逾期作废）。</p></div>
+  <div class="step"><h3>备案通过，挂备案号</h3><p>收到备案号（粤ICP备XXXXXXXX号-1）后：<b>网站底部必须显示备案号并链接到 beian.miit.gov.cn</b>，否则管局抽查到会处罚。</p></div>
+</div>
+</div>
+
+<div class="panel">
+<h2>第三步：备案通过后（3 件事按顺序做）</h2>
+<table>
+<tr><th>顺序</th><th>动作</th><th>说明</th></tr>
+<tr><td>1</td><td>网站搬入国内服务器</td><td>把 maoming_eye_hospital_design 全部文件上传到新买的服务器（推荐宝塔面板，拖拽上传即可）</td></tr>
+<tr><td>2</td><td>域名解析切换</td><td>在域名服务商处把 zocmmeh.com 的解析从 surge（CNAME）改为国内服务器 IP（A 记录），10 分钟-2 小时生效</td></tr>
+<tr><td>3</td><td>提交百度收录</td><td>到百度搜索资源平台（ziyuan.baidu.com）添加站点、提交 sitemap.xml，备案域名收录速度明显加快</td></tr>
+</table>
+<div class="warn">⚠️ 备案期间网站留在 surge（海外）继续可访问没问题，但<b>不要</b>在备案审核期间把解析切到国内服务器——管局会检测，未备案域名用国内服务器会被阻断并导致备案失败。</div>
+</div>
+
+<div class="panel">
+<h2>费用与时间总览</h2>
+<table>
+<tr><th>项目</th><th>费用</th><th>时间</th></tr>
+<tr><td>国内轻量服务器（1 年）</td><td>约 300-600 元（新用户优惠价）</td><td>即时开通</td></tr>
+<tr><td>域名过户（若主体不一致）</td><td>免费</td><td>1-3 天</td></tr>
+<tr><td>备案提交（服务商代办理）</td><td>免费</td><td>初审 1-2 天 + 管局 7-20 个工作日</td></tr>
+<tr><td>前置审批（若被要求）</td><td>免费</td><td>1-2 周（向卫健委申请，可与备案并行）</td></tr>
+<tr><td>百度收录提交</td><td>免费</td><td>提交后 1-4 周开始收录</td></tr>
+</table>
+<div class="tips">💡 小贴士：备案和服务器购买都建议用医院对公账号/企业认证，后续开具发票、主体信息都更规范；备案过程有任何材料问题，直接打服务商备案热线（阿里云 95187 转备案），比在网上查攻略快。</div>
+</div>
+
+</div>
+</body>
+</html>

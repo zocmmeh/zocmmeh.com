@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>后台管理 - 中山大学中山眼科中心茂名医院</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--p:#1a3a5c;--a:#e8551a;--t:#1f2937;--tl:#6b7280;--bg:#f5f7fa;--w:#fff;--b:#e5e7eb}
+body{font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif;color:var(--t);background:var(--bg);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+header{background:var(--p);color:#fff;padding:16px 0}
+header .container{display:flex;align-items:center;justify-content:space-between}
+header h1{font-size:20px}
+.logout-btn{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:6px;cursor:pointer;font-size:14px}
+main{padding:40px 0}
+h2{font-size:22px;color:var(--p);margin-bottom:20px}
+.card{background:var(--w);border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.08);padding:28px;margin-bottom:24px}
+.card h3{font-size:17px;color:var(--p);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--b);display:flex;align-items:center;gap:8px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.form-group label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+.form-group input,.form-group select{width:100%;padding:10px 14px;border:2px solid var(--b);border-radius:6px;font-size:14px;outline:none;font-family:inherit}
+.form-group input:focus,.form-group select:focus{border-color:var(--p)}
+.btn{display:inline-block;padding:10px 24px;border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
+.btn-primary{background:var(--p);color:#fff}.btn-primary:hover{background:#2a6090}
+.btn-danger{background:#dc3545;color:#fff}.btn-danger:hover{background:#c82333}
+.btn-success{background:#16a34a;color:#fff}
+.btn-sm{padding:6px 14px;font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:var(--p);color:#fff;padding:12px 14px;text-align:left;font-weight:600}
+td{padding:12px 14px;border-bottom:1px solid var(--b)}
+tr:nth-child(even){background:#f8fafc}tr:hover{background:#eff6ff}
+.tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600}
+.tag-super{background:#dc3545;color:#fff}.tag-admin{background:#2563eb;color:#fff}
+.actions{display:flex;gap:8px}
+.msg{background:#eff6ff;border-left:4px solid var(--p);padding:13px 18px;border-radius:0 6px 6px 0;margin-bottom:16px;font-size:14px;color:var(--p)}
+.msg.warn{background:#fff7ed;border-left-color:var(--a);color:#92400e}
+.switch-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--b)}
+.switch-row:last-child{border-bottom:none}
+.switch-row .label{font-size:14px;font-weight:500}
+.modal-o{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center}
+.modal-o.show{display:flex}
+.modal{background:#fff;border-radius:12px;padding:32px;width:420px;max-width:90vw;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.modal h3{font-size:18px;margin-bottom:20px}
+.modal .form-group{margin-bottom:16px}
+.modal .btn-row{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}
+.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:12px 24px;border-radius:25px;font-size:14px;z-index:99999;opacity:0;transition:opacity .3s;pointer-events:none}
+.login-box{max-width:420px;margin:80px auto;background:var(--w);border-radius:12px;padding:40px;box-shadow:0 2px 12px rgba(0,0,0,.08);text-align:center}
+.login-box .icon{font-size:48px;margin-bottom:16px}
+.login-box h2{font-size:20px;margin-bottom:24px}
+.user-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-left:12px}
+.badge-super{background:#e6d0d5;color:#dc3545}
+.badge-admin{background:#dbeafe;color:#2563eb}
+</style>
+</head>
+<body>
+<header id="headerBar" style="display:none"><div class="container">
+<h1><span id="headerTitle">&#x2699;&#xFE0F; 后台管理中心</span></h1>
+<div style="display:flex;align-items:center;gap:16px">
+<span id="userBadge"></span>
+<button class="logout-btn" onclick="doLogout()">退出登录</button>
+</div>
+</div></header>
+
+<main><div class="container">
+
+<!-- Login -->
+<div id="loginScreen" class="login-box">
+  <div class="icon">&#x1F512;</div>
+  <h2>管理员登录</h2>
+  <div class="form-group"><label>工号</label><input type="text" id="loginId" placeholder="请输入工号，如 00009" style="text-align:center;font-size:16px;padding:12px"></div>
+  <div class="form-group"><label>密码</label><input type="password" id="loginPwd" placeholder="请输入密码" style="text-align:center;font-size:16px;padding:12px"></div>
+  <button class="btn btn-primary" style="width:100%;margin-top:16px;padding:14px;font-size:16px" onclick="doLogin()">&#x1F511; 登录</button>
+  <div id="loginErr" style="color:#dc3545;font-size:13px;margin-top:10px;display:none">工号或密码错误</div>
+</div>
+
+<!-- Dashboard -->
+<div id="dashboard" style="display:none">
+
+<div class="card" id="pwdBox">
+  <h3>&#x1F512; 修改密码</h3>
+  <div class="form-row">
+    <div class="form-group"><label>当前密码</label><input type="password" id="oldPwd"></div>
+    <div class="form-group"></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group"><label>新密码</label><input type="password" id="newPwd" placeholder="至少6位"></div>
+    <div class="form-group"><label>确认新密码</label><input type="password" id="newPwd2"></div>
+  </div>
+  <button class="btn btn-primary" onclick="doChangePwd()">保存修改</button>
+</div>
+
+<!-- Super Admin Panel -->
+<div class="card" id="superCard" style="display:none">
+  <h3>&#x1F451; 管理员管理（超级管理员）</h3>
+  <div class="msg">超级管理员可增减管理员、分配科室权限。您修改密码后，前台网站编辑密码将同步更新。</div>
+  <div style="margin-bottom:16px"><button class="btn btn-primary" onclick="showAdd()">+ 添加管理员</button></div>
+  <table id="adminTable"><tr><th>工号</th><th>角色</th><th>管辖科室</th><th>状态</th><th>操作</th></tr></table>
+</div>
+
+<!-- Admin Panel -->
+<div class="card" id="adminCard" style="display:none">
+  <h3>&#x1F4CB; 我的权限</h3>
+  <div id="deptMsg" class="msg"></div>
+  <p style="font-size:14px;margin-top:12px">可编辑页面：</p>
+  <div id="deptPages" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px"></div>
+</div>
+
+<div class="card">
+  <h3>&#x1F4CA; 系统概况</h3>
+  <div class="switch-row"><span class="label">网站地址</span><span style="font-size:13px;color:var(--tl)"><a href="/" target="_blank" style="color:var(--p)">zocmmeh.com &#x2197;</a></span></div>
+  <div class="switch-row"><span class="label">管理员人数</span><span id="ac" style="font-size:14px;font-weight:600">-</span></div>
+</div>
+
+</div></div></main>
+
+<!-- Add Admin Modal -->
+<div class="modal-o" id="addModal">
+<div class="modal">
+<h3>&#x2795; 添加管理员</h3>
+<div class="form-group"><label>工号</label><input type="text" id="addId" placeholder="如：00002"></div>
+<div class="form-group"><label>密码</label><input type="password" id="addPwd" placeholder="至少6位"></div>
+<div class="form-group"><label>角色</label><select id="addRole" onchange="toggleRole()">
+<option value="admin">科室管理员</option>
+<option value="super">超级管理员</option>
+</select></div>
+<div class="form-group" id="addDeptGrp"><label>管辖科室</label>
+<select id="addDept">
+<option value="">全部科室</option>
+<option value="baineizhang">白内障科</option>
+<option value="qingguangyan">青光眼科</option>
+<option value="yandibing">眼底病科</option>
+<option value="jinshi">近视激光治疗科</option>
+<option value="xiaoer">小儿眼病科</option>
+<option value="jiaomo">角膜病科</option>
+<option value="xieshi">斜视弱视科</option>
+<option value="yanzhengxing">眼整形与泪道科</option>
+</select></div>
+<div class="btn-row">
+<button class="btn btn-sm" onclick="document.getElementById('addModal').classList.remove('show')">取消</button>
+<button class="btn btn-primary btn-sm" onclick="doAdd()">确认添加</button>
+</div>
+</div></div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var SK='zoc_a…_v4';
+var DEPTS={
+  'baineizhang':'白内障科','qingguangyan':'青光眼科','yandibing':'眼底病科',
+  'jinshi':'近视激光治疗科','xiaoer':'小儿眼病科','jiaomo':'角膜病科',
+  'xieshi':'斜视弱视科','yanzhengxing':'眼整形与泪道科'
+};
+
+function gs(){
+  var s=JSON.parse(localStorage.getItem(SK)||'{}');
+  if(!s.admins){
+    s.admins=[
+      {id:'00009',pwd:'zoc00009',role:'super',dept:'',active:true},
+      {id:'00001',pwd:'zoc00001',role:'admin',dept:'',active:true}
+    ];
+  }
+  return s;
+}
+function ss(v){localStorage.setItem(SK,JSON.stringify(v))}
+
+var cu=null;
+
+function init(){
+  document.getElementById('ac').textContent=gs().admins.filter(function(a){return a.active}).length;
+}
+
+function doLogin(){
+  var id=document.getElementById('loginId').value.trim();
+  var pwd=document.getElementById('loginPwd').value.trim();
+  var s=gs();
+  var found=null;
+  s.admins.forEach(function(a){if(a.id===id&&a.pwd===pwd&&a.active)found=a});
+  if(!found){document.getElementById('loginErr').style.display='block';return}
+
+  cu=found;
+  document.getElementById('loginScreen').style.display='none';
+  document.getElementById('dashboard').style.display='block';
+  document.getElementById('headerBar').style.display='block';
+
+  var roleLabel=found.role==='super'?'超级管理员':'科室管理员';
+  var roleCls=found.role==='super'?'badge-super':'badge-admin';
+  document.getElementById('userBadge').innerHTML='<span class="user-badge '+roleCls+'">'+roleLabel+' | 工号 '+found.id+'</span>';
+  document.getElementById('headerTitle').textContent='\u2699\uFE0F 后台管理中心';
+
+  if(found.role==='super'){
+    document.getElementById('superCard').style.display='block';
+    renderTable();
+  }
+
+  if(found.role==='admin'){
+    document.getElementById('adminCard').style.display='block';
+    var dn=found.dept?DEPTS[found.dept]:'全部科室';
+    document.getElementById('deptMsg').innerHTML='当前身份：<strong>科室管理员</strong> | 管辖范围：<strong>'+dn+'</strong> | 工号：<strong>'+found.id+'</strong>';
+    // Dept pages
+    var pp=[{t:'科室导航',u:'/departments.html'},{t:'专家团队',u:'/doctors.html'},{t:'就医指南',u:'/guide.html'},{t:'预约挂号',u:'/services.html'}];
+    var h='';
+    pp.forEach(function(p){h+='<a href="'+p.u+'" target="_blank" style="display:inline-block;padding:10px 20px;background:#eff6ff;border-radius:8px;font-size:14px;color:var(--p);font-weight:600">'+p.t+' \u2197</a>'});
+    document.getElementById('deptPages').innerHTML=h;
+  }
+}
+
+function doChangePwd(){
+  var o=document.getElementById('oldPwd').value.trim();
+  var n=document.getElementById('newPwd').value.trim();
+  var n2=document.getElementById('newPwd2').value.trim();
+  if(o!==cu.pwd){st('\u274C 当前密码错误');return}
+  if(!n||n.length<6){st('\u274C 新密码至少6位');return}
+  if(n!==n2){st('\u274C 两次密码不一致');return}
+
+  var s=gs();
+  s.admins.forEach(function(a){if(a.id===cu.id)a.pwd=n});
+  ss(s);cu.pwd=n;
+
+  // Sync frontend
+  if(cu.id==='00009'){localStorage.setItem('zoc_admin_pwd_override',n)}
+  // Also reset auth
+  localStorage.setItem('zoc_admin_auth_v2',JSON.stringify({t:Date.now()}));
+
+  st('\u2705 密码已更新！前台网站将使用新密码。');
+  document.getElementById('oldPwd').value='';
+  document.getElementById('newPwd').value='';
+  document.getElementById('newPwd2').value='';
+}
+
+function renderTable(){
+  var s=gs();
+  var t=document.getElementById('adminTable');
+  var h='<tr><th>工号</th><th>角色</th><th>管辖科室</th><th>状态</th><th>操作</th></tr>';
+  s.admins.forEach(function(a,i){
+    var rt=a.role==='super'?'<span class="tag tag-super">超级管理员</span>':'<span class="tag tag-admin">科室管理员</span>';
+    var stt=a.active?'<span style="color:#16a34a">\u25CF 启用</span>':'<span style="color:#ccc">\u25CB 停用</span>';
+    var dn=a.dept?DEPTS[a.dept]:'全部';
+    var act='';
+    if(a.id!==cu.id){
+      act='<div class="actions">'+
+        '<button class="btn btn-sm '+(a.active?'btn-danger':'btn-success')+'" onclick="tg('+i+')">'+(a.active?'停用':'启用')+'</button>'+
+        '<button class="btn btn-sm btn-danger" onclick="del('+i+')">删除</button>'+
+        '</div>';
+    }else{act='<span style="color:var(--tl);font-size:13px">当前用户</span>'}
+    h+='<tr><td><strong>'+a.id+'</strong></td><td>'+rt+'</td><td>'+dn+'</td><td>'+stt+'</td><td>'+act+'</td></tr>';
+  });
+  t.innerHTML=h;
+}
+
+function showAdd(){
+  document.getElementById('addId').value='';
+  document.getElementById('addPwd').value='';
+  document.getElementById('addRole').value='admin';
+  document.getElementById('addDept').value='';
+  toggleRole();
+  document.getElementById('addModal').classList.add('show');
+}
+function toggleRole(){
+  document.getElementById('addDeptGrp').style.display=document.getElementById('addRole').value==='super'?'none':'block';
+}
+function doAdd(){
+  var id=document.getElementById('addId').value.trim();
+  var pwd=document.getElementById('addPwd').value.trim();
+  var role=document.getElementById('addRole').value;
+  var dept=document.getElementById('addDept').value;
+  if(!id){st('\u274C 请输入工号');return}
+  if(!pwd||pwd.length<6){st('\u274C 密码至少6位');return}
+  var s=gs();
+  if(s.admins.some(function(a){return a.id===id})){st('\u274C 工号已存在');return}
+  s.admins.push({id:id,pwd:pwd,role:role,dept:dept,active:true});
+  ss(s);
+  document.getElementById('addModal').classList.remove('show');
+  renderTable();
+  document.getElementById('ac').textContent=s.admins.filter(function(a){return a.active}).length;
+  st('\u2705 管理员 '+id+' 已添加');
+}
+function tg(i){
+  var s=gs();s.admins[i].active=!s.admins[i].active;ss(s);
+  renderTable();
+  document.getElementById('ac').textContent=s.admins.filter(function(a){return a.active}).length;
+  st('\u2705 已'+(s.admins[i].active?'启用':'停用'));
+}
+function del(i){
+  var s=gs();var n=s.admins[i].id;
+  if(!confirm('确定删除管理员 '+n+' 吗？'))return;
+  s.admins.splice(i,1);ss(s);
+  renderTable();
+  document.getElementById('ac').textContent=s.admins.filter(function(a){return a.active}).length;
+  st('\u2705 管理员 '+n+' 已删除');
+}
+function doLogout(){
+  cu=null;
+  document.getElementById('loginScreen').style.display='block';
+  document.getElementById('dashboard').style.display='none';
+  document.getElementById('headerBar').style.display='none';
+  document.getElementById('superCard').style.display='none';
+  document.getElementById('adminCard').style.display='none';
+  document.getElementById('loginId').value='';
+  document.getElementById('loginPwd').value='';
+}
+function st(m){
+  var t=document.getElementById('toast');t.textContent=m;t.style.opacity='1';
+  clearTimeout(t._t);t._t=setTimeout(function(){t.style.opacity='0'},2500);
+}
+init();
+</script>
+</body></html>

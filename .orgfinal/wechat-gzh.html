@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>中山大学中山眼科中心茂名医院 — 微信公众号</title>
+    <style>
+        :root {
+            --zoc-blue: #1b4d89;
+            --zoc-dark: #0f2b4d;
+            --zoc-orange: #fc802f;
+            --zoc-light: #e8f0f8;
+            --zoc-accent: #d4e6f5;
+            --zoc-gold: #c9a84c;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+            background: #f0f2f5;
+            min-height: 100vh;
+        }
+
+        .container { max-width: 420px; margin: 0 auto; min-height: 100vh; background: #f5f6f8; }
+
+        /* ===== Header with Logo ===== */
+        .brand-header {
+            background: linear-gradient(180deg, #fff 0%, #f8f9fb 100%);
+            padding: 16px 20px 12px;
+            text-align: center;
+            border-bottom: 1px solid #e8eaed;
+        }
+        .brand-header .logo-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+        .brand-header .zoc-logo {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+        .brand-header .logo-text {
+            text-align: left;
+            line-height: 1.4;
+        }
+        .brand-header .logo-text .cn {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--zoc-blue);
+            letter-spacing: 1px;
+        }
+        .brand-header .logo-text .cn-sub {
+            font-size: 11px;
+            color: var(--zoc-blue);
+            opacity: 0.8;
+        }
+        .brand-header .en-name {
+            font-size: 9px;
+            color: #999;
+            letter-spacing: 0.3px;
+            margin-top: 4px;
+            line-height: 1.5;
+        }
+
+        /* ===== Welcome Banner ===== */
+        .welcome-section {
+            margin: 12px 12px 0;
+            background: linear-gradient(135deg, var(--zoc-blue) 0%, #0f3d6e 40%, #163d5c 100%);
+            border-radius: 16px;
+            padding: 24px 20px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(27,77,137,0.25);
+        }
+        .welcome-section::before {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: -20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(252,128,47,0.15);
+        }
+        .welcome-section::after {
+            content: '';
+            position: absolute;
+            right: 20px;
+            bottom: -30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(252,128,47,0.1);
+        }
+        .welcome-section .welcome-icon { font-size: 36px; margin-bottom: 8px; position: relative; z-index: 1; }
+        .welcome-section .welcome-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            position: relative;
+            z-index: 1;
+        }
+        .welcome-section .welcome-desc {
+            font-size: 13px;
+            opacity: 0.85;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        .welcome-btn-group {
+            display: flex;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .welcome-btn {
+            flex: 1;
+            padding: 11px 0;
+            border: none;
+            border-radius: 22px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s;
+            text-align: center;
+        }
+        .welcome-btn.primary {
+            background: var(--zoc-orange);
+            color: #fff;
+        }
+        .welcome-btn.primary:hover {
+            background: #e8721f;
+            transform: translateY(-1px);
+        }
+        .welcome-btn.secondary {
+            background: rgba(255,255,255,0.18);
+            color: #fff;
+            backdrop-filter: blur(4px);
+        }
+
+        /* ===== Motto ===== */
+        .motto-bar {
+            margin: 0 12px;
+            background: var(--zoc-dark);
+            color: #fff;
+            text-align: center;
+            font-size: 13px;
+            padding: 8px 0;
+            letter-spacing: 3px;
+            font-weight: 500;
+            border-radius: 0 0 12px 12px;
+            opacity: 0.9;
+        }
+
+        /* ===== Section Title ===== */
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--zoc-blue);
+            padding: 20px 14px 10px;
+        }
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 18px;
+            background: var(--zoc-orange);
+            border-radius: 2px;
+        }
+
+        /* ===== Menu Cards (3-column) ===== */
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 0 12px;
+            margin-bottom: 6px;
+        }
+        .menu-card {
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .menu-header {
+            background: linear-gradient(135deg, var(--zoc-blue), #1a5ea8);
+            color: #fff;
+            padding: 12px 8px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .menu-content { padding: 6px 8px; }
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 6px;
+            border-radius: 8px;
+            margin-bottom: 2px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 12px;
+        }
+        .menu-item:hover, .menu-item:active { background: var(--zoc-light); }
+        .menu-item:last-child { margin-bottom: 0; }
+        .menu-item .menu-icon { font-size: 16px; margin-right: 6px; flex-shrink: 0; }
+        .menu-item .menu-info { flex: 1; min-width: 0; }
+        .menu-item .menu-name { font-weight: 600; color: #333; font-size: 12px; margin-bottom: 2px; }
+        .menu-item .menu-desc { font-size: 10px; color: #999; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        /* ===== Quick Entry ===== */
+        .quick-section {
+            background: #fff;
+            border-radius: 14px;
+            padding: 16px 12px;
+            margin: 10px 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .quick-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--zoc-blue);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .quick-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 14px 6px;
+            background: var(--zoc-light);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .quick-btn:hover, .quick-btn:active {
+            transform: translateY(-2px);
+            background: #d4e2f0;
+            box-shadow: 0 3px 10px rgba(27,77,137,0.12);
+        }
+        .quick-btn .quick-icon { font-size: 26px; margin-bottom: 6px; }
+        .quick-btn .quick-text { font-size: 11px; color: #333; font-weight: 600; }
+
+        /* ===== Keyword Section ===== */
+        .keyword-section {
+            background: #fff;
+            border-radius: 14px;
+            padding: 16px 12px;
+            margin: 0 12px 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .keyword-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--zoc-blue);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .keyword-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+        .keyword-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 12px;
+            background: #f8f9fb;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .keyword-item:hover, .keyword-item:active {
+            background: var(--zoc-light);
+            border-color: var(--zoc-accent);
+        }
+        .keyword-tag {
+            background: var(--zoc-orange);
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+        .keyword-reply {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            text-align: center;
+            padding: 16px 12px 32px;
+            font-size: 11px;
+            color: #bbb;
+            line-height: 1.8;
+        }
+        .footer .divider { margin: 0 6px; color: #ddd; }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ====== Brand Header with ZOC Logo ====== -->
+        <div class="brand-header">
+            <div class="logo-wrap">
+                <img class="zoc-logo"
+                     src="zoc-logo.png"
+                     alt="中山眼科中心院徽"
+                <div class="logo-text">
+                    <div class="cn">中山大学中山眼科中心</div>
+                    <div class="cn-sub">茂名医院</div>
+                </div>
+            </div>
+            <div class="en-name">
+                ZHONGSHAN OPHTHALMIC CENTER, SUN YAT-SEN UNIVERSITY<br>
+                MAOMING EYE HOSPITAL
+            </div>
+        </div>
+
+        <!-- ====== Welcome Banner ====== -->
+        <div class="welcome-section">
+            <div class="welcome-icon">👋</div>
+            <div class="welcome-title">欢迎关注【中山眼科中心茂名医院】</div>
+            <div class="welcome-desc">国家级眼科中心同质化管理 · 守护粤西眼健康</div>
+            <div class="welcome-btn-group">
+                <button class="welcome-btn primary">🎫 预约挂号</button>
+                <button class="welcome-btn secondary">🪪 绑定就诊卡</button>
+            </div>
+        </div>
+
+        <div class="motto-bar">求真 · 善良 · 创新</div>
+
+        <!-- ====== Main Menu (3-column) ====== -->
+        <div class="section-title">核心服务</div>
+        <div class="menu-container">
+            <!-- 就诊服务 -->
+            <div class="menu-card">
+                <div class="menu-header">🏥 就诊服务</div>
+                <div class="menu-content">
+                    <div class="menu-item">
+                        <span class="menu-icon">🎫</span>
+                        <div class="menu-info">
+                            <div class="menu-name">预约挂号</div>
+                            <div class="menu-desc">7日号源·分时段</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-icon">💳</span>
+                        <div class="menu-info">
+                            <div class="menu-name">门诊缴费</div>
+                            <div class="menu-desc">一键支付</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-icon">📋</span>
+                        <div class="menu-info">
+                            <div class="menu-name">报告查询</div>
+                            <div class="menu-desc">检验·检查</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-icon">💻</span>
+                        <div class="menu-info">
+                            <div class="menu-name">互联网医院</div>
+                            <div class="menu-desc">在线问诊</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-icon">🛏️</span>
+                        <div class="menu-info">
+                            <div class="menu-name">住院服务</div>
+                            <div class="menu-desc">押金·日清单</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 眼科中心 -->
+            <div class="menu-card">
+                <div class="menu-header">👁️ 眼科中心</div>
+                <div class="menu-content">
+                    <div class="menu-item">
+                        <span class="menu-icon">🔬</span>
+                        <div class="menu-info">
+                            <div class="menu-name">白内障专科</div>
+                            <div class="menu-desc">超乳·晶体</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-icon">👁️</span>
+                        <div class="menu-info">
+                            <div class="menu-name">眼底病专科</div>
+                            <div class="menu-desc">玻切·注药</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-icon">⚡</span>
+                        <div class="menu-info">
+                            <div class="menu-name">青光眼专科</div>
+                            <div class="menu-desc">小梁·引流</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-icon">👓</span>
+                        <div class="menu-info">
+                            <div class="menu-name">视光中心</div>
+                            <div class="menu-desc">验光·配镜</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-icon">📖</span>
+                        <div class="menu-info">
+                            <div class="menu-name">健康科普</div>
+                            <div class="menu-desc">护眼知识</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 我的 -->
+            <div class="menu-card">
+                <div class="menu-header">👤 我的</div>
+                <div class="menu-content">
+                    <div class="menu-item">
+                        <span class="menu-icon">🪪</span>
+                        <div class="menu-info">
+                            <div class="menu-name">就诊人管理</div>
+                            <div class="menu-desc">绑卡·实名</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-icon">👨‍👩‍👧</span>
+                        <div class="menu-info">
+                            <div class="menu-name">亲情账户</div>
+                            <div class="menu-desc">帮家人挂号</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-icon">📜</span>
+                        <div class="menu-info">
+                            <div class="menu-name">就诊记录</div>
+                            <div class="menu-desc">历史·病历</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-icon">❤️</span>
+                        <div class="menu-info">
+                            <div class="menu-name">视力档案</div>
+                            <div class="menu-desc">屈光追踪</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-icon">⚙️</span>
+                        <div class="menu-info">
+                            <div class="menu-name">就医助手</div>
+                            <div class="menu-desc">导航·咨询</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== Quick Entry ====== -->
+        <div class="quick-section">
+            <div class="quick-title">📌 快捷功能</div>
+            <div class="quick-grid">
+                <div class="quick-btn">
+                    <span class="quick-icon">🎫</span>
+                    <span class="quick-text">预约挂号</span>
+                </div>
+                <div class="quick-btn">
+                    <span class="quick-icon">💳</span>
+                    <span class="quick-text">门诊缴费</span>
+                </div>
+                <div class="quick-btn">
+                    <span class="quick-icon">📋</span>
+                    <span class="quick-text">报告查询</span>
+                </div>
+                <div class="quick-btn">
+                    <span class="quick-icon">💻</span>
+                    <span class="quick-text">在线问诊</span>
+                </div>
+                <div class="quick-btn">
+                    <span class="quick-icon">🔬</span>
+                    <span class="quick-text">白内障</span>
+                </div>
+                <div class="quick-btn">
+                    <span class="quick-icon">👁️</span>
+                    <span class="quick-text">眼底病</span>
+                </div>
+                <div class="quick-btn">
+                    <span class="quick-icon">👓</span>
+                    <span class="quick-text">视光配镜</span>
+                </div>
+                <div class="quick-btn">
+                    <span class="quick-icon">🗺️</span>
+                    <span class="quick-text">来院导航</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== Keyword Auto-Reply ====== -->
+        <div class="keyword-section">
+            <div class="keyword-title">🔑 关键词自动回复</div>
+            <div class="keyword-grid">
+                <div class="keyword-item">
+                    <span class="keyword-tag">挂号</span>
+                    <span class="keyword-reply">预约挂号指南</span>
+                </div>
+                <div class="keyword-item">
+                    <span class="keyword-tag">报告</span>
+                    <span class="keyword-reply">报告查询方法</span>
+                </div>
+                <div class="keyword-item">
+                    <span class="keyword-tag">缴费</span>
+                    <span class="keyword-reply">待缴费用清单</span>
+                </div>
+                <div class="keyword-item">
+                    <span class="keyword-tag">白内障</span>
+                    <span class="keyword-reply">专科介绍·预约</span>
+                </div>
+                <div class="keyword-item">
+                    <span class="keyword-tag">眼底</span>
+                    <span class="keyword-reply">眼底病就诊指引</span>
+                </div>
+                <div class="keyword-item">
+                    <span class="keyword-tag">青光眼</span>
+                    <span class="keyword-reply">青光眼筛查·治疗</span>
+                </div>
+                <div class="keyword-item">
+                    <span class="keyword-tag">配镜</span>
+                    <span class="keyword-reply">验光配镜预约</span>
+                </div>
+                <div class="keyword-item">
+                    <span class="keyword-tag">地图</span>
+                    <span class="keyword-reply">来院导航·交通</span>
+                </div>
+                <div class="keyword-item">
+                    <span class="keyword-tag">电话</span>
+                    <span class="keyword-reply">咨询电话·急救</span>
+                </div>
+                <div class="keyword-item">
+                    <span class="keyword-tag">医保</span>
+                    <span class="keyword-reply">医保报销指引</span>
+                </div>
+                <div class="keyword-item">
+                    <span class="keyword-tag">专家</span>
+                    <span class="keyword-reply">专家出诊信息</span>
+                </div>
+                <div class="keyword-item">
+                    <span class="keyword-tag">人工</span>
+                    <span class="keyword-reply">转接在线客服</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== Footer ====== -->
+        <div class="footer">
+            中山大学中山眼科中心茂名医院<br>
+            ZHONGSHAN OPHTHALMIC CENTER, SUN YAT-SEN UNIVERSITY · MAOMING EYE HOSPITAL<br>
+            <span style="color:#ccc;">粤ICP备xxxxxxxx号-x</span>
+        </div>
+
+    </div>
+</body>
+</html>

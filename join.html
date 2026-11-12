@@ -143,4 +143,9 @@ function edOn(){document.body.classList.add("am");aid();var c=0;document.querySe
 function eo(){document.body.classList.remove("am");document.querySelectorAll(".aed").forEach(function(e){e.contentEditable="false";e.classList.remove("aed");e.style.background=""});var b=document.getElementById("asb");if(b)b.style.display="none";var t=document.getElementById("adminToggle");if(t)t.textContent="\u2699\uFE0F"}
 function showT(m){var t=document.getElementById("atm");if(!t){t=document.createElement("div");t.id="atm";t.style="position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:12px 24px;border-radius:25px;font-size:14px;z-index:99999;transition:all .3s;opacity:0;pointer-events:none;white-space:nowrap";document.body.appendChild(t)}t.textContent=m;t.style.opacity="1";clearTimeout(t._tt);t._tt=setTimeout(function(){t.style.opacity="0"},2500)}
 </script>
+
+<!-- admin & data-sync -->
+<script src="js/nav.js"></script>
+<script src="js/content-sync.js"></script>
+<script src="js/admin.js"></script>
 </body></html>

@@ -2,317 +2,524 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>就医指南 - 中山大学中山眼科中心茂名医院</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="icon" type="image/png" href="img/zoc-logo.png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--primary:#1a3a5c;--primary-light:#2a6090;--accent:#e8551a;--text:#1f2937;--text-light:#6b7280;--bg:#f5f7fa;--white:#fff;--border:#e5e7eb;--shadow:0 2px 12px rgba(0,0,0,.08)}
+body{font-family:"Microsoft YaHei","PingFang SC","Helvetica Neue",Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;min-width:1200px}
+a{text-decoration:none;color:inherit}
+.container{max-width:1400px;margin:0 auto;padding:0 20px}
+.header-top{background:#f0f4f8;border-bottom:1px solid var(--border);font-size:13px;color:var(--text-light);padding:6px 0}
+.header-top .container{display:flex;justify-content:space-between}
+.header-main{background:var(--white);border-bottom:1px solid var(--border)}
+.header-main .container{display:flex;align-items:center;height:80px;gap:24px}
+.header-logo{display:flex;align-items:center;gap:12px}
+.header-logo img{height:52px}
+.header-logo-cn{font-size:20px;font-weight:700;color:var(--primary);white-space:nowrap}
+.header-logo-en{font-size:11px;color:var(--text-light)}
+.header-logo-text{display:flex;flex-direction:column}
+.main-nav{background:var(--primary)}
+.main-nav .container{display:flex}
+.main-nav a{color:rgba(255,255,255,.9);padding:14px 24px;font-size:15px;font-weight:500;display:block;border-bottom:3px solid transparent;white-space:nowrap}
+.main-nav a:hover,.main-nav a.active{color:#fff;background:rgba(255,255,255,.08);border-bottom-color:var(--accent)}
+.page-banner{background:linear-gradient(135deg,#1a3a5c,#0f2540);color:#fff;padding:60px 0;text-align:center}
+.page-banner h1{font-size:32px;font-weight:700}
+.breadcrumb{background:#fff;border-bottom:1px solid var(--border);font-size:13px;color:var(--text-light);padding:12px 0}
+.breadcrumb a{color:var(--primary-light)}
+.content{padding:48px 0}
+.content-grid{display:grid;grid-template-columns:240px 1fr;gap:32px}
+.sidebar{background:var(--white);border-radius:8px;box-shadow:var(--shadow);overflow:hidden;position:sticky;top:100px}
+.sidebar h3{background:var(--primary);color:#fff;padding:16px 20px;font-size:16px;font-weight:600}
+.sidebar a{display:block;padding:14px 20px;font-size:14px;color:var(--text);border-bottom:1px solid var(--border);transition:all .2s}
+.sidebar a:hover,.sidebar a.active{color:var(--accent);background:#fff7ed;padding-left:24px}
+.sidebar a.active{border-left:3px solid var(--accent);font-weight:600}
+.main-content{background:var(--white);border-radius:8px;box-shadow:var(--shadow);padding:36px 40px}
+.main-content h2{font-size:24px;color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--border)}
+.main-content h3{font-size:18px;color:var(--primary);margin:28px 0 12px}
+.main-content h4{font-size:16px;color:var(--primary);margin:16px 0 8px}
+.main-content p{font-size:15px;line-height:1.9;margin-bottom:14px;color:#374151}
+.steps{list-style:none;counter-reset:step;margin:20px 0}
+.steps li{counter-increment:step;padding:16px 20px 16px 70px;position:relative;border-left:2px solid var(--border);margin-left:20px;font-size:14px;line-height:1.8}
+.steps li::before{content:counter(step);position:absolute;left:-20px;top:14px;width:38px;height:38px;border-radius:50%;background:var(--primary);color:#fff;text-align:center;line-height:38px;font-size:14px;font-weight:700}
+.steps li:last-child{border-left-color:transparent}
+.steps li strong{display:block;color:var(--primary);margin-bottom:4px;font-size:15px}
+.info-box{background:#eff6ff;border-left:4px solid var(--primary-light);padding:16px 20px;border-radius:0 8px 8px 0;margin:16px 0}
+.info-box p{margin-bottom:0;font-size:14px;color:var(--primary)}
+.info-box.orange{background:#fff7ed;border-left-color:var(--accent)}
+.info-box.orange p{color:#92400e}
+.info-box.green{background:#f0fdf4;border-left-color:#16a34a}
+.info-box.green p{color:#14532d}
+.table-wrap{overflow-x:auto;margin:20px 0}
+.table-wrap table{width:100%;border-collapse:collapse;font-size:14px}
+.table-wrap th{background:var(--primary);color:#fff;padding:12px 16px;text-align:center;font-weight:600;white-space:nowrap}
+.table-wrap td{padding:12px 16px;text-align:center;border-bottom:1px solid var(--border)}
+.table-wrap tr:nth-child(even){background:#f8fafc}
+.table-wrap tr:hover{background:#eff6ff}
+.footer{background:var(--primary);margin-top:48px}
+.footer .container{padding:48px 20px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px}
+.footer{color:rgba(255,255,255,.7)}
+.footer-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.footer-logo img{height:40px}
+.footer-logo span{font-size:18px;font-weight:700;color:#fff}
+.footer-info p{font-size:13px;line-height:2}
+.footer h4{font-size:15px;font-weight:600;color:#fff;margin-bottom:16px}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:10px}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.6)}
+.footer-links a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;text-align:center;font-size:12px;color:rgba(255,255,255,.4)}
+.amodal-o{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99999;justify-content:center;align-items:center}.amodal-o.show{display:flex}.amodal{background:#fff;border-radius:12px;padding:32px;width:360px;box-shadow:0 20px 60px rgba(0,0,0,.3)}.amodal h3{font-size:18px;margin-bottom:20px;color:#1f2937}.ainput-pwd{width:100%;padding:10px 14px;border:2px solid #e5e7eb;border-radius:8px;font-size:15px;outline:none;font-family:inherit}.aerr{color:#dc3545;font-size:13px;margin-top:8px;display:none}.abtns{display:flex;gap:10px;margin-top:20px;justify-content:flex-end}.abtn-cancel{background:#f1f5f9;border:none;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:14px}.abtn-confirm{background:#1a3a5c;color:#fff;border:none;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:14px}.admin-mode .aed{cursor:text;transition:background .15s}.asave{position:fixed;bottom:24px;right:24px;z-index:99998;background:#1a3a5c;color:#fff;border:none;padding:12px 24px;border-radius:25px;font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.2);display:none}
+@media(max-width:1200px){body{min-width:auto}.content-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
 </head>
 <body>
-<header class="header"><div class="h-inner">
-<a href="index.html" class="logo-a"><img src="img/zoc-logo.png" alt="" class="logo-img">
-<div class="logo-txt"><span class="logo-nm">中山大学中山眼科中心茂名医院</span><span class="logo-en">MAOMING EYE HOSPITAL</span></div></a>
-<button class="hamb" id="hamburger">&#9776;</button>
-<nav class="nav" id="mainNav">
-<a href="index.html" class="nl">首页</a>
-<a href="services.html" class="nl">预约挂号</a>
-<a href="reports.html" class="nl">报告查询</a>
-<a href="departments.html" class="nl">科室介绍</a>
-<a href="profile.html" class="nl">我的</a>
-<button class="at" id="adminToggle" title="管理员">&#x2699;&#xFE0F;</button>
-</nav></div></header>
-
-<main class="mc">
-
-<!-- 门诊流程 -->
-<h2 class="st" id="process">门诊流程</h2>
-<div class="ps">
-<div class="ps-item"><div class="psn">1</div><div class="psc"><h4>挂号</h4><p>持身份证/医保卡到一楼收费处或通过微信公众号在线挂号</p></div></div>
-<div class="parr">&#8595;</div>
-<div class="ps-item"><div class="psn">2</div><div class="psc"><h4>候诊</h4><p>在对应科室候诊区就座，留意叫号屏幕显示您的号码</p></div></div>
-<div class="parr">&#8595;</div>
-<div class="ps-item"><div class="psn">3</div><div class="psc"><h4>就诊</h4><p>医生问诊、检查、开具处方或检查单</p></div></div>
-<div class="parr">&#8595;</div>
-<div class="ps-item"><div class="psn">4</div><div class="psc"><h4>缴费</h4><p>一楼收费处或微信公众号在线缴费</p></div></div>
-<div class="parr">&#8595;</div>
-<div class="ps-item"><div class="psn">5</div><div class="psc"><h4>取药/治疗</h4><p>药房取药或前往相应治疗室进行治疗</p></div></div>
-<div class="parr">&#8595;</div>
-<div class="ps-item"><div class="psn">6</div><div class="psc"><h4>离院</h4><p>遵医嘱按时复诊或用药</p></div></div>
-</div>
-
-<!-- 急诊流程 -->
-<h2 class="st">急诊流程</h2>
-<div class="ps">
-<div class="ps-item"><div class="psn">1</div><div class="psc"><h4>急诊挂号</h4><p>直接到急诊科分诊台挂号，无需预约</p></div></div>
-<div class="parr">&#8595;</div>
-<div class="ps-item"><div class="psn">2</div><div class="psc"><h4>分诊评估</h4><p>护士进行初步评估，危重患者优先处理</p></div></div>
-<div class="parr">&#8595;</div>
-<div class="ps-item"><div class="psn">3</div><div class="psc"><h4>抢救/治疗</h4><p>医生紧急处置，必要时启动绿色通道</p></div></div>
-<div class="parr">&#8595;</div>
-<div class="ps-item"><div class="psn">4</div><div class="psc"><h4>留观/住院</h4><p>根据病情决定留观或收入病房</p></div></div>
-</div>
-
-<!-- 住院流程 -->
-<h2 class="st">住院流程</h2>
-<div class="ps">
-<div class="ps-item"><div class="psn">1</div><div class="psc"><h4>办理住院</h4><p>凭医生开具的住院单到一楼住院处办理</p></div></div>
-<div class="parr">&#8595;</div>
-<div class="ps-item"><div class="psn">2</div><div class="psc"><h4>缴纳押金</h4><p>按规定缴纳住院押金，支持医保结算</p></div></div>
-<div class="parr">&#8595;</div>
-<div class="ps-item"><div class="psn">3</div><div class="psc"><h4>入住病房</h4><p>护士站安排床位，介绍病房设施和注意事项</p></div></div>
-<div class="parr">&#8595;</div>
-<div class="ps-item"><div class="psn">4</div><div class="psc"><h4>检查治疗</h4><p>配合医护人员进行检查和治疗</p></div></div>
-<div class="parr">&#8595;</div>
-<div class="ps-item"><div class="psn">5</div><div class="psc"><h4>结算出院</h4><p>结清费用，携带出院医嘱和用药说明离院</p></div></div>
-</div>
-
-<!-- 医保报销 -->
-<h2 class="st">医保报销</h2>
-<div class="dg">
-<div class="df"><h4>医保政策</h4><ul class="dul">
-<li>门诊挂号费可报销</li>
-<li>大部分检查费可报销</li>
-<li>药品费用按比例报销</li>
-<li>住院费用可按医保政策报销</li>
-</ul></div>
-<div class="df"><h4>报销流程</h4><ul class="dul">
-<li>出示医保卡或电子凭证</li>
-<li>系统自动计算报销金额</li>
-<li>个人仅需支付自付部分</li>
-<li>支持异地医保直接结算</li>
-</ul></div>
-</div>
-
-<!-- 特殊门诊医保 -->
-<h2 class="st">特殊门诊医保结算</h2>
-<div class="dsi" style="margin-bottom:20px">
-<p><strong>&#x1F4CB; 什么是特殊门诊？</strong></p>
-<p>特殊门诊（门诊特殊病种/门诊慢特病）是指经医保部门认定，部分慢性病、特殊疾病患者在门诊治疗时，可享受与住院同等报销比例的政策。参保人无需住院，在门诊治疗即可按住院比例报销。</p>
-</div>
-
-<div class="dg">
-<div class="df"><h4>&#x1F440; 眼科可申请的特殊门诊病种</h4><ul class="dul">
-<li>糖尿病视网膜病变（需内分泌科确诊糖尿病）</li>
-<li>老年性黄斑变性（需OCT或造影确诊）</li>
-<li>青光眼（需眼压/视野/眼底检查确诊）</li>
-<li>视网膜脱离术后随访</li>
-<li>角膜病变（角膜移植术后抗排异治疗）</li>
-<li>严重干眼症（需泪液分泌试验等客观检查）</li>
-</ul></div>
-
-<div class="df"><h4>&#x2705; 申请条件（须同时满足）</h4><ul class="dul">
-<li><strong>参保状态：</strong>茂名市城乡居民医保或职工医保正常缴费</li>
-<li><strong>确诊证明：</strong>由二级及以上医院副主任医师以上出具诊断证明</li>
-<li><strong>检查报告：</strong>提供确诊所需的辅助检查报告（OCT/造影/视野等）</li>
-<li><strong>申请表：</strong>填写《门诊特殊病种待遇认定申请表》（医院医保办领取）</li>
-<li><strong>身份证明：</strong>本人身份证/社保卡原件及复印件</li>
-</ul></div>
-
-<div class="df"><h4>&#x1F4CB; 办理流程</h4><ul class="dul">
-<li>就诊时由主治医生评估是否符合特殊门诊条件</li>
-<li>符合条件的患者领取并填写《门诊特殊病种申请表》</li>
-<li>医生签字盖章 + 科室主任审核签字</li>
-<li>携带申请表、诊断证明、检查报告、身份证/社保卡至一楼医保窗口</li>
-<li>医保办审核通过后，系统录入特殊门诊待遇标识</li>
-<li>审批通过后，后续门诊治疗即可按特殊门诊比例报销</li>
-</ul></div>
-
-<div class="df"><h4>&#x1F4B0; 报销标准</h4><ul class="dul">
-<li><strong>起付标准：</strong>无起付线（特殊门诊不设起付标准）</li>
-<li><strong>报销比例：</strong>参照住院报销比例，职工医保约85%-90%，居民医保约70%-75%</li>
-<li><strong>年度限额：</strong>按病种设定年度最高支付限额，不同病种限额不同</li>
-<li><strong>定点管理：</strong>需选定一家定点医疗机构，年度内不可随意变更</li>
-<li><strong>有效期：</strong>审批有效期一般为1-2年，到期需重新评估续期</li>
-</ul></div>
-</div>
-
-<!-- 楼层导航 -->
-<h2 class="st" id="floors">楼层导航</h2>
-<div class="fn">
-
-<!-- 门诊服务区 1F-3F -->
-<div class="fg">
-<div class="fl">&#x1F3E0; 门诊服务区 (1F-3F)</div>
-<div class="fc">
-<div class="fd blue" id="f1"><div class="fnum">1F</div><div class="ftit">一层 · 入口枢纽</div><div class="fdesc">咨询台 / 挂号收费 / 药学部</div></div>
-<div class="fd blue" id="f2"><div class="fnum">2F</div><div class="ftit">二层 · 综合门诊</div><div class="fdesc">综合门诊（5诊室+内镜+带教+大治疗）</div></div>
-<div class="fd blue" id="f3"><div class="fnum">3F</div><div class="ftit">三层 · 特需专科门诊</div><div class="fdesc">特需专科门诊（5诊室+VIP+大治疗）</div></div>
-</div>
-</div>
-
-<!-- 检查与治疗区 4F-6F -->
-<div class="fg">
-<div class="fl">&#x1F7EA; 检查与治疗区 (4F-6F)</div>
-<div class="fc">
-<div class="fd green" id="f4"><div class="fnum">4F</div><div class="ftit">四层 · 眼前段视光</div><div class="fdesc">弱视治疗 / 验光配镜 / 眼前段检查(16卡位) / 激光美容</div></div>
-<div class="fd green" id="f5"><div class="fnum">5F</div><div class="ftit">五层 · 眼后段激光</div><div class="fdesc">干眼治疗中心 / 眼后段检查(14卡位) / 激光室 / 造影室</div></div>
-<div class="fd green" id="f6"><div class="fnum">6F</div><div class="ftit">六层 · 医技支持</div><div class="fdesc">DR室 / 检验科（各占一半面积） / 医护办公区 / 值班室</div></div>
-</div>
-</div>
-
-<!-- 后勤保障 7F -->
-<div class="fg">
-<div class="fl">&#x2699; 后勤保障</div>
-<div class="fc">
-<div class="fd gray" id="f7"><div class="fnum">7F</div><div class="ftit">七层 · 后勤保障</div><div class="fdesc">消毒供应中心</div></div>
-</div>
-</div>
-
-<!-- 手术中心集群 8F-11F -->
-<div class="fg">
-<div class="fl">&#x26A0; 手术中心集群 (8F-11F)</div>
-<div class="fc">
-<div class="fd orange star" id="f8"><div class="fnum">8F ★</div><div class="ftit">八层 · 激光近视治疗中心 ★</div><div class="fdesc">全飞秒SMILE / 半飞秒FS-LASIK / 准分子激光</div></div>
-<div class="fd orange" id="f9"><div class="fnum">9F</div><div class="ftit">九层 · 外伤·眼底·感染手术</div><div class="fdesc">手术室&times;3（含<strong>1间负压手术室</strong>）</div></div>
-<div class="fd orange" id="f10"><div class="fnum">10F</div><div class="ftit">十层 · 内眼手术</div><div class="fdesc">手术室&times;3（内眼手术专用）</div></div>
-<div class="fd orange" id="f11"><div class="fnum">11F</div><div class="ftit">十一层 · 外眼手术</div><div class="fdesc">手术室&times;3（外眼手术专用）</div></div>
-</div>
-</div>
-
-<!-- 住院病区 12F-15F -->
-<div class="fg">
-<div class="fl">&#x1F3E5; 住院病区 (12F-15F)</div>
-<div class="fc">
-<div class="fd yellow" id="f12"><div class="fnum">12F</div><div class="ftit">十二层 · 标准综合病区A</div><div class="fdesc">住院床位&times;16张、日间床位&times;12张</div></div>
-<div class="fd yellow" id="f13"><div class="fnum">13F</div><div class="ftit">十三层 · 标准综合病区B</div><div class="fdesc">住院床位&times;16张、日间床位&times;12张</div></div>
-<div class="fd yellow" id="f14"><div class="fnum">14F</div><div class="ftit">十四层 · 日间病区</div><div class="fdesc">日间床位&times;11张（短期治疗/日间手术专用）</div></div>
-<div class="fd yellow vip" id="f15"><div class="fnum">15F</div><div class="ftit">十五层 · 高端综合病区</div><div class="fdesc">住院床位&times;13张、<strong>VIP套间&times;1</strong>（独立卫生间）</div></div>
-</div>
-</div>
-
-</div><!-- end fn -->
-
-</main>
-
-<footer class="footer"><div class="fi">
-<div class="flgo"><img src="img/zoc-logo.png" alt=""><span>中山大学中山眼科中心茂名医院</span></div>
-<div class="finfo"><p>&#x1F4CD; 茂名市双山一路龙岭小区中山大学中山眼科中心茂名医院</p><p>&#x260E; 电话：0668-XXXXXXX | 急诊：0668-XXXXXXX</p><p>&#xA9; 中山大学中山眼科中心茂名医院 | MAOMING EYE HOSPITAL</p></div>
-</div></footer>
-
-<!-- ====== AI ASSISTANT (富内容版) ====== -->
-<div class="afab" id="aiFab" title="智能助手">&#x1F4AC;</div>
-<div class="aov" id="aiOverlay"></div>
-<div class="apanel" id="aiPanel">
-<div class="aph"><span class="atitle">&#x1F916; 智能就医助手</span><button class="aclose" id="aiClose">&#x2715;</button></div>
-<div class="atabs">
-<button class="atab active" data-tab="triage">预问诊挂号</button>
-<button class="atab" data-tab="payment">缴费指引</button>
-<button class="atab" data-tab="waiting">诊间候诊</button>
-<button class="atab" data-tab="navi">医院导航</button>
-<button class="atab" data-tab="followup">复诊提醒</button>
-</div>
-<div class="abody">
-
-<!-- ===== Tab 1: 预问诊挂号 ===== -->
-<div class="acont active" id="tab-triage">
-  <div class="ai-tip info">&#x1F4A1; <span>请点击以下症状或自行输入，AI将为您推荐合适的科室与医生</span></div>
-
-  <div class="ai-symptom-grid" id="symptomGrid">
-    <div class="sg-item" data-dept="白内障科">&#x1F441; 视力模糊/下降</div>
-    <div class="sg-item" data-dept="青光眼科">&#x1F615; 眼睛胀痛/头痛</div>
-    <div class="sg-item" data-dept="角膜病科">&#x1F41A; 眼睛干涩/异物感</div>
-    <div class="sg-item" data-dept="小儿眼科">&#x1F476; 儿童视力问题</div>
-    <div class="sg-item" data-dept="眼底病科">&#x1F300; 眼前黑影/闪光</div>
-    <div class="sg-item" data-dept="屈光手术中心">&#x1F453; 近视/散光/老花</div>
-    <div class="sg-item" data-dept="斜视弱视科">&#x1F440; 眼睛斜视/复视</div>
-    <div class="sg-item" data-dept="眼整形科">&#x2728; 眼睑/眼眶问题</div>
-  </div>
-
-  <div class="sg-result" id="sgResult">
-    <h4>&#x2705; 推荐科室：<span id="sgDept"></span></h4>
-    <p id="sgDesc"></p>
-    <a href="services.html" style="display:inline-block;margin-top:12rpx;padding:14rpx 28rpx;background:var(--a);color:#fff;border-radius:50rpx;text-decoration:none;font-size:24rpx;font-weight:700">&#x1F4C5; 前往预约挂号</a>
-  </div>
-
-  <p style="font-size:22rpx;color:var(--tl);margin-top:16rpx;line-height:1.6">&#x1F4DE; <strong>提示：</strong>以上为智能导诊参考，具体情况请以医生诊断为准。急症请直接前往急诊科。</p>
-</div>
-
-<!-- ===== Tab 2: 缴费指引 ===== -->
-<div class="acont" id="tab-payment">
-  <div class="ai-tip info">&#x1F4A1; <span>缴费前请确认已绑定医保卡或就诊卡，以下是三种常用缴费方式</span></div>
-
-  <div class="ai-step"><div class="ai-step-num">1</div><h4>&#x1F4F1; 手机在线缴费（推荐）</h4><p>进入公众号 → 「门诊缴费」→ 选择就诊人 → 查看待缴费用 → 确认支付。<br><span style="color:var(--a)">支持微信支付、医保移动支付</span></p></div>
-  <div class="ai-step"><div class="ai-step-num">2</div><h4>&#x1F5A5; 自助机缴费</h4><p>医院1F大厅自助服务区 → 刷就诊卡/医保卡/身份证 → 选择缴费项目 → 扫码支付（微信/支付宝）</p></div>
-  <div class="ai-step"><div class="ai-step-num">3</div><h4>&#x1F3E6; 窗口缴费</h4><p>1F挂号收费窗口 → 出示就诊卡/医保卡 → 支持现金、刷卡、扫码。老年人优先窗口在1号窗</p></div>
-
-  <div class="ai-tip done">&#x2705; <span><strong>缴费后：</strong>凭缴费凭证至相应科室报到。电子发票可在「我的」→「健康档案」中查看。</span></div>
-  <div class="ai-tip warn">&#x26A0;&#xFE0F; <span><strong>注意：</strong>医保报销需在缴费时出示医保电子凭证或实体卡，先结算可报销部分再支付自费部分。</span></div>
-</div>
-
-<!-- ===== Tab 3: 诊间候诊 ===== -->
-<div class="acont" id="tab-waiting">
-  <div class="ai-step"><div class="ai-step-num">1</div><h4>&#x1F4CD; 报到</h4><p>挂号后请先至对应楼层分诊台或自助报到机签到，完成报到后方会进入叫号队列。</p></div>
-  <div class="ai-step"><div class="ai-step-num">2</div><h4>&#x1F3E5; 候诊</h4><p>请在候诊区耐心等待，注意叫号屏和语音叫号。候诊期间可完成视力、眼压等基础检查。</p></div>
-  <div class="ai-step"><div class="ai-step-num">3</div><h4>&#x1F3A4; 叫号规则</h4><p>按挂号序号依次叫号。过号需至分诊台重新登记，一般顺延3位。特殊情况（急症、高龄老人）有优先通道。</p></div>
-  <div class="ai-step"><div class="ai-step-num">4</div><h4>&#x1F468;&#x200D;&#x2695;&#xFE0F; 就诊</h4><p>进入诊室后请如实描述病情，携带既往病历和检查报告。医生开具检查或处方后请按指引前往相应区域。</p></div>
-  <div class="ai-tip info">&#x23F0; <span>可通过公众号实时查看当前候诊进度和预计等待时间。</span></div>
-</div>
-
-<!-- ===== Tab 4: 医院导航 ===== -->
-<div class="acont" id="tab-navi">
-  <div class="ai-tip info">&#x1F4CD; <span>医院共15层，以下为各楼层功能分布。点击可查看详细导航</span></div>
-  <div class="dp-card"><h4>&#x1F3EC; 1F 入口服务区</h4><p>咨询台 / 挂号收费 / 药学部（患者入口）</p></div>
-  <div class="dp-card"><h4>&#x1F3E5; 2F 综合门诊</h4><p>诊室×5 / 内镜诊室×1 / 带教诊室×1 / 大治疗室×1</p></div>
-  <div class="dp-card"><h4>&#x2B50; 3F 特需 · 专科门诊</h4><p>诊室×5 / VIP诊室×1 / 大治疗室×1</p></div>
-  <div class="dp-card"><h4>&#x1F50D; 4F 眼前段 · 视光</h4><p>弱视治疗 / 验光配镜室 / 眼前段检查室（16卡位）/ 激光美容室</p></div>
-  <div class="dp-card"><h4>&#x1F4A7; 5F 眼后段 · 激光</h4><p>干眼治疗室 / 眼后段检查室（14卡位）/ 激光室 / 造影室</p></div>
-  <div class="dp-card"><h4>&#x1F52C; 6F 医技支持</h4><p>DR室 / 检验科（各占一半面积）/ 医护办公区 / 值班室</p></div>
-  <div class="dp-card"><h4>&#x2699;&#xFE0F; 7F 后勤保障</h4><p>消毒供应中心（医疗区域）/ 手术生活区（办公及就餐区）</p></div>
-  <div class="dp-card"><h4>&#x2728; 8F 飞秒中心 <span class="dp-badge self">&#x2B50;特色</span></h4><p>全飞秒SMILE / 半飞秒FS-LASIK / 准分子角膜手术</p></div>
-  <div class="dp-card"><h4>&#x1F52A; 9F-11F 手术中心</h4><p>9F 外伤·眼底·感染（含负压手术室）| 10F 内眼手术 | 11F 外眼手术</p></div>
-  <div class="dp-card"><h4>&#x1F6CF; 12F-15F 住院病区</h4><p>12F/13F 综合病区（住院16床+日间12床）| 14F 日间病区 | 15F VIP病区</p></div>
-  <div class="fl-ql" style="margin-top:16rpx">
-    <a href="services.html#floors" class="hl">&#x1F4CD; 完整楼层导航</a>
-    <a href="services.html#yibao">&#x1F4CB; 医保咨询</a>
-    <a href="#">&#x1F4DE; 联系电话</a>
-  </div>
-</div>
-
-<!-- ===== Tab 5: 复诊提醒 ===== -->
-<div class="acont" id="tab-followup">
-  <div class="ai-tip info">&#x1F4A1; <span>不同眼科手术后复诊时间要求不同，请严格遵医嘱。以下为常见参考：</span></div>
-
-  <table class="fu-table">
-    <tr><td>手术类型</td><td>首次复查</td><td>后续复查</td></tr>
-    <tr><td>白内障超声乳化</td><td>术后1天</td><td>1周·1月·3月·6月</td></tr>
-    <tr><td>全飞秒SMILE</td><td>术后1天</td><td>1周·1月·3月·6月·1年</td></tr>
-    <tr><td>半飞秒FS-LASIK</td><td>术后1天</td><td>1周·1月·3月·6月·1年</td></tr>
-    <tr><td>玻璃体切割术</td><td>术后1-2周</td><td>1月·3月·6月·1年</td></tr>
-    <tr><td>青光眼手术</td><td>术后1周</td><td>1月·3月·每6月长期</td></tr>
-    <tr><td>斜视矫正术</td><td>术后1周</td><td>1月·3月·6月·1年</td></tr>
-    <tr><td>OK镜验配</td><td>戴镜1周</td><td>1月·3月·每3月长期</td></tr>
-  </table>
-
-  <div class="ai-tip warn" style="margin-top:16rpx">&#x26A0;&#xFE0F; <span><strong>紧急复诊信号：</strong>视力突然下降、剧烈眼痛、眼红加重、分泌物增多、视野缺损扩大——出现任一情况请立即来院急诊，不要等待预约复诊。</span></div>
-  <div class="ai-tip done">&#x1F514; <span><strong>复诊提醒服务：</strong>可在「我的」→「健康档案」中开启复诊提醒，系统将提前3天通过公众号通知您。</span></div>
-</div>
-
+<div class="header-top"><div class="container"><span>欢迎访问中山大学中山眼科中心茂名医院</span><div><a href="index.html">首页</a><a href="contact.html">联系我们</a></div></div></div>
+<div class="header-main"><div class="container">
+<div class="header-logo"><img src="img/zoc-logo.png" alt="院徽"><div class="header-logo-text"><span class="header-logo-cn">中山大学中山眼科中心茂名医院</span><span class="header-logo-en">Maoming Eye Hospital</span></div></div>
+<div style="display:flex;gap:20px;font-size:14px"><a href="appointment.html">预约挂号</a><a href="consultation.html">在线问诊</a></div>
 </div></div>
-<script src="js/common.js"></script>
+<div class="main-nav"><div class="container" id="mainNav"></div></div>
+<div class="page-banner"><h1>就医指南</h1><p>门诊就医 · 住院流程 · 医保服务 · 综合服务</p></div>
+<div class="breadcrumb"><div class="container"><a href="index.html">首页</a> &gt; 就医指南</div></div>
+<div class="content"><div class="container"><div class="content-grid">
+<div class="sidebar">
+<h3>就医指南</h3>
+<a href="#outpatient" class="active">门诊就医指南</a>
+<a href="#emergency">急诊就医指南</a>
+<a href="#inpatient">住院指南</a>
+<a href="#insurance">医保服务指南</a>
+<a href="#appointment">预约挂号指南</a>
+<a href="#floor">楼层分布指引</a>
+<a href="#check">检查须知</a>
+<a href="#transport">交通指引</a>
+<a href="#faq">常见问题</a>
+</div>
+<div class="main-content">
+
+<div id="outpatient"><h2>&#x1F3E5; 门诊就医指南</h2>
+<h3>就诊时间</h3>
+<div class="table-wrap"><table><tr><th>类别</th><th>就诊时间</th><th>备注</th></tr>
+<tr><td>普通门诊</td><td>周一至周五 8:00-12:00 / 14:00-17:30</td><td>周六上午 8:00-12:00</td></tr>
+<tr><td>专家门诊</td><td>周一至周五 8:00-12:00 / 14:00-17:30</td><td>具体以排班表为准</td></tr>
+<tr><td>急诊</td><td>24小时全天候</td><td>急症优先就诊</td></tr>
+<tr><td>特需门诊</td><td>周一至周五 8:00-12:00 / 14:00-17:30</td><td>需提前预约</td></tr>
+</table></div>
+
+<h3>就诊流程</h3>
+<ol class="steps">
+<li><strong>预约挂号</strong>通过微信公众号、电话、现场等方式进行预约挂号，选择科室和医生。</li>
+<li><strong>报到取号</strong>就诊当日携带身份证、医保卡到一楼挂号窗口或自助报到机取号。</li>
+<li><strong>候诊等待</strong>根据叫号系统提示，在相应诊区候诊。候诊期间可完成视力和眼压检查。</li>
+<li><strong>医生问诊</strong>进入诊室后向医生详细描述病情，如有既往病历资料请一并携带。</li>
+<li><strong>检查缴费</strong>根据医生开具的检查单到相应科室检查，通过窗口、自助机或手机缴费。</li>
+<li><strong>取药离院</strong>凭处方到一楼药房取药，并按医嘱进行后续治疗或复查。</li>
+</ol>
+
+<h3>温馨提示</h3>
+<div class="info-box"><p>&#x1F4A1; 首次就诊请携带身份证、医保卡及既往病历资料。建议提前30分钟到达医院。如需退号或改约，请至少提前2小时办理。</p></div></div>
+
+<div id="emergency" style="margin-top:48px"><h2>&#x1F691; 急诊就医指南</h2>
+
+<h3>急诊时间</h3>
+<p>急诊科24小时全天候开放，全年无休。</p>
+
+<div class="info-box orange"><p>&#x26A0;&#xFE0F; <strong>眼科急症（以下情况请立即就医）：</strong>视力突然下降或丧失、剧烈眼痛、眼外伤（钝挫伤、穿孔伤、化学烧伤）、急性闭角型青光眼发作、视网膜动脉阻塞、眶蜂窝织炎。</p></div>
+
+<h3>急诊流程</h3>
+<ol class="steps">
+<li><strong>急诊分诊</strong>到达急诊科后，护士根据病情紧急程度分诊。危及视力的情况优先处理。</li>
+<li><strong>挂号登记</strong>在急诊窗口挂号，急症患者可直接就诊后补办挂号手续。</li>
+<li><strong>医生诊治</strong>急诊医生进行初步诊断和紧急处理，必要时安排急诊手术。</li>
+<li><strong>入院或留观</strong>根据病情决定住院治疗或留观。病情稳定后可离院并安排门诊复诊。</li>
+</ol>
+
+<div class="info-box"><p>&#x1F4DE; <strong>急救电话：</strong>19106669310（李老师·24小时）</p></div></div>
+
+<div id="inpatient" style="margin-top:48px"><h2>&#x1F3E5; 住院指南</h2>
+
+<h3>入院流程</h3>
+<ol class="steps">
+<li><strong>开具住院证</strong>门诊医生评估需住院治疗后，开具《住院通知单》。</li>
+<li><strong>办理入院</strong>持住院通知单、身份证、医保卡到一楼住院处办理入院手续，缴纳住院押金。</li>
+<li><strong>入住病房</strong>到指定病区护士站报到，由责任护士安排床位并介绍病房环境及注意事项。</li>
+<li><strong>住院治疗</strong>配合医生完成检查、治疗和手术。如需医保登记，请在入院48小时内到医保窗口办理。</li>
+<li><strong>出院结算</strong>医生开具出院医嘱后，到住院处办理出院结算，领取出院小结和费用明细。</li>
+</ol>
+
+<h3>住院病区分布</h3>
+<div class="table-wrap"><table><tr><th>楼层</th><th>病区</th><th>床位</th><th>特点</th></tr>
+<tr><td>12F</td><td>综合病区A</td><td>住院16床 + 日间12床</td><td>诊疗区·护士站·治疗室</td></tr>
+<tr><td>13F</td><td>综合病区B</td><td>住院16床 + 日间12床</td><td>诊疗区·护士站·治疗室</td></tr>
+<tr><td>14F</td><td>日间病区</td><td>日间11床</td><td>诊疗区·护士站·治疗室</td></tr>
+<tr><td>15F</td><td>VIP病区</td><td>住院13床 + VIP套间1</td><td>&#x2B50; 高端 · 护理·治疗</td></tr>
+</table></div>
+
+<div class="info-box"><p>&#x1F4A1; <strong>住院须知：</strong>请遵守病房管理制度，保持安静，爱护公共设施。住院期间请勿私自外出，如有需要请联系主管医生或护士。陪伴人员请持陪伴证进入病房。</p></div></div>
+
+<div id="insurance" style="margin-top:48px"><h2>&#x1F4CB; 医保服务指南</h2>
+
+<h3>医保类型与报销比例</h3>
+<div class="table-wrap"><table><tr><th>医保类型</th><th>门诊报销比例</th><th>住院报销比例</th><th>备注</th></tr>
+<tr><td>茂名市居民医保</td><td>约50%-60%</td><td>约70%-75%</td><td>社区转诊可提高比例</td></tr>
+<tr><td>茂名市职工医保</td><td>约65%-75%</td><td>约85%-90%</td><td>含个人账户</td></tr>
+<tr><td>广东省内异地医保</td><td>按参保地政策</td><td>按参保地政策</td><td>支持直接结算</td></tr>
+<tr><td>跨省异地医保</td><td>按参保地政策</td><td>按参保地政策</td><td>需提前备案</td></tr>
+<tr><td>公费医疗</td><td>约80%-90%</td><td>约90%-95%</td><td>凭公费医疗证</td></tr>
+</table></div>
+
+<h3>医保使用流程</h3>
+<ol class="steps">
+<li><strong>医保登记</strong>首次就诊时持医保卡/医保电子凭证到挂号窗口或自助机进行医保身份登记。</li>
+<li><strong>就诊结算</strong>就诊后凭医保卡在收费窗口或自助机结算，系统自动计算医保报销和个人支付金额。</li>
+<li><strong>住院登记</strong>办理住院手续时出示医保卡，并在入院48小时内到医保办完成住院医保登记。</li>
+<li><strong>出院结算</strong>出院时凭出院小结和费用清单到住院处办理医保结算，多退少补。</li>
+</ol>
+
+<h3>眼科常见医保报销范围</h3>
+<div class="table-wrap"><table><tr><th>项目类别</th><th>医保报销情况</th><th>说明</th></tr>
+<tr><td>白内障手术</td><td>住院医保报销</td><td>人工晶体按类型区分报销比例</td></tr>
+<tr><td>青光眼手术</td><td>住院医保报销</td><td>小梁切除术、激光虹膜周切等</td></tr>
+<tr><td>玻璃体视网膜手术</td><td>住院医保报销</td><td>玻切、视网膜复位等</td></tr>
+<tr><td>角膜移植</td><td>住院医保报销</td><td>包含术后抗排异用药</td></tr>
+<tr><td>斜视矫正术</td><td>住院医保报销</td><td>含术前检查</td></tr>
+<tr><td>全飞秒/半飞秒</td><td>自费（美容性）</td><td>ICL晶体植入同样自费</td></tr>
+<tr><td>OK镜验配</td><td>自费</td><td>属非治疗性项目</td></tr>
+<tr><td>常规眼科检查</td><td>门诊医保按比例报销</td><td>视力、眼压、裂隙灯、眼底等</td></tr>
+<tr><td>OCT/视野等特殊检查</td><td>门诊医保按比例报销</td><td>需有相应临床指征</td></tr>
+</table></div>
+
+<div class="info-box"><p>&#x1F4A1; <strong>温馨提示：</strong>医保政策以茂名市医疗保障局最新文件为准。就诊时请出示医保电子凭证或实体医保卡。医保窗口位于一楼大厅，咨询电话：19106669310（李老师）。</p></div>
+
+<div class="info-box orange"><p>&#x26A0;&#xFE0F; <strong>注意事项：</strong>特殊门诊病种（如青光眼、糖尿病视网膜病变等）可享住院同等报销比例。异地就医需提前办理异地就医备案手续。医保报销需在缴费时出示医保电子凭证或实体卡，先结算可报销部分再支付自费部分。</p></div></div>
+
+<div id="appointment" style="margin-top:48px"><h2>&#x1F4C5; 预约挂号指南</h2>
+<h3>预约方式</h3>
+<div class="table-wrap"><table><tr><th>预约方式</th><th>操作方法</th><th>开放时间</th></tr>
+<tr><td>微信公众号</td><td>关注医院公众号 → 就医服务 → 预约挂号</td><td>24小时</td></tr>
+<tr><td>电话预约</td><td>拨打 19106669310（李老师）</td><td>工作日 8:00-17:30</td></tr>
+<tr><td>现场预约</td><td>一楼挂号窗口/自助机</td><td>门诊工作时间</td></tr>
+<tr><td>诊间预约</td><td>就诊时由医生直接预约下次复诊</td><td>就诊期间</td></tr>
+</table></div>
+
+<div class="info-box green"><p>&#x2705; <strong>预约须知：</strong>可预约7日内号源，分时段预约更省时。预约成功后请按时就诊，过号需重新排号。取消预约请提前2小时办理，爽约3次将暂停预约资格30天。</p></div></div>
+
+<div id="floor" style="margin-top:48px"><h2>&#x1F3E2; 楼层分布指引</h2>
+
+<div class="table-wrap"><table>
+<tr><th>楼层</th><th>功能区</th><th>主要科室/服务</th><th>关键房间编号</th></tr>
+<tr><td><a href="#floor-1" style="color:var(--primary);font-weight:700">1F</a></td><td>入口服务区</td><td>咨询台 / 挂号收费 / 药学部 / 自助服务区</td><td>M0101 咨询台 · M0102 挂号收费 · M0104 药学部</td></tr>
+<tr><td><a href="#floor-2" style="color:var(--primary);font-weight:700">2F</a></td><td>综合门诊</td><td>诊室×5 / 内镜诊室 / 带教诊室 / 大治疗室</td><td>M0201—M0205 诊室 · M0206 内镜 · M0208 大治疗室</td></tr>
+<tr><td><a href="#floor-3" style="color:var(--primary);font-weight:700">3F</a></td><td>特需·专科门诊</td><td>专科诊室×5 / VIP诊室 / 大治疗室</td><td>M0301—M0305 专科诊室 · M0306 VIP诊室</td></tr>
+<tr><td><a href="#floor-4" style="color:var(--primary);font-weight:700">4F</a></td><td>眼前段·视光</td><td>弱视治疗 / 验光配镜 / 眼前段检查（16卡位）/ 激光美容</td><td>M0401 弱视 · M0402 验光 · M0403-01~16 检查卡位</td></tr>
+<tr><td><a href="#floor-5" style="color:var(--primary);font-weight:700">5F</a></td><td>眼后段·激光</td><td>干眼治疗 / 眼后段检查（14卡位）/ 激光室 / 造影室</td><td>M0501 干眼 · M0502-01~14 检查卡位 · M0503 激光室</td></tr>
+<tr><td><a href="#floor-6" style="color:var(--primary);font-weight:700">6F</a></td><td>医技支持</td><td>DR室 / 检验科 / 医护办公区 / 值班室</td><td>M0601 DR室 · M0602 检验科</td></tr>
+<tr><td><a href="#floor-7" style="color:var(--primary);font-weight:700">7F</a></td><td>后勤保障</td><td>消毒供应中心 / 手术生活区（办公及就餐）</td><td>M0701 消毒供应中心（限制区域）</td></tr>
+<tr><td><a href="#floor-8" style="color:var(--primary);font-weight:700">8F</a></td><td>&#x2B50; 飞秒中心</td><td>全飞秒SMILE / 半飞秒FS-LASIK / 准分子角膜手术</td><td>M0801 激光中心 · M0802 全飞秒手术室 · M0803 半飞秒</td></tr>
+<tr><td><a href="#floor-9" style="color:var(--primary);font-weight:700">9F</a></td><td>手术中心</td><td>外伤/眼底/感染手术区</td><td>M0901—M0903 手术室 · M0903 负压手术室</td></tr>
+<tr><td><a href="#floor-10" style="color:var(--primary);font-weight:700">10F</a></td><td>手术中心</td><td>内眼手术区</td><td>M1001—M1003 手术室</td></tr>
+<tr><td><a href="#floor-11" style="color:var(--primary);font-weight:700">11F</a></td><td>手术中心</td><td>外眼手术区</td><td>M1101—M1103 手术室</td></tr>
+<tr><td><a href="#floor-12" style="color:var(--primary);font-weight:700">12F</a></td><td>住院病区</td><td>综合病区A：住院16床 + 日间12床</td><td>M1201—M1216 病房 · M1217—M1228 日间床位</td></tr>
+<tr><td><a href="#floor-13" style="color:var(--primary);font-weight:700">13F</a></td><td>住院病区</td><td>综合病区B：住院16床 + 日间12床</td><td>M1301—M1316 病房 · M1317—M1328 日间床位</td></tr>
+<tr><td><a href="#floor-14" style="color:var(--primary);font-weight:700">14F</a></td><td>住院病区</td><td>日间病区：日间11床</td><td>M1401—M1411 日间病房</td></tr>
+<tr><td><a href="#floor-15" style="color:var(--primary);font-weight:700">15F</a></td><td>住院病区</td><td>VIP病区：住院13床 + VIP套间1</td><td>M1501—M1513 病房 · M1514 VIP套间</td></tr>
+</table></div>
+
+<h3>房间编号规则</h3>
+<div class="info-box"><p><strong>&#x1F4CB; 编码说明：</strong>M=门诊/医疗用房 · B=办公/后勤用房 · W=卫生间 · E=设备/机房。编号格式：楼层+序号，如 M0201=2层01号诊室。检查卡位采用子编号，如 M0403-01 表示4层眼前段检查区01号卡位。</p></div>
+
+<h3 id="floor-1">1F 首层 · 入口服务区</h3>
+<div class="table-wrap"><table>
+<tr><th>编号</th><th>房间/功能</th></tr>
+<tr><td>M0101</td><td>咨询台</td></tr>
+<tr><td>M0102</td><td>挂号收费</td></tr>
+<tr><td>M0103</td><td>自助服务区</td></tr>
+<tr><td>M0104</td><td>药学部 / 药房</td></tr>
+<tr><td>W0101</td><td>公共卫生间</td></tr>
+<tr><td>E0101</td><td>设备间</td></tr>
+<tr><td>B0101</td><td>库房 / 后勤用房</td></tr>
+</table></div>
+
+<h3 id="floor-2">2F 综合门诊</h3>
+<div class="table-wrap"><table>
+<tr><th>编号</th><th>房间/功能</th></tr>
+<tr><td>M0201—M0205</td><td>诊室一至五</td></tr>
+<tr><td>M0206</td><td>内镜诊室</td></tr>
+<tr><td>M0207</td><td>带教诊室</td></tr>
+<tr><td>M0208</td><td>大治疗室</td></tr>
+<tr><td>W0201</td><td>公共卫生间</td></tr>
+<tr><td>E0201</td><td>设备间</td></tr>
+</table></div>
+
+<h3 id="floor-3">3F 特需·专科门诊</h3>
+<div class="table-wrap"><table>
+<tr><th>编号</th><th>房间/功能</th></tr>
+<tr><td>M0301—M0305</td><td>专科诊室一至五</td></tr>
+<tr><td>M0306</td><td>VIP诊室</td></tr>
+<tr><td>M0307</td><td>大治疗室</td></tr>
+<tr><td>W0301</td><td>公共卫生间</td></tr>
+<tr><td>E0301</td><td>设备间</td></tr>
+</table></div>
+
+<h3 id="floor-4">4F 眼前段·视光</h3>
+<div class="table-wrap"><table>
+<tr><th>编号</th><th>房间/功能</th></tr>
+<tr><td>M0401</td><td>弱视治疗室</td></tr>
+<tr><td>M0402</td><td>验光配镜室</td></tr>
+<tr><td>M0403</td><td>眼前段检查区</td></tr>
+<tr><td>M0403-01~16</td><td>眼前段检查卡位（16个）</td></tr>
+<tr><td>M0404</td><td>激光美容室</td></tr>
+<tr><td>W0401</td><td>公共卫生间</td></tr>
+<tr><td>E0401</td><td>设备间</td></tr>
+</table></div>
+
+<h3 id="floor-5">5F 眼后段·激光</h3>
+<div class="table-wrap"><table>
+<tr><th>编号</th><th>房间/功能</th></tr>
+<tr><td>M0501</td><td>干眼治疗室</td></tr>
+<tr><td>M0502</td><td>眼后段检查区</td></tr>
+<tr><td>M0502-01~14</td><td>眼后段检查卡位（14个）</td></tr>
+<tr><td>M0503</td><td>激光室</td></tr>
+<tr><td>M0504</td><td>造影室</td></tr>
+<tr><td>W0501</td><td>公共卫生间</td></tr>
+<tr><td>E0501</td><td>设备间</td></tr>
+</table></div>
+
+<h3 id="floor-6">6F 医技支持</h3>
+<div class="table-wrap"><table>
+<tr><th>编号</th><th>房间/功能</th></tr>
+<tr><td>M0601</td><td>DR室</td></tr>
+<tr><td>M0602</td><td>检验科</td></tr>
+<tr><td>B0601</td><td>医护办公室</td></tr>
+<tr><td>B0602</td><td>值班室</td></tr>
+<tr><td>W0601</td><td>公共卫生间</td></tr>
+<tr><td>E0601</td><td>设备间</td></tr>
+</table></div>
+
+<h3 id="floor-7">7F 后勤保障</h3>
+<div class="table-wrap"><table>
+<tr><th>编号</th><th>房间/功能</th></tr>
+<tr><td>M0701</td><td>消毒供应中心（限制区域，非授权人员禁止进入）</td></tr>
+<tr><td>B0701</td><td>医办</td></tr>
+<tr><td>B0702</td><td>更衣区</td></tr>
+<tr><td>B0703</td><td>休息区</td></tr>
+<tr><td>W0701</td><td>卫生间</td></tr>
+<tr><td>E0701</td><td>设备间</td></tr>
+</table></div>
+
+<h3 id="floor-8">8F 激光近视治疗中心</h3>
+<div class="table-wrap"><table>
+<tr><th>编号</th><th>房间/功能</th></tr>
+<tr><td>M0801</td><td>激光近视治疗中心</td></tr>
+<tr><td>M0802</td><td>全飞秒手术室</td></tr>
+<tr><td>M0803</td><td>半飞秒 / 准分子治疗室</td></tr>
+<tr><td>M0804</td><td>术前准备</td></tr>
+<tr><td>M0805</td><td>术后观察</td></tr>
+<tr><td>W0801</td><td>卫生间</td></tr>
+<tr><td>E0801</td><td>设备间</td></tr>
+</table></div>
+
+<h3 id="floor-9">9F 外伤/眼底/感染手术区</h3>
+<div class="table-wrap"><table>
+<tr><th>编号</th><th>房间/功能</th></tr>
+<tr><td>M0901</td><td>手术室一</td></tr>
+<tr><td>M0902</td><td>手术室二</td></tr>
+<tr><td>M0903</td><td>负压手术室</td></tr>
+<tr><td>M0904</td><td>术前准备</td></tr>
+<tr><td>M0905</td><td>术后恢复</td></tr>
+<tr><td>B0901</td><td>医护更衣</td></tr>
+<tr><td>B0902</td><td>污物间</td></tr>
+<tr><td>W0901</td><td>卫生间</td></tr>
+<tr><td>E0901</td><td>设备间</td></tr>
+</table></div>
+
+<h3 id="floor-10">10F 内眼手术区</h3>
+<div class="table-wrap"><table>
+<tr><th>编号</th><th>房间/功能</th></tr>
+<tr><td>M1001—M1003</td><td>手术室一至三</td></tr>
+<tr><td>M1004</td><td>术前准备</td></tr>
+<tr><td>M1005</td><td>术后恢复</td></tr>
+<tr><td>B1001</td><td>医护更衣</td></tr>
+<tr><td>B1002</td><td>污物间</td></tr>
+<tr><td>W1001</td><td>卫生间</td></tr>
+<tr><td>E1001</td><td>设备间</td></tr>
+</table></div>
+
+<h3 id="floor-11">11F 外眼手术区</h3>
+<div class="table-wrap"><table>
+<tr><th>编号</th><th>房间/功能</th></tr>
+<tr><td>M1101—M1103</td><td>手术室一至三</td></tr>
+<tr><td>M1104</td><td>术前准备</td></tr>
+<tr><td>M1105</td><td>术后恢复</td></tr>
+<tr><td>B1101</td><td>医护更衣</td></tr>
+<tr><td>B1102</td><td>污物间</td></tr>
+<tr><td>W1101</td><td>卫生间</td></tr>
+<tr><td>E1101</td><td>设备间</td></tr>
+</table></div>
+
+<h3 id="floor-12">12F 综合病区A</h3>
+<div class="table-wrap"><table>
+<tr><th>编号</th><th>房间/功能</th></tr>
+<tr><td>M1201—M1216</td><td>住院病房（16间）</td></tr>
+<tr><td>M1217—M1228</td><td>日间床位区（12床）</td></tr>
+<tr><td>M1229</td><td>护士站</td></tr>
+<tr><td>M1230</td><td>治疗室</td></tr>
+<tr><td>M1231</td><td>配药室</td></tr>
+<tr><td>M1232</td><td>诊疗室</td></tr>
+<tr><td>B1201</td><td>医护办公室</td></tr>
+<tr><td>B1202</td><td>值班室</td></tr>
+<tr><td>B1203—B1206</td><td>更衣室</td></tr>
+<tr><td>W1201</td><td>公共卫生间</td></tr>
+<tr><td>E1201</td><td>设备间</td></tr>
+</table></div>
+<div class="info-box"><p><strong>&#x1F4A1; 病房床号：</strong>病房内床位编号格式为 M1201-1床、M1201-2床，不建议直接以床号替代房间号。</p></div>
+
+<h3 id="floor-13">13F 综合病区B</h3>
+<div class="table-wrap"><table>
+<tr><th>编号</th><th>房间/功能</th></tr>
+<tr><td>M1301—M1316</td><td>住院病房（16间）</td></tr>
+<tr><td>M1317—M1328</td><td>日间床位区（12床）</td></tr>
+<tr><td>M1329</td><td>护士站</td></tr>
+<tr><td>M1330</td><td>治疗室</td></tr>
+<tr><td>M1331</td><td>配药室</td></tr>
+<tr><td>M1332</td><td>诊疗室</td></tr>
+<tr><td>B1301</td><td>医护办公室</td></tr>
+<tr><td>B1302</td><td>值班室</td></tr>
+<tr><td>B1303—B1306</td><td>更衣室</td></tr>
+<tr><td>W1301</td><td>公共卫生间</td></tr>
+<tr><td>E1301</td><td>设备间</td></tr>
+</table></div>
+
+<h3 id="floor-14">14F 日间病区</h3>
+<div class="table-wrap"><table>
+<tr><th>编号</th><th>房间/功能</th></tr>
+<tr><td>M1401—M1411</td><td>日间病房 / 日间床位（11床）</td></tr>
+<tr><td>M1412</td><td>护士站</td></tr>
+<tr><td>M1413</td><td>治疗室</td></tr>
+<tr><td>M1414</td><td>配药室</td></tr>
+<tr><td>M1415</td><td>诊疗室</td></tr>
+<tr><td>B1401</td><td>医护办公室</td></tr>
+<tr><td>B1402</td><td>工具间</td></tr>
+<tr><td>B1403—B1406</td><td>更衣室</td></tr>
+<tr><td>W1401</td><td>卫生间</td></tr>
+<tr><td>E1401</td><td>信息化机房</td></tr>
+<tr><td>E1402</td><td>设备间</td></tr>
+</table></div>
+
+<h3 id="floor-15">15F 高端综合病区</h3>
+<div class="table-wrap"><table>
+<tr><th>编号</th><th>房间/功能</th></tr>
+<tr><td>M1501—M1513</td><td>住院病房（13间）</td></tr>
+<tr><td>M1514</td><td>VIP套间</td></tr>
+<tr><td>M1515</td><td>护士站</td></tr>
+<tr><td>M1516</td><td>治疗室</td></tr>
+<tr><td>M1517</td><td>配药室</td></tr>
+<tr><td>M1518</td><td>诊疗室</td></tr>
+<tr><td>B1501</td><td>医护办公室</td></tr>
+<tr><td>B1502</td><td>值班房</td></tr>
+<tr><td>W1501</td><td>卫生间</td></tr>
+<tr><td>E1501</td><td>设备间</td></tr>
+</table></div>
+</div><div id="check" style="margin-top:48px"><h2>&#x1F4CB; 检查须知</h2>
+<h3>常见眼科检查项目</h3>
+<div class="table-wrap"><table><tr><th>检查项目</th><th>检查地点</th><th>注意事项</th></tr>
+<tr><td>视力·验光</td><td>4F 视光检查区</td><td>无需特殊准备，随到随检</td></tr>
+<tr><td>眼压测量</td><td>各楼层检查室</td><td>摘除隐形眼镜后再测</td></tr>
+<tr><td>裂隙灯检查</td><td>各诊室</td><td>配合医生坐姿，勿眨眼</td></tr>
+<tr><td>OCT检查</td><td>5F 眼后段检查室</td><td>盯着固视灯，保持不动</td></tr>
+<tr><td>眼底照相</td><td>5F 造影室</td><td>可能需要散瞳，散瞳后6小时内勿驾车</td></tr>
+<tr><td>视野检查</td><td>5F 视野检查室</td><td>单眼测试，全程约10分钟</td></tr>
+<tr><td>DR/X光</td><td>6F DR室</td><td>去除金属饰品</td></tr>
+<tr><td>血液检验</td><td>6F 检验科</td><td>部分项目需空腹，请遵医嘱</td></tr>
+</table></div>
+
+<div class="info-box orange"><p>&#x26A0;&#xFE0F; <strong>散瞳后请注意：</strong>散瞳后6-8小时内视力模糊、畏光，请勿驾驶机动车，建议佩戴墨镜并由家属陪同来院。</p></div></div>
+
+<div id="transport" style="margin-top:48px"><h2>&#x1F697; 交通指引</h2>
+<div class="info-box"><p>&#x1F4CD; <strong>医院地址：</strong>茂名市茂南区双山一路健康南路茂名市眼科医院</p></div>
+
+<h3>公交路线</h3>
+<p>乘坐公交至「健康南路」或「茂名市眼科医院」站下车即到。具体线路以茂名市公交公司发布为准。</p>
+
+<h3>自驾导航</h3>
+<p>导航搜索「中山大学中山眼科中心茂名医院」或「茂名市眼科医院」。医院提供地下停车场，车位充足。</p>
+
+<h3>从茂名站出发</h3>
+<p>茂名站（高铁站）出站后打车约15分钟可达。距离约6公里。</p></div>
+
+<div id="faq" style="margin-top:48px"><h2>&#x2753; 常见问题</h2>
+<div class="info-box"><p><strong>Q：首次就诊需要带什么？</strong><br>A：身份证、医保卡、既往眼科病历及检查报告。儿童就诊需监护人陪同，携带户口本。</p></div>
+<div class="info-box"><p><strong>Q：挂号的号源什么时候更新？</strong><br>A：每日零点更新第7天的号源。建议提早预约心仪的专家。</p></div>
+<div class="info-box"><p><strong>Q：可以帮家人挂号吗？</strong><br>A：可以。在公众号中添加就诊人信息后，即可为家人预约挂号和缴费。</p></div>
+<div class="info-box"><p><strong>Q：做了散瞳检查多久能恢复？</strong><br>A：一般6-8小时可恢复正常。期间避免驾驶、阅读和精细用眼，建议戴墨镜。</p></div>
+<div class="info-box"><p><strong>Q：全飞秒手术可以用医保吗？</strong><br>A：全飞秒/半飞秒激光近视手术属于美容性项目，医保不予报销，需自费。</p></div>
+<div class="info-box"><p><strong>Q：住院需要带什么物品？</strong><br>A：身份证、医保卡、住院押金、个人洗漱用品、拖鞋、换洗衣物。贵重物品请勿带入病房。</p></div></div>
+
+</div></div></div></div>
+<div class="footer"><div class="container"><div class="footer-grid">
+<div><div class="footer-logo"><img src="img/zoc-logo.png" alt="院徽"><span>中山大学中山眼科中心茂名医院</span></div><div class="footer-info"><p>&#x1F4CD; 茂名市茂南区双山一路健康南路茂名市眼科医院</p><p>&#x260E; 电话：19106669310（李老师）</p></div></div>
+<div><h4>就诊服务</h4><ul class="footer-links"><li><a href="appointment.html">预约挂号</a></li><li><a href="reports.html">报告查询</a></li><li><a href="consultation.html">在线问诊</a></li></ul></div>
+<div><h4>医院信息</h4><ul class="footer-links"><li><a href="about.html">医院简介</a></li><li><a href="departments.html">科室介绍</a></li><li><a href="doctors.html">专家团队</a></li></ul></div>
+<div><h4>关注我们</h4><div style="text-align:center"><div style="width:120px;height:120px;background:#fff;border-radius:8px;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:40px">&#x1F4F1;</div><p style="font-size:12px;color:rgba(255,255,255,.5)">微信公众号</p></div></div>
+</div></div>
+<div class="footer-bottom"><div class="container"><p>&copy; 中山大学中山眼科中心茂名医院 | 19106669310（李老师）</p></div></div></div>
+<button id="adminFloating" title="后台管理" onclick="document.getElementById('adminToggle').click()" style="position:fixed;bottom:20px;right:20px;z-index:99997;width:56px;height:56px;border-radius:50%;background:#1a3a5c;color:#fff;border:none;font-size:24px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:transform .2s;display:flex;align-items:center;justify-content:center">&#x2699;&#xFE0F;</button>
+<script src="js/nav.js"></script>
+<script src="js/content-sync.js"></script>
 <script src="js/admin.js"></script>
-<script src="js/ai-assistant.js"></script>
 <script>
-// 症状智能导诊交互
-document.querySelectorAll('.sg-item').forEach(function(el){
-  el.addEventListener('click',function(){
-    document.querySelectorAll('.sg-item').forEach(function(x){x.classList.remove('sel')});
-    el.classList.add('sel');
-    var dept=el.dataset.dept;
-    var descs={
-      '白内障科':'视物模糊、眼前如隔雾、夜间视力差是白内障的典型表现。建议挂白内障科，进行裂隙灯和视力检查。',
-      '青光眼科':'眼胀痛伴头痛、恶心可能与眼压升高有关。青光眼需尽早诊治，避免视神经不可逆损伤。建议挂青光眼科。',
-      '角膜病科':'眼干涩、异物感、畏光流泪可能为干眼症或角膜炎。建议挂角膜病科，做泪液分泌和角膜荧光染色检查。',
-      '小儿眼科':'儿童视力问题需及早干预。远视、近视、散光、弱视以及斜视均建议挂小儿眼科，3-6岁为黄金矫正期。',
-      '眼底病科':'眼前黑影飘动、闪光感、视物变形可能与视网膜疾病有关。建议挂眼底病科，做OCT和眼底照相检查。',
-      '屈光手术中心':'近视、远视、散光、老花眼如需手术矫正，建议先挂屈光手术中心进行全面术前检查，评估手术适应症。',
-      '斜视弱视科':'眼睛偏斜、复视（看东西重影）可能与斜视有关。建议挂斜视弱视科，进行眼位和双眼视功能检查。',
-      '眼整形科':'眼睑下垂、眼袋、眼眶肿块及泪道阻塞等问题建议挂眼整形科进行专业评估。'
-    };
-    var r=document.getElementById('sgResult');
-    document.getElementById('sgDept').textContent=dept;
-    document.getElementById('sgDesc').textContent=descs[dept]||'';
-    r.classList.add('show');
-    r.scrollIntoView({behavior:'smooth',block:'nearest'});
-  });
-});
+// 动态导航渲染
+(function(){
+  var nav = window.ZOC_NAV || [];
+  var container = document.getElementById('mainNav');
+  if(!container) return;
+  var currentPage = (location.pathname.split('/').pop() || 'index.html').split('?')[0];
+  
+  function buildNav(items) {
+    var h = '';
+    items.forEach(function(item){
+      var isActive = false;
+      if (item.url) {
+        var itemBase = item.url.split('?')[0].split('#')[0];
+        isActive = itemBase === currentPage;
+      }
+      if(item.children && item.children.length) {
+        var childActive = item.children.some(function(c){ return c.url.split('?')[0] === currentPage; });
+        if(childActive) isActive = true;
+      }
+      h += '<a href="'+item.url+'"' + (isActive ? ' class="active"' : '') + '>' + item.label + '</a>';
+    });
+    h += '<button id="adminToggle" title="管理员" style="margin-left:auto;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:14px;cursor:pointer;padding:6px 16px;border-radius:6px;font-weight:600;white-space:nowrap">&#x2699;&#xFE0F; 后台管理</button>';
+    return h;
+  }
+  
+  container.innerHTML = buildNav(nav);
+})();
+</script>
+<script>
+var ADMPWD=(function(){try{var a=JSON.parse(localStorage.getItem('zoc_a…_v4')||'{}');var f=a.admins?a.admins.filter(function(x){return x.active}):[];return f.length>0?f[0].pwd:'zoc00009'}catch(e){return'zoc00009'}})();var ASK='zoc_admin_auth_v2';
+var AEDS='h1,h2,h3,h4,h5,h6,p,span,a,li,td,th,label,strong,em,b,i,small,.footer-info p';
+function aid(){var p=(location.pathname.split('/').pop()||'index.html').split('?')[0];document.querySelectorAll(AEDS).forEach(function(e,i){if(e.closest&&e.closest('#amo'))return;if(!e.dataset.eid)e.dataset.eid=p+'-'+i})}
+function isL(){try{var a=JSON.parse(localStorage.getItem(ASK)||'{}');return a.t&&Date.now()-a.t<86400000}catch(e){return false}}
+(function(){
+  var d=document.createElement('div');d.className='amodal-o';d.id='amo';
+  d.innerHTML='<div class="amodal"><h3>\u7BA1\u7406\u5458\u767B\u5F55</h3><input type=password id=ap class="ainput-pwd" placeholder=\u5BC6\u7801 autocomplete=off><p id=ae class=aerr>\u5BC6\u7801\u9519\u8BEF</p><div class=abtns><button class=abtn-cancel id=ac>\u53D6\u6D88</button><button class=abtn-confirm id=afc>\u786E\u8BA4</button></div></div>';
+  document.body.appendChild(d);
+  document.getElementById('afc').onclick=function(){
+    if(document.getElementById('ap').value===ADMPWD){localStorage.setItem(ASK,JSON.stringify({t:Date.now()}));d.classList.remove('show');edOn()}
+    else{document.getElementById('ae').style.display='block'}
+  };
+  document.getElementById('ac').onclick=function(){d.classList.remove('show')};
+  document.getElementById('ap').onkeydown=function(e){if(e.key==='Enter')document.getElementById('afc').click()};
+  var t=document.getElementById('adminToggle');
+  if(t){t.onclick=function(){if(document.body.classList.contains('am'))eo();else if(isL())edOn();else{d.classList.add('show');document.getElementById('ap').value='';document.getElementById('ae').style.display='none'}}};
+})();
+function edOn(){document.body.classList.add('am');aid();var c=0;
+document.querySelectorAll(AEDS).forEach(function(e,i){if(e.closest&&e.closest('#amo'))return;e.contentEditable='true';e.classList.add('aed');if(!e.dataset.eid)e.dataset.eid=(location.pathname.split('/').pop()||'index.html').split('?')[0]+'-'+i;e.addEventListener('input',function(){e.style.background='rgba(252,128,47,.12)'});c++});
+var b=document.getElementById('asb');if(!b){b=document.createElement('button');b.id='asb';b.className='asave';b.textContent='\uD83D\uDCBE \u4FDD\u5B58';document.body.appendChild(b)}
+b.onclick=function(){var n=0;document.querySelectorAll('.aed').forEach(function(e){n++});eo();showT('\u2705 \u5DF2\u4FDD\u5B58 '+n+' \u9879\u4FEE\u6539')};b.style.display='block';showT('\u2705 \u7F16\u8F91\u6A21\u5F0F\uFF0C'+c+'\u4E2A\u5143\u7D20\u53EF\u7F16\u8F91')}
+function eo(){document.body.classList.remove('am');document.querySelectorAll('.aed').forEach(function(e){e.contentEditable='false';e.classList.remove('aed');e.style.background=''});var b=document.getElementById('asb');if(b)b.style.display='none';var t=document.getElementById('adminToggle');if(t)t.textContent='\u2699\uFE0F'}
+function showT(m){var t=document.getElementById('atm');if(!t){t=document.createElement('div');t.id='atm';t.style='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:12px 24px;border-radius:25px;font-size:14px;z-index:99999;transition:all .3s;opacity:0;pointer-events:none;white-space:nowrap';document.body.appendChild(t)}t.textContent=m;t.style.opacity='1';clearTimeout(t._tt);t._tt=setTimeout(function(){t.style.opacity='0'},2500)}
 </script>
 </body></html>

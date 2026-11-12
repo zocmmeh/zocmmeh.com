@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>就医指南 - 中山大学中山眼科中心茂名医院</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--primary:#1a3a5c;--primary-light:#2a6090;--accent:#e8551a;--text:#1f2937;--text-light:#6b7280;--bg:#f5f7fa;--white:#fff;--border:#e5e7eb;--shadow:0 2px 12px rgba(0,0,0,.08)}
+body{font-family:"Microsoft YaHei","PingFang SC","Helvetica Neue",Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;min-width:1200px}
+a{text-decoration:none;color:inherit}
+.container{max-width:1400px;margin:0 auto;padding:0 20px}
+.header-top{background:#f0f4f8;border-bottom:1px solid var(--border);font-size:13px;color:var(--text-light);padding:6px 0}
+.header-top .container{display:flex;justify-content:space-between}
+.header-main{background:var(--white);border-bottom:1px solid var(--border)}
+.header-main .container{display:flex;align-items:center;height:80px;gap:24px}
+.header-logo{display:flex;align-items:center;gap:12px}
+.header-logo img{height:52px}
+.header-logo-cn{font-size:20px;font-weight:700;color:var(--primary);white-space:nowrap}
+.header-logo-en{font-size:11px;color:var(--text-light)}
+.header-logo-text{display:flex;flex-direction:column}
+.main-nav{background:var(--primary)}
+.main-nav .container{display:flex}
+.main-nav a{color:rgba(255,255,255,.9);padding:14px 24px;font-size:15px;font-weight:500;display:block;border-bottom:3px solid transparent;white-space:nowrap}
+.main-nav a:hover,.main-nav a.active{color:#fff;background:rgba(255,255,255,.08);border-bottom-color:var(--accent)}
+.page-banner{background:linear-gradient(135deg,#1a3a5c,#0f2540);color:#fff;padding:60px 0;text-align:center}
+.page-banner h1{font-size:32px;font-weight:700}
+.breadcrumb{background:#fff;border-bottom:1px solid var(--border);font-size:13px;color:var(--text-light);padding:12px 0}
+.breadcrumb a{color:var(--primary-light)}
+.content{padding:48px 0}
+.content-grid{display:grid;grid-template-columns:240px 1fr;gap:32px}
+.sidebar{background:var(--white);border-radius:8px;box-shadow:var(--shadow);overflow:hidden;position:sticky;top:100px}
+.sidebar h3{background:var(--primary);color:#fff;padding:16px 20px;font-size:16px;font-weight:600}
+.sidebar a{display:block;padding:14px 20px;font-size:14px;color:var(--text);border-bottom:1px solid var(--border);transition:all .2s}
+.sidebar a:hover,.sidebar a.active{color:var(--accent);background:#fff7ed;padding-left:24px}
+.sidebar a.active{border-left:3px solid var(--accent);font-weight:600}
+.main-content{background:var(--white);border-radius:8px;box-shadow:var(--shadow);padding:36px 40px}
+.main-content h2{font-size:24px;color:var(--primary);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--border)}
+.main-content h3{font-size:18px;color:var(--primary);margin:28px 0 12px}
+.main-content h4{font-size:16px;color:var(--primary);margin:16px 0 8px}
+.main-content p{font-size:15px;line-height:1.9;margin-bottom:14px;color:#374151}
+.steps{list-style:none;counter-reset:step;margin:20px 0}
+.steps li{counter-increment:step;padding:16px 20px 16px 70px;position:relative;border-left:2px solid var(--border);margin-left:20px;font-size:14px;line-height:1.8}
+.steps li::before{content:counter(step);position:absolute;left:-20px;top:14px;width:38px;height:38px;border-radius:50%;background:var(--primary);color:#fff;text-align:center;line-height:38px;font-size:14px;font-weight:700}
+.steps li:last-child{border-left-color:transparent}
+.steps li strong{display:block;color:var(--primary);margin-bottom:4px;font-size:15px}
+.info-box{background:#eff6ff;border-left:4px solid var(--primary-light);padding:16px 20px;border-radius:0 8px 8px 0;margin:16px 0}
+.info-box p{margin-bottom:0;font-size:14px;color:var(--primary)}
+.info-box.orange{background:#fff7ed;border-left-color:var(--accent)}
+.info-box.orange p{color:#92400e}
+.info-box.green{background:#f0fdf4;border-left-color:#16a34a}
+.info-box.green p{color:#14532d}
+.table-wrap{overflow-x:auto;margin:20px 0}
+.table-wrap table{width:100%;border-collapse:collapse;font-size:14px}
+.table-wrap th{background:var(--primary);color:#fff;padding:12px 16px;text-align:center;font-weight:600;white-space:nowrap}
+.table-wrap td{padding:12px 16px;text-align:center;border-bottom:1px solid var(--border)}
+.table-wrap tr:nth-child(even){background:#f8fafc}
+.table-wrap tr:hover{background:#eff6ff}
+.footer{background:var(--primary);margin-top:48px}
+.footer .container{padding:48px 20px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px}
+.footer{color:rgba(255,255,255,.7)}
+.footer-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.footer-logo img{height:40px}
+.footer-logo span{font-size:18px;font-weight:700;color:#fff}
+.footer-info p{font-size:13px;line-height:2}
+.footer h4{font-size:15px;font-weight:600;color:#fff;margin-bottom:16px}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:10px}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.6)}
+.footer-links a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;text-align:center;font-size:12px;color:rgba(255,255,255,.4)}
+.amodal-o{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99999;justify-content:center;align-items:center}.amodal-o.show{display:flex}.amodal{background:#fff;border-radius:12px;padding:32px;width:360px;box-shadow:0 20px 60px rgba(0,0,0,.3)}.amodal h3{font-size:18px;margin-bottom:20px;color:#1f2937}.ainput-pwd{width:100%;padding:10px 14px;border:2px solid #e5e7eb;border-radius:8px;font-size:15px;outline:none;font-family:inherit}.aerr{color:#dc3545;font-size:13px;margin-top:8px;display:none}.abtns{display:flex;gap:10px;margin-top:20px;justify-content:flex-end}.abtn-cancel{background:#f1f5f9;border:none;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:14px}.abtn-confirm{background:#1a3a5c;color:#fff;border:none;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:14px}.admin-mode .aed{cursor:text;transition:background .15s}.asave{position:fixed;bottom:24px;right:24px;z-index:99998;background:#1a3a5c;color:#fff;border:none;padding:12px 24px;border-radius:25px;font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.2);display:none}
+@media(max-width:1200px){body{min-width:auto}.content-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="header-top"><div class="container"><span>欢迎访问中山大学中山眼科中心茂名医院</span><div><a href="index.html">首页</a><a href="contact.html">联系我们</a></div></div></div>
+<div class="header-main"><div class="container">
+<div class="header-logo"><img src="img/zoc-logo.png" alt="院徽"><div class="header-logo-text"><span class="header-logo-cn">中山大学中山眼科中心茂名医院</span><span class="header-logo-en">Maoming Eye Hospital</span></div></div>
+<div style="display:flex;gap:20px;font-size:14px"><a href="services.html">预约挂号</a><a href="consultation.html">在线问诊</a></div>
+</div></div>
+<div class="main-nav"><div class="container">
+<a href="index.html">首页</a><a href="about.html">医院概况</a><a href="departments.html">科室导航</a><a href="doctors.html">专家介绍</a><a href="guide.html" class="active">就医指南</a><a href="services.html">预约挂号</a><a href="consultation.html">在线问诊</a><a href="index.html#news">新闻中心</a><a href="contact.html">联系我们</a>
+<button id="adminToggle" title="管理员" style="margin-left:auto;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:14px;cursor:pointer;padding:6px 16px;border-radius:6px;font-weight:600;white-space:nowrap">&#x2699;&#xFE0F; 后台管理</button>
+</div></div>
+<div class="page-banner"><h1>就医指南</h1><p>门诊就医 · 住院流程 · 医保服务 · 综合服务</p></div>
+<div class="breadcrumb"><div class="container"><a href="index.html">首页</a> &gt; 就医指南</div></div>
+<div class="content"><div class="container"><div class="content-grid">
+<div class="sidebar">
+<h3>就医指南</h3>
+<a href="#outpatient" class="active">门诊就医指南</a>
+<a href="#emergency">急诊就医指南</a>
+<a href="#inpatient">住院指南</a>
+<a href="#insurance">医保服务指南</a>
+<a href="#appointment">预约挂号指南</a>
+<a href="#floor">楼层分布指引</a>
+<a href="#check">检查须知</a>
+<a href="#transport">交通指引</a>
+<a href="#faq">常见问题</a>
+</div>
+<div class="main-content">
+
+<div id="outpatient"><h2>&#x1F3E5; 门诊就医指南</h2>
+<h3>就诊时间</h3>
+<div class="table-wrap"><table><tr><th>类别</th><th>就诊时间</th><th>备注</th></tr>
+<tr><td>普通门诊</td><td>周一至周五 8:00-12:00 / 14:00-17:30</td><td>周六上午 8:00-12:00</td></tr>
+<tr><td>专家门诊</td><td>周一至周五 8:00-12:00 / 14:00-17:30</td><td>具体以排班表为准</td></tr>
+<tr><td>急诊</td><td>24小时全天候</td><td>急症优先就诊</td></tr>
+<tr><td>特需门诊</td><td>周一至周五 8:00-12:00 / 14:00-17:30</td><td>需提前预约</td></tr>
+</table></div>
+
+<h3>就诊流程</h3>
+<ol class="steps">
+<li><strong>预约挂号</strong>通过微信公众号、电话、现场等方式进行预约挂号，选择科室和医生。</li>
+<li><strong>报到取号</strong>就诊当日携带身份证、医保卡到一楼挂号窗口或自助报到机取号。</li>
+<li><strong>候诊等待</strong>根据叫号系统提示，在相应诊区候诊。候诊期间可完成视力和眼压检查。</li>
+<li><strong>医生问诊</strong>进入诊室后向医生详细描述病情，如有既往病历资料请一并携带。</li>
+<li><strong>检查缴费</strong>根据医生开具的检查单到相应科室检查，通过窗口、自助机或手机缴费。</li>
+<li><strong>取药离院</strong>凭处方到一楼药房取药，并按医嘱进行后续治疗或复查。</li>
+</ol>
+
+<h3>温馨提示</h3>
+<div class="info-box"><p>&#x1F4A1; 首次就诊请携带身份证、医保卡及既往病历资料。建议提前30分钟到达医院。如需退号或改约，请至少提前2小时办理。</p></div></div>
+
+<div id="emergency" style="margin-top:48px"><h2>&#x1F691; 急诊就医指南</h2>
+
+<h3>急诊时间</h3>
+<p>急诊科24小时全天候开放，全年无休。</p>
+
+<div class="info-box orange"><p>&#x26A0;&#xFE0F; <strong>眼科急症（以下情况请立即就医）：</strong>视力突然下降或丧失、剧烈眼痛、眼外伤（钝挫伤、穿孔伤、化学烧伤）、急性闭角型青光眼发作、视网膜动脉阻塞、眶蜂窝织炎。</p></div>
+
+<h3>急诊流程</h3>
+<ol class="steps">
+<li><strong>急诊分诊</strong>到达急诊科后，护士根据病情紧急程度分诊。危及视力的情况优先处理。</li>
+<li><strong>挂号登记</strong>在急诊窗口挂号，急症患者可直接就诊后补办挂号手续。</li>
+<li><strong>医生诊治</strong>急诊医生进行初步诊断和紧急处理，必要时安排急诊手术。</li>
+<li><strong>入院或留观</strong>根据病情决定住院治疗或留观。病情稳定后可离院并安排门诊复诊。</li>
+</ol>
+
+<div class="info-box"><p>&#x1F4DE; <strong>急救电话：</strong>19106669310（李老师·24小时）</p></div></div>
+
+<div id="inpatient" style="margin-top:48px"><h2>&#x1F3E5; 住院指南</h2>
+
+<h3>入院流程</h3>
+<ol class="steps">
+<li><strong>开具住院证</strong>门诊医生评估需住院治疗后，开具《住院通知单》。</li>
+<li><strong>办理入院</strong>持住院通知单、身份证、医保卡到一楼住院处办理入院手续，缴纳住院押金。</li>
+<li><strong>入住病房</strong>到指定病区护士站报到，由责任护士安排床位并介绍病房环境及注意事项。</li>
+<li><strong>住院治疗</strong>配合医生完成检查、治疗和手术。如需医保登记，请在入院48小时内到医保窗口办理。</li>
+<li><strong>出院结算</strong>医生开具出院医嘱后，到住院处办理出院结算，领取出院小结和费用明细。</li>
+</ol>
+
+<h3>住院病区分布</h3>
+<div class="table-wrap"><table><tr><th>楼层</th><th>病区</th><th>床位</th><th>特点</th></tr>
+<tr><td>12F</td><td>综合病区A</td><td>住院16床 + 日间12床</td><td>诊疗区·护士站·治疗室</td></tr>
+<tr><td>13F</td><td>综合病区B</td><td>住院16床 + 日间12床</td><td>诊疗区·护士站·治疗室</td></tr>
+<tr><td>14F</td><td>日间病区</td><td>日间11床</td><td>诊疗区·护士站·治疗室</td></tr>
+<tr><td>15F</td><td>VIP病区</td><td>住院13床 + VIP套间1</td><td>&#x2B50; 高端 · 护理·治疗</td></tr>
+</table></div>
+
+<div class="info-box"><p>&#x1F4A1; <strong>住院须知：</strong>请遵守病房管理制度，保持安静，爱护公共设施。住院期间请勿私自外出，如有需要请联系主管医生或护士。陪伴人员请持陪伴证进入病房。</p></div></div>
+
+<div id="insurance" style="margin-top:48px"><h2>&#x1F4CB; 医保服务指南</h2>
+
+<h3>医保类型与报销比例</h3>
+<div class="table-wrap"><table><tr><th>医保类型</th><th>门诊报销比例</th><th>住院报销比例</th><th>备注</th></tr>
+<tr><td>茂名市居民医保</td><td>约50%-60%</td><td>约70%-75%</td><td>社区转诊可提高比例</td></tr>
+<tr><td>茂名市职工医保</td><td>约65%-75%</td><td>约85%-90%</td><td>含个人账户</td></tr>
+<tr><td>广东省内异地医保</td><td>按参保地政策</td><td>按参保地政策</td><td>支持直接结算</td></tr>
+<tr><td>跨省异地医保</td><td>按参保地政策</td><td>按参保地政策</td><td>需提前备案</td></tr>
+<tr><td>公费医疗</td><td>约80%-90%</td><td>约90%-95%</td><td>凭公费医疗证</td></tr>
+</table></div>
+
+<h3>医保使用流程</h3>
+<ol class="steps">
+<li><strong>医保登记</strong>首次就诊时持医保卡/医保电子凭证到挂号窗口或自助机进行医保身份登记。</li>
+<li><strong>就诊结算</strong>就诊后凭医保卡在收费窗口或自助机结算，系统自动计算医保报销和个人支付金额。</li>
+<li><strong>住院登记</strong>办理住院手续时出示医保卡，并在入院48小时内到医保办完成住院医保登记。</li>
+<li><strong>出院结算</strong>出院时凭出院小结和费用清单到住院处办理医保结算，多退少补。</li>
+</ol>
+
+<h3>眼科常见医保报销范围</h3>
+<div class="table-wrap"><table><tr><th>项目类别</th><th>医保报销情况</th><th>说明</th></tr>
+<tr><td>白内障手术</td><td>住院医保报销</td><td>人工晶体按类型区分报销比例</td></tr>
+<tr><td>青光眼手术</td><td>住院医保报销</td><td>小梁切除术、激光虹膜周切等</td></tr>
+<tr><td>玻璃体视网膜手术</td><td>住院医保报销</td><td>玻切、视网膜复位等</td></tr>
+<tr><td>角膜移植</td><td>住院医保报销</td><td>包含术后抗排异用药</td></tr>
+<tr><td>斜视矫正术</td><td>住院医保报销</td><td>含术前检查</td></tr>
+<tr><td>全飞秒/半飞秒</td><td>自费（美容性）</td><td>ICL晶体植入同样自费</td></tr>
+<tr><td>OK镜验配</td><td>自费</td><td>属非治疗性项目</td></tr>
+<tr><td>常规眼科检查</td><td>门诊医保按比例报销</td><td>视力、眼压、裂隙灯、眼底等</td></tr>
+<tr><td>OCT/视野等特殊检查</td><td>门诊医保按比例报销</td><td>需有相应临床指征</td></tr>
+</table></div>
+
+<div class="info-box"><p>&#x1F4A1; <strong>温馨提示：</strong>医保政策以茂名市医疗保障局最新文件为准。就诊时请出示医保电子凭证或实体医保卡。医保窗口位于一楼大厅，咨询电话：19106669310（李老师）。</p></div>
+
+<div class="info-box orange"><p>&#x26A0;&#xFE0F; <strong>注意事项：</strong>特殊门诊病种（如青光眼、糖尿病视网膜病变等）可享住院同等报销比例。异地就医需提前办理异地就医备案手续。医保报销需在缴费时出示医保电子凭证或实体卡，先结算可报销部分再支付自费部分。</p></div></div>
+
+<div id="appointment" style="margin-top:48px"><h2>&#x1F4C5; 预约挂号指南</h2>
+<h3>预约方式</h3>
+<div class="table-wrap"><table><tr><th>预约方式</th><th>操作方法</th><th>开放时间</th></tr>
+<tr><td>微信公众号</td><td>关注医院公众号 → 就医服务 → 预约挂号</td><td>24小时</td></tr>
+<tr><td>电话预约</td><td>拨打 19106669310（李老师）</td><td>工作日 8:00-17:30</td></tr>
+<tr><td>现场预约</td><td>一楼挂号窗口/自助机</td><td>门诊工作时间</td></tr>
+<tr><td>诊间预约</td><td>就诊时由医生直接预约下次复诊</td><td>就诊期间</td></tr>
+</table></div>
+
+<div class="info-box green"><p>&#x2705; <strong>预约须知：</strong>可预约7日内号源，分时段预约更省时。预约成功后请按时就诊，过号需重新排号。取消预约请提前2小时办理，爽约3次将暂停预约资格30天。</p></div></div>
+
+<div id="floor" style="margin-top:48px"><h2>&#x1F3E2; 楼层分布指引</h2>
+<div class="table-wrap"><table><tr><th>楼层</th><th>功能区</th><th>主要科室/服务</th></tr>
+<tr><td>1F</td><td>入口服务区</td><td>咨询台 / 挂号收费 / 药学部 / 医保窗口</td></tr>
+<tr><td>2F</td><td>综合门诊</td><td>诊室×5 / 内镜诊室 / 带教诊室 / 大治疗室</td></tr>
+<tr><td>3F</td><td>特需·专科门诊</td><td>诊室×5 / VIP诊室 / 大治疗室</td></tr>
+<tr><td>4F</td><td>眼前段·视光</td><td>弱视治疗 / 验光配镜 / 眼前段检查（16卡位）/ 激光美容</td></tr>
+<tr><td>5F</td><td>眼后段·激光</td><td>干眼治疗 / 眼后段检查（14卡位）/ 激光室 / 造影室</td></tr>
+<tr><td>6F</td><td>医技支持</td><td>DR室 / 检验科 / 医护办公区 / 值班室</td></tr>
+<tr><td>7F</td><td>后勤保障</td><td>消毒供应中心 / 手术生活区（办公及就餐）</td></tr>
+<tr><td>8F</td><td>&#x2B50; 飞秒中心</td><td>全飞秒SMILE / 半飞秒FS-LASIK / 准分子角膜手术</td></tr>
+<tr><td>9F-11F</td><td>手术中心</td><td>9F外伤/眼底/感染 | 10F内眼手术 | 11F外眼手术</td></tr>
+<tr><td>12F-15F</td><td>住院病区</td><td>12-13F综合病区 / 14F日间病区 / 15F VIP病区</td></tr>
+</table></div></div>
+
+<div id="check" style="margin-top:48px"><h2>&#x1F4CB; 检查须知</h2>
+<h3>常见眼科检查项目</h3>
+<div class="table-wrap"><table><tr><th>检查项目</th><th>检查地点</th><th>注意事项</th></tr>
+<tr><td>视力·验光</td><td>4F 视光检查区</td><td>无需特殊准备，随到随检</td></tr>
+<tr><td>眼压测量</td><td>各楼层检查室</td><td>摘除隐形眼镜后再测</td></tr>
+<tr><td>裂隙灯检查</td><td>各诊室</td><td>配合医生坐姿，勿眨眼</td></tr>
+<tr><td>OCT检查</td><td>5F 眼后段检查室</td><td>盯着固视灯，保持不动</td></tr>
+<tr><td>眼底照相</td><td>5F 造影室</td><td>可能需要散瞳，散瞳后6小时内勿驾车</td></tr>
+<tr><td>视野检查</td><td>5F 视野检查室</td><td>单眼测试，全程约10分钟</td></tr>
+<tr><td>DR/X光</td><td>6F DR室</td><td>去除金属饰品</td></tr>
+<tr><td>血液检验</td><td>6F 检验科</td><td>部分项目需空腹，请遵医嘱</td></tr>
+</table></div>
+
+<div class="info-box orange"><p>&#x26A0;&#xFE0F; <strong>散瞳后请注意：</strong>散瞳后6-8小时内视力模糊、畏光，请勿驾驶机动车，建议佩戴墨镜并由家属陪同来院。</p></div></div>
+
+<div id="transport" style="margin-top:48px"><h2>&#x1F697; 交通指引</h2>
+<div class="info-box"><p>&#x1F4CD; <strong>医院地址：</strong>茂名市茂南区双山一路健康南路茂名市眼科医院</p></div>
+
+<h3>公交路线</h3>
+<p>乘坐公交至「健康南路」或「茂名市眼科医院」站下车即到。具体线路以茂名市公交公司发布为准。</p>
+
+<h3>自驾导航</h3>
+<p>导航搜索「中山大学中山眼科中心茂名医院」或「茂名市眼科医院」。医院提供地下停车场，车位充足。</p>
+
+<h3>从茂名站出发</h3>
+<p>茂名站（高铁站）出站后打车约15分钟可达。距离约6公里。</p></div>
+
+<div id="faq" style="margin-top:48px"><h2>&#x2753; 常见问题</h2>
+<div class="info-box"><p><strong>Q：首次就诊需要带什么？</strong><br>A：身份证、医保卡、既往眼科病历及检查报告。儿童就诊需监护人陪同，携带户口本。</p></div>
+<div class="info-box"><p><strong>Q：挂号的号源什么时候更新？</strong><br>A：每日零点更新第7天的号源。建议提早预约心仪的专家。</p></div>
+<div class="info-box"><p><strong>Q：可以帮家人挂号吗？</strong><br>A：可以。在公众号中添加就诊人信息后，即可为家人预约挂号和缴费。</p></div>
+<div class="info-box"><p><strong>Q：做了散瞳检查多久能恢复？</strong><br>A：一般6-8小时可恢复正常。期间避免驾驶、阅读和精细用眼，建议戴墨镜。</p></div>
+<div class="info-box"><p><strong>Q：全飞秒手术可以用医保吗？</strong><br>A：全飞秒/半飞秒激光近视手术属于美容性项目，医保不予报销，需自费。</p></div>
+<div class="info-box"><p><strong>Q：住院需要带什么物品？</strong><br>A：身份证、医保卡、住院押金、个人洗漱用品、拖鞋、换洗衣物。贵重物品请勿带入病房。</p></div></div>
+
+</div></div></div></div>
+<div class="footer"><div class="container"><div class="footer-grid">
+<div><div class="footer-logo"><img src="img/zoc-logo.png" alt="院徽"><span>中山大学中山眼科中心茂名医院</span></div><div class="footer-info"><p>&#x1F4CD; 茂名市茂南区双山一路健康南路茂名市眼科医院</p><p>&#x260E; 电话：19106669310（李老师）</p></div></div>
+<div><h4>就诊服务</h4><ul class="footer-links"><li><a href="services.html">预约挂号</a></li><li><a href="reports.html">报告查询</a></li><li><a href="consultation.html">在线问诊</a></li></ul></div>
+<div><h4>医院信息</h4><ul class="footer-links"><li><a href="about.html">医院简介</a></li><li><a href="departments.html">科室介绍</a></li><li><a href="doctors.html">专家团队</a></li></ul></div>
+<div><h4>关注我们</h4><div style="text-align:center"><div style="width:120px;height:120px;background:#fff;border-radius:8px;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:40px">&#x1F4F1;</div><p style="font-size:12px;color:rgba(255,255,255,.5)">微信公众号</p></div></div>
+</div></div>
+<div class="footer-bottom"><div class="container"><p>&copy; 中山大学中山眼科中心茂名医院 | 19106669310（李老师）</p></div></div></div>
+<button id="adminFloating" title="后台管理" onclick="document.getElementById('adminToggle').click()" style="position:fixed;bottom:20px;right:20px;z-index:99997;width:56px;height:56px;border-radius:50%;background:#1a3a5c;color:#fff;border:none;font-size:24px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:transform .2s;display:flex;align-items:center;justify-content:center">&#x2699;&#xFE0F;</button>
+<script>
+var ADMPWD=(function(){try{var a=JSON.parse(localStorage.getItem('zoc_a…_v4')||'{}');var f=a.admins?a.admins.filter(function(x){return x.active}):[];return f.length>0?f[0].pwd:'zoc00009'}catch(e){return'zoc00009'}})();var ASK='zoc_admin_auth_v2';
+var AEDS='h1,h2,h3,h4,h5,h6,p,span,a,li,td,th,label,strong,em,b,i,small,.footer-info p';
+function aid(){var p=(location.pathname.split('/').pop()||'index.html').split('?')[0];document.querySelectorAll(AEDS).forEach(function(e,i){if(e.closest&&e.closest('#amo'))return;if(!e.dataset.eid)e.dataset.eid=p+'-'+i})}
+function isL(){try{var a=JSON.parse(localStorage.getItem(ASK)||'{}');return a.t&&Date.now()-a.t<86400000}catch(e){return false}}
+(function(){
+  var d=document.createElement('div');d.className='amodal-o';d.id='amo';
+  d.innerHTML='<div class="amodal"><h3>\u7BA1\u7406\u5458\u767B\u5F55</h3><input type=password id=ap class="ainput-pwd" placeholder=\u5BC6\u7801 autocomplete=off><p id=ae class=aerr>\u5BC6\u7801\u9519\u8BEF</p><div class=abtns><button class=abtn-cancel id=ac>\u53D6\u6D88</button><button class=abtn-confirm id=afc>\u786E\u8BA4</button></div></div>';
+  document.body.appendChild(d);
+  document.getElementById('afc').onclick=function(){
+    if(document.getElementById('ap').value===ADMPWD){localStorage.setItem(ASK,JSON.stringify({t:Date.now()}));d.classList.remove('show');edOn()}
+    else{document.getElementById('ae').style.display='block'}
+  };
+  document.getElementById('ac').onclick=function(){d.classList.remove('show')};
+  document.getElementById('ap').onkeydown=function(e){if(e.key==='Enter')document.getElementById('afc').click()};
+  var t=document.getElementById('adminToggle');
+  if(t){t.onclick=function(){if(document.body.classList.contains('am'))eo();else if(isL())edOn();else{d.classList.add('show');document.getElementById('ap').value='';document.getElementById('ae').style.display='none'}}};
+})();
+function edOn(){document.body.classList.add('am');aid();var c=0;
+document.querySelectorAll(AEDS).forEach(function(e,i){if(e.closest&&e.closest('#amo'))return;e.contentEditable='true';e.classList.add('aed');if(!e.dataset.eid)e.dataset.eid=(location.pathname.split('/').pop()||'index.html').split('?')[0]+'-'+i;e.addEventListener('input',function(){e.style.background='rgba(252,128,47,.12)'});c++});
+var b=document.getElementById('asb');if(!b){b=document.createElement('button');b.id='asb';b.className='asave';b.textContent='\uD83D\uDCBE \u4FDD\u5B58';document.body.appendChild(b)}
+b.onclick=function(){var n=0;document.querySelectorAll('.aed').forEach(function(e){n++});eo();showT('\u2705 \u5DF2\u4FDD\u5B58 '+n+' \u9879\u4FEE\u6539')};b.style.display='block';showT('\u2705 \u7F16\u8F91\u6A21\u5F0F\uFF0C'+c+'\u4E2A\u5143\u7D20\u53EF\u7F16\u8F91')}
+function eo(){document.body.classList.remove('am');document.querySelectorAll('.aed').forEach(function(e){e.contentEditable='false';e.classList.remove('aed');e.style.background=''});var b=document.getElementById('asb');if(b)b.style.display='none';var t=document.getElementById('adminToggle');if(t)t.textContent='\u2699\uFE0F'}
+function showT(m){var t=document.getElementById('atm');if(!t){t=document.createElement('div');t.id='atm';t.style='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:12px 24px;border-radius:25px;font-size:14px;z-index:99999;transition:all .3s;opacity:0;pointer-events:none;white-space:nowrap';document.body.appendChild(t)}t.textContent=m;t.style.opacity='1';clearTimeout(t._tt);t._tt=setTimeout(function(){t.style.opacity='0'},2500)}
+</script>
+</body></html>

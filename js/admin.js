@@ -1,20 +1,16 @@
-var PWD='zoc2026';
-var SAVE_KEY='zoc-site-edits';
-var AUTH_KEY='zoc-admin-auth';
-var DATA_VERSION='v3';
+var AUTH_KEY = (window.ZOC_KEYS && window.ZOC_KEYS.AUTH) || 'zoc_admin_auth_v2';
+var SAVE_KEY = (window.ZOC_KEYS && window.ZOC_KEYS.SAVE) || 'zoc_site_edits_v3';
+var PWD_OVR_KEY = (window.ZOC_KEYS && window.ZOC_KEYS.PWD_OVR) || 'zoc_admin_pwd_override';
+var DATA_VERSION = 'v3';
 
-var EDITABLE_SELECTOR = ['h1','h2','h3','h4','h5','h6','p','span','a','li','td','th','label','strong','em','b','i','u','small','blockquote','code','pre','cite','div.card','div.ni','div.df','div.dg','.dept-name','.dept-floor','.dept-li','.dept-h4','.doc-name','.doc-title','.doc-exp','.doc-sched','.floor-num','.floor-title','.floor-desc','.step-h4','.step-p','.faq-q','.faq-a','.cdt h4','.cdt p','.api strong','.api p','.awt strong','.awt p','.aft strong','.aft p','.adtags span','.finfo p','.flgo span','.logo-nm','.logo-en','.dft','.ds','.dt','.de','.ahero h1','.ahero p','.date-card text','.date-card p','.motto-box .motto-text','.motto-box p','.form-label','.cc .cdt h4','.cc .cdt p'].join(',');
+var EDITABLE_SELECTOR = window.ZOC_EDITABLE || ['h1','h2','h3','h4','h5','h6','p','span','a','li','td','th','label','strong','em','b','i','u','small','blockquote','code','pre','cite'].join(',');
 
-// ====== Assign IDs ======
-function assignAllIds(){
-  var page=(location.pathname.split('/').pop()||'index.html').split('?')[0];
-  document.querySelectorAll(EDITABLE_SELECTOR).forEach(function(el,i){
-    if(el.closest&&(el.closest('#amo')||el.closest('#adminSaveBtn')||el.closest('#adminExportBtn')||el.closest('#adminResetBtn')||el.closest('#adminToast')||el.closest('#adminToggle')||el.closest('.apanel')||el.closest('.afab')||el.closest('.aov')))return;
-    if(!el.dataset.editId)el.dataset.editId=page+'-'+i;
-  });
+// ====== 密码：后台改密后前台同步（读取 override，兜底默认） ======
+function currentPwd(){
+  try { return localStorage.getItem(PWD_OVR_KEY) || 'zoc2026'; } catch(e){ return 'zoc2026'; }
 }
 
-// ====== Check login status (DON'T auto-enter edit mode) ======
+// ====== 登录态 ======
 function isLoggedIn(){
   try{var a=JSON.parse(localStorage.getItem(AUTH_KEY)||'{}');return a.t&&Date.now()-a.t<86400000}catch(e){return false}
 }
@@ -32,30 +28,25 @@ function initAdmin(){
   if(t){
     t.onclick=function(){
       if(document.body.classList.contains('admin-mode')){
-        // In edit mode -> exit
         exitEdit();
       }else if(isLoggedIn()){
-        // Logged in but not editing -> enter edit mode
         enableEdit();
       }else{
-        // Not logged in -> show login
         o.classList.add('show');
         document.getElementById('ap').value='';
         document.getElementById('ae').style.display='none';
       }
     };
-    // Update icon based on state
     if(isLoggedIn())t.textContent='\u2699\uFE0F';
   }
 }
 
 function doLogin(){
   var p=document.getElementById('ap'),e=document.getElementById('ae');
-  if(p.value===PWD){
+  if(p.value===currentPwd()){
     localStorage.setItem(AUTH_KEY,JSON.stringify({t:Date.now()}));
     document.getElementById('amo').classList.remove('show');
     var t=document.getElementById('adminToggle');if(t)t.textContent='\u2699\uFE0F';
-    // Enter edit mode after login
     enableEdit();
   }else{e.style.display='block'}
 }
@@ -66,34 +57,32 @@ function exitEdit(){
   document.querySelectorAll('.aed').forEach(function(el){
     el.contentEditable='false';el.classList.remove('aed');el.style.background='';
   });
-  var b=document.getElementById('adminSaveBtn');if(b)b.style.display='none';
-  var ex=document.getElementById('adminExportBtn');if(ex)ex.style.display='none';
-  var re=document.getElementById('adminResetBtn');if(re)re.style.display='none';
+  ['adminSaveBtn','adminExportBtn','adminResetBtn'].forEach(function(id){
+    var b=document.getElementById(id);if(b)b.style.display='none';
+  });
   var t=document.getElementById('adminToggle');if(t)t.textContent='\u2699\uFE0F';
 }
 
 // ====== Enter edit mode ======
 function enableEdit(){
   document.body.classList.add('admin-mode');
-  assignAllIds();
   var page=(location.pathname.split('/').pop()||'index.html').split('?')[0];
 
-  // Restore saved edits
-  try{
-    var data=JSON.parse(localStorage.getItem(SAVE_KEY)||'{}');
-    if(data.version===DATA_VERSION&&data.pages&&data.pages[page]){
-      var edits=data.pages[page];
-      document.querySelectorAll(EDITABLE_SELECTOR).forEach(function(el){
-        if(el.dataset.editId&&edits[el.dataset.editId])el.innerHTML=edits[el.dataset.editId];
-      });
-    }
-  }catch(e){}
+  // content-sync.js 已在普通模式分配 ID 并应用过修改；此处兜底补齐缺失 ID
+  if(!(window.ZOC_CONTENT_SYNC_READY)){
+    var i=0;
+    document.querySelectorAll(EDITABLE_SELECTOR).forEach(function(el){
+      if(el.closest&&(el.closest('#amo')||el.closest('#adminSaveBtn')||el.closest('#adminExportBtn')||el.closest('#adminResetBtn')||el.closest('#adminToast')||el.closest('#adminToggle')||el.closest('.apanel')||el.closest('.afab')||el.closest('.aov')))return;
+      if(!el.dataset.editId)el.dataset.editId=page+'-'+i;
+      i++;
+    });
+  }
 
   var count=0;
-  document.querySelectorAll(EDITABLE_SELECTOR).forEach(function(el,i){
+  document.querySelectorAll(EDITABLE_SELECTOR).forEach(function(el){
     if(el.closest&&(el.closest('#amo')||el.closest('#adminSaveBtn')||el.closest('#adminExportBtn')||el.closest('#adminResetBtn')||el.closest('#adminToast')||el.closest('#adminToggle')||el.closest('.apanel')||el.closest('.afab')||el.closest('.aov')))return;
     el.contentEditable='true';el.classList.add('aed');
-    if(!el.dataset.editId)el.dataset.editId=page+'-'+i;
+    if(!el.dataset.editId)el.dataset.editId=page+'-x'+count;
     el.addEventListener('blur',function(e){saveOne(e.target);e.target.style.background=''});
     el.addEventListener('input',function(e){e.target.style.background='rgba(252,128,47,.12)'});
     count++;
@@ -102,12 +91,12 @@ function enableEdit(){
   // Save button
   var b=document.getElementById('adminSaveBtn');
   if(!b){b=document.createElement('button');b.id='adminSaveBtn';b.className='asave';b.textContent='\uD83D\uDCBE \u4FDD\u5B58\u4FEE\u6539';document.body.appendChild(b)}
-  b.onclick=function(){var n=doSave();showToast('\u2705 \u5DF2\u4FDD\u5B58 '+n+' \u9879\u4FEE\u6539\uFF0C\u6B63\u5728\u9000\u51FA\u7F16\u8F91\u6A21\u5F0F');setTimeout(function(){exitEdit()},1200)};
+  b.onclick=function(){var n=doSave();showToast('\u2705 \u5DF2\u4FDD\u5B58 '+n+' \u9879\uFF08\u672C\u673A\u7ACB\u5373\u751F\u6548\uFF0C\u5168\u7F51\u4E0A\u7EBF\u9700\u53D1\u5E03\u66F4\u65B0\uFF09');setTimeout(function(){exitEdit()},1600)};
   b.style.display='block';
 
-  // Export
+  // Export（发布数据包：后台修改 + 内容管理 + 导航 三合一）
   var ex=document.getElementById('adminExportBtn');
-  if(!ex){ex=document.createElement('button');ex.id='adminExportBtn';ex.className='asave';ex.textContent='\uD83D\uDCE4 \u5BFC\u51FA\u4FEE\u6539';document.body.appendChild(ex)}
+  if(!ex){ex=document.createElement('button');ex.id='adminExportBtn';ex.className='asave';ex.textContent='\uD83D\uDCE4 \u5BFC\u51FA\u66F4\u65B0';ex.style.bottom='210px';document.body.appendChild(ex)}
   ex.onclick=exportEdits;ex.style.display='block';
 
   // Reset
@@ -157,11 +146,19 @@ function clearPageEdits(){
   localStorage.setItem(SAVE_KEY,JSON.stringify(data));
 }
 
+// ====== 导出发布数据包（含全部修改，交给开发者合并上线） ======
 function exportEdits(){
-  var blob=new Blob([localStorage.getItem(SAVE_KEY)||'{}'],{type:'application/json'});
+  var CK=(window.ZOC_KEYS&&window.ZOC_KEYS.CONTENT)||'zoc_content_v1';
+  var NK=(window.ZOC_KEYS&&window.ZOC_KEYS.NAV)||'zoc_nav_v1';
+  var pack={exportedAt:new Date().toISOString(),page:location.href,edits:null,content:null,nav:null};
+  try{pack.edits=JSON.parse(localStorage.getItem(SAVE_KEY)||'null')}catch(e){}
+  try{pack.content=JSON.parse(localStorage.getItem(CK)||'null')}catch(e){}
+  try{pack.nav=JSON.parse(localStorage.getItem(NK)||'null')}catch(e){}
+  var blob=new Blob([JSON.stringify(pack,null,1)],{type:'application/json'});
   var a=document.createElement('a');a.href=URL.createObjectURL(blob);
-  a.download='zoc-edits-'+new Date().toISOString().slice(0,10)+'.json';
-  a.click();showToast('\u2705 \u5DF2\u5BFC\u51FA\u7F16\u8F91\u6570\u636E');
+  a.download='zoc-update-'+new Date().toISOString().slice(0,10)+'.json';
+  a.click();
+  showToast('\u2705 \u66F4\u65B0\u5305\u5DF2\u4E0B\u8F7D\uFF0C\u53D1\u7ED9\u5F00\u53D1\u8005\u5373\u53EF\u5168\u7F51\u4E0A\u7EBF');
 }
 
 function showToast(msg){

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>报告查询 - 中山大学中山眼科中心茂名医院</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/png" href="img/zoc-logo.png">
+</head>
+<body>
+<header class="header"><div class="h-inner">
+<a href="index.html" class="logo-a"><img src="img/zoc-logo.png" alt="" class="logo-img">
+<div class="logo-txt"><span class="logo-nm">中山大学中山眼科中心茂名医院</span><span class="logo-en">MAOMING EYE HOSPITAL</span></div></a>
+<button class="hamb" id="hamburger">&#9776;</button>
+<nav class="nav" id="mainNav">
+<a href="index.html" class="nl">首页</a>
+<a href="services.html" class="nl">预约挂号</a>
+<a href="reports.html" class="nl active">报告查询</a>
+<a href="departments.html" class="nl">科室介绍</a>
+<a href="profile.html" class="nl">我的</a>
+<button class="at" id="adminToggle" title="管理员">&#x2699;&#xFE0F;</button>
+</nav></div></header>
+
+<main class="mc">
+
+<h2 class="st">报告查询</h2>
+
+<div class="card" style="text-align:center;padding:40rpx 28rpx">
+<div style="font-size:60rpx;margin-bottom:16rpx">&#x1F4CB;</div>
+<div style="font-size:30rpx;font-weight:700;color:var(--p);margin-bottom:8rpx">查报告，不用跑医院</div>
+<div style="font-size:26rpx;color:var(--tl);margin-bottom:24rpx">绑定就诊卡后即可在线查看检验检查报告</div>
+<button class="bp" onclick="alert('报告查询功能开发中，即将上线')">&#x1F50D; 查询我的报告</button>
+</div>
+
+<h2 class="st">可查询的报告类型</h2>
+<div class="g2">
+<div class="g2-item"><div class="g2c"><div class="g2c-icon">&#x1F441;</div><div class="g2c-text">视力检测报告</div><div style="font-size:22rpx;color:var(--tl);margin-top:4rpx">裸眼视力·矫正视力</div></div></div>
+<div class="g2-item"><div class="g2c"><div class="g2c-icon">&#x1F4F7;</div><div class="g2c-text">OCT检查报告</div><div style="font-size:22rpx;color:var(--tl);margin-top:4rpx">黄斑·视神经·前节</div></div></div>
+<div class="g2-item"><div class="g2c"><div class="g2c-icon">&#x1F52C;</div><div class="g2c-text">验光单</div><div style="font-size:22rpx;color:var(--tl);margin-top:4rpx">电脑验光·综合验光</div></div></div>
+<div class="g2-item"><div class="g2c"><div class="g2c-icon">&#x1F4F8;</div><div class="g2c-text">眼底照相</div><div style="font-size:22rpx;color:var(--tl);margin-top:4rpx">彩色眼底像·造影</div></div></div>
+<div class="g2-item"><div class="g2c"><div class="g2c-icon">&#x1F4C8;</div><div class="g2c-text">视野检查报告</div><div style="font-size:22rpx;color:var(--tl);margin-top:4rpx">静态·动态视野</div></div></div>
+<div class="g2-item"><div class="g2c"><div class="g2c-icon">&#x1F4D1;</div><div class="g2c-text">眼压测量</div><div style="font-size:22rpx;color:var(--tl);margin-top:4rpx">非接触·Goldmann</div></div></div>
+</div>
+
+<h2 class="st">如何使用</h2>
+<div class="ps">
+<div class="ps-item"><div class="psn">1</div><div class="psc"><h4>绑定就诊卡</h4><p>输入就诊卡号或身份证号绑定个人信息</p></div></div>
+<div class="parr">&#8595;</div>
+<div class="ps-item"><div class="psn">2</div><div class="psc"><h4>选择报告</h4><p>按时间或检查类型筛选查看报告列表</p></div></div>
+<div class="parr">&#8595;</div>
+<div class="ps-item"><div class="psn">3</div><div class="psc"><h4>查看详情</h4><p>点击报告查看完整结果和医生解读建议</p></div></div>
+<div class="parr">&#8595;</div>
+<div class="ps-item"><div class="psn">4</div><div class="psc"><h4>分享给医生</h4><p>生成分享链接，方便其他医生查阅</p></div></div>
+</div>
+
+</main>
+
+<footer class="footer"><div class="fi">
+<div class="flgo"><img src="img/zoc-logo.png" alt=""><span>中山大学中山眼科中心茂名医院</span></div>
+<div class="finfo"><p>&#x1F4CD; 茂名市茂南区双山一路健康南路茂名市眼科医院</p><p>&#x260E; 电话：19106669310（李老师）</p><p>&#xA9; MAOMING EYE HOSPITAL</p></div>
+</div></footer>
+
+<!-- ====== AI ASSISTANT (富内容版) ====== -->
+<div class="afab" id="aiFab" title="智能助手">&#x1F4AC;</div>
+<div class="aov" id="aiOverlay"></div>
+<div class="apanel" id="aiPanel">
+<div class="aph"><span class="atitle">&#x1F916; 智能就医助手</span><button class="aclose" id="aiClose">&#x2715;</button></div>
+<div class="atabs">
+<button class="atab active" data-tab="triage">预问诊挂号</button>
+<button class="atab" data-tab="payment">缴费指引</button>
+<button class="atab" data-tab="waiting">诊间候诊</button>
+<button class="atab" data-tab="navi">医院导航</button>
+<button class="atab" data-tab="followup">复诊提醒</button>
+</div>
+<div class="abody">
+
+<!-- ===== Tab 1: 预问诊挂号 ===== -->
+<div class="acont active" id="tab-triage">
+  <div class="ai-tip info">&#x1F4A1; <span>请点击以下症状或自行输入，AI将为您推荐合适的科室与医生</span></div>
+
+  <div class="ai-symptom-grid" id="symptomGrid">
+    <div class="sg-item" data-dept="白内障科">&#x1F441; 视力模糊/下降</div>
+    <div class="sg-item" data-dept="青光眼科">&#x1F615; 眼睛胀痛/头痛</div>
+    <div class="sg-item" data-dept="角膜病科">&#x1F41A; 眼睛干涩/异物感</div>
+    <div class="sg-item" data-dept="小儿眼科">&#x1F476; 儿童视力问题</div>
+    <div class="sg-item" data-dept="眼底病科">&#x1F300; 眼前黑影/闪光</div>
+    <div class="sg-item" data-dept="屈光手术中心">&#x1F453; 近视/散光/老花</div>
+    <div class="sg-item" data-dept="斜视弱视科">&#x1F440; 眼睛斜视/复视</div>
+    <div class="sg-item" data-dept="眼整形科">&#x2728; 眼睑/眼眶问题</div>
+  </div>
+
+  <div class="sg-result" id="sgResult">
+    <h4>&#x2705; 推荐科室：<span id="sgDept"></span></h4>
+    <p id="sgDesc"></p>
+    <a href="services.html" style="display:inline-block;margin-top:12rpx;padding:14rpx 28rpx;background:var(--a);color:#fff;border-radius:50rpx;text-decoration:none;font-size:24rpx;font-weight:700">&#x1F4C5; 前往预约挂号</a>
+  </div>
+
+  <p style="font-size:22rpx;color:var(--tl);margin-top:16rpx;line-height:1.6">&#x1F4DE; <strong>提示：</strong>以上为智能导诊参考，具体情况请以医生诊断为准。急症请直接前往急诊科。</p>
+</div>
+
+<!-- ===== Tab 2: 缴费指引 ===== -->
+<div class="acont" id="tab-payment">
+  <div class="ai-tip info">&#x1F4A1; <span>缴费前请确认已绑定医保卡或就诊卡，以下是三种常用缴费方式</span></div>
+
+  <div class="ai-step"><div class="ai-step-num">1</div><h4>&#x1F4F1; 手机在线缴费（推荐）</h4><p>进入公众号 → 「门诊缴费」→ 选择就诊人 → 查看待缴费用 → 确认支付。<br><span style="color:var(--a)">支持微信支付、医保移动支付</span></p></div>
+  <div class="ai-step"><div class="ai-step-num">2</div><h4>&#x1F5A5; 自助机缴费</h4><p>医院1F大厅自助服务区 → 刷就诊卡/医保卡/身份证 → 选择缴费项目 → 扫码支付（微信/支付宝）</p></div>
+  <div class="ai-step"><div class="ai-step-num">3</div><h4>&#x1F3E6; 窗口缴费</h4><p>1F挂号收费窗口 → 出示就诊卡/医保卡 → 支持现金、刷卡、扫码。老年人优先窗口在1号窗</p></div>
+
+  <div class="ai-tip done">&#x2705; <span><strong>缴费后：</strong>凭缴费凭证至相应科室报到。电子发票可在「我的」→「健康档案」中查看。</span></div>
+  <div class="ai-tip warn">&#x26A0;&#xFE0F; <span><strong>注意：</strong>医保报销需在缴费时出示医保电子凭证或实体卡，先结算可报销部分再支付自费部分。</span></div>
+</div>
+
+<!-- ===== Tab 3: 诊间候诊 ===== -->
+<div class="acont" id="tab-waiting">
+  <div class="ai-step"><div class="ai-step-num">1</div><h4>&#x1F4CD; 报到</h4><p>挂号后请先至对应楼层分诊台或自助报到机签到，完成报到后方会进入叫号队列。</p></div>
+  <div class="ai-step"><div class="ai-step-num">2</div><h4>&#x1F3E5; 候诊</h4><p>请在候诊区耐心等待，注意叫号屏和语音叫号。候诊期间可完成视力、眼压等基础检查。</p></div>
+  <div class="ai-step"><div class="ai-step-num">3</div><h4>&#x1F3A4; 叫号规则</h4><p>按挂号序号依次叫号。过号需至分诊台重新登记，一般顺延3位。特殊情况（急症、高龄老人）有优先通道。</p></div>
+  <div class="ai-step"><div class="ai-step-num">4</div><h4>&#x1F468;&#x200D;&#x2695;&#xFE0F; 就诊</h4><p>进入诊室后请如实描述病情，携带既往病历和检查报告。医生开具检查或处方后请按指引前往相应区域。</p></div>
+  <div class="ai-tip info">&#x23F0; <span>可通过公众号实时查看当前候诊进度和预计等待时间。</span></div>
+</div>
+
+<!-- ===== Tab 4: 医院导航 ===== -->
+<div class="acont" id="tab-navi">
+  <div class="ai-tip info">&#x1F4CD; <span>医院共17层，以下为各楼层功能分布。点击可查看详细导航</span></div>
+  <div class="dp-card"><h4>&#x1F3EC; 1F 入口服务区</h4><p>咨询台 / 挂号收费 / 药学部（患者入口）</p></div>
+  <div class="dp-card"><h4>&#x1F3E5; 2F 综合门诊</h4><p>诊室×5 / 内镜诊室×1 / 带教诊室×1 / 大治疗室×1</p></div>
+  <div class="dp-card"><h4>&#x2B50; 3F 特需 · 专科门诊</h4><p>诊室×5 / VIP诊室×1 / 大治疗室×1</p></div>
+  <div class="dp-card"><h4>&#x1F50D; 4F 眼前段 · 视光</h4><p>弱视治疗 / 验光配镜室 / 眼前段检查室（16卡位）/ 激光美容室</p></div>
+  <div class="dp-card"><h4>&#x1F4A7; 5F 眼后段 · 激光</h4><p>干眼治疗室 / 眼后段检查室（14卡位）/ 激光室 / 造影室</p></div>
+  <div class="dp-card"><h4>&#x1F52C; 6F 医技支持</h4><p>DR室 / 检验科（各占一半面积）/ 医护办公区 / 值班室</p></div>
+  <div class="dp-card"><h4>&#x2699;&#xFE0F; 7F 后勤保障</h4><p>消毒供应中心（医疗区域）/ 手术生活区（办公及就餐区）</p></div>
+  <div class="dp-card"><h4>&#x2728; 8F 飞秒中心 <span class="dp-badge self">&#x2B50;特色</span></h4><p>全飞秒SMILE / 半飞秒FS-LASIK / 准分子角膜手术</p></div>
+  <div class="dp-card"><h4>&#x1F52A; 9F-11F 手术中心</h4><p>9F 外伤·眼底·感染（含负压手术室）| 10F 内眼手术 | 11F 外眼手术</p></div>
+  <div class="dp-card"><h4>&#x1F6CF; 12F-15F 住院病区</h4><p>12F/13F 综合病区（住院16床+日间12床）| 14F 日间病区 | 15F VIP病区</p></div>
+  <div class="fl-ql" style="margin-top:16rpx">
+    <a href="services.html#floors" class="hl">&#x1F4CD; 完整楼层导航</a>
+    <a href="services.html#yibao">&#x1F4CB; 医保咨询</a>
+    <a href="#">&#x1F4DE; 联系电话</a>
+  </div>
+</div>
+
+<!-- ===== Tab 5: 复诊提醒 ===== -->
+<div class="acont" id="tab-followup">
+  <div class="ai-tip info">&#x1F4A1; <span>不同眼科手术后复诊时间要求不同，请严格遵医嘱。以下为常见参考：</span></div>
+
+  <table class="fu-table">
+    <tr><td>手术类型</td><td>首次复查</td><td>后续复查</td></tr>
+    <tr><td>白内障超声乳化</td><td>术后1天</td><td>1周·1月·3月·6月</td></tr>
+    <tr><td>全飞秒SMILE</td><td>术后1天</td><td>1周·1月·3月·6月·1年</td></tr>
+    <tr><td>半飞秒FS-LASIK</td><td>术后1天</td><td>1周·1月·3月·6月·1年</td></tr>
+    <tr><td>玻璃体切割术</td><td>术后1-2周</td><td>1月·3月·6月·1年</td></tr>
+    <tr><td>青光眼手术</td><td>术后1周</td><td>1月·3月·每6月长期</td></tr>
+    <tr><td>斜视矫正术</td><td>术后1周</td><td>1月·3月·6月·1年</td></tr>
+    <tr><td>OK镜验配</td><td>戴镜1周</td><td>1月·3月·每3月长期</td></tr>
+  </table>
+
+  <div class="ai-tip warn" style="margin-top:16rpx">&#x26A0;&#xFE0F; <span><strong>紧急复诊信号：</strong>视力突然下降、剧烈眼痛、眼红加重、分泌物增多、视野缺损扩大——出现任一情况请立即来院急诊，不要等待预约复诊。</span></div>
+  <div class="ai-tip done">&#x1F514; <span><strong>复诊提醒服务：</strong>可在「我的」→「健康档案」中开启复诊提醒，系统将提前3天通过公众号通知您。</span></div>
+</div>
+
+</div></div>
+<script src="js/common.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/ai-assistant.js"></script>
+<script>
+// 症状智能导诊交互
+document.querySelectorAll('.sg-item').forEach(function(el){
+  el.addEventListener('click',function(){
+    document.querySelectorAll('.sg-item').forEach(function(x){x.classList.remove('sel')});
+    el.classList.add('sel');
+    var dept=el.dataset.dept;
+    var descs={
+      '白内障科':'视物模糊、眼前如隔雾、夜间视力差是白内障的典型表现。建议挂白内障科，进行裂隙灯和视力检查。',
+      '青光眼科':'眼胀痛伴头痛、恶心可能与眼压升高有关。青光眼需尽早诊治，避免视神经不可逆损伤。建议挂青光眼科。',
+      '角膜病科':'眼干涩、异物感、畏光流泪可能为干眼症或角膜炎。建议挂角膜病科，做泪液分泌和角膜荧光染色检查。',
+      '小儿眼科':'儿童视力问题需及早干预。远视、近视、散光、弱视以及斜视均建议挂小儿眼科，3-6岁为黄金矫正期。',
+      '眼底病科':'眼前黑影飘动、闪光感、视物变形可能与视网膜疾病有关。建议挂眼底病科，做OCT和眼底照相检查。',
+      '屈光手术中心':'近视、远视、散光、老花眼如需手术矫正，建议先挂屈光手术中心进行全面术前检查，评估手术适应症。',
+      '斜视弱视科':'眼睛偏斜、复视（看东西重影）可能与斜视有关。建议挂斜视弱视科，进行眼位和双眼视功能检查。',
+      '眼整形科':'眼睑下垂、眼袋、眼眶肿块及泪道阻塞等问题建议挂眼整形科进行专业评估。'
+    };
+    var r=document.getElementById('sgResult');
+    document.getElementById('sgDept').textContent=dept;
+    document.getElementById('sgDesc').textContent=descs[dept]||'';
+    r.classList.add('show');
+    r.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+});
+</script>
+</body></html>
