@@ -7,7 +7,7 @@ var EDITABLE_SELECTOR = window.ZOC_EDITABLE || ['h1','h2','h3','h4','h5','h6','p
 
 // ====== 密码：后台改密后前台同步（读取 override，兜底默认） ======
 function currentPwd(){
-  try { return localStorage.getItem(PWD_OVR_KEY) || 'zoc2026'; } catch(e){ return 'zoc2026'; }
+  try { return localStorage.getItem(PWD_OVR_KEY) || 'zoc0001'; } catch(e){ return 'zoc0001'; }
 }
 
 // ====== 登录态 ======
